@@ -7,7 +7,7 @@ class Test {
     }
     public static int CountDigits(int num)
     {
-      if(num<10)
+      if(num<10)//single Digit Number
       return 1;
       return (1+CountDigits(num/10));
     }
