@@ -1,0 +1,14 @@
+import java.util.Scanner;
+class Test {
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int n=sc.nextInt();
+         System.out.println(sumNaturalNumbers(n));
+    }
+    public static int sumNaturalNumbers(int N)
+    {
+          if(N==0)
+          return 0;
+         return N+sumNaturalNumbers(N-1);
+    }
+}
