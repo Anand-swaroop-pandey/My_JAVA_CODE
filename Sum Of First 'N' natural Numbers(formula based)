@@ -1,0 +1,12 @@
+import java.util.Scanner;
+class Test {
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int n=sc.nextInt();
+         System.out.println(sumNaturalNumbers(n));
+    }
+    public static int sumNaturalNumbers(int num)
+    {
+         return (num*(num+1))/2;
+    }
+}
