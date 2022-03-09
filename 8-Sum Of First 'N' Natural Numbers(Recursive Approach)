@@ -7,7 +7,7 @@ class Test {
     }
     public static int sumNaturalNumbers(int N)
     {
-          if(N==0)
+          if(N==0)//sum of first 0 Natural Numbers
           return 0;
          return N+sumNaturalNumbers(N-1);
     }
