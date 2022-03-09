@@ -5,8 +5,8 @@ class Test {
          int n=sc.nextInt();
          System.out.println(sumNaturalNumbers(n));
     }
-    public static int sumNaturalNumbers(int num)
+    public static int sumNaturalNumbers(int N)
     {
-         return (num*(num+1))/2;
+         return (N*(N+1))/2;
     }
 }
