@@ -1,0 +1,23 @@
+// 1+(1+2)+(1+2+3)+(1+2+3+4)+..........+(1+2+3+4+5++.....+n)
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int n=sc.nextInt();
+         System.out.println(Series(n));
+    }
+    public static long Series(int n)
+    {
+        if(n<=0)//invalid Input
+        return -1;
+        
+        long sum=0;
+        for(int i=1;i<=n;i++)
+        {
+            long curr_sum=i*((i+1)/2);//Sn=n*(n+1)/2
+            sum=sum+curr_sum;
+        }
+        return sum;
+    }
+}
