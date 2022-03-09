@@ -7,7 +7,7 @@ class Test {
     }
     public static int sumOfDigits(int num)
     {
-         if(num==0)
+         if(num==0)//Sum of Digits of '0'is 0
          return 0;
          return (num%10)+sumOfDigits(num/10);
     }
