@@ -3,9 +3,9 @@ class Test {
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
-         System.out.println(sumOfDigits_Iterative(n));
+         System.out.println(sumOfDigits(n));
     }
-    public static int sumOfDigits_Iterative(int num)
+    public static int sumOfDigits(int num)
     {
         int sum=0;
         if(num==0)
