@@ -1,4 +1,4 @@
-// 1+(1+2)+(1+2+3)+(1+2+3+4)+..........+(1+2+3+4+5++.....+n)
+// 1+(1+2)+(1+2+3)+(1+2+3+4)+..........+(1+2+3+4+5++......n)
 
 import java.util.Scanner;
 class Main {
@@ -7,17 +7,21 @@ class Main {
          int n=sc.nextInt();
          System.out.println(Series(n));
     }
-    public static long Series(int n)
+    public static float Series(int n)
     {
         if(n<=0)//invalid Input
         return -1;
         
-        long sum=0;
+        float sum=0;
         for(int i=1;i<=n;i++)
         {
-            long curr_sum=i*((i+1)/2);//Sn=n*(n+1)/2
+            float curr_sum=i*((float)(i+1)/2);//Sn=n*(n+1)/2
             sum=sum+curr_sum;
         }
         return sum;
     }
 }
+
+/*
+1+(1+2)+(1+2+3)+(1+2+3+4)+...+(1+2+3+4+5++......n)=(n/6)*(n+1)*(n+2)
+*/
