@@ -1,0 +1,73 @@
+import java.util.Scanner;
+import java.lang.Math;
+class Test 
+{
+    public static void main(String[] args) 
+    {
+         Scanner sc=new Scanner(System.in);
+         Double a=sc.nextDouble();
+         Double b=sc.nextDouble();
+         Double c=sc.nextDouble();
+          Roots(a,b,c);
+    }
+    public static void Roots(double a,double b,double c)
+    {
+        System.out.println("Resultant Quadratic Equation is :");
+        System.out.printf("%.2f*X*X + %.2f*X + %.2f\n",a,b,c);
+
+       double determinant = (b * b) - (4 * a * c);
+
+    // check if determinant is greater than 0
+    if (determinant > 0) 
+    {
+
+      // two real and distinct roots
+      double root1=(-b + Math.sqrt(determinant)) / (2 * a);
+      double root2=(-b - Math.sqrt(determinant)) / (2 * a);
+
+      System.out.printf("root1 = %.2f and root2 = %.2f", root1, root2);
+    }
+
+    // check if determinant is equal to 0
+    else if (determinant == 0) 
+    {
+
+      // two real and equal roots
+      // determinant is equal to 0
+     
+      double  root=-b / (2 * a);
+      System.out.printf("root1 = root2 = %.2f;", root);
+    }
+
+    // if determinant is less than zero
+    else 
+    {
+
+      // roots are complex number and distinct
+      System.out.printf("root1 = %.2f+i%.2f\n",-(b / (2 * a)),Math.sqrt(-determinant) / (2 * a));
+      System.out.printf("root2 = %.2f-i%.2f",-(b / (2 * a)),Math.sqrt(-determinant) / (2 * a));
+    }
+    
+    }
+}
+
+/*
+The standard form of a quadratic equation is:
+
+ax2 + bx + c = 0
+Here, a, b, and c are real numbers and a can't be equal to 0.
+
+We can calculate the root of a quadratic by using the formula:
+
+x = (-b ± √(b2-4ac)) / (2a)
+The ± sign indicates that there will be two roots:
+
+root1 = (-b + √(b2-4ac)) / (2a)
+root1 = (-b - √(b2-4ac)) / (2a)
+The term b2-4ac is known as the determinant of a quadratic equation. It specifies the nature of roots. That is,
+
+if determinant > 0, roots are real and different
+if determinant == 0, roots are real and equal
+if determinant < 0, roots are complex complex and different
+
+*/
