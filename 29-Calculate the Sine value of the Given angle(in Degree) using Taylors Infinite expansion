@@ -1,0 +1,40 @@
+/* Taylor Infinite Series
+ sin(x)= x- (x^3/3!) + (x^5/5!) -(x^7/7!)+.......(Infinity)
+ (x=angle in Radian)
+ */
+import java.util.Scanner;
+import java.lang.Math;
+class Test {
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int ang=sc.nextInt();
+         int limit=sc.nextInt();
+         System.out.println(Series(ang,limit));
+    }
+    public static float Series(int angInDeg,int limit)
+    {
+        if(angInDeg <0 || limit <=0)//invalid Input
+        return -1;
+        
+        float sum=0.0f;
+        int temp=1;
+        
+        float angInRad=(float)(angInDeg*(Math.PI))/180;
+        for(int i=1;i<=limit;i++)
+        {
+             if((i%2)==1)
+             sum+=Math.pow(angInRad,temp)/factorial(temp);
+             else
+             sum-=Math.pow(angInRad,temp)/factorial(temp);
+             temp+=2;
+        }
+        return sum;
+    }
+    public static long factorial(int num)
+    {
+        long fact=1;
+        for(int i=num;i>0;i--)
+        fact=fact*i;
+        return fact;
+    }
+}
