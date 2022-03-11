@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n1=sc.nextInt();
+		int d1=sc.nextInt();
+		int n2=sc.nextInt();
+		int d2=sc.nextInt();
+		addTwoFraction(n1,d1,n2,d2);
+	}
+	
+	public static int GCD(int num1,int num2)
+	{
+	    int rem=num2%num1;
+	    if(rem==0)
+	      return num1;
+	    return GCD(rem,num1);
+	}
+    
+    public static void addTwoFraction(int n1,int d1,int n2,int d2)
+    {
+        int n3=(n1*d2)+(n2*d1);
+        int d3=(d1*d2);
+        int HCF=GCD(n3,d3);
+        //To make resultant Fraction Simpler
+        n3=n3/HCF;
+        d3=d3/HCF;
+        
+        System.out.printf("(%d / %d) + (%d / %d) = (%d / %d)",n1,d1,n2,d2,n3,d3);
+    }
+}
