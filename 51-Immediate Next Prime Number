@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+        System.out.println(nextPrime(n));
+	} 
+
+	public static int nextPrime(int num)
+	{
+	    num++;
+	    while(true)
+	    {
+	        boolean flag=true;
+            for(int i=2;i<=Math.sqrt(num);i++)//for(int i=2;(i*i)<=num;i++)
+              if((num%i)==0)
+              {
+                 flag=false;
+                 break;  
+              }
+            
+              if(flag==true)
+                 return num;//next prime
+            num++;
+	    }
+	}
+}
