@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+        sumPrime(n);
+	} 
+    
+    public static void sumPrime(int num)
+	{
+      int i=2;//prime number starts from 2
+      while(i<=(num-i))
+      {
+          if(isPrime(num-i))
+            System.out.printf("%d + %d = %d\n",i,num-i,num);
+          i=nextPrime(i);
+      }
+	}
+	
+	public static boolean isPrime(int num)
+	{
+       for(int i=2;i<=Math.sqrt(num);i++)//for(int i=2;(i*i)<=num;i++)
+          if((num%i)==0)
+             return false;
+        return true;
+	}
+	
+	public static int nextPrime(int num)
+	{
+	    num++;
+	    while(true)
+	    {
+	        boolean flag=true;
+            for(int i=2;i<=Math.sqrt(num);i++)//for(int i=2;(i*i)<=num;i++)
+              if((num%i)==0)
+              {
+                 flag=false;
+                 break;  
+              }
+            
+              if(flag==true)
+                 return num;//next prime
+            num++;
+	    }
+	}
+}
