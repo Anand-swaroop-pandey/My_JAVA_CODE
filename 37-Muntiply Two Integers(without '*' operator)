@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num1=sc.nextInt();
+		int num2=sc.nextInt();
+		System.out.printf("%d * %d = %d\n",num1,num2,Muntiply1(num1,num2));
+		System.out.printf("%d * %d = %d",num1,num2,Muntiply2(num1,num2));
+	}
+	
+	public static int Muntiply1(int num1,int num2)
+	{
+	   int sum=0;
+	   for(int i=1;i<=num2;i++)
+	     sum=sum+num1;
+	     return sum;
+	}
+	public static int Muntiply2(int num1,int num2)
+	{
+	   int sum=0;
+	   for(int i=1;i<=num1;i++)
+	     sum=sum+num2;
+	   return sum;
+	}
+}
