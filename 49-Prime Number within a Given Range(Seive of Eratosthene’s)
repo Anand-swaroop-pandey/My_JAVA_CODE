@@ -1,0 +1,50 @@
+//Given a number n, print all primes smaller than or equal to n. It is also given that n is a small number. 
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+        isPrime1(n);
+        isPrime2(n);
+	} 
+	
+	//Bruteforce Approach
+	public static void isPrime1(int n)
+	{
+	    int len=(n+1);
+       boolean arr[]=new boolean[len];
+       for(int i=2;i<len;i++)
+          arr[i]=true;
+          
+       for(int num=2;num<=(n/2);num++)
+         if(arr[num]==true)
+             for(int mark=(num*2);mark<len;mark+=num)
+                arr[mark]=false;
+                
+       System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
+       for(int i=2;i<len;i++)
+         if(arr[i]==true)
+            System.out.println(i);
+	}
+	
+	//Optimal Approach
+	public static void isPrime2(int n)
+	{
+	    int len=(n+1);
+       boolean arr[]=new boolean[len];
+       for(int i=2;i<len;i++)
+          arr[i]=true;
+          
+       for(int num=2;num<=Math.sqrt(n);num++)
+         if(arr[num]==true)
+             for(int mark=(num*num);mark<len;mark+=num)
+                arr[mark]=false;
+                
+       System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
+       for(int i=2;i<len;i++)
+         if(arr[i]==true)
+            System.out.println(i);
+	}
+}
