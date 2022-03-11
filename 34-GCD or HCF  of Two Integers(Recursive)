@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num1=sc.nextInt();
+		int num2=sc.nextInt();
+		System.out.println(GCD1(num1,num2));
+    System.out.println(GCD2(num1,num2));
+	}
+	
+  //Optimised Approach
+	public static int GCD1(int num1,int num2)
+	{
+	    int rem=num2%num1;
+	    if(rem==0)
+	      return num1;
+	    return GCD1(rem,num1);
+	}
+  
+  //Bruteforce Approach
+  	public static int GCD2(int num1,int num2)
+	{
+       int minNum=num1<num2?num1:num2;
+       int i=0;
+       for(i=minNum;i>=1;i--)
+           if((num1%i)==0 && (num2%i)==0)
+            break;
+       return i;        
+	}
+}
