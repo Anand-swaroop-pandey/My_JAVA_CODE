@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int num=sc.nextInt();
+	    if(perfectSquareNumber(num))
+		     System.out.println("is a perfectSquareNumber");
+		  else
+		     System.out.println("is not a perfectSquareNumber");
+	}
+	public static boolean perfectSquareNumber(int num)
+	{
+       double sqrt=Math.sqrt(num);
+       double floor=Math.floor(sqrt);
+	     if(sqrt==floor)
+	       return true;
+	     else
+	       return false;   
+   }
+}
