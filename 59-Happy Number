@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    boolean res=harshad(n);
+	    if(res==true)
+		  System.out.println("is happyNumber");
+		else
+		  System.out.println("is happyNumber");
+	}
+	public static boolean happyNumber(int num)
+	{
+	    while(num!=4 && num!=16 && num!=37 && num!=58 && num!=89 && num!=145 && num!=42 && num!=20)
+	    {
+	       int sum=0;
+           while(num!=0)
+           {
+            sum+=(num%10)*(num%10);
+            num=num/10;
+           }
+           if(sum==1)
+             return true;
+           else
+              num=sum;   
+	    }
+	  return false;  
+	}
+}
