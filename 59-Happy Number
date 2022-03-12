@@ -5,7 +5,7 @@ public class Main
 	{
 	    Scanner sc=new Scanner(System.in);
 	    int n=sc.nextInt();
-	    boolean res=harshad(n);
+	    boolean res=happyNumber(n);
 	    if(res==true)
 		  System.out.println("is happyNumber");
 		else
