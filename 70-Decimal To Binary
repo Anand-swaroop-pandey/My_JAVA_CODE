@@ -1,0 +1,53 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+  public static void main (String[]args)
+  {
+
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    System.out.println (decimalTobinary(num));
+    System.out.println (decimalTobinary1(num));
+    System.out.println (decimalTobinary2(num));
+  }
+  
+  //Method 1
+  public static String decimalTobinary(int dec)
+  {
+     String bin="";
+     while(dec!=0)
+     {
+        bin=bin+(dec%2);
+        dec=dec/2;
+     }
+     return reverse(bin);
+  }
+  
+    //Method 2
+  public static String decimalTobinary1(int dec)
+  {
+     String bin="";
+     while(dec!=0)
+     {
+        bin=bin+(dec&1);
+        dec=dec>>1;
+     }
+     return reverse(bin);
+  }
+
+  public static String reverse(String str)
+  {
+      String rev="";
+      for(int i=str.length()-1;i>=0;i--)
+           rev=rev+str.charAt(i);
+        return rev;
+  }
+  
+  //inbuilt function
+  static String decimalTobinary2(int dec)
+  {
+    String bin_value =Integer.toBinaryString(dec) ;
+    return bin_value;
+  }
+}
