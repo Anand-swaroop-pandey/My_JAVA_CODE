@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Test 
+{
+     public static void main (String[]args) 
+     {
+      Scanner sc = new Scanner (System.in); 
+      int n = sc.nextInt ();
+      System.out.println(maxHandshakes(n));
+     } 
+     public static int maxHandshakes(int n) 
+     {
+       int max=(n*(n-1))/2;
+       return max;
+     }
+}
