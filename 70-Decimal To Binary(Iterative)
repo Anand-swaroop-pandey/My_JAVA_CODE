@@ -1,6 +1,5 @@
 import java.util.Scanner;
-import java.lang.Math;
-public class Main
+public class Test
 {
   public static void main (String[]args)
   {
@@ -12,7 +11,7 @@ public class Main
     System.out.println (decimalTobinary2(num));
   }
   
-  //Method 1
+  //Method 1(Naive Approach)
   public static String decimalTobinary(int dec)
   {
      String bin="";
@@ -24,7 +23,7 @@ public class Main
      return reverse(bin);
   }
   
-    //Method 2
+    //Method 2(optimal approach)
   public static String decimalTobinary1(int dec)
   {
      String bin="";
