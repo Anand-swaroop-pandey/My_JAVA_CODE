@@ -6,20 +6,46 @@ public class Main
      {
     
       Scanner sc = new Scanner (System.in); 
-      long n = sc.nextLong ();
-      System.out.println(binaryToDecimal(n));
+      String str= sc.nextLine ();
+      
+      System.out.println(binaryToDecimal(Integer.parseInt(str)));
+      System.out.println(binaryToDecimal1(str));
+      System.out.println(binaryToDecimal2(str));
      } 
- 
-     public static int binaryToDecimal(long bin) 
+    //Naive approach
+     public static int binaryToDecimal(int bin) 
      {
          int count=0;
-         int sum=0;
+         int decValue=0;
          while(bin!=0)
          {
-            sum+=(bin%10)*(int)Math.pow(2,count); 
+            int rem=bin%10;
+            if(rem==1)
+             decValue+=(int)Math.pow(2,count); 
             bin/=10;
             count++;
          }
-         return sum;
+         return decValue;
      }
+    //optimal approach
+    static int binaryToDecimal1(String bin)
+    {
+        int dec_value = 0;
+        int count = 0;
+        for (int i=bin.length()-1; i >= 0; i--) 
+        {
+            if (bin.charAt(i)== '1')
+                dec_value +=(int)Math.pow(2,count);
+            count++;
+        }
+        return dec_value;
+    }
+    
+    //inbuilt function
+    
+     static int binaryToDecimal2(String bin)
+    {
+        int dec_value=Integer.parseInt(bin,2); 
+        return dec_value;
+    }
 }
