@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class Main
+{
+    static int sum=0,placeValue=1;
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int x=sc.nextInt();
+		int y=sc.nextInt();
+		int num=sc.nextInt();
+		System.out.println(replace(x,y,num));
+		System.out.println(replace1(x,y,num,1,0));
+	}
+    
+	//Method 1
+	public static int replace(int x,int y,int num)
+	{
+       if(num==0)
+          return sum;
+	    else
+	    {
+	        int rem=num%10;
+	        if(rem==x)
+               rem=y;
+	       sum+=placeValue*rem;
+	       placeValue*=10;
+	       return replace(x,y,num/10);
+	    }
+	}
+	
+	//Method2
+	public static int replace1(int x,int y,int num,int placeValue,int sum)
+	{
+       if(num==0)
+          return sum;
+	    else
+	    {
+	        int rem=num%10;
+	        if(rem==x)
+               rem=y;
+	       return replace1(x,y,num/10,placeValue*10,sum+rem*placeValue);
+	    }
+	}
+}
