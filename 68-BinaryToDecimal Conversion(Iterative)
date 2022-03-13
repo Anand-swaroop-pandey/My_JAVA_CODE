@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main 
+{
+     public static void main (String[]args) 
+     {
+    
+      Scanner sc = new Scanner (System.in); 
+      long n = sc.nextLong ();
+      System.out.println(binaryToDecimal(n));
+     } 
+ 
+     public static int binaryToDecimal(long bin) 
+     {
+         int count=0;
+         int sum=0;
+         while(bin!=0)
+         {
+            sum+=(bin%10)*(int)Math.pow(2,count); 
+            bin/=10;
+            count++;
+         }
+         return sum;
+     }
+}
