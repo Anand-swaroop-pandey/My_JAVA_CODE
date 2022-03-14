@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+
+    Scanner sc = new Scanner (System.in);
+    String hex= sc.nextLine();
+    System.out.println (hexToDec(hex));
+    System.out.println (hexToDec1(hex));
+  }
+ 
+  //Method 1
+  public static int hexToDec(String hex)
+  {
+      if(hex.length()==0)
+        return -1;
+        
+      String res="";
+      String digits = "0123456789ABCDEF";
+      int sum=0,count=0;
+      for(int i=hex.length()-1;i>=0;i--)
+          {
+              char ch=hex.charAt(i);
+              int index=digits.indexOf(ch);
+              sum=sum+index*(int)Math.pow(16,count);
+              count++;
+          }
+          return sum;
+  }
+
+  //Method2(inbuilt function)
+  
+  public static int hexToDec1(String hex)
+  {
+     return Integer.parseInt(hex,16);
+  }
+}
