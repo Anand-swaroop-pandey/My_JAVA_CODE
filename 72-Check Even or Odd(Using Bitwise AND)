@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    boolean res=evenODD(num);
+    if(res==true)
+       System.out.println ("is EVEN");
+    else
+       System.out.println ("is ODD");
+  }
+
+  public static boolean evenODD(int num)
+  {
+    int bit=num&1;
+    if(bit==0)
+      return true;
+    else 
+      return false;
+  }
+}
