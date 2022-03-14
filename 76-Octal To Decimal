@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+
+    Scanner sc = new Scanner (System.in);
+    int oct= sc.nextInt();
+    System.out.println (octToDec(oct));
+    System.out.println (octToDec1(oct));
+  }
+ 
+  //Method 1
+  public static int octToDec(int oct)
+  {
+      if(oct==0)
+        return 0;
+        
+      int sum=0,count=0;
+         while(oct!=0)
+          {
+              int rem=oct%10;
+              sum+=rem*(int)Math.pow(8,count);
+              oct=oct/10;
+              count++;
+          }
+      return sum;
+  }
+
+  //Method2(inbuilt function)
+  
+  public static int octToDec1(int oct)
+  {
+     return Integer.parseInt(Integer.toString(oct),8); 
+  }
+}
