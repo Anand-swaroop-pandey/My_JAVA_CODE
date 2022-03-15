@@ -16,17 +16,19 @@ public class Test
 	}
 	public static int secLargestElement(int arr[])
 	{
-	    int maxIndex=0;
-	    int secMaxIndex=-1;
-	    for(int i=1;i<arr.length;i++)
-	         if(arr[i]>arr[maxIndex])
+	    int max=Integer. MIN_VALUE;
+	    int secMax=Integer. MIN_VALUE+1;
+	    for(int i=0;i<arr.length;i++)
+	         if(arr[i]>max)
 	         {
-	             secMaxIndex=maxIndex;
-	             maxIndex=i;
+	             secMax=max;
+	             max=arr[i];
 	         }
-             else if((arr[i]<arr[maxIndex]) && (arr[i]>arr[secMaxIndex]))
-                 secMaxIndex=i;
-	    return arr[secMaxIndex];      
+             else if((arr[i]<max) && (arr[i]>secMax))
+                 secMax=arr[i];
+	    if(secMax==(Integer. MIN_VALUE+1))
+	    	return -1;
+	    return secMax;      
 	}
 	
 	public static int secLargestElement1(int arr[])
@@ -34,6 +36,6 @@ public class Test
 	    if((arr.length)<2)
 	      return -1;
 	    Arrays.sort(arr);
-	    return arr[(arr.length)-2];      
+	    return arr[arr.length-2];      
 	}
 }
