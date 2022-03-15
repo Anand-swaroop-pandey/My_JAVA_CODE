@@ -1,0 +1,35 @@
+/*
+
+6543210
+543210 
+43210  
+3210   
+210    
+10     
+0 
+   
+*/
+
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern15(7,7);
+    }
+    public static void pattern15(int row,int col)
+    {
+       for(int i=1;i<=row;i++)
+       {   
+           int data=7-i;
+           for(int j=1;j<=col;j++)
+            if(j<=(row+1-i))
+            {
+                System.out.print(data);
+                 data--;
+            }
+            else
+                 System.out.print(" ");
+          System.out.println(); 
+       }
+    }
+}
