@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class Test
 {
 	public static void main(String[] args)
@@ -11,6 +11,7 @@ public class Test
 		for(int i=0;i<arr.length;i++)
 		  arr[i]=sc.nextInt();
 		  System.out.println(minElement(arr));
+		  System.out.println(minElement1(arr));
 	}
 	public static int minElement(int arr[])
 	{
@@ -22,5 +23,12 @@ public class Test
 	      if(arr[i]<arr[minIndex])
 	        minIndex=i;
 	    return arr[minIndex];      
+	}
+	public static int minElement1(int arr[])
+	{
+           if((arr.length)==0)
+	       return -1;
+            Arrays.sort(arr);
+	    return arr[0];      
 	}
 }
