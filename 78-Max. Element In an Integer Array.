@@ -28,6 +28,8 @@ public class  Test
 	
 	public static int maxElement1(int arr[])
 	{
+	        if((arr.length)==0)
+	          return -1;
 		Arrays.sort(arr);
 		return arr[arr.length-1];
 	}
