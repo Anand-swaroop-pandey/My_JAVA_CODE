@@ -1,5 +1,14 @@
+/*Q-To Print
+
+   1   
+  121  
+ 12321 
+1234321
+
+*/
+
 import java.util.Scanner;
-public class Test {
+public class Main {
 
     public static void main(String[] args) {
         
