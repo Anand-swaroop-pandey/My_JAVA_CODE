@@ -7,9 +7,9 @@ public class Test {
         System.out.print("Enter Rows:");
         int row = sc.nextInt();
         int col=(2*row)-1;
-        pattern1(row,col);
+        pattern5(row,col);
     }
-    public static void pattern1(int row,int col)
+    public static void pattern5(int row,int col)
     {
        for(int i=1;i<=row;i++)
        {
