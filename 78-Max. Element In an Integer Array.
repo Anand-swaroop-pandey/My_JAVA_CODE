@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class  Test
 {
 	public static void main(String[] args)
@@ -10,7 +10,9 @@ public class  Test
 		System.out.printf("Ente %d Elements\n",n);
 		for(int i=0;i<arr.length;i++)
 		  arr[i]=sc.nextInt();
+		sc.close();
 		  System.out.println(maxElement(arr));
+		  System.out.println(maxElement1(arr));
 	}
 	public static int maxElement(int arr[])
 	{
@@ -22,5 +24,11 @@ public class  Test
 	      if(arr[i]>arr[maxIndex])
 	        maxIndex=i;
 	    return arr[maxIndex];      
+	}
+	
+	public static int maxElement1(int arr[])
+	{
+		Arrays.sort(arr);
+		return arr[arr.length-1];
 	}
 }
