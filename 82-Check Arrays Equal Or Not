@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Enter the Size of the Array1:");
+		Scanner sc=new Scanner(System.in);
+		int m=sc.nextInt();
+		System.out.println("Enter the Size of the Array2:");
+		int n=sc.nextInt();
+		int arr1[]=new int [m];
+		int arr2[]=new int [n];
+		System.out.printf("Ente %d Elements of Array1\n",m);
+		for(int i=0;i<arr1.length;i++)
+		  arr1[i]=sc.nextInt();
+		
+		System.out.printf("Ente %d Elements of Array2\n",n);
+		for(int i=0;i<arr2.length;i++)
+		  arr2[i]=sc.nextInt();
+		  sc.close();
+		  System.out.println(arraysEqualOrNot(arr1,arr2));
+	}
+	public static boolean arraysEqualOrNot(int arr1[],int arr2[])
+	{
+       if((arr1.length)!=(arr2.length))
+    	   return false;
+       else
+       {
+    	   int len=arr1.length;
+    	   for(int i=0;i<len;i++)
+    		   if(arr1[i]!=arr2[i])
+    			    return false;
+    	   return true;
+       }
+	}
+}
