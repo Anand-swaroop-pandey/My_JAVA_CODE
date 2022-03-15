@@ -6,9 +6,9 @@ public class Test {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter N:");
         int n = sc.nextInt();
-        pattern1(n,n);
+        pattern4(n,n);
     }
-    public static void pattern1(int row,int col)
+    public static void pattern4(int row,int col)
     {
        for(int i=1;i<=row;i++)
        {
