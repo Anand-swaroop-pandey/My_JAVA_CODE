@@ -1,5 +1,14 @@
+/*Q-To Print
+
+ABCDCBA
+ABC CBA
+AB   BA
+A     A 
+
+*/
+
 import java.util.Scanner;
-public class Test {
+public class Main {
 
     public static void main(String[] args) {
         
@@ -18,7 +27,7 @@ public class Test {
             if(j<=((row+1)-i) || j>=((row-1)+i))
             {
                 System.out.print(data);
-                if(j<row-)
+                if(j<row)
                     data++;
                   else
                     data--;
