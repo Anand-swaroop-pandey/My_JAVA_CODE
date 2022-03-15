@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Test {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter days: ");
+        int days = sc.nextInt();
+        convert(days);
+    }
+    public static void convert(int days)
+    {
+        int years=(days / 365);
+        int weeks= (days - (years * 365))/7;
+        int remDays=days -(years * 365) - (weeks * 7);
+
+        /* Print total years, weeks and remaining days in given days */
+        System.out.println("Year/s = " + years);
+        System.out.println("Week/s = " + weeks);
+        System.out.println("Day/s  = " + remDays);  
+    }
+}
