@@ -1,0 +1,48 @@
+import java.util.*;
+import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Enter the Number:");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		sc.close();
+		System.out.println(primeFactorization(n));
+	}
+  
+	public static String primeFactorization(int num)
+	{
+		if(num<2)
+			return "Invalid";
+		String res="";
+		for(int prime=2;num!=1;prime=nextPrime(prime))
+			while((num%prime)==0)
+			{
+			   res=res+prime+"x";
+			   num=num/prime;
+			}
+		String temp="";
+		for(int i=0;i<(res.length()-1);i++)
+			temp=temp+res.charAt(i);
+		return temp;
+    }
+	
+	public static int nextPrime(int n)
+	{
+		int next=n+1;
+		while(true)
+		if(isPrime(next))
+			return next;
+		else
+			next++;
+	}
+	
+	public static boolean isPrime(int n)
+	{
+       for(int i=2;i<=Math.sqrt(n);i++)
+    	   if((n%i)==0)
+    		   return false;
+       return true;
+	}
+}
