@@ -1,0 +1,79 @@
+/*
+
+    1
+   12
+  123
+ 1234
+12345
+ 1234
+  123
+   12
+    1
+   
+*/
+
+//Figure Specific Code
+
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern16();
+    }
+    
+    public static void pattern16()
+    {
+        int k=0;
+       for(int i=1;i<=9;i++)
+       {   
+           if(i<=5)
+              k++;
+           else
+              k--;
+              
+           int data=1;
+           for(int j=1;j<=5;j++)
+            if(j>=(6-k))
+               System.out.print(data++); 
+            else
+                 System.out.print(" ");
+          System.out.println(); 
+       }
+    }
+}
+
+//Genralised Code
+
+
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+    System.out.println("Enter ODD Rows");
+    Scanner sc=new Scanner(System.in);
+    int row=sc.nextInt();
+    int col=(row+1)/2;
+    pattern16(row,col);
+    }
+    
+    public static void pattern16(int row,int col)
+    {
+        int k=0;
+       for(int i=1;i<=row;i++)
+       {   
+           int m=(row+1)/2;
+           if(i<=m)
+              k++;
+           else
+              k--;
+              
+           int data=1;
+           for(int j=1;j<=col;j++)
+            if(j>=(m+1-k))
+               System.out.print(data++); 
+            else
+                 System.out.print(" ");
+          System.out.println(); 
+       }
+    }
+}
