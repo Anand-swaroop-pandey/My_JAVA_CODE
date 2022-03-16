@@ -1,0 +1,71 @@
+/*
+
+\*****/
+*\***/*
+**\*/**
+***\***
+**/*\**
+*/***\*
+/*****\
+   
+*/
+
+//Figure Specific Code
+
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+    pattern17();
+    }
+    
+    public static void pattern17()
+    {
+       for(int i=1;i<=7;i++)
+       {   
+           for(int j=1;j<=7;j++)
+            if(j==i || j==(8-i))
+            {
+                if(j==i)
+                System.out.print("\\");
+                else
+                System.out.print("/");
+            }
+            else
+                 System.out.print("*");
+          System.out.println(); 
+       }
+    }
+}
+
+
+//Genralised Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+    System.out.println("Enter Rows");
+    Scanner sc=new Scanner(System.in);
+    int row=sc.nextInt();
+    int col=row;
+    pattern17(row,col);
+    }
+    
+    public static void pattern17(int row,int col)
+    {
+       for(int i=1;i<=row;i++)
+       {   
+           for(int j=1;j<=col;j++)
+            if(j==i || j==(row+1-i))
+            {
+                if(j==i)
+                System.out.print("\\");
+                else
+                System.out.print("/");
+            }
+            else
+                 System.out.print("*");
+          System.out.println(); 
+       }
+    }
+}
