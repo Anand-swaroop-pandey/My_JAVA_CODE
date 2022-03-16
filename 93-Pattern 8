@@ -6,9 +6,38 @@
 1234321
 
 */
-
+//Figure Specific Code
 import java.util.Scanner;
-public class Main {
+public class Test {
+
+    public static void main(String[] args) {
+        pattern8();
+    }
+    public static void pattern8()
+    {
+       for(int i=1;i<=4;i++)
+       {
+           int data=1;
+           for(int j=1;j<=7;j++)
+            if(j>=(5-i) && j<=(3+i))
+            {
+                System.out.print(data);
+                if(j<4)
+                  data++;
+                  else
+                  data--;
+            }
+             else
+               System.out.print(" ");
+          System.out.println();   
+       }
+    }
+}
+
+
+//Genralised Code
+import java.util.Scanner;
+public class Test {
 
     public static void main(String[] args) {
         
