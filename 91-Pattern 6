@@ -8,6 +8,35 @@
 
 */
 
+//Figure Specific
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        pattern6();
+    }
+    public static void pattern6()
+    {
+       for(int i=1;i<=5;i++)
+       {
+          int flag=1;
+           for(int j=1;j<=9;j++)
+             if(j>=(6-i) && j<=(4+i))
+             {
+                 if(flag==1)
+                 System.out.print("*");
+                 else
+                 System.out.print(" ");
+                 flag=1-flag;
+             }
+             else
+               System.out.print(" ");
+          System.out.println();   
+       }
+    }
+}
+
+//Generalised Code
 import java.util.Scanner;
 public class Test {
 
@@ -35,7 +64,7 @@ public class Test {
              }
              else
                System.out.print(" ");
-          System.out.println("");   
+          System.out.println();   
        }
     }
 }
