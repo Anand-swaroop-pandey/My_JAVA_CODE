@@ -1,0 +1,72 @@
+/*
+
+1     
+6 2    
+10 7 3   
+13 11 8 4  
+15 14 12 9 5 
+
+*/
+//Figure Specific Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern32();
+    }
+    public static void pattern32()
+    {
+       int k=-5;
+       for(int i=1;i<=5;i++)
+       {
+            k=k+(7-i);
+            int temp=k;
+           for(int j=1;j<=5;j++)
+             if(j<=i)
+             {
+                System.out.print(temp+" "); 
+                temp=temp-(6-i)-(j-1);
+             }
+               
+             else
+               System.out.print(" ");
+            System.out.println();   
+       }
+    }
+}
+
+
+//Genralised Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Rows:");
+        int row = sc.nextInt();
+        int col=row;
+        pattern32(row,col);
+    }
+    public static void pattern32(int row,int col)
+    {
+        int k=-5;
+       for(int i=1;i<=row;i++)
+       {
+            k=k+(7-i);
+            int temp=k;
+           for(int j=1;j<=col;j++)
+             if(j<=i)
+             {
+                System.out.print(temp+" "); 
+                temp=temp-(6-i)-(j-1);
+             }
+               
+             else
+               System.out.print(" ");
+            System.out.println();   
+       }
+    }
+}
+
+
