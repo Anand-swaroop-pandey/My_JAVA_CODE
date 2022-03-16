@@ -8,7 +8,7 @@
 */
 //Figure Specific code
 import java.util.Scanner;
-public class Main {
+public class  Test {
 
     public static void main(String[] args) {
         pattern13();
@@ -26,6 +26,7 @@ public class Main {
        }
     }
 }
+
 
 //Generalised code
 import java.util.Scanner;
