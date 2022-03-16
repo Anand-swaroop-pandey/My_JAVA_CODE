@@ -9,7 +9,7 @@
 
 //Figure Specific Code
 import java.util.Scanner;
-public class Main {
+public class Test {
 
     public static void main(String[] args) {
         pattern14();
