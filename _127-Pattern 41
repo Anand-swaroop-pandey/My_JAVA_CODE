@@ -15,9 +15,9 @@ public class Test
 
   public static void main (String[]args)
   {
-    pattern40();
+    pattern41();
   }
-  public static void pattern40()
+  public static void pattern41()
   {
     for (int i = 1; i <= 5; i++)
       {
@@ -51,9 +51,9 @@ public class Test
         System.out.print("Enter Rows:");
         int row = sc.nextInt();
         int col=(2*row)-1;
-        pattern40(row,col);
+        pattern41(row,col);
   }
-   public static void pattern40(int row,int col)
+   public static void pattern41(int row,int col)
   {
     for (int i = 1; i <= row; i++)
       {
