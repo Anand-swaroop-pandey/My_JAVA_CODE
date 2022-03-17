@@ -1,0 +1,84 @@
+/*Q-To Print:
+
+3    
+4 4   
+5 5 5  
+6 6 6 6 
+5 5 5  
+4 4   
+3   
+
+*/
+//Figure Specific Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern45();
+    }
+    public static void pattern45()
+    {
+        int k=0;
+        int data=2;
+       for(int i=1;i<=7;i++)
+       {
+           if(i<=4)
+           {
+              k++;
+              data++;
+           }
+           else
+           {
+               k--; 
+               data--;
+           }
+           for(int j=1;j<=4;j++)
+            if(j<=k)
+                System.out.print(data+" ");
+             else
+                 System.out.print(" ");
+          System.out.println(); 
+       }
+    }
+}
+
+
+
+//Genralised Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Odd Rows:");
+        int row = sc.nextInt();
+        int col=(row+1)/2;
+        pattern45(row,col);
+    }
+    public static void pattern45(int row,int col)
+    {
+        int k=0;
+        int data=2;
+        int m=(row+1)/2;
+       for(int i=1;i<=row;i++)
+       {
+           if(i<=m)
+           {
+              k++;
+              data++;
+           }
+           else
+           {
+               k--; 
+               data--;
+           }
+           for(int j=1;j<=col;j++)
+            if(j<=k)
+                System.out.print(data+" ");
+             else
+                 System.out.print(" ");
+          System.out.println(); 
+       }
+    }
+}
