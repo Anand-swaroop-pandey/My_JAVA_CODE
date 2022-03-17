@@ -1,0 +1,106 @@
+
+/*Q-To Print
+
+1      
+2*3    
+4*5*6  
+7*8*9*10
+7*8*9*10
+4*5*6  
+2*3    
+1   
+
+*/
+
+//Figure Specific
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+    pattern47();
+  }
+  public static void pattern47()
+  {
+      int data=1;
+      int k=0;
+      for (int i = 1; i <= 8; i++)
+      {
+	         if(i<=4)
+	         {
+	           k++;
+	           data=data+(i-1);
+	         }
+	        else if(i>5)
+	        {
+	            k--; 
+	           data=data-(9-i);
+	        }
+	     int flag=1;
+	     int temp=data;
+	     for (int j = 1; j <= 7; j++)
+	         if(j<=(2*k)-1)
+               {
+                   if(flag==1)
+                      System.out.print(temp++);
+                    else
+                      System.out.print("*");
+                    flag=1-flag;
+               }
+             else
+               System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
+
+
+//Generalized code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+    
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Even Rows:");
+        int row = sc.nextInt();
+        int col=row-1;
+        pattern47(row,col);
+  }
+  public static void pattern47(int row,int col)
+  {
+      int data=1;
+      int k=0;
+      int m=row/2;
+    for (int i = 1; i <= row; i++)
+      {
+	    if(i<=m)
+	    {
+	        k++;
+	        data=data+(i-1);
+	    }
+	    else if(i>(m+1))
+	    {
+	      k--; 
+	      data=data-(9-i);
+	    }
+	     int flag=1;
+	     int temp=data;
+	    for (int j = 1; j <= col; j++)
+	         if(j<=(2*k)-1)
+               {
+                   if(flag==1)
+                      System.out.print(temp++);
+                    else
+                      System.out.print("*");
+                    flag=1-flag;
+               }
+             else
+               System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
