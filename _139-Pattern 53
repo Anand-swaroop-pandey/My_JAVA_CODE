@@ -39,3 +39,36 @@ public class Test
       }
   }
 }
+
+//Genralised code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+     Scanner sc = new Scanner(System.in);
+     System.out.print("Enter Rows:");
+     int row = sc.nextInt();
+     int col=row;
+     pattern53(row,col);
+  }
+   public static void pattern53(int row,int col)
+  {
+       int k=0;
+       int m=(row+1)/2;
+      for (int i = 1; i <= row; i++)
+      {
+          if(i<=m)
+            k++;
+          else
+            k--;
+	       for (int j = 1; j <=col; j++)
+	          if(i==m || j==(m+1-k))
+               System.out.print("*");
+             else
+               System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
