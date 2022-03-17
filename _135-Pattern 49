@@ -1,0 +1,76 @@
+/*Q-To Print
+
+*        *
+**      **
+***    ***
+****  ****
+**********
+**********
+****  ****
+***    ***
+**      **
+*        *
+
+*/
+
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern49();
+  }
+   public static void pattern49()
+  {
+      int k=0;
+      for (int i = 1; i <= 10; i++)
+      {
+          if(i<=5)
+            k++;
+          if(i>6)
+            k--;
+	       for (int j = 1; j <=10; j++)
+	         if(j<=k || j>=(11-k))
+               System.out.print("*");
+             else
+               System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
+
+
+//Genralised code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+     Scanner sc = new Scanner(System.in);
+     System.out.print("Enter Rows:");
+     int row = sc.nextInt();
+     int col=row;
+     pattern49(row,col);
+  }
+   public static void pattern49(int row,int col)
+  {
+      int k=0;
+      int m=row/2;
+      for (int i = 1; i <=row; i++)
+      {
+          if(i<=m)
+            k++;
+          if(i>(m+1))
+            k--;
+	       for (int j = 1; j <=col; j++)
+	         if(j<=k || j>=((row+1)-k))
+               System.out.print("*");
+             else
+               System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
