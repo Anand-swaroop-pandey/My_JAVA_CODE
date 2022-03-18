@@ -1,0 +1,24 @@
+/*
+
+AAA AAB AAC ABA ABB ABC ACA ACB ACC 
+BAA BAB BAC BBA BBB BBC BCA BCB BCC 
+CAA CAB CAC CBA CBB CBC CCA CCB CCC
+
+*/
+//Figure based code
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        pattern72();
+    }
+    public static void pattern72()
+    {
+       for(int i=65;i<=67;i++)
+       {
+           for(int j=65;j<=67;j++)
+               for(int k=65;k<=67;k++)
+                    System.out.printf("%c%c%c ",(char)i,(char)j,(char)k);
+          System.out.println(); 
+       }
+    }
+}
