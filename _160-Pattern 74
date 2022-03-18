@@ -1,0 +1,77 @@
+/*Q-To Print
+
+1       
+2 3 2     
+4 5 6 5 4   
+7 8 9 10 9 8 7 
+
+*/  
+  
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern74();
+  }
+   public static void pattern74()
+  {  
+     int temp=1;
+     for (int i = 1; i <= 4; i++)
+      {
+           temp=temp+(i-1);
+           int data=temp;
+	       for (int j = 1; j <=7; j++)
+	          if(j<=(2*i)-1)
+	          {
+	             System.out.print(data +" ");
+                 if(j<i)
+                   data++;
+                 else
+                   data--;
+	          }
+              else
+                System.out.print(" ");
+	    System.out.println ();
+      } 
+  }
+}
+
+
+//Genralised code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+       Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Rows:");
+        int row = sc.nextInt();
+        int col=(2*row)-1;
+        pattern74(row,col);
+  }
+   public static void pattern74(int row,int col)
+  {
+      int temp=1;
+      for (int i = 1; i <= row; i++)
+      {
+           temp=temp+(i-1);
+           int data=temp;
+	       for (int j = 1; j <=col; j++)
+	          if(j<=(2*i)-1)
+	          {
+	             System.out.print(data +" ");
+                 if(j<i)
+                   data++;
+                 else
+                   data--;
+	          }
+              else
+                System.out.print(" ");
+	    System.out.println ();
+      } 
+  }
+}
