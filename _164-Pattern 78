@@ -1,0 +1,58 @@
+/*Q-To Print
+
+*000*000*
+0*00*00*0
+00*0*0*00
+000***000
+
+*/  
+  
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern78();
+  }
+   public static void pattern78()
+  {  
+     for (int i = 1; i <= 4; i++)
+      {
+	       for (int j = 1; j <=9; j++)
+	          if((j==i) || (j==5) || j==(10-i))
+	            System.out.print("*");
+	          else
+                System.out.print("0");
+	    System.out.println ();
+      } 
+  }
+}
+
+//Generalised Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Rows:");
+        int row = sc.nextInt();
+        int col=(2*row)+1;
+        pattern78(row,col);
+  }
+   public static void pattern78(int row,int col)
+  {  
+     for (int i = 1; i <= row; i++)
+      {
+	       for (int j = 1; j <=col; j++)
+	          if((j==i) || j==(row+1) || j==(col+1-i))
+	            System.out.print("*");
+	          else
+                System.out.print("0");
+	    System.out.println ();
+      } 
+  }
+}
