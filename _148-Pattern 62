@@ -1,0 +1,80 @@
+/*Q-To Print
+1                  1
+12                21
+123              321
+1234            4321
+12345          54321
+123456        654321
+1234567      7654321
+12345678    87654321
+123456789  987654321
+12345678900987654321
+
+*/
+
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern62();
+  }
+   public static void pattern62()
+  {
+      for (int i = 1; i <= 10; i++)
+      {
+          int data=1;
+	       for (int j = 1; j <=20; j++)
+	          if(j<=i || j>=(21-i))
+	          {
+	              System.out.print(data%10);
+	              if(j<i)
+	                data++;
+	              else if(j>i)
+	                data--;
+	          }
+              
+             else
+               System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
+
+
+//Genralised code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+     Scanner sc = new Scanner(System.in);
+     System.out.print("Enter Rows:");
+     int row = sc.nextInt();
+     int col=2*row;
+     pattern62(row,col);
+  }
+   public static void pattern62(int row,int col)
+  {
+      for (int i = 1; i <= row; i++)
+      {
+          int data=1;
+	       for (int j = 1; j <=col; j++)
+	          if(j<=i || j>=(col+1-i))
+	          {
+	                System.out.print(data%10);
+	              if(j<i)
+	                data++;
+	              else if(j>i)
+	                data--;
+	          }
+              
+             else
+               System.out.print(" ");
+	    System.out.println();
+      } 
+  }
+}
