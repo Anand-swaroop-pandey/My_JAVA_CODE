@@ -1,0 +1,60 @@
+/*Q-To Print
+
+
+                    0                     
+                  1 2 1                   
+                2 3 4 3 2                 
+              3 4 5 6 5 4 3               
+            4 5 6 7 8 7 6 5 4             
+          5 6 7 8 9 0 9 8 7 6 5           
+        6 7 8 9 0 1 2 1 0 9 8 7 6         
+      7 8 9 0 1 2 3 4 3 2 1 0 9 8 7       
+    8 9 0 1 2 3 4 5 6 5 4 3 2 1 0 9 8     
+  9 0 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1 0 9   
+0 1 2 3 4 5 6 7 8 9 0 9 8 7 6 5 4 3 2 1 0 
+  9 0 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1 0 9   
+    8 9 0 1 2 3 4 5 6 5 4 3 2 1 0 9 8     
+      7 8 9 0 1 2 3 4 3 2 1 0 9 8 7       
+        6 7 8 9 0 1 2 1 0 9 8 7 6         
+          5 6 7 8 9 0 9 8 7 6 5           
+            4 5 6 7 8 7 6 5 4             
+              3 4 5 6 5 4 3               
+                2 3 4 3 2                 
+                  1 2 1                   
+                    0 
+
+*/
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern85();
+  }
+   public static void pattern85()
+  {
+      int k=0;
+     for (int i = 1; i <= 21; i++)
+      {
+          if(i<=11)
+            k++;
+          else
+            k--;
+          int data=k-1;
+	       for (int j = 1; j <=21; j++)
+	          if(j>=(12-k) && j<=(10+k))
+	          {
+	            System.out.print((data%10)+" ");
+	            if(j<11)
+	             data++;
+	            else
+	             data--;
+	          }
+	          else
+                System.out.print("  ");
+	    System.out.println ();
+      } 
+  }
+}
