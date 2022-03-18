@@ -1,0 +1,69 @@
+/*
+
+12344432
+123**321
+12****21
+1******1
+
+*/
+
+//Figure Based Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern68();
+    }
+    public static void pattern68()
+    {
+       for(int i=1;i<=4;i++)
+       {
+            int data=1;
+           for(int j=1;j<=8;j++)
+             if(j<=(5-i) || j>=(4+i))
+             {
+                 System.out.print(data);
+                 if(j<4)
+                    data++;
+                 else if(j>5)
+                    data--;
+             }
+             else
+               System.out.print("*");
+          System.out.println();   
+       }
+    }
+}
+
+
+//Generalised Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Rows:");
+        int row = sc.nextInt();
+        int col=2*row;
+        pattern68(row,col);
+    }
+    public static void pattern68(int row,int col)
+    {
+      for(int i=1;i<=row;i++)
+       {
+            int data=1;
+           for(int j=1;j<=col;j++)
+             if(j<=(row+1-i) || j>=(row+i))
+             {
+                 System.out.print(data);
+                 if(j<row)
+                    data++;
+                 else if(j>(row+1))
+                    data--;
+             }
+             else
+               System.out.print("*");
+          System.out.println();   
+       }
+    }
+}
