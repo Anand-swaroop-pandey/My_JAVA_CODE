@@ -1,0 +1,68 @@
+/*Q-To Print
+
+Enter Rows:13
+1111111111111
+1111111111122
+1111111111333
+1111111114444
+1111111155555
+1111111666666
+1111117777777
+1111188888888
+1111999999999
+1110000000000
+1111111111111
+1222222222222
+3333333333333
+
+*/
+
+//Figure Specific
+
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern65();
+    }
+    public static void pattern65()
+    {
+       for(int i=1;i<=13;i++)
+       {
+           for(int j=1;j<=13;j++)
+             if(j>=(6-i))
+               System.out.print(i%10);
+             else
+               System.out.print("1");
+            System.out.println();   
+       }
+    }
+}
+
+
+
+//Generalised Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Rows:");
+        int row = sc.nextInt();
+        int col=row;
+        pattern65(row,col);
+    }
+    public static void pattern65(int row,int col)
+    {
+       for(int i=1;i<=row;i++)
+       {
+           for(int j=1;j<=col;j++)
+             if(j>=((row+1)-i))
+               System.out.print(i%10);
+             else
+               System.out.print("1");
+            System.out.println();   
+       }
+    }
+}
