@@ -1,0 +1,36 @@
+/*Q-To Print
+
+aaaaaaaaa
+BBBBBBBBB
+ccccccccc
+DDDDDDDDD
+eeeeeeeee
+FFFFFFFFF
+ggggggggg
+HHHHHHHHH
+iiiiiiiii
+
+*/  
+  
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern86();
+  }
+   public static void pattern86()
+  {  
+     for (int i = 1; i <= 9; i++)
+      {
+	       for (int j = 1; j <=9; j++)
+	          if((i%2)==0)
+	            System.out.printf("%c",(char)(64+i));
+	          else
+                System.out.printf("%c",(char)(96+i));
+	    System.out.println ();
+      } 
+  }
+}
