@@ -1,0 +1,94 @@
+/*
+
+1                           1
+ 2                         2 
+  3                       3  
+   4                     4   
+    5                   5    
+     6                 6     
+      7               7      
+       8             8       
+        9           9        
+         0         0         
+          1       1          
+           2     2           
+            3   3            
+             4 4             
+              5              
+             4 4             
+            3   3            
+           2     2           
+          1       1          
+         0         0         
+        9           9        
+       8             8       
+      7               7      
+     6                 6     
+    5                   5    
+   4                     4   
+  3                       3  
+ 2                         2 
+1                           1
+
+*/
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern63();
+  }
+   public static void pattern63()
+  {
+      int k=0;
+      for (int i = 1; i <=29; i++)
+      {
+          if(i<=6)
+           k++;
+          else
+            k--;
+	       for (int j = 1; j <=29; j++)
+	          if(j==k || j==(12-k))
+	              System.out.print(k%10);
+              else
+                 System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
+
+
+//Genralised code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+     Scanner sc = new Scanner(System.in);
+     System.out.print("Enter Rows:");
+     int row = sc.nextInt();
+     int col=row;
+     pattern63(row,col);
+  }
+   public static void pattern63(int row,int col)
+  {   
+      int k=0;
+      int m=(row+1)/2;
+      for (int i = 1; i <=row; i++)
+      {
+          if(i<=m)
+            k++;
+          else
+            k--;
+	       for (int j = 1; j <=col; j++)
+	          if(j==k || j==(row+1-k))
+	              System.out.print(k%10);
+              else
+                 System.out.print(" ");
+	    System.out.println ();
+      }
+  }
+}
