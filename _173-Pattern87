@@ -1,0 +1,76 @@
+/*Q-To Print:
+For the given N, the number of rows or columns to be printed will be 2*N – 1.
+
+4444444
+4333334
+4322234
+4321234
+4322234
+4333334
+4444444
+
+*/  
+  
+//Figure Specific Code
+import java.util.Scanner;
+public class Test
+{
+
+  public static void main (String[]args)
+  {
+      pattern87(4);
+  }
+   public static void pattern87(int N)
+  {  
+      int min=0;
+      for(int i=1;i<=N;i++)
+      {
+          for(int j=1;j<=N;j++)
+          {
+              if(i<j)
+                min=i;
+              else
+                min=j;
+             int temp=N-min+1;
+             System.out.print(temp);
+          }
+          
+          for(int j=N-1;j>=1;j--)
+          {
+              if(i<j)
+                min=i;
+              else
+                min=j;
+             int temp=N-min+1;
+             System.out.print(temp);
+          }
+         System.out.println(); 
+      }
+      
+      
+      for(int i=N-1;i>=1;i--)
+      {
+          for(int j=1;j<=N;j++)
+          {
+              if(i<j)
+                min=i;
+              else
+                min=j;
+             int temp=N-min+1;
+             System.out.print(temp);
+          }
+          
+          for(int j=N-1;j>=1;j--)
+          {
+              if(i<j)
+                min=i;
+              else
+                min=j;
+             int temp=N-min+1;
+             System.out.print(temp);
+          }
+         System.out.println(); 
+      }
+     
+  }
+}
