@@ -1,0 +1,71 @@
+/*
+
+Print the Below Figure using Single LOOP
+
+####
+####
+####
+####
+
+*/
+
+//Figure Specific code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+        pattern92();
+    }
+    public static void pattern92()
+    {
+        int count=0;
+       for(int i=1;i<=4;i++)
+       {
+           System.out.print("#");
+           count++;
+           if(i==4)
+            {
+                if(count==16)
+                 break;
+                else
+                 {
+                     i=0;
+                     System.out.println(); 
+                 }
+            }
+       }
+    }
+}
+
+
+//Genralised Code
+import java.util.Scanner;
+public class Test {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Rows:");
+        int row = sc.nextInt();
+        int col=row;
+        pattern92(row,col);
+    }
+    public static void pattern92(int row,int col)
+    {
+        int count=0;
+       for(int i=1;i<=row;i++)
+       {
+           System.out.print("#");
+           count++;
+           if(i==row)
+            {
+                if(count==(row*row))
+                 break;
+                else
+                 {
+                     i=0;
+                     System.out.println(); 
+                 }
+            }
+       }
+    }
+}
