@@ -1,0 +1,146 @@
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+            
+            if(n>1)
+            mergeSort(arr,0,(arr.length-1));
+            
+            System.out.println("Sorted Array:");
+            for(int i=0;i<n;i++)
+                System.out.println(arr[i]);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+
+    public static void mergeSort(int[]arr,int lb,int ub)
+   {
+      if(lb<ub)
+      {
+          int mid=(lb+ub)/2;
+          mergeSort(arr,lb,mid);
+          mergeSort(arr,mid+1,ub);
+          merge(arr,lb,mid,ub);
+      }
+   }
+   
+   public static void merge(int[] arr,int lb,int mid,int ub)
+   {
+     int i=lb;
+     int j=mid+1;
+     int k=0;
+     
+     int[] temp=new int[ub-lb+1];
+     
+     while(i<=mid && j<=ub)
+        if(arr[i]<=arr[j])
+          temp[k++]=arr[i++];
+        else// (arr[j]<arr[i])
+          temp[k++]=arr[j++];
+      
+     if(i>mid)//Left Sublist is Exhausted
+       while(j<=ub)//copy remaining Elements of Right Sublist into temp[] 
+         temp[k++]=arr[j++];
+     else if(j>ub)//Right Sublist is Exhausted
+       while(i<=mid)//copy remaining Elements of Left Sublist into temp[]
+         temp[k++]=arr[i++];
+         
+       k=0;//copy from temp[] into arr[]
+       for(int index=lb;index<=ub;index++)
+          arr[index]=temp[k++];
+   }
+}
+
+
+//Aliter(another implementation of Merge() function)
+
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+            
+            if(n>1)
+              mergeSort(arr,0,(n-1));
+            
+            System.out.println("Sorted Array:");
+            for(int i=0;i<n;i++)
+                System.out.println(arr[i]);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+
+    public static void mergeSort(int[]arr,int lb,int ub)
+   {
+      if(lb<ub)
+      {
+          int mid=(lb+ub)/2;
+          mergeSort(arr,lb,mid);
+          mergeSort(arr,(mid+1),ub);
+          merge(arr,lb,mid,ub);
+      }
+   }
+   
+   public static void merge(int[] arr,int lb,int mid,int ub)
+   {
+     int m=(mid-lb+1);
+     int n=(ub-mid);
+     int[] Left=new int[m];
+     int[] Right=new int[n];  
+   
+     for(int i=0;i<m;i++)
+        Left[i]=arr[lb+i];
+        
+     for(int i=0;i<n;i++)
+        Right[i]=arr[mid+1+i];
+        
+     int i=0,j=0,k=lb;
+     
+     while(i<m && j<n)
+        if(Left[i]<=Right[j])
+          arr[k++]=Left[i++];
+        else// (Right[j]<Left[i])
+          arr[k++]=Right[j++];
+      
+     if(i==m)//Left Sublist is Exhausted
+       while(j<n)//copy remaining Elements of Right Sublist into arr[] 
+         arr[k++]=Right[j++];
+     else if(j==n)//Right Sublist is Exhausted
+       while(i<m)//copy remaining Elements of Left Sublist into arr[]
+         arr[k++]=Left[i++];
+
+   }
+}
