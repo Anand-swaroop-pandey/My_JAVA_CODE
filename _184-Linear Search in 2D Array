@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Rows");
+       int row=sc.nextInt();
+       System.out.println("Enter Cols.");
+       int col=sc.nextInt();
+       if(row>0 && col>0)
+         {
+             int[][] arr=new int[row][col];
+             
+           System.out.printf("Enter %d Elements:\n",row*col);
+           for(int i=0;i<row;i++)
+              for(int j=0;j<col;j++)
+                arr[i][j]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<row;i++)
+            {
+                for(int j=0;j<col;j++)
+                  System.out.print(arr[i][j]+" ");
+                System.out.println();
+            }
+            
+            System.out.println("Enter KEY:");
+            int key=sc.nextInt();  
+            
+            String res=linearSearch2D(arr,key);
+            if(res.equals("-1"))
+               System.out.printf("%d doesnot exists in the Array",key);
+            else
+               System.out.printf("First occurence of %d is Found at index %s in the Array",key,res);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+   public static String linearSearch2D(int [][]arr,int key)
+   {
+       String res="";
+       for(int i=0;i<arr.length;i++)
+         for(int j=0;j<arr[i].length;j++)
+           if(key==arr[i][j])
+           {
+              res=res+"("+i+","+j+")";
+              return res;
+           }
+       return "-1";
+   }
+}
