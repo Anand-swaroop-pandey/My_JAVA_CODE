@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+            
+            System.out.println("Enter KEY:");
+            int key=sc.nextInt();  
+            
+            int res=binarySearch(arr,0,arr.length-1,key);
+            if(res==-1)
+               System.out.printf("%d doesnot exists in the Array",key);
+            else
+               System.out.printf("First occurence of %d is Found at index %d in the Array",key,res);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+   public static int binarySearch(int[]arr,int low,int high,int key)
+   {
+      if(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+            return mid;
+          else if(key<arr[mid])
+            return binarySearch(arr,low,mid-1,key);
+          else if(key>arr[mid])
+            return binarySearch(arr,mid+1,high,key);
+      }
+      return -1;//key doesnot exists
+   }
+}
