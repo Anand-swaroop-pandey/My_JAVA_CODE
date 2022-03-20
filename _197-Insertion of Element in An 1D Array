@@ -1,0 +1,36 @@
+ import java.util.Scanner;
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter no. of elements you want in array:");
+        int n = sc.nextInt();
+        
+        int arr[] = new int[n+1];//(n+1)=>to accomodate the new element
+        
+        System.out.println("Enter all the elements:");
+        for(int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+            
+        System.out.print("Enter the position where you want to insert element:");
+        int pos = sc.nextInt();
+        if(pos>(n+1))//pos>=1 && pos<=(n+1)
+          System.out.println("Invalid Choice");
+        else
+        {
+           System.out.print("Enter the element you want to insert:");
+           int ele = sc.nextInt();
+        
+           int index=(pos-1);
+           for(int i = (n-1); i >=index; i--)
+             arr[i+1] = arr[i];
+            
+           arr[index] = ele;
+           System.out.print("After inserting:");
+           for(int i = 0; i <(n+1); i++)
+              System.out.print(arr[i]+",");
+        }
+    }
+}
