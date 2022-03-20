@@ -1,0 +1,219 @@
+//Bruteforce Approach(Sort in Ascending Order using inbuilt Arrays.sort() function and return Kth Element From the Last)
+import java.util.*;
+public class Main
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+                 
+            System.out.println("Entered K:");
+            int k=sc.nextInt();
+            if(k>0 && k<=n)
+            {
+                Arrays.sort(arr);
+                 System.out.printf("%d rd/th Largest Element is %d",k,arr[n-k]);
+            }
+            else
+              System.out.println("Invalid Choice");
+              
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+}
+
+
+//Bruteforce Approach(Sort in Ascending Order using any Sorting Algorithm and return Kth Element From the Last)
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+                 
+            System.out.println("Entered K:");
+            int k=sc.nextInt();
+            if(k>0 && k<=n)
+            { 
+                 quickSort(arr,0,n-1);
+                 System.out.printf("%d rd/th Largest Element is %d",k,arr[n-k]);
+            }
+            else
+              System.out.println("Invalid Choice");
+              
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+   
+   public static void quickSort(int[]arr,int lb,int ub)
+   {
+      if(lb<ub)
+      {
+          int index=partition(arr,lb,ub);
+          quickSort(arr,lb,index-1);
+          quickSort(arr,index+1,ub);
+      }
+   }
+   
+    public static int partition(int[] arr,int lb,int ub)
+   {
+     int i=lb;
+     int j=ub;
+     int pivot=arr[lb];
+     
+     while(i<j)
+     {
+        while(i<(arr.length) && arr[i]<=pivot )
+          i++;
+        while(j>=0 && arr[j]>=pivot)
+          j--;
+          
+        if(i<j)
+        {
+          int temp=arr[i];
+          arr[i]=arr[j];
+          arr[j]=temp;
+        }
+     }
+      
+          int temp=arr[lb];
+          arr[lb]=arr[j];
+          arr[j]=temp;
+          
+      return j;  //index of pivot element    
+   }
+
+}
+
+
+//Bruteforce Approach(Sort in Descending Order till (k-1)th Index and return arr[k-1])
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+                 
+            System.out.println("Entered K:");
+            int k=sc.nextInt();
+            if(k>0 && k<=n)
+               System.out.printf("%d rd/th Largest Element is %d",k,descendingSort(arr,k));
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+    public static int descendingSort(int[]arr,int k)
+   {
+      for(int i=0;i<(arr.length);i++)
+      {
+          for(int j=i+1;j<(arr.length);j++)
+            if(arr[i]<arr[j])
+              {
+                  //Swapping
+                  int temp=arr[i];
+                  arr[i]=arr[j];
+                  arr[j]=temp;
+              } 
+              if(i==(k-1))
+                break;
+      }
+       return arr[k-1];          
+   }
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+                 
+            System.out.println("Enter K:");
+            int k=sc.nextInt();
+            if(k>0 && k<=n)
+               System.out.printf("%d rd/th Largest Element is %d",k,modifiedOptimisedBubbleSort(arr,k));
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+
+   public static int modifiedOptimisedBubbleSort(int[]arr,int k)
+   {
+      boolean swap;
+      for(int pass=1;pass<=k;pass++)
+      {
+            swap=false;
+            for(int j=0;j<((arr.length-1)-(pass-1));j++)
+            if(arr[j]>arr[j+1])
+              {
+                  swap=true;
+                  //Swapping
+                  int temp=arr[j];
+                  arr[j]=arr[j+1];
+                  arr[j+1]=temp;
+              }
+           if(swap==false)
+             break;
+      }
+      return arr[arr.length-k];//Kth element from Last i.e Kth largest element in the Array
+   }
+}
