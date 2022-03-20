@@ -1,1 +1,129 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Main
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Enter X:");
+           int X=sc.nextInt();
+           if(isOccurMoreThenHalfTimes(arr,X))
+              System.out.printf("YES,%d Occurs more than %d times in the Given Sorted Array",X,n/2);
+           else
+              System.out.printf("NO,%d Occurs less than %d times in the Given Sorted Array",X,n/2);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+   public static boolean isOccurMoreThenHalfTimes(int[] arr,int X)
+   {
+       int count=0;
+       for(int i=0;i<arr.length;i++)
+       {
+           if(arr[i]==X)
+             count++;
+         
+           if(count>(arr.length/2))    
+              return true;
+       }
+       return false;
+   }
+}
 
+//Better Approach
+import java.util.Scanner;
+public class Main
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Enter X:");
+           int X=sc.nextInt();
+           if(isOccurMoreThenHalfTimes(arr,X))
+              System.out.printf("YES,%d Occurs more than %d times in the Given Sorted Array",X,n/2);
+           else
+              System.out.printf("NO,%d Occurs less than %d times in the Given Sorted Array",X,n/2);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+   public static boolean isOccurMoreThenHalfTimes(int[] arr,int X)
+   {
+       for(int i=0;i<arr.length;i++)
+          if(arr[i]==X && (i+(arr.length/2))<arr.length && arr[i+(arr.length/2)]==X)
+             return true; 
+       return false;
+   }
+}
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Enter X:");
+           int X=sc.nextInt();
+           
+           if(modifiedBinarySearch(arr,X))
+              System.out.printf("YES,%d Occurs more than %d times in the Given Sorted Array",X,n/2);
+           else
+              System.out.printf("NO,%d Occurs less than %d times in the Given Sorted Array",X,n/2);
+         }
+         else
+            System.out.println("Invalid Choice");
+       
+   }
+
+    public static boolean modifiedBinarySearch(int[]arr,int key)
+   {
+      int low=0;
+      int high=arr.length-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+          {
+              int temp=mid;
+              while(arr[temp]==key)
+                temp--;
+               temp++;
+              if(arr[temp]==key && (temp+(arr.length/2))<arr.length && arr[temp+(arr.length/2)]==key)
+                 return true;
+              return false;     
+          }
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return false;//key doesnot exists
+   }
+}
