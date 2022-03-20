@@ -1,0 +1,85 @@
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+
+            if(n>1)
+              radixSort(arr);
+
+            System.out.println("Sorted Array:");
+            for(int i=0;i<n;i++)
+                System.out.println(arr[i]);
+         }
+         else
+            System.out.println("Invalid Choice");
+
+   }
+   
+   public static void radixSort(int[]arr)
+   {
+     int max=maximum(arr);
+     int digits=countDigits(max);
+     int placeValue=1;
+     for(int i=1;i<=digits;i++)
+      {
+         countingSort(arr,placeValue);
+         placeValue=placeValue*10;
+      }
+   }
+   
+    public static int maximum(int[]arr)
+    {
+      int max=arr[0];
+      for(int i=1;i<arr.length;i++)
+         if(arr[i]>max)
+           max=arr[i];
+       return max;       
+    }
+    
+    public static int countDigits(int num)
+    {
+        if(num==0)
+          return 1;
+          
+        int count=0;
+        while(num!=0)
+        {
+            count++;
+            num=num/10;
+        }
+        return count;
+    }
+    
+    public static void countingSort(int[]arr,int pValue)
+   {
+       int range=9;//coz digit ranges from 0 to 9 only
+       int[] count=new int[range+1];
+       int[] temp=new  int[arr.length];
+       for(int i=0;i<arr.length;i++)
+          count[(arr[i]/pValue)%10]++;
+
+        for(int i=1;i<10;i++)
+           count[i]=count[i]+count[i-1];
+
+        for(int i=(arr.length-1);i>=0;i--)
+           temp[--count[(arr[i]/pValue)%10]]=arr[i];
+
+        for(int i=0;i<arr.length;i++)
+           arr[i]=temp[i];
+   }
+}
