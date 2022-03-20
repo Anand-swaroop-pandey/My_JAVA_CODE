@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+             int[] arr=new int[n];
+
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+
+            if(n>1)
+              shellSort(arr);
+
+            System.out.println("Sorted Array:");
+            for(int i=0;i<n;i++)
+                System.out.println(arr[i]);
+         }
+         else
+            System.out.println("Invalid Choice");
+
+   }
+   
+   public static void shellSort(int[]arr)
+   {
+     int n=arr.length;
+     for(int gap=(n/2);gap>0;gap=gap/2)
+        for(int j=gap;j<n;j++)
+          for(int i=(j-gap);i>=0;i=i-gap)
+             if(arr[i]<arr[i+gap])
+               break;
+             else
+             {
+                 int temp=arr[i];
+                 arr[i]=arr[i+gap];
+                 arr[i+gap]=temp;
+             }
+   }
+   
+}
