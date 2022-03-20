@@ -32,7 +32,7 @@ public class Test
 
     public static void bubbleSort(int[]arr)
    {
-      for(int i=0;i<(arr.length-1);i++)//For No. of Passes
+      for(int i=1;i<(arr.length);i++)//For No. of Passes
          for(int j=0;j<(arr.length-1);j++)//For No. of Comparisons
             if(arr[j]>arr[j+1])
               {
