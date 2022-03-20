@@ -4,7 +4,7 @@ public class Test
    public static void main(String[] args)
    {
        Scanner sc=new Scanner(System.in);
-       System.out.println("How many Numbers You want to Calculate Sum Of?");
+       System.out.println("How many Numbers You want to Enter?");
        int n=sc.nextInt();
        if(n>0)
          {
@@ -12,7 +12,10 @@ public class Test
            System.out.printf("Enter %d Numbers:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
-           System.out.println("Sum ="+sum(arr));
+              int Sum=sum(arr);
+              float avg=(float)Sum/n;
+           System.out.println("Sum ="+Sum);
+           System.out.println("Average ="+avg);
          }
          else
             System.out.println("Invalid Choice");
