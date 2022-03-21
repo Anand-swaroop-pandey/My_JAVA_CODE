@@ -54,17 +54,18 @@ public class Test
           j--;
           
         if(i<j)
-        {
-          int temp=arr[i];
-          arr[i]=arr[j];
-          arr[j]=temp;
-        }
+         swap(arr,i,j);
      }
-      
-          int temp=arr[lb];
-          arr[lb]=arr[j];
-          arr[j]=temp;
-          
+       swap(arr,i,j);
+       
       return j;  //index of pivot element    
+   }
+   
+    
+   public static void swap(int[]arr,int i,int j)
+   {
+       int temp=arr[i];
+       arr[i]=arr[j];
+       arr[j]=temp;
    }
 }
