@@ -149,7 +149,7 @@ public class Test
    
    public static void modifiedInsertionSort(int[] arr)
    {
-      for(int i=1;i<arr.lenth;i++)
+      for(int i=1;i<arr.length;i++)
       {
         int temp=arr[i];
          //if current element is positive do nothing
