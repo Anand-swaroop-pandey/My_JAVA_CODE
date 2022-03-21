@@ -75,21 +75,21 @@ public class Test
 
    public static void sort0s1sAnd2s(int[]arr)
    {
-      int i=0,j=0,k=(arr.length-1);
-      while(j<=k)
+      int start=0,i=0,end=(arr.length-1);
+      while(i<=end)
          if(arr[j]==0)
          {
-            swap(arr,i,j);
-            i++;
-            j++; 
+            swap(arr,start,i);
+            start++;
+            i++; 
          }
-         else if(arr[j]==1)
-             j++;
-         else if(arr[j]==2)
+         else if(arr[i]==2)
          {
-             swap(arr,j,k);
-             k--;  
+             swap(arr,i,end);
+             end--;  
          }
+         else if(arr[i]==1)
+             i++;
    }
    
    public static void swap(int[]arr,int i,int j)
