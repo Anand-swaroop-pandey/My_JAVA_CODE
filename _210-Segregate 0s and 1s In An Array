@@ -85,7 +85,7 @@ public class Test
 //Better Approach
 
 import java.util.Scanner;
-public class Main
+public class Test
 {
    public static void main(String[] args)
    {
@@ -109,7 +109,7 @@ public class Main
             System.out.println("Invalid Choice");
    }
    
-   public static void segregate0sAnd1s(int[]arr)
+    public static void segregate0sAnd1s(int[]arr)
    {
       int n=arr.length;
       int start=0;
@@ -125,21 +125,25 @@ public class Main
             
            if(start<end)
             {
-                int temp=arr[start];
-                arr[start]=arr[end];
-                arr[end]=temp;
-                
+                swap(arr,start,end);
                 start++;
                 end--;
             }
-      }
-   } 
+       }
+    } 
+    
+   public static void swap(int[]arr,int start,int end)
+   {
+      int temp=arr[start];
+      arr[start]=arr[end];
+      arr[end]=temp;
+   }
 }
 
 
 //Optimal Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
    public static void main(String[] args)
    {
@@ -172,14 +176,17 @@ public class Main
        {
           if(arr[i]==0)
           {
-              //Swapping
-             int temp=arr[i];
-             arr[i]=arr[j];
-             arr[j]=temp;
-             
+             swap(arr,i,j);
              j++;
           }
           i++;
        }
-   } 
+   }
+   
+    public static void swap(int[]arr,int i,int j)
+   {
+       int temp=arr[i];
+       arr[i]=arr[j];
+       arr[j]=temp;
+   }
 }
