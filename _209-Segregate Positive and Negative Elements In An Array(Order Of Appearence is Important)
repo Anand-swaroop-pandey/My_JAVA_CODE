@@ -147,7 +147,7 @@ public class Test
       modifiedInsertionSort(arr);
    }
    
-   public static void modifiedInsertionSort(int[] arr);
+   public static void modifiedInsertionSort(int[] arr)
    {
       for(int i=1;i<arr.lenth;i++)
       {
