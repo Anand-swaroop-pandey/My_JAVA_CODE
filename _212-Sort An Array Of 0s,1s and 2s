@@ -46,7 +46,7 @@ public class Test
    }
 }
 
-//Optimal Approach
+//Optimal Approach(Dutch National Flag Algorithm)
 
 import java.util.Scanner;
 public class Test
