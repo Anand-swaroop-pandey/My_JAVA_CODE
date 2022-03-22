@@ -73,20 +73,20 @@ public class Test
             System.out.println("Invalid Choice");
    }
 
-   public static void sort0s1sAnd2s(int[]arr)
+    public static void sort0s1sAnd2s(int[]arr)
    {
-      int start=0,i=0,end=(arr.length-1);
-      while(i<=end)
-         if(arr[j]==0)
+      int p0=0,i=0,p2=(arr.length-1);
+      while(i<=p2)
+         if(arr[i]==0)
          {
-            swap(arr,start,i);
-            start++;
+            swap(arr,p0,i);
+            p0++;
             i++; 
          }
          else if(arr[i]==2)
          {
-             swap(arr,i,end);
-             end--;  
+             swap(arr,i,p2);
+             p2--;  
          }
          else if(arr[i]==1)
              i++;
