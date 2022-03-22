@@ -1,0 +1,46 @@
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>1)
+         {
+             int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+            System.out.println("Maximum Number Formed is:"+maxNumberFormedFromAnArray(arr));
+         }
+         else
+           	System.out.println("Invalid Choice");
+	}
+	
+	public static String maxNumberFormedFromAnArray(int[] arr)
+	{
+	   for(int i=0;i<arr.length;i++)
+	      for(int j=i+1;j<arr.length;j++)
+	          if(concatenate(arr[i],arr[j])<concatenate(arr[j],arr[i]))
+	             swap(arr,i,j);
+	   	String res="";
+	   for(int i=0;i<arr.length;i++)
+	       res=res+arr[i];
+	    return res;    
+	}
+	public static int concatenate(int num1,int num2)
+	{
+	    String n1=Integer.toString(num1);
+	    String n2=Integer.toString(num2);
+	    String res=n1+n2;
+	    return Integer.parseInt(res);
+	}
+	
+	public static void swap(int[] arr,int i,int j)
+	{
+	   int temp=arr[i];
+	   arr[i]=arr[j];
+	   arr[j]=temp;
+	}
+}
