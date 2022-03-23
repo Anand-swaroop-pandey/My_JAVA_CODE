@@ -20,7 +20,7 @@ public class Test
            System.out.printf("Enter %d Elements of Array2:\n",n);
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
-            System.out.print("Intersection of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");   
+            System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");   
          }
          else
            	System.out.println("Invalid Choice");
@@ -91,7 +91,7 @@ public class Test
            System.out.printf("Enter %d Elements of Array2:\n",n);
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
-            System.out.print("Intersection of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");  
+           System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");   
              
          }
          else
