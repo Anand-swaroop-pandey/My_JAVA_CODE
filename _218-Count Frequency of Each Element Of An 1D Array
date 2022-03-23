@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           countFrequecy(arr);  
+         }
+         else
+           	System.out.println("Invalid Choice");
+	}
+	
+	public static void countFrequecy(int[] arr)
+	{
+	   int n=arr.length;
+	   int count;
+	   
+	   int[] freqArr=new int[n];
+       for(int i=0;i<n;i++)
+          freqArr[i]=-1;
+       
+       for(int i=0;i<n;i++)
+        {
+            if(freqArr[i]==0)
+               continue;
+            count=1;
+            for(int j=i+1;j<n;j++)
+               if(arr[i]==arr[j])
+               {
+                   freqArr[j]=0;
+                   count++;
+               }
+           freqArr[i]=count;       
+        }
+        
+        System.out.println("Frequency :");
+        for(int i=0;i<n;i++)
+          if(freqArr[i]!=0)
+             System.out.println(arr[i]+"--->"+freqArr[i]+"  Times");
+           
+	}
+}
