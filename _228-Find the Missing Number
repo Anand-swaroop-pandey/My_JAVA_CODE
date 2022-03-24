@@ -16,7 +16,7 @@ public class Test
 	public static int missingNumber(int[] arr)
 	{
 	    int n=arr.length;
-	    int expectedSum=(n+1)*((n+1)+1)/2;
+	    int expectedSum=(n+1)*((n+1)+1)/2;//Sum of First N Natural Numbers.
 	    int actualSum=0;
 	    for(int i=0;i<n;i++)
 	       actualSum+=arr[i];
