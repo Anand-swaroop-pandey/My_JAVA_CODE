@@ -1,0 +1,111 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+           int res=oddCountElement(arr);          
+           if(res==-1)
+             System.out.println("All Elements occur even Number of Times");
+           else
+		         System.out.println("ODD frequency Element is: "+res);
+	}
+	
+	public static int oddCountElement(int arr[])
+	{
+	    int n=arr.length;
+	    int count;
+	    for(int i=0;i<n;i++)
+	    {
+	        count=0;
+	        for(int j=0;j<n;j++)
+	            if(arr[i]==arr[j])
+	              count++;
+	        if((count%2)!=0)
+	           return arr[i];
+	    }
+	    return -1;
+	}
+}
+
+//Better Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+		  int res=oddCountElement(arr);          
+           if(res==-1)
+             System.out.println("All Elements occur even Number of Times");
+           else
+		     System.out.println("ODD frequency Element is: "+res);
+	}
+	
+	public static int oddCountElement(int arr[])
+	{
+	    int[] freqArr=new int[arr.length];
+	    countFrequency(arr,freqArr);
+	    for(int i=0;i<arr.length;i++)
+	       if(freqArr[i]!=-1 && (freqArr[i]%2)!=0)
+	           return arr[i];
+	    return -1;
+	}
+	public static void countFrequency(int[] arr,int[] freqArr)
+	{
+	   int n=arr.length;
+	   int count;   
+           for(int i=0;i<n;i++)
+           {
+             if(freqArr[i]==-1)
+               continue;
+             count=1;
+             for(int j=i+1;j<n;j++)
+                if(arr[i]==arr[j])
+                {
+                   freqArr[j]=-1;
+                   count++;
+                }
+            freqArr[i]=count; 
+           }
+	}
+}
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	    System.out.println("ODD frequency Element is: "+oddCountElement(arr));
+	}
+	
+	public static int oddCountElement(int[] arr)
+	{
+	    int res=0;
+	    for(int i=0;i<arr.length;i++)
+	       res=res^arr[i];
+	    return res;
+	}
+}
