@@ -39,8 +39,8 @@ public class Test
 	public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
         int[] common=new int[arr1.length+arr2.length];
-        int index=intersectionOfTwoSortedArray1(arr1,arr2,common);
-        return intersectionOfTwoSortedArray2(common,index,arr3);
+        int len=intersectionOfTwoSortedArray1(arr1,arr2,common);
+        return intersectionOfTwoSortedArray2(common,len,arr3);
     }
 	
 	public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
@@ -124,9 +124,9 @@ public class Test
 	}
 	
 	
-	  public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
+    public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-      int i=0;
+            int i=0;
 	    int j=0;
 	    int k=0;
 	    String temp="";
@@ -149,7 +149,7 @@ public class Test
                 k++;
           }
           String intersection="";
-          for(int index=0;index<temp.length()-1;index++)
+          for(int index=0;index<(temp.length()-1);index++)
              intersection=intersection+temp.charAt(index);
           return intersection; 
     }
