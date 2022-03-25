@@ -106,14 +106,13 @@ import java.util.Scanner;
 public class Main
 {
 	public static void main(String[] args) {
-	    /*Scanner sc=new Scanner(System.in);
+	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the Size of the Array");
 	    int n=sc.nextInt();
 	    int[] arr=new int[n];
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
-	       arr[i]=sc.nextInt();*/
-	       int[] arr = { 9, 8, 2, 6, 1, 8, 5, 3, 4, 7 };
+	       arr[i]=sc.nextInt();*
         System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
 	}
 	
@@ -184,14 +183,13 @@ import java.util.Scanner;
 public class Main
 {
 	public static void main(String[] args) {
-	    /*Scanner sc=new Scanner(System.in);
+	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the Size of the Array");
 	    int n=sc.nextInt();
 	    int[] arr=new int[n];
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
-	       arr[i]=sc.nextInt();*/
-	       int[] arr ={1, 3, 2, 3, 4};
+	       arr[i]=sc.nextInt();
         System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
 	}
 	
