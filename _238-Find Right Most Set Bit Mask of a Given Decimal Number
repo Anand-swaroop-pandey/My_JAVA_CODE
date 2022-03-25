@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Test
+{
+	   public static void main(String[] args)
+    {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Decimal Number:");
+	    int num=sc.nextInt();
+	    System.out.printf("Right Most Set Bit Mask of %d is :",num);
+	    System.out.println("("+rMSBM(num)+")");
+	    
+	  }
+
+	public static String rMSBM(int num)
+	{
+	   int rmsbm=num & twosCompliment(num);
+	   return Integer.toBinaryString(rmsbm);
+	}
+	
+   	public static int twosCompliment(int num)
+	{
+       return -num;//return (~num+1);
+	}
+}
