@@ -8,12 +8,12 @@ public class Test
 	    int num=sc.nextInt();
 	    System.out.println("Enter the Vaue of K:");
 	    int k=sc.nextInt();
-      System.out.printf("Resultant Number after Setting The %d th Bit  is: %d",k,setTheKthBit(num,k));
+           System.out.printf("Resultant Number after Setting The %d th Bit  is: %d",k,setTheKthBit(num,k));
 	}
 	
    public static int setTheKthBit(int num,int k)
 	{
-	   int mask=1<<k;
+	   int mask=1<<(k-1);
 	   int res=num | mask;
 	   return res;
 	}
