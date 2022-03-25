@@ -1,0 +1,24 @@
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Number:");
+	    int num=sc.nextInt();
+	     System.out.println("Enter the Vaue of K:");
+	    int k=sc.nextInt();
+	    int res=checkKthBit(num,k);
+	    if(res==0)
+          System.out.printf("The %d th Bit  is OFF/Unset",k);
+        else
+          System.out.printf("The %d th Bit  is ON/Set",k);
+	}
+	
+   	public static int checkKthBit(int num,int k)
+	{
+	   int mask=1<<(k-1);
+	   int res=num & mask;
+	   return res;
+	}
+}
