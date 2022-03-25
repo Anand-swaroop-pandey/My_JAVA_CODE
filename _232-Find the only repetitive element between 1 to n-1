@@ -1,0 +1,280 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+	public static int findOnlyRepeated(int arr[])
+	{
+  	  int n=arr.length;
+	    for(int i=0;i<n;i++)
+	        for(int j=i+1;j<n;j++)
+	            if(arr[i]==arr[j])
+                    return arr[i];
+	    return -1;//No repeating Element
+	}
+}
+
+
+//Improved Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) 
+  {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+    public static int findOnlyRepeated(int arr[])
+	{
+  	  int n=arr.length;
+  	  Arrays.sort(arr);
+	    for(int i=0;i<n-1;i++)
+	        if(arr[i]==arr[i+1])
+               return arr[i];
+	    return -1;//No repeating Element
+	}
+}
+
+
+//Improved  Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+     public static int findOnlyRepeated(int arr[])
+	{
+	    int res=-1;
+	    int[] freqArr=new int[arr.length];
+	    countFrequency(arr,freqArr);
+	    for(int i=0;i<arr.length;i++)
+	       if(freqArr[i]==2)
+	       {
+	           res=arr[i];
+	           break;
+	       } 
+	     return res;
+	}
+	public static void countFrequency(int[] arr,int[] freqArr)
+	{
+	         int n=arr.length;
+	         int count;   
+           for(int i=0;i<n;i++)
+           {
+             if(freqArr[i]==-1)
+               continue;
+             count=1;
+             for(int j=i+1;j<n;j++)
+                if(arr[i]==arr[j])
+                {
+                   freqArr[j]=-1;
+                   count++;
+                }
+            freqArr[i]=count; 
+           }
+	}
+}
+
+//Further Improved Approach
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    /*Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();*/
+	       int[] arr = { 9, 8, 2, 6, 1, 8, 5, 3, 4, 7 };
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+    public static int findOnlyRepeated(int arr[])
+   {
+       int sum=0,arrSum=0;
+	    int[] freqArr=new int[arr.length];
+	    countFrequency(arr,freqArr);
+	    for(int i=0;i<arr.length;i++)
+	    {
+	        if(freqArr[i]!=-1)
+              sum+=arr[i];
+            arrSum+=arr[i];  
+	    }
+        int repeated=arrSum-sum;
+        return repeated;
+	}
+	public static void countFrequency(int[] arr,int[] freqArr)
+	{
+	         int n=arr.length;
+	         int count;   
+           for(int i=0;i<n;i++)
+           {
+             if(freqArr[i]==-1)
+               continue;
+             count=1;
+             for(int j=i+1;j<n;j++)
+                if(arr[i]==arr[j])
+                {
+                   freqArr[j]=-1;
+                   count++;
+                }
+            freqArr[i]=count; 
+           }
+	} 
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+	public static int findOnlyRepeated(int arr[])
+	{
+	    int n=arr.length;
+       int sum=((n-1)*((n-1)+1))/2;//sum of first (n-1) Natural Numbers
+       int arrSum=0;
+       for(int i=0;i<n;i++)
+          arrSum+=arr[i];
+        int repeating=arrSum-sum;
+        return repeating;
+	}
+}
+
+//Even Better
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    /*Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();*/
+	       int[] arr ={1, 3, 2, 3, 4};
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+    public static int findOnlyRepeated(int arr[])
+	{
+  	  int n=arr.length;
+  	  int repeating=-1;
+      int[] count=new int[n];
+      for(int i=0;i<n;i++)
+        count[arr[i]]++;
+       for(int i=1;i<n;i++)
+          if(count[i]==2)
+          {
+             repeating=i;
+             break;
+          }
+       return repeating;
+	}
+}
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+	public static int findOnlyRepeated(int arr[])
+	{
+	    int n=arr.length;
+	    int XOR1=0;
+        for(int i=1;i<n;i++)
+           XOR1=XOR1^i;
+           
+        int XOR2=0;
+        for(int i=0;i<n;i++)
+           XOR2=XOR2^arr[i];
+           
+        int repeating=XOR1^XOR2;
+        return repeating;
+	}
+}
+
+
+//Further Optimised Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+	}
+	
+    public static int findOnlyRepeated(int arr[])
+	{
+  	   int n=arr.length;
+  	   int repeating=-1;
+       
+       for(int i=0;i<n;i++)
+        {
+           int element=arr[Math.abs(arr[i])]; 
+           if(element <0)
+           {
+               repeating=arr[i];
+               break;
+           }
+          arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])]; 
+        }
+        return Math.abs(repeating);
+	}
+}
