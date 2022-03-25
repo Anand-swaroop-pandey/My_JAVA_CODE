@@ -1,0 +1,65 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Decimal Number:");
+	    int num=sc.nextInt();
+	    System.out.printf("Count of Set Bits in %d is %d",num,countSetBits(num));
+	}
+    
+    public static int countSetBits(int num)
+	{
+	    int count=0;
+       for(int i=0;i<32;i++)
+         if(checkKthBit(num,i)!=0)
+             count++;
+        return count;    
+	}
+	
+    public static int checkKthBit(int num,int k)
+	{
+	   int mask=1<<k;
+	   int res=num & mask;
+	   return res;
+	}
+}
+
+
+//Optimised Approach (Kernighans Algorithm)
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Decimal Number:");
+	    int num=sc.nextInt();
+	    System.out.printf("Count of Set Bits in %d is %d",num,countSetBits(num));
+	}
+    
+ public static int countSetBits(int num)//Kernighan's Algorithm
+ {
+	    int count=0;
+	    while(num!=0)
+	    {
+	       int rmsbm=rMSBM(num);
+           num=num-rmsbm;
+           count++;  
+	    }
+        return count;
+	}
+	
+	public static int rMSBM(int num)
+	{
+	   int rmsbm=num & twosCompliment(num);
+	   return rmsbm;
+	}
+	
+   	public static int twosCompliment(int num)
+	{
+       return -num;//return (~num+1);
+	}
+
+}
