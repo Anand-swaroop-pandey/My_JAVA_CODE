@@ -1,0 +1,20 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Number:");
+	    int num=sc.nextInt();
+	     System.out.println("Enter the Vaue of K:");
+	    int k=sc.nextInt();
+        System.out.printf("Resultant Number after Toggling The %d th Bit  is: %d",k,toggleKthBit(num,k));
+	}
+	
+   	public static int toggleKthBit(int num,int k)
+	{
+	   int mask=1<<(k-1);
+	   int res=num^ mask;
+	   return res;
+	}
+}
