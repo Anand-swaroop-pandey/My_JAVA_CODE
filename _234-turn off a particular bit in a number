@@ -1,0 +1,21 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Number:");
+	    int num=sc.nextInt();
+	     System.out.println("Enter the Vaue of K:");
+	    int k=sc.nextInt();
+        System.out.printf("Resultant Number after Setting The %d th Bit  is: %d",k,unsetTheKthBit(num,k));
+	}
+	
+   	public static int unsetTheKthBit(int num,int k)
+	{
+	   int temp=1<<(k-1);
+	   int mask=~temp;
+	   int res=num & mask;
+	   return res;
+	}
+}
