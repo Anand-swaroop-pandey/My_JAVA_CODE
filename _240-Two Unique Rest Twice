@@ -2,17 +2,17 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-		System.out.println("Enter the Size of the Array:");
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
-		int[] arr=new int[n];
-		System.out.printf("Enter %d of the Array:\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
-		twoUniqueRestTwice(arr); 
-	}
+   public static void main(String[] args)
+   {
+	System.out.println("Enter the Size of the Array:");
+	Scanner sc=new Scanner(System.in);
+	int n=sc.nextInt();
+	int[] arr=new int[n];
+	System.out.printf("Enter %d of the Array:\n",n);
+	for(int i=0;i<n;i++)
+	  arr[i]=sc.nextInt();
+	 twoUniqueRestTwice(arr); 	
+    }
 	
     public static void twoUniqueRestTwice(int arr[])
    {
@@ -41,46 +41,45 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-		public static void main(String[] args)
-		{
-			System.out.println("Enter the Size of the Array:");
-			Scanner sc=new Scanner(System.in);
-			int n=sc.nextInt();
-			int[] arr=new int[n];
-			System.out.printf("Enter %d of the Array:\n",n);
-			for(int i=0;i<n;i++)
-			  arr[i]=sc.nextInt();
-			twoUniqueRestTwice(arr); 
-		}
-		
-	    public static void twoUniqueRestTwice(int arr[])
-	   {
-	      System.out.println("2 Unique Elements are :");
-	      int[] freqArr=new int[arr.length];
-		    countFrequency(arr,freqArr);
-		    for(int i=0;i<arr.length;i++)
-		       if(freqArr[i]==1)
-		    	   System.out.print(arr[i]+" ");
-	        
-	   }
-		public static void countFrequency(int[] arr,int[] freqArr)
-		{
-		       int n=arr.length;
-		       int count;   
-	           for(int i=0;i<n;i++)
-	           {
-	              if(freqArr[i]==-1)
-	                continue;
-	              count=1;
-	              for(int j=i+1;j<n;j++)
-	                 if(arr[i]==arr[j])
-	                 {
-	                   freqArr[j]=-1;
-	                   count++;
-	                 }
-	             freqArr[i]=count; 
-	            }
-		 }
+    public static void main(String[] args)
+    {
+	System.out.println("Enter the Size of the Array:");
+	Scanner sc=new Scanner(System.in);
+	int n=sc.nextInt();
+	int[] arr=new int[n];
+	System.out.printf("Enter %d of the Array:\n",n);
+	for(int i=0;i<n;i++)
+	arr[i]=sc.nextInt();
+	twoUniqueRestTwice(arr); 				
+     }
+	    
+    public static void twoUniqueRestTwice(int arr[])
+    {
+	  System.out.println("2 Unique Elements are :");
+	  int[] freqArr=new int[arr.length];
+          countFrequency(arr,freqArr);
+          for(int i=0;i<arr.length;i++)
+            if(freqArr[i]==1)
+	       System.out.print(arr[i]+" ");
+    }
+	    
+   public static void countFrequency(int[] arr,int[] freqArr)
+   {
+	int count;   
+	for(int i=0;i<arr.length;i++)
+        {
+	     if(freqArr[i]==-1)
+	          continue;
+	      count=1;
+	     for(int j=i+1;j<arr.length;j++)
+	          if(arr[i]==arr[j])
+	             {
+	                freqArr[j]=-1;
+	                 count++;
+	             }
+	       freqArr[i]=count; 
+	 }
+    }
 }
 
 //Optimal Approach
@@ -88,20 +87,20 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-		public static void main(String[] args)
-		{
-			System.out.println("Enter the Size of the Array:");
-			Scanner sc=new Scanner(System.in);
-			int n=sc.nextInt();
-			int[] arr=new int[n];
-			System.out.printf("Enter %d of the Array:\n",n);
-			for(int i=0;i<n;i++)
-			  arr[i]=sc.nextInt();
-			twoUniqueRestTwice(arr); 
-		}
+     public static void main(String[] args)
+    {
+	System.out.println("Enter the Size of the Array:");
+	Scanner sc=new Scanner(System.in);
+	int n=sc.nextInt();
+	int[] arr=new int[n];
+	System.out.printf("Enter %d of the Array:\n",n);
+	for(int i=0;i<n;i++)
+	  arr[i]=sc.nextInt();
+	twoUniqueRestTwice(arr); 
+    }
 		
-	    public static void twoUniqueRestTwice(int arr[])
-	   {
+    public static void twoUniqueRestTwice(int arr[])
+    {
           int xXory=0;
           for(int val:arr)
         	  xXory=xXory^val;
@@ -115,19 +114,19 @@ public class Test
             else
                y=y^val;
                
-          System.out.printf("2 Unique Elements are : %d and %d",x,y);
-	   }
+        System.out.printf("2 Unique Elements are : %d and %d",x,y);
+    }
 	   
-		public static int rMSBM(int n)
-		{
-          int rsbm= n & twosCompliment(n);
-          return rsbm;
-		}
+   public static int rMSBM(int n)
+   {
+       int rsbm= n & twosCompliment(n);
+       return rsbm;
+   }
 		
-	    public static int twosCompliment(int n)
-		{
-          return -n;//(~n+1);
-		}
+    public static int twosCompliment(int n)
+   {
+       return -n;//(~n+1);
+   }
 		
 }
   
