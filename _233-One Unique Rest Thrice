@@ -1,6 +1,6 @@
 //Bruteforce Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
@@ -149,7 +149,7 @@ public class Test
         System.out.println("Element occurring once is: "+findSingle(arr));
 	}
 	
-   public static int findSingle(int[] arr)
+        public static int findSingle(int[] arr)
 	{
 	   Arrays.sort(arr);
 	   int res=-1;
@@ -171,7 +171,7 @@ public class Test
 	         i++;
 	   }
 	   return res;   
-	}
+       }
 }
 
 
@@ -197,17 +197,13 @@ public class Test
       for(int i=0;i<32;i++)
       {
           int count1=0;
+	  int mask=1<<i;
           for(int j=0;j<arr.length;j++)
-          {
-              int mask=1<<i;
               if((arr[j]&mask)!=0)
                 count1++;
-          }
+		
           if((count1%3)==1)//3n+1 form so set ith bit of the answer
-          {
-            int mask=(1<<i);  
             ans=ans|mask;
-          }
       }
       return ans;
    }
