@@ -1,6 +1,6 @@
 //Bruteforce Approach
 import java.util.Scanner;
-public class Test
+public class Main
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
@@ -15,20 +15,16 @@ public class Test
 	
 	public static int findSingle(int arr[])
 	{
-	    int count;
 	    int res=-1;
-	    for(int i=0;i<arr.length;i++)
+	    int n=arr.length;
+	    for(int i=0;i<n;i++)
 	    {
-	        count=0;
-	        for(int j=0;j<arr.length;j++)
-	            if(arr[i]==arr[j])
-	            {
-	              count++;
-	              if(count>1)
+	        int j;
+	        for(j=0;j<n;j++)
+	            if(j!=i && arr[i]==arr[j])
 	                break;
-	            }
 	              
-	        if(count==1)
+	        if(j==n)
 	        {
 	            res=arr[i];
 	            break;
@@ -69,8 +65,8 @@ public class Test
 	}
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
-	         int n=arr.length;
-	         int count;   
+	    int n=arr.length;
+	    int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -106,17 +102,17 @@ public class Test
 	
    public static int findSingle(int arr[])
    {
-       int sum=0,arrSum=0;
+           int sum=0,arrSum=0;
 	    int[] freqArr=new int[arr.length];
 	    countFrequency(arr,freqArr);
 	    for(int i=0;i<arr.length;i++)
 	    {
 	        if(freqArr[i]!=-1)
-              sum+=arr[i];
-            arrSum+=arr[i];  
+                   sum+=arr[i];
+                arrSum+=arr[i];  
 	    }
-        int missing=((3*sum)-arrSum)/2;
-        return missing;
+            int missing=((3*sum)-arrSum)/2;
+            return missing;
 	}
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
@@ -177,6 +173,7 @@ public class Test
 	   return res;   
 	}
 }
+
 
 
 
