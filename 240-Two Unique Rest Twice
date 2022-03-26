@@ -1,0 +1,133 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Enter the Size of the Array:");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		System.out.printf("Enter %d of the Array:\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		twoUniqueRestTwice(arr); 
+	}
+	
+    public static void twoUniqueRestTwice(int arr[])
+   {
+      System.out.println("2 Unique Elements are:");
+       int count=0;
+       int n=arr.length;
+      for(int i=0;i<n;i++)
+      {
+          int j;
+          for(j=0;j<n;j++)
+            if(j!=i && arr[i]==arr[j])
+               break;
+          if(j==n)
+          {
+             count++;
+             System.out.println(arr[i]+" ");
+             if(count==2)
+              break;
+          }
+      }
+   }
+}
+
+//Better Approach
+
+import java.util.Scanner;
+public class Test
+{
+		public static void main(String[] args)
+		{
+			System.out.println("Enter the Size of the Array:");
+			Scanner sc=new Scanner(System.in);
+			int n=sc.nextInt();
+			int[] arr=new int[n];
+			System.out.printf("Enter %d of the Array:\n",n);
+			for(int i=0;i<n;i++)
+			  arr[i]=sc.nextInt();
+			twoUniqueRestTwice(arr); 
+		}
+		
+	    public static void twoUniqueRestTwice(int arr[])
+	   {
+	      System.out.println("2 Unique Elements are :");
+	      int[] freqArr=new int[arr.length];
+		    countFrequency(arr,freqArr);
+		    for(int i=0;i<arr.length;i++)
+		       if(freqArr[i]==1)
+		    	   System.out.print(arr[i]+" ");
+	        
+	   }
+		public static void countFrequency(int[] arr,int[] freqArr)
+		{
+		       int n=arr.length;
+		       int count;   
+	           for(int i=0;i<n;i++)
+	           {
+	              if(freqArr[i]==-1)
+	                continue;
+	              count=1;
+	              for(int j=i+1;j<n;j++)
+	                 if(arr[i]==arr[j])
+	                 {
+	                   freqArr[j]=-1;
+	                   count++;
+	                 }
+	             freqArr[i]=count; 
+	            }
+		 }
+}
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+		public static void main(String[] args)
+		{
+			System.out.println("Enter the Size of the Array:");
+			Scanner sc=new Scanner(System.in);
+			int n=sc.nextInt();
+			int[] arr=new int[n];
+			System.out.printf("Enter %d of the Array:\n",n);
+			for(int i=0;i<n;i++)
+			  arr[i]=sc.nextInt();
+			twoUniqueRestTwice(arr); 
+		}
+		
+	    public static void twoUniqueRestTwice(int arr[])
+	   {
+          int xXory=0;
+          for(int val:arr)
+        	  xXory=xXory^val;
+             
+          int rmsbm=rMSBM(xXory);
+          
+          int x=0,y=0;
+          for(int val:arr)
+            if((val & rmsbm)==0)
+               x=x^val;
+            else
+               y=y^val;
+               
+          System.out.printf("2 Unique Elements are : %d and %d",x,y);
+	   }
+	   
+		public static int rMSBM(int n)
+		{
+          int rsbm= n & twosCompliment(n);
+          return rsbm;
+		}
+		
+	    public static int twosCompliment(int n)
+		{
+          return -n;//(~n+1);
+		}
+		
+}
+  
