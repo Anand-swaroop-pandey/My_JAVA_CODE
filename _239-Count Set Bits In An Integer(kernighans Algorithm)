@@ -39,16 +39,16 @@ public class Test
 	    System.out.printf("Count of Set Bits in %d is %d",num,countSetBits(num));
 	}
     
- public static int countSetBits(int num)//Kernighan's Algorithm
- {
+        public static int countSetBits(int num)//Kernighan's Algorithm
+        {
 	    int count=0;
 	    while(num!=0)
 	    {
 	       int rmsbm=rMSBM(num);
-           num=num-rmsbm;
-           count++;  
+               num=num-rmsbm;
+               count++;  
 	    }
-        return count;
+            return count;
 	}
 	
 	public static int rMSBM(int num)
@@ -59,7 +59,7 @@ public class Test
 	
    	public static int twosCompliment(int num)
 	{
-       return -num;//return (~num+1);
+           return -num;//return (~num+1);
 	}
 
 }
