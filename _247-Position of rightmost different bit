@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Num1:");
+	    int m=sc.nextInt();
+	    System.out.println("Enter Num2:");
+	    int n=sc.nextInt();
+	    System.out.println("Position of RightMost Set Bit is :"+posOfRightMostDifferentBit(m,n));
+	}
+	
+    public static int posOfRightMostDifferentBit(int num1,int num2)
+    {
+       int xor=num1 ^ num2;
+       return posOfRightMostSetBit(xor);
+    }
+    
+     public static int posOfRightMostSetBit(int num)
+    {
+       if(num==0)
+         return -1; 
+         
+         int position=0;
+         while(num!=0)
+            if((num&1)!=0)
+            {
+                 position++;// counting the position of first set bit
+                 break;
+            }
+            else
+            {
+                 position++;
+                 num=num>>1;
+            }
+        return position;
+    }
+}
