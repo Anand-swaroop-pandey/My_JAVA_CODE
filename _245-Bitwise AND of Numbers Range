@@ -1,0 +1,51 @@
+//Bruteforce
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter lower range:");
+	    int low=sc.nextInt();
+	    System.out.println("Enter upper Range:");
+	    int high=sc.nextInt();
+	    System.out.printf("Bitwise AND from  %d to %d is %d",low,high,rangeBitwiseAnd(low,high));
+	}
+    
+    public static int rangeBitwiseAnd(int low,int high)
+    {
+      int res=low;
+      for(int i=low+1;i<=high;i++)
+         res=res & i;
+      return res;
+    }
+}
+
+
+//Optimal Solution
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter lower range:");
+	    int low=sc.nextInt();
+	    System.out.println("Enter upper Range:");
+	    int high=sc.nextInt();
+	    System.out.printf("Bitwise AND from  %d to %d is %d",low,high,rangeBitwiseAnd(low,high));
+	}
+    
+    public static int rangeBitwiseAnd(int low,int high)
+    {
+        int count=0;
+        while(low!=high)
+        {
+            low=low>>1;
+            high=high>>1;
+            count++;
+        }
+        int res=low<<count;//or res=high<<count
+        return res;
+    }
+}
