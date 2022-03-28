@@ -1,0 +1,51 @@
+//Method 1
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf(areSame(num1,num2));
+	}
+    
+    public static String areSame(int num1,int num2)
+    {
+       int xor=num1^num2;
+       if(xor==0)
+         return "Same";
+       else
+         return "Not Same";
+    }
+}
+
+//Method 2
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf(areSame(num1,num2));
+	}
+    
+    public static String areSame(int num1,int num2)
+    {
+       if((num1 & onesComplement(num2))==0 && (num2 & onesComplement(num1))==0)
+         return "Same";
+       else
+         return "Not Same";
+    }
+    
+    public static int onesComplement(int num)
+    {
+        return ~num;
+    }
+}
