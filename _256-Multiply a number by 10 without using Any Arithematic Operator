@@ -5,11 +5,11 @@ public class Test
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number");
-        int num=sc.nextInt();
-        System.out.printf("%d x 10 =%d\n",num,muntiplyBy10(num));
+            int num=sc.nextInt();
+            System.out.printf("%d x 10 =%d\n",num,muntiplyBy10(num));
 	}
 
-    public static int muntiplyBy10(int num1,int num2)
+    public static int muntiplyBy10(int num)
     {
        int sum=((num<<1) +(num<<3));
        return sum;
