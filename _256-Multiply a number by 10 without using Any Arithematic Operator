@@ -18,7 +18,7 @@ public class Test
       x<<y = x*2^y
       if(y==1)
        x<<1 =x*2=2x
-      similarly
+      similarly if(y==3)
       x<<3=x*2^3=8x  
       x*10=x*(2+8)=2x+8x=(x<<1) + (x<<3)
     */
