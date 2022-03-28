@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf("%d x %d =%d\n",num1,num2,muntiply1(num1,num2));
+        System.out.printf("%d x %d =%d",num1,num2,muntiply2(num1,num2));
+	}
+    /*
+    The idea is that for given two numbers a and b, we can get a×b by adding an integer a exactly b times to the result. 
+    */
+    public static int muntiply1(int num1,int num2)
+    {
+        int res=0;
+       for(int i=1;i<=num2;i++)
+         res=res+num1;
+         return res;
+    }
+    /*
+    The idea is that for given two numbers a and b, we can get a×b by adding an integer b exactly a times to the result. 
+    */
+     public static int muntiply2(int num1,int num2)
+    {
+        int res=0;
+       for(int i=1;i<=num1;i++)
+         res=res+num2;
+         return res;
+    }
+}
