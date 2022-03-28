@@ -1,0 +1,105 @@
+//Method 1
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+	    if(posOfOnlySetBit(num)!=-1)
+	       System.out.printf("Position of Only Set Bit in %d is %d(from Right)\n",num,posOfOnlySetBit(num));
+	    else
+	       System.out.println("Invalid Input");
+        
+	}
+    
+    
+    public static int posOfOnlySetBit(int num)
+    {
+       if(isPowerOfTwo(num)==false)
+         return -1;
+       else 
+         return posOfRightMostSetBit(num);
+    }
+    
+    public static boolean isPowerOfTwo(int num)
+    {
+        if(num==0)
+          return false;
+        else
+        {
+           if((num & (num-1))==0)
+             return true;
+           else
+             return false;
+        }
+    }
+    
+    public static int posOfRightMostSetBit(int num)
+    {
+       int position=0;
+       for(int i=0;i<32;i++)
+         {
+             int mask=1<<i;
+             if((num&mask)!=0)
+             {
+                 position++;// counting the position of the Only set bit
+                 break;
+             }
+             else
+               position++;
+         }
+         return position;
+    }
+}
+
+
+//Method 2
+/*
+The idea is to one by one right shift the set bit of given number ‘n’ until ‘n’ becomes 0.
+Count how many times we shifted to make ‘n’ zero. The final count is the position of the set bit. 
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+	    if(posOfOnlySetBit(num)!=-1)
+	       System.out.printf("Position of Only Set Bit in %d is %d(from Right)\n",num,posOfOnlySetBit(num));
+	    else
+	       System.out.println("Invalid Input");
+        
+	}
+    
+    public static int posOfOnlySetBit(int num)
+    {
+       if(isPowerOfTwo(num)==false)
+         return -1;
+       
+       int count=0;
+       while(num!=0)
+       {
+           count++;
+           num=num>>1;
+       }
+       return count;
+    }
+    
+    public static boolean isPowerOfTwo(int num)
+    {
+        if(num==0)
+          return false;
+        else
+        {
+           if((num & (num-1))==0)
+             return true;
+           else
+             return false;
+        }
+    }
+}
