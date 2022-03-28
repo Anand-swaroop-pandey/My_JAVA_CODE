@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2");
+        int num2=sc.nextInt();
+        System.out.printf("%d x %d =%d\n",num1,num2,muntiplyUsingBitwise(num1,num2));
+	}
+    public static int muntiplyUsingBitwise(int num1,int num2) //Russian Peasant Algorithm 
+    {
+       int signNum1=0;//0 =positive
+       int signNum2=0;
+       if(num1<0)
+       {
+           signNum1=1;//1= negative
+           num1=Math.abs(num1);
+       }
+       if(num2<0)
+       {
+           signNum2=1;
+           num2=Math.abs(num2);
+       }
+       
+        int prod = 0; 
+        // While second number doesn't become 0
+        while (num2!=0)
+        {
+             // If second number becomes odd,
+             // add the first number to result
+             if ((num2%2)!= 0)   //if ((num2 & 1) != 0) (If the last bit of a number is set then the number is odd, otherwise even.) 
+                 prod=prod+num1;
+  
+            // Double the first number
+            // and halve the second number
+            num1 = num1 << 1;// x<<y = x*(2^y)
+            num2 = num2 >> 1;// x>>y = x*/(2^y)
+        }
+        if((signNum1==0 && signNum2==1) || (signNum1==1 && signNum2==0))//if opposite sign product is negative
+           prod=-prod;
+ 
+        return prod;  
+    }
+}
+/*
+How does this work? 
+The value of a*b is same as (a*2)*(b/2) if b is even, otherwise the value is same as ((a*2)*(b/2) + a). 
+In the while loop, we keep multiplying ‘a’ with 2 and keep dividing ‘b’ by 2.
+If ‘b’ becomes odd in loop, we add ‘a’ to ‘res’. When value of ‘b’ becomes 1, the value of ‘res’ + ‘a’, gives us the result. 
+Note that when ‘b’ is a power of 2, the ‘res’ would remain 0 and ‘a’ would have the multiplication. See the reference for more information.
+*/
