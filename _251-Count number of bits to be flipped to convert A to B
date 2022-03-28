@@ -1,0 +1,43 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf("Number of bits to be flipped to convert %d to %d is : %d",num1,num2,flippedBitsCount(num1,num2));
+	}
+    
+    public static int flippedBitsCount(int num1,int num2)
+    {
+       int xor=num1^num2;
+       return countSetBits(xor);
+    }
+    
+    public static int countSetBits(int num)
+    {
+        int count=0;
+        while(num!=0)
+        {
+            int rmsbm=rMSBM(num);
+            num=num-rmsbm;
+            count++;
+        }
+        return count;
+    }
+    
+    public static int rMSBM(int num)
+    {
+        int rmsbm=num & twosComplement(num);
+        return rmsbm;
+    }
+    
+    public static int twosComplement(int num)
+    {
+        return -num;//return (~num+1);
+    }
+}
