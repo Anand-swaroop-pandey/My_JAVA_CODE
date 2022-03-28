@@ -1,3 +1,5 @@
+//Method 1 
+//The idea is to check whether the last bit of the number is set or not. If the last bit is set then the number is odd, otherwise even. 
 import java.util.Scanner;
 public class Test
 {
@@ -15,8 +17,36 @@ public class Test
     {
         int mask=1;
        if((num%mask)==0)
-         return true;
+         return true;//Number is even
        else//(num%mask)!=0
-         return false;
+         return false;//Number is odd
     }
 }
+
+//Method2
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1");
+        int num=sc.nextInt();
+        if(isEven(num))
+          System.out.printf("%d is Even",num);
+        else
+          System.out.printf("%d is ODD",num);
+	}
+    public static boolean isEven(int num)
+    {
+        int xor=num^1;
+        if(xor==(num+1))
+          return true;//Number is even
+       else//(xor==(num-1))
+         return false;//number is odd
+    }
+}
+/*
+As we know bitwise XOR Operation of the Number by 1 increment the value of the number by 1 if the number is even 
+otherwise it decrements the value of the number by 1 if the value is odd.
+*/
