@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1");
+        int num=sc.nextInt();
+        if(isEven(num))
+          System.out.printf("%d is Even",num);
+        else
+          System.out.printf("%d is ODD",num);
+	}
+    public static boolean isEven(int num)
+    {
+        int mask=1;
+       if((num%mask)==0)
+         return true;
+       else//(num%mask)!=0
+         return false;
+    }
+}
