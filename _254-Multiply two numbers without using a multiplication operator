@@ -1,3 +1,4 @@
+//Method 1
 import java.util.Scanner;
 public class Test
 {
@@ -32,3 +33,37 @@ public class Test
          return res;
     }
 }
+
+//Method 2
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf("%d x %d = %d\n",num1,num2,multiply(num1,num2));
+	}
+	
+	public static long multiply(int num1, int num2)
+	{
+	   long ans = 0;
+	   for(int count=0;num2!=0;count++)
+           {
+		if ((num2 & 1)!=0)			
+		  ans=ans+(num1<<count);   //(num1<<count)=num1*(2^count)
+		num2=num2>>1;    //(num2>>1)=(num2/2);
+	   }
+	   return ans;
+	}
+}
+/*
+ The idea is based on the fact that every number can be represented in binary form. 
+ And multiplication with a number is equivalent to multiplication with powers of 2.
+ Powers of 2 can be obtained using left shift operator.
+Check for every set bit in the binary representation of num2 and for every set bit left shift num1, "count" times where count is place value of the set bit of num2 and add that value to answer.
+*/
+
