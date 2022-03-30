@@ -10,7 +10,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+        System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
 	public static int findOnlyRepeated(int arr[])
@@ -38,7 +38,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+            System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
     public static int findOnlyRepeated(int arr[])
@@ -65,7 +65,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+         System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
      public static int findOnlyRepeated(int arr[])
@@ -103,7 +103,7 @@ public class Test
 
 //Further Improved Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
@@ -113,11 +113,11 @@ public class Main
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();*
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+            System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
-    public static int findOnlyRepeated(int arr[])
-   {
+      public static int findOnlyRepeated(int arr[])
+      {
        int sum=0,arrSum=0;
 	    int[] freqArr=new int[arr.length];
 	    countFrequency(arr,freqArr);
@@ -153,7 +153,7 @@ public class Main
 
 //Better Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
@@ -163,7 +163,7 @@ public class Main
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+            System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
 	public static int findOnlyRepeated(int arr[])
@@ -190,7 +190,7 @@ public class Main
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+           System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
     public static int findOnlyRepeated(int arr[])
@@ -223,22 +223,22 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+            System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
 	public static int findOnlyRepeated(int arr[])
 	{
 	    int n=arr.length;
 	    int XOR1=0;
-        for(int i=1;i<n;i++)
-           XOR1=XOR1^i;
+           for(int i=1;i<n;i++)
+             XOR1=XOR1^i;
            
-        int XOR2=0;
-        for(int i=0;i<n;i++)
-           XOR2=XOR2^arr[i];
+            int XOR2=0;
+           for(int i=0;i<n;i++)
+             XOR2=XOR2^arr[i];
            
-        int repeating=XOR1^XOR2;
-        return repeating;
+           int repeating=XOR1^XOR2;
+           return repeating;
 	}
 }
 
@@ -255,24 +255,24 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findOnlyRepeated(arr));
+            System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
-    public static int findOnlyRepeated(int arr[])
+        public static int findOnlyRepeated(int arr[])
 	{
   	   int n=arr.length;
   	   int repeating=-1;
        
-       for(int i=0;i<n;i++)
-        {
-           int element=arr[Math.abs(arr[i])]; 
-           if(element <0)
+           for(int i=0;i<n;i++)
            {
-               repeating=arr[i];
-               break;
-           }
-          arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])]; 
-        }
-        return Math.abs(repeating);
+              int element=arr[Math.abs(arr[i])]; 
+              if(element <0)
+              {
+                 repeating=arr[i];
+                 break;
+               }
+              arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])]; 
+            }
+           return Math.abs(repeating);
 	}
 }
