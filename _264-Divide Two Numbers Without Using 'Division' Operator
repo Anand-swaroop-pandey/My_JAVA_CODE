@@ -1,0 +1,41 @@
+//(via Repeated Substraction)
+import java.util.Scanner;
+public class Test
+{
+	 public static void main(String[] args)
+	 {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Dividend");
+        int num1=sc.nextInt();
+        System.out.println("Enter Divisor");
+        int num2=sc.nextInt();
+        System.out.printf(division(num1,num2));
+	 }
+    public static String division(int dividend,int divisor)//find (num1/num2)?
+    {
+       if(divisor==0)
+         return "Error!! Division Not Possible!! Divisor Cannot be Zero."; 
+       else
+         {
+             System.out.printf("%d / %d => ",dividend,divisor); 
+             int sign=0;
+             if((dividend*divisor)<0)
+               sign=-1;
+             else if((dividend*divisor)>0)
+               sign=1;
+              
+             divisor=Math.abs(divisor);
+             dividend=Math.abs(dividend);
+             
+             int quotient=0;
+             while(dividend>=divisor)
+             {
+                 dividend=dividend-divisor;
+                 quotient++;
+             }
+             quotient=sign*quotient;
+             
+             return "Quotient= "+ quotient+" and Remainder= "+dividend;  
+         }
+    }
+}
