@@ -1,0 +1,116 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter N");
+	    int n=sc.nextInt();
+	    System.out.printf("count of positive integers strictly less than %d, having same number of set bits as that of %d is : %d",n,n,count(n));
+	}
+	public static int count(int N)
+	{
+	    int cntSetBit=countSetBits(N);
+	    int count=0;
+        for(int num=1;num<N;num++)
+           if(cntSetBit==countSetBits(num))
+             count++;
+        return count;
+	}
+	public static int countSetBits(int num)
+	{
+	    int count=0;
+	    while(num!=0)
+	    {
+	        int rmsbm=rMSBM(num);
+	        num=num-rmsbm;
+	        count++;
+	    }
+	    return count;
+	}
+	
+	public static int rMSBM(int num)
+	{
+        int rmsbm=num & twosComplement(num);
+	    return rmsbm;
+	}
+	
+	public static int twosComplement(int num)
+	{
+        int twosComp=(~num+1);
+	    return twosComp;
+	}
+}
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter N");
+	    int n=sc.nextInt();
+	    System.out.printf("count of positive integers strictly less than %d, having same number of set bits as that of %d is : %d",n,n,driver(n));
+	}
+    
+  public static int driver(int N) 
+  {
+    
+     int count1Bit = countSetBits (N);
+     return count (N, count1Bit, 31);
+  }
+  
+  public static int count (int N, int csb, int index) 
+  {
+    if (index ==0)
+      return 0;
+      
+    int res=0;
+    int mask = 1 << index;
+    if ((N & mask) == 0)
+       return count (N, csb, index - 1);
+    else
+      {
+          int res1 =count (N, csb - 1, index - 1);
+          int res0 = nCr(index, csb);
+          res = res0 + res1;
+      }
+      return res;
+   }
+   
+	public static int countSetBits(int num)
+	{
+	    int count=0;
+	    while(num!=0)
+	    {
+	        int rmsbm=rMSBM(num);
+	        num=num-rmsbm;
+	        count++;
+	    }
+	    return count;
+	}
+	
+	public static int rMSBM(int num)
+	{
+        int rmsbm=num & twosComplement(num);
+	    return rmsbm;
+	}
+	
+	public static int twosComplement(int num)
+	{
+        int twosComp=(~num+1);
+	    return twosComp;
+	}
+	
+	public static int nCr(int n, int r)
+	{
+        int res=1;
+        for(int i = 0; i< r; i++)
+        {
+            res = res * (n - i);
+            res = res / (i + 1);
+        }
+        return res;
+    }
+}
