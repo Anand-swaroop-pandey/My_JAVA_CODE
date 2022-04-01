@@ -44,9 +44,9 @@ public class Test
     {
 	   int count=0;
 	   for(int i=1;i<=n;i++)
-         count+= countSetBits(i);  
-       return count;
-	  }
+              count+= countSetBits(i);  
+           return count;
+    }
 	
     public static int countSetBits(int num)//Kernighan's Algorithm
     {
@@ -58,7 +58,7 @@ public class Test
          count++;  
        }
       return count;
-	   }
+    }
 	   
     public static int rMSBM(int num)
 	  {
@@ -69,7 +69,7 @@ public class Test
     public static int twosCompliment(int num)
     {
        return -num;//return (~num+1);
-	  }
+    }
 }
 
 
@@ -100,7 +100,7 @@ public class Test
 	   return count1;
 	}
 	
-    public static int largestPowerOf2InRange(int num)
+       public static int largestPowerOf2InRange(int num)
 	{
 	    int power=0;
 	    while(true)
