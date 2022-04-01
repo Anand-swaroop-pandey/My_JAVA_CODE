@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Number1:");
+	    int m=sc.nextInt();
+	    System.out.println("Enter the Number2:");
+	    int n=sc.nextInt();
+	    System.out.println("Enter lower range:");
+	    int low=sc.nextInt();
+	    System.out.println("Enter upper Range:");
+	    int high=sc.nextInt();
+	    System.out.printf("Number Formed After Copying Set bits of %d from position %d(From Right) to position %d into %d is %d",n,low,high,m,copySetBits(m,n,low,high));
+	}
+    
+    public static int copySetBits(int num1,int num2,int start,int end)
+    {
+       int mask1=1<<(end-start+1);
+       mask1=mask1-1;
+       mask1=mask1<<(start-1);
+       int mask2=num2 & mask1;
+       int res=num1|mask2;
+       return res;
+    }
+}
