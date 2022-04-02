@@ -27,23 +27,18 @@ public class Test
            count[i]=cnt;
        }
        
-       boolean repeat=false,missing=false;
+       int repeat=0,missing=0;
        for(int i=1;i<=n;i++)
        {
            if(count[i]==2)
-           {
-             System.out.println("Repeating Element: "+i);
-             repeat=true;
-           }
+             repeat=i;
            else if(count[i]==0)
-           {
-             System.out.println("Missing Element: "+i);
-             repeat=true; 
-           }
+             missing=i;
            
-           if(repeat==true && missing==true)
+           if(repeat!=0 && missing!=0)
              break;
        }
+       System.out.println("Repeating Number = "+repeat+"\nMissing Number = "+missing);
     }
 }
 
