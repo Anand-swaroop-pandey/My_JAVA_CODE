@@ -1,0 +1,65 @@
+//Optimal Approach
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+	     System.out.println("Enter the Size of the Array:");
+	     Scanner sc=new Scanner(System.in);
+	     int n=sc.nextInt();
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d of the Array:\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     RepeatingAndTheMissing(arr); 
+    }
+		
+    public static void RepeatingAndTheMissing(int arr[])
+    {
+          int n=arr.length;
+          int xXory=0;
+          for(int i=1;i<=n;i++)
+             xXory=xXory^i;
+             
+          for(int val:arr)
+        	  xXory=xXory^val;
+             
+          int rmsbm=rMSBM(xXory);
+          
+          int x=0,y=0;
+          for(int val:arr)
+            if((val & rmsbm)==0)
+               x=x^val;
+            else
+               y=y^val;
+          
+          for(int i=1;i<=n;i++)
+            if((i & rmsbm)==0)
+               x=x^i;
+            else
+               y=y^i;
+          
+          for(int i=0;i<n;i++)
+            if(arr[i]==x)
+            {
+                System.out.println("Repeating Number = "+x+"\nMissing Number = "+y);
+                break;
+            }
+            else if(arr[i]==y)
+            {
+                System.out.println("Repeating Number = "+y+"\nMissing Number = "+x);
+                break;
+            }
+    }
+	   
+   public static int rMSBM(int n)
+   {
+       int rsbm= n & twosCompliment(n);
+       return rsbm;
+   }
+		
+    public static int twosCompliment(int n)
+   {
+       return -n;//(~n+1);
+   }
+}
