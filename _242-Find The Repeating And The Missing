@@ -1,3 +1,56 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+           System.out.printf("Enter %d of the Array:\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   RepeatingAndTheMissing(arr); 
+    }
+		
+    public static void RepeatingAndTheMissing(int arr[])
+    {
+       int n=arr.length;
+       Arrays.sort(arr);
+       int repeat=0,missing=0;
+       for(int i=0;i<n;i++)
+         if(arr[i]==arr[i+1])
+         {
+           repeat=arr[i];
+           break;
+         }
+       for(int i=1;i<=n;i++)
+         if(binarySearch(arr,i)==false)
+         {
+            missing=i;
+            break;
+         }
+       System.out.println("Repeating Number = "+repeat+"\nMissing Number = "+missing);
+    }
+    
+    public static boolean binarySearch(int[] arr,int key)
+    {
+        int low=0,high=arr.length-1;
+        while(low<=high)
+        {
+           int mid=(low+high)/2; 
+           if(arr[mid]==key)
+             return true;
+           else if(key>arr[mid])
+             low=mid+1;
+           else if(key<arr[mid])
+              high=mid-1;
+        }
+        return false;
+    }
+}
+
 //Better Approach
 import java.util.Scanner;
 public class Test
@@ -18,17 +71,11 @@ public class Test
     {
        int n=arr.length;
        int[]count=new int[n+1];
-       for(int i=1;i<=n;i++)
-       {
-           int cnt=0;
-           for(int j=0;j<n;j++)
-             if(arr[j]==i)
-               cnt++;
-           count[i]=cnt;
-       }
+       for(int i=0;i<n;i++)
+           count[arr[i]]++;
        
        int repeat=0,missing=0;
-       for(int i=1;i<=n;i++)
+       for(int i=1;i<(n+1);i++)
        {
            if(count[i]==2)
              repeat=i;
