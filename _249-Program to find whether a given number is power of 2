@@ -14,7 +14,7 @@ public class Test
 	    else
 	       System.out.printf("%d is Not a Power OF Two\n",num);
          
-        if(isPowerOfTwo_Recursive(num))
+            if(isPowerOfTwo_Recursive(num))
 	       System.out.printf("%d is A Power OF Two",num);
 	    else
 	       System.out.printf("%d is Not a Power OF Two",num);
@@ -48,20 +48,21 @@ public class Test
 
 //Better Approach
 //All power of two numbers has only a one-bit set. So count the no. of set bits and if you get 1 then the number is a power of 2. 
+
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number:");
-	    int num=sc.nextInt();
+     public static void main(String[] args)
+     {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter Number:");
+	  int num=sc.nextInt();
 	    
-        if(isPowerOfTwo(num))
-	       System.out.printf("%d is A Power OF Two",num);
-	    else
-	       System.out.printf("%d is Not a Power OF Two",num);
-	}
+          if(isPowerOfTwo(num))
+	      System.out.printf("%d is A Power OF Two",num);
+	  else
+	      System.out.printf("%d is Not a Power OF Two",num);
+     }
 
     public static boolean isPowerOfTwo(int num)
     {
@@ -76,11 +77,11 @@ public class Test
 	    while(num!=0)
 	    {
 	       int rmsbm=rMSBM(num);
-         num=num-rmsbm;
-         count++;  
+               num=num-rmsbm;
+               count++;  
 	    }
-      return count;
-	 }
+            return count;
+    }
 	
 	public static int rMSBM(int num)
 	{
@@ -88,9 +89,9 @@ public class Test
 	   return rmsbm;
 	}
 	
-   public static int twosCompliment(int num)
+        public static int twosCompliment(int num)
 	{
-     return -num;//return (~num+1);
+           return -num;//return (~num+1);
 	}
   
   
@@ -113,7 +114,7 @@ public class Test
 	    System.out.println("Enter Number:");
 	    int num=sc.nextInt();
 	    
-        if(isPowerOfTwo(num))
+            if(isPowerOfTwo(num))
 	       System.out.printf("%d is A Power OF Two",num);
 	    else
 	       System.out.printf("%d is Not a Power OF Two",num);
