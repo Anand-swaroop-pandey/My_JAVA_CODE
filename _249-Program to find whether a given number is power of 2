@@ -22,7 +22,7 @@ public class Test
 
     public static boolean isPowerOfTwo_Iterative(int num)
     {
-      if(num==0)
+      if(num<=0)
         return false;
         
       while(num!=1)
@@ -39,7 +39,7 @@ public class Test
         if(num==1)
           return true;
           
-        if((num%2)!=0 || num==0)
+        if((num%2)!=0 || num<=0)
            return false;
            
         return isPowerOfTwo_Recursive(num/2); //return isPowerOfTwo_Recursive(num>>1);
