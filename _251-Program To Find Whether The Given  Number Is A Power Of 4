@@ -64,7 +64,7 @@ public class Test
 
     public static boolean isPowerOf4_Iterative(int num)
     {
-       if(isPowerOfTwo(num)==true && atEvenBitPosition(num)==true)
+       if(isPowerOfTwo(num)==true && atOddBitPosition(num)==true)
          return true;
        return false;
     }
@@ -94,21 +94,21 @@ public class Test
 	   return rmsbm;
 	}
 	
-  public static int twosCompliment(int num)
+        public static int twosCompliment(int num)
 	{
            return -num;//return (~num+1);
 	}
 	
-	public static boolean atEvenBitPosition(int num)
-  {
-        for(int i=1;i<32;i+=2)
-        {
-           int mask=1<<i;
-           if((num & mask)!=0)
-              return false;
-        }
-        return true;
-   }
+	public static boolean atOddBitPosition(int num)
+       {
+           for(int i=2;i<=32;i+=2)
+           {
+             int mask=1<<(i-1);
+             if((num & mask)!=0)
+               return false;
+           }
+           return true;
+       }
 }
 
 
@@ -130,7 +130,7 @@ public class Test
 
     public static boolean isPowerOf4(int num)
     {
-       if(countSetBits(num)==true && atEvenBitPosition(num)==true)
+       if(countSetBits(num)==true && atOddBitPosition(num)==true)
          return true;
        return false;
     }
@@ -141,8 +141,8 @@ public class Test
 	     while(num!=0)
 	     {
 	       int rmsbm=rMSBM(num);
-         num=num-rmsbm;
-         count++;  
+               num=num-rmsbm;
+               count++;  
 	     }
         if(count==1)
           return true;
@@ -151,21 +151,21 @@ public class Test
     }
     
   public static int rMSBM(int num)
-	{
-	   int rmsbm=num & twosCompliment(num);
-	   return rmsbm;
-	}
+  {
+     int rmsbm=num & twosCompliment(num);
+     return rmsbm;
+  }
 	
   public static int twosCompliment(int num)
-	{
-      return -num;//return (~num+1);
-	}
-    
-  public static boolean atEvenBitPosition(int num)
   {
-        for(int i=1;i<32;i+=2)
+      return -num;//return (~num+1);
+  }
+    
+  public static boolean atOddBitPosition(int num)
+  {
+        for(int i=2;i<=32;i+=2)
         {
-           int mask=1<<i;
+           int mask=1<<(i-1);
            if((num & mask)!=0)
               return false;
         }
@@ -191,7 +191,7 @@ public class Test
 
     public static boolean isPowerOf4(int num)
     {
-       if(isPowerOfTwo(num)==true && atEvenBitPosition(num)==true)
+       if(isPowerOfTwo(num)==true && atOddBitPosition(num)==true)
          return true;
        return false;
     }
@@ -209,18 +209,66 @@ public class Test
         }
     }
     
-    public static boolean atEvenBitPosition(int num)
+    public static boolean atOddBitPosition(int num)
     {
-        for(int i=1;i<32;i+=2)
+        for(int i=2;i<=32;i+=2)
         {
-           int mask=1<<i;
-           if((num & mask)!=0)
-              return false;
+            int mask=1<<(i-1);
+            if((num & mask)!=0)
+               return false;
         }
-        return true;
+	return true;
     }
 }
  
  
+ //Optimal Approach
  
- 
+ //Further Optimised
+/*
+The basic idea is from power of 2, We can use "n&(n-1) == 0" to determine if n is power of 2. For power of 4, the additional restriction is that in binary form, the only "1" should always located at the odd position.
+For example, 4^0 = 1, 4^1 = 100, 4^2 = 10000. So we can use "num & 0x55555555==num" to check if "1" is located at the odd position.
+*/
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+      
+	    if(isPowerOf4(num))
+	       System.out.printf("%d is A Power OF Four\n",num);
+	    else
+	       System.out.printf("%d is Not a Power OF Four",num);
+	}
+
+    public static boolean isPowerOf4(int num)
+    {
+       if(isPowerOfTwo(num)==true && atOddBitPosition(num)==true)
+         return true;
+       return false;
+    }
+    
+    public static boolean isPowerOfTwo(int num)
+    {
+        if(num<=0)
+          return false;
+        else
+        {
+           if((num & (num-1))==0)
+             return true;
+           else
+             return false;
+        }
+    }
+    
+    public static boolean atOddBitPosition(int num)
+    {
+       int oddMask=0x55555555;
+       if((num & oddMask) == num)
+          return true;
+        return false;
+    }
+}
