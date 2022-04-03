@@ -1,0 +1,226 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+      
+	    if(isPowerOf4_Iterative(num))
+	       System.out.printf("%d is A Power OF 4\n",num);
+	    else
+	       System.out.printf("%d is Not a Power OF 4\n",num);
+         
+        if(isPowerOf4_Recursive(num))
+	       System.out.printf("%d is A Power OF 4",num);
+	    else
+	       System.out.printf("%d is Not a Power OF 4",num);
+	}
+
+    public static boolean isPowerOf4_Iterative(int num)
+    {
+      if(num<=0)
+        return false;
+        
+      while(num!=1)
+      {
+          if((num%4)!=0)
+             return false;
+          num=num/4;//num=num>>2
+      }
+      return true;
+    }
+    
+    public static boolean isPowerOf4_Recursive(int num)
+    {
+        if(num==1)
+          return true;
+          
+        if((num%4)!=0 || num<=0)
+           return false;
+           
+        return isPowerOf4_Recursive(num/4); //return isPowerOf4_Recursive(num>>2);
+    }
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+      
+	    if(isPowerOf4_Iterative(num))
+	       System.out.printf("%d is A Power OF 4\n",num);
+	    else
+	       System.out.printf("%d is Not a Power OF 4\n",num);
+	}
+
+    public static boolean isPowerOf4_Iterative(int num)
+    {
+       if(isPowerOfTwo(num)==true && atEvenBitPosition(num)==true)
+         return true;
+       return false;
+    }
+    
+    public static boolean isPowerOfTwo(int num)
+    {
+       if(countSetBits(num)==1)
+         return true;
+       return false;
+    }
+    
+    public static int countSetBits(int num) //Kernighan's Algorithm
+    {
+	    int count=0;
+	    while(num!=0)
+	    {
+	       int rmsbm=rMSBM(num);
+               num=num-rmsbm;
+               count++;  
+	    }
+        return count;
+    }
+	
+	public static int rMSBM(int num)
+	{
+	   int rmsbm=num & twosCompliment(num);
+	   return rmsbm;
+	}
+	
+  public static int twosCompliment(int num)
+	{
+           return -num;//return (~num+1);
+	}
+	
+	public static boolean atEvenBitPosition(int num)
+  {
+        for(int i=1;i<32;i+=2)
+        {
+           int mask=1<<i;
+           if((num & mask)!=0)
+              return false;
+        }
+        return true;
+   }
+}
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+      
+	    if(isPowerOf4(num))
+	       System.out.printf("%d is A Power OF Four\n",num);
+	    else
+	       System.out.printf("%d is Not a Power OF Four",num);
+	}
+
+    public static boolean isPowerOf4(int num)
+    {
+       if(countSetBits(num)==true && atEvenBitPosition(num)==true)
+         return true;
+       return false;
+    }
+    
+    public static boolean countSetBits(int num) //Kernighan's Algorithm
+    {
+	    int count=0;
+	     while(num!=0)
+	     {
+	       int rmsbm=rMSBM(num);
+         num=num-rmsbm;
+         count++;  
+	     }
+        if(count==1)
+          return true;
+        else
+          return false;
+    }
+    
+  public static int rMSBM(int num)
+	{
+	   int rmsbm=num & twosCompliment(num);
+	   return rmsbm;
+	}
+	
+  public static int twosCompliment(int num)
+	{
+      return -num;//return (~num+1);
+	}
+    
+  public static boolean atEvenBitPosition(int num)
+  {
+        for(int i=1;i<32;i+=2)
+        {
+           int mask=1<<i;
+           if((num & mask)!=0)
+              return false;
+        }
+        return true;
+  }
+}
+
+//Further Optimised
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Number:");
+	    int num=sc.nextInt();
+      
+	    if(isPowerOf4(num))
+	       System.out.printf("%d is A Power OF Four\n",num);
+	    else
+	       System.out.printf("%d is Not a Power OF Four",num);
+	}
+
+    public static boolean isPowerOf4(int num)
+    {
+       if(isPowerOfTwo(num)==true && atEvenBitPosition(num)==true)
+         return true;
+       return false;
+    }
+    
+    public static boolean isPowerOfTwo(int num)
+    {
+        if(num<=0)
+          return false;
+        else
+        {
+           if((num & (num-1))==0)
+             return true;
+           else
+             return false;
+        }
+    }
+    
+    public static boolean atEvenBitPosition(int num)
+    {
+        for(int i=1;i<32;i+=2)
+        {
+           int mask=1<<i;
+           if((num & mask)!=0)
+              return false;
+        }
+        return true;
+    }
+}
+ 
+ 
+ 
+ 
