@@ -48,29 +48,29 @@ public class Test
 	
 	public static int smallestMissingPos(int[]arr)
 	{
-      Arrays.sort(arr);
+            Arrays.sort(arr);
 	   int n=arr.length;
 	   int i=0,pos=1;
-       while(i<n && arr[i]<=0)
-         i++;
+           while(i<n && arr[i]<=0)
+              i++;
          
-      int prev=Integer.MIN_VALUE;  
+           int prev=Integer.MIN_VALUE;  
       
-       while(i<n)
-       {
-         while(i<n && arr[i]==prev)
-            i++;
+           while(i<n)
+           {
+             while(i<n && arr[i]==prev)//To Handle Duplicate
+               i++;
             
-         if(i<n && arr[i]==pos)
-         {
-           prev=arr[i];
-           i++;
-           pos++; 
-         }
-         else
-           break;  
-       }
-	   return pos;
+             if(i<n && arr[i]==pos)
+             {
+               prev=arr[i];
+               i++;
+               pos++; 
+             }
+             else
+              break;  
+          }
+	return pos;
 	}
 }
 
@@ -94,11 +94,11 @@ public class Test
 	
 	public static int smallestMissingPos(int[]arr)
 	{
-       int countNonPos=segPosAndNeg(arr);
+            int countNonPos=segPosAndNeg(arr);
 	    return findMissing(arr,countNonPos);
 	}
 	
-   public static int segPosAndNeg(int[]arr)
+        public static int segPosAndNeg(int[]arr)
 	{
 	   int n=arr.length;
 	   int j=0;
@@ -115,20 +115,19 @@ public class Test
 	
 	public static int findMissing(int[]arr,int start)
 	{
-        int n=arr.length;
-        int size=n-start;
-        boolean[]count=new boolean[size+1];
-        for(int i=start;i<n;i++)
-        {
-            int x=arr[i];
-            if (x<=size)
-             count[x] =true;
-        }
+           int n=arr.length;
+           int size=n-start;
+           boolean[]count=new boolean[size+1];
+           for(int i=start;i<n;i++)
+           {
+             int x=arr[i];
+             if (x<=size)
+               count[x] =true;
+           }
         
-         for (int i=1; i <(size+1); i++)
-            if (count[i]==false)
-                return i;
-                
+           for (int i=1; i <(size+1); i++)
+             if (count[i]==false)
+                return i;       
         return size+1;
 	}
 }
