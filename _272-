@@ -1,0 +1,201 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array");
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   System.out.println("smallest positive number missing from the Given Array is :"+smallestMissingPos(arr));
+	}
+	
+	public static int smallestMissingPos(int[]arr)
+	{
+	   int n=arr.length;
+	   for(int pos=1;pos<=(n+1);pos++)
+	   {
+	       int i;
+	       for(i=0;i<n;i++)
+	         if(arr[i]==pos)
+	           break;
+	       if(i==n)
+	         return pos;
+	   }
+	   return -1;
+	}
+}
+
+//Improved Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array");
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   System.out.println("smallest positive number missing from the Given Array is :"+smallestMissingPos(arr));
+	}
+	
+	public static int smallestMissingPos(int[]arr)
+	{
+      Arrays.sort(arr);
+	   int n=arr.length;
+	   int i=0,pos=1;
+       while(i<n && arr[i]<=0)
+         i++;
+         
+      int prev=Integer.MIN_VALUE;  
+      
+       while(i<n)
+       {
+         while(i<n && arr[i]==prev)
+            i++;
+            
+         if(i<n && arr[i]==pos)
+         {
+           prev=arr[i];
+           i++;
+           pos++; 
+         }
+         else
+           break;  
+       }
+	   return pos;
+	}
+}
+
+
+//Better Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array");
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   System.out.println("smallest positive number missing from the Given Array is :"+smallestMissingPos(arr));
+	}
+	
+	public static int smallestMissingPos(int[]arr)
+	{
+       int countNonPos=segPosAndNeg(arr);
+	    return findMissing(arr,countNonPos);
+	}
+	
+   public static int segPosAndNeg(int[]arr)
+	{
+	   int n=arr.length;
+	   int j=0;
+	   for(int i=0;i<n;i++)
+	     if(arr[i]<=0)
+	     {
+	       int temp=arr[i];
+	       arr[i]=arr[j];
+	       arr[j]=temp;
+	       j++;
+	     }
+	    return j; 
+	}
+	
+	public static int findMissing(int[]arr,int start)
+	{
+        int n=arr.length;
+        int size=n-start;
+        boolean[]count=new boolean[size+1];
+        for(int i=start;i<n;i++)
+        {
+            int x=arr[i];
+            if (x<=size)
+             count[x] =true;
+        }
+        
+         for (int i=1; i <(size+1); i++)
+            if (count[i]==false)
+                return i;
+                
+        return size+1;
+	}
+}
+
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array");
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   System.out.println("smallest positive number missing from the Given Array is :"+smallestMissingPos(arr));
+	}
+	
+	public static int smallestMissingPos(int[]arr)
+	{
+	    int countNonPos=segPosAndNeg(arr);
+	    int newSize=(arr.length-countNonPos);
+	    int[] pos=new int[newSize];
+	    for(int i=0;i<newSize;i++)
+	      pos[i]=arr[countNonPos+i];
+	    return findMissing(pos,newSize);   
+	}
+	
+	public static int segPosAndNeg(int[]arr)
+	{
+	   int n=arr.length;
+	   int j=0;
+	   for(int i=0;i<n;i++)
+	     if(arr[i]<=0)
+	     {
+	       int temp=arr[i];
+	       arr[i]=arr[j];
+	       arr[j]=temp;
+	       j++;
+	     }
+	    return j; 
+	}
+	
+	public static int findMissing(int[]arr,int n)
+	{
+	    // Mark arr[i] as visited by making
+        // arr[arr[i] - 1] negative. Note that
+        // 1 is subtracted because index start
+        // from 0 and positive numbers start from 1
+        for(int i=0;i<n;i++)
+        {
+            int x = Math.abs(arr[i]);
+            if ((x - 1)<n && arr[x - 1] > 0)//arr[x-1]>0 =>To check for Duplicates
+                arr[x - 1] = -arr[x - 1];
+        }
+        
+         for (int i = 0; i <n; i++)
+            if (arr[i] > 0)
+                return (i + 1);
+                
+         // if all indices are marked, then
+        // smallest missing positive
+        // number is array_size + 1.       
+        return (n+1);
+	}
+}
