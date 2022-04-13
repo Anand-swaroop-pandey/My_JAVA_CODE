@@ -1,4 +1,4 @@
-//Optimal Approach
+//Intuitive  Approach
 import java.util.Scanner;
 public class Test
 {
@@ -23,25 +23,25 @@ public class Test
 	
 	public static int countOccurrences(int [] arr,int key)
 	{
-      int index=binarySearch(arr,key);
-      if(index==-1)
-        return 0;
+           int index=binarySearch(arr,key);
+           if(index==-1)
+             return 0;
         
-      int firstIndex=index-1;
-      while(firstIndex>=0 && arr[firstIndex]==key)
-        firstIndex--;
-       firstIndex++; 
+           int firstIndex=index-1;
+           while(firstIndex>=0 && arr[firstIndex]==key)
+             firstIndex--;
+           firstIndex++; 
        
-      int lastIndex=index+1;
-      while(lastIndex<arr.length &&arr[lastIndex]==key)
-        lastIndex++;
-      lastIndex--; 
+           int lastIndex=index+1;
+           while(lastIndex<arr.length &&arr[lastIndex]==key)
+             lastIndex++;
+            lastIndex--; 
       
-      int count=lastIndex-firstIndex+1;
-      return count;
+           int count=lastIndex-firstIndex+1;
+           return count;
 	}
 	
-	public static int binarySearch(int[]arr,int key)
+   public static int binarySearch(int[]arr,int key)
    {
       int low=0;
       int high=arr.length-1;
@@ -58,3 +58,5 @@ public class Test
       return -1;//key doesnot exists
    }
 }
+
+//Optimal Approach
