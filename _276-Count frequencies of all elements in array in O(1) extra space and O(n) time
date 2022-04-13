@@ -141,7 +141,7 @@ public class Test
         }
  
         System.out.println("Below are counts of all elements");
-        for (int i = 0; i < n; i++)
-            System.out.println(i+1 + "=>" + Math.abs(arr[i]));
+        for (int j = 0; j < n; j++)
+            System.out.println(j+1 + "=>" + Math.abs(arr[j]));
 	}
 }
