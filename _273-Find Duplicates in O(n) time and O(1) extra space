@@ -6,11 +6,16 @@ public class Test
 	   Scanner sc=new Scanner(System.in);
 	   System.out.println("Enter the size of the array");
 	   int n=sc.nextInt();
-	   int[] arr=new int[n];
-	   System.out.printf("Enter %d elements of the array\n",n);
-	   for(int i=0;i<n;i++)
-	     arr[i]=sc.nextInt();
-	   printDuplicate(arr);
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");
 	}
 	
 	
@@ -63,11 +68,16 @@ public class Test
 	   Scanner sc=new Scanner(System.in);
 	   System.out.println("Enter the size of the array");
 	   int n=sc.nextInt();
-	   int[] arr=new int[n];
-	   System.out.printf("Enter %d elements of the array\n",n);
-	   for(int i=0;i<n;i++)
-	     arr[i]=sc.nextInt();
-	   printDuplicate(arr);
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");
 	}
 	
         public static void printDuplicate(int [] arr)
@@ -98,11 +108,16 @@ public class Test
 	   Scanner sc=new Scanner(System.in);
 	   System.out.println("Enter the size of the array");
 	   int n=sc.nextInt();
-	   int[] arr=new int[n];
-	   System.out.printf("Enter %d elements of the array\n",n);
-	   for(int i=0;i<n;i++)
-	     arr[i]=sc.nextInt();
-	   printDuplicate(arr);
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");
 	}
 	
 	public static void printDuplicate(int [] arr)
