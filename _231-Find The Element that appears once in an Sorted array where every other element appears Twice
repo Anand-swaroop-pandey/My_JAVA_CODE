@@ -10,7 +10,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findSingleInSorted(arr));
+            System.out.println("Element occurring once is: "+findSingleInSorted(arr));
 	}
 	
 	public static int findSingleInSorted(int arr[])
@@ -27,7 +27,7 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
+	public static void main(String[] args){
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the Size of the Array");
 	    int n=sc.nextInt();
@@ -35,27 +35,30 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findSingleInSorted(arr));
+            System.out.println("Element occurring once is: "+findSingleInSorted(arr));
 	}
 	
-	public static int findSingleInSorted(int arr[])
-   {
-       int sum=0,arrSum=0;
+	
+       public static int findSingleInSorted(int arr[])
+       {
+            int sum=0,arrSum=0;
 	    int[] freqArr=new int[arr.length];
 	    countFrequency(arr,freqArr);
 	    for(int i=0;i<arr.length;i++)
 	    {
 	        if(freqArr[i]!=-1)
-              sum+=arr[i];
-            arrSum+=arr[i];  
+                   sum+=arr[i];
+               arrSum+=arr[i];  
 	    }
-        int missing=(2*sum)-arrSum;
-        return missing;
+            int missing=(2*sum)-arrSum;
+            return missing;
 	}
+	
+	
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
-	       int n=arr.length;
-	       int count;   
+	    int n=arr.length;
+	    int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -72,7 +75,6 @@ public class Test
             freqArr[i]=count; 
            }
 	}
-    
 }
 
 //Better Approach
@@ -87,10 +89,10 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-      System.out.println("Element occurring once is: "+findSingleInSorted(arr));
+            System.out.println("Element occurring once is: "+findSingleInSorted(arr));
 	}
 	
-   public static int findSingleInSorted(int arr[])
+        public static int findSingleInSorted(int arr[])
 	{
 	    int res=-1;
 	    int[] freqArr=new int[arr.length];
@@ -128,7 +130,7 @@ public class Test
 
 //Optimal Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
 	public static void main(String[] args)
 	{
@@ -139,7 +141,7 @@ public class Main
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findSingleInSorted(arr));
+             System.out.println("Element occurring once is: "+findSingleInSorted(arr));
 	}
 	
 	public static int findSingleInSorted(int[] arr)
@@ -165,7 +167,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findSingleInSorted(arr));
+            System.out.println("Element occurring once is: "+findSingleInSorted(arr));
 	}
 	
 	public static int findSingleInSorted(int[] arr)
@@ -173,8 +175,8 @@ public class Test
 	    int low=0;
 	    int high=(arr.length-1);
 	    int res=-1;
-        while(low<=high)
-        {
+          while(low<=high)
+          {
             if(low==high)
             {
                 res=arr[low];
@@ -196,7 +198,7 @@ public class Test
                 else//(arr[mid]!=arr[mid-1])
                     high=mid-1;
             }
-        }
-       return res;
+          }
+          return res;
 	}
 }
