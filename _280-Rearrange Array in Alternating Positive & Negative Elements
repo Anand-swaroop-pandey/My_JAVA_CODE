@@ -10,10 +10,10 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-    rearrange(arr);
-    System.out.println("Rearranged Array is:");
-       for(int i=0;i<arr.length;i++)
-          System.out.println(arr[i]);
+          rearrange(arr);
+          System.out.println("Rearranged Array is:");
+          for(int i=0;i<arr.length;i++)
+             System.out.println(arr[i]);
  	}
   
 	public static void rearrange(int[] arr)
@@ -67,30 +67,33 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-        rearrange(arr);
-      System.out.println("Rearranged Array is:");
-       for(int i=0;i<arr.length;i++)
-         System.out.println(arr[i]);
+          rearrange(arr);
+         System.out.println("Rearranged Array is:");
+         for(int i=0;i<arr.length;i++)
+           System.out.println(arr[i]);
  	}
+	
+	
 	public static void rearrange(int[] arr)
 	{
-       int j=segregate(arr);
-       int i=0;
-       while(i<j && j<arr.length)
-       {
-          int temp=arr[i];
-          arr[i]=arr[j];
-          arr[j]=temp;
-          i+=2;
-          j++;
-       }
+           int j=segregate(arr);
+           int i=0;
+           while(i<j && j<arr.length)
+           {
+             int temp=arr[i];
+             arr[i]=arr[j];
+             arr[j]=temp;
+             i+=2;
+             j++;
+           }
 	}
 	
-   public static int segregate(int[] arr)
-	{
-       int i=0,j=0;
-       while(i<(arr.length))
+	
+       public static int segregate(int[] arr)
        {
+          int i=0,j=0;
+          while(i<(arr.length))
+         {
            if(arr[i]>=0)
            {
                int temp=arr[i];
@@ -102,9 +105,9 @@ public class Test
            }
            else
              i++;
+         }
+         return j;
        }
-       return j;
-	}
 }
 
 
@@ -126,38 +129,40 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-        rearrange(arr);
-      System.out.println("Rearranged Array is:");
-       for(int i=0;i<arr.length;i++)
-         System.out.println(arr[i]);
+          rearrange(arr);
+          System.out.println("Rearranged Array is:");
+          for(int i=0;i<arr.length;i++)
+            System.out.println(arr[i]);
  	}
+	
+	
 	public static void rearrange(int[] arr)
 	{
 	    int wrongIndex = -1;//No Wrong Index
-      for (int i=0;i<arr.length;i++)
-      {
-          if (wrongIndex>=0)
-            if ((arr[wrongIndex]<0 && arr[i] >= 0) || (arr[wrongIndex]>= 0 && arr[i] < 0))
+            for (int i=0;i<arr.length;i++)
             {
-                rightRotate(arr,wrongIndex,i);
-                if((i - wrongIndex)==1)
-                   wrongIndex = -1;
-                else((i - wrongIndex)>= 2)
-                   wrongIndex+=2; 
-            }
+               if (wrongIndex>=0)
+               if ((arr[wrongIndex]<0 && arr[i] >= 0) || (arr[wrongIndex]>= 0 && arr[i] < 0))
+               {
+                  rightRotate(arr,wrongIndex,i);
+                  if((i - wrongIndex)==1)
+                     wrongIndex = -1;
+                  else((i - wrongIndex)>= 2)
+                    wrongIndex+=2; 
+               }
  
-          if (wrongIndex==-1)
-            if(((i%2)==0 && arr[i]>= 0)|| ((i%2)==1 && arr[i]<0))
-                wrongIndex = i;
-      }
+               if (wrongIndex==-1)
+                 if(((i%2)==0 && arr[i]>= 0)|| ((i%2)==1 && arr[i]<0))
+                    wrongIndex = i;
+             }
 	}
 	
 	
 	 public static void rightRotate(int[]arr, int wrongIndex, int index)
 	 {
-        int temp=arr[index];
-        for(int i=index;i>wrongIndex;i--)
-          arr[i]=arr[i-1];
-        arr[wrongIndex]=temp;
-    }
+            int temp=arr[index];
+            for(int i=index;i>wrongIndex;i--)
+              arr[i]=arr[i-1];
+             arr[wrongIndex]=temp;
+         }
 }
