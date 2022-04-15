@@ -1,0 +1,163 @@
+//Bruteforce Approach(Order of Appearence is Maintained)
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+    rearrange(arr);
+    System.out.println("Rearranged Array is:");
+       for(int i=0;i<arr.length;i++)
+          System.out.println(arr[i]);
+ 	}
+  
+	public static void rearrange(int[] arr)
+	{
+	    int cntPos=0,cntNeg=0;
+	   for(int i=0;i<arr.length;i++)
+	      if(arr[i]>=0)
+	        cntPos++;
+	      else
+	        cntNeg++;
+	        
+	   if(cntNeg==0 || cntPos==0)
+	      return;
+	      
+       int[] pos=new int[cntPos];
+       int[] neg=new int[cntNeg];
+       int p=0,n=0;
+       for(int i=0;i<arr.length;i++)
+         if(arr[i]>=0)
+           pos[p++]=arr[i];
+         else
+           neg[n++]=arr[i];
+    
+       int i=0;p=0;n=0;
+       while(p<cntPos && n<cntNeg)
+          if((i%2)==0)
+            arr[i++]=neg[n++];
+          else
+            arr[i++]=pos[p++];
+       
+       if(n==cntNeg)
+         while(p<cntPos)
+           arr[i++]=pos[p++];
+       
+       if(p==cntPos)
+         while(n<cntNeg)
+           arr[i++]=neg[n++];
+	}
+}
+
+
+//Better Approach (Doesnot Maintain The order of elements)
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+        rearrange(arr);
+      System.out.println("Rearranged Array is:");
+       for(int i=0;i<arr.length;i++)
+         System.out.println(arr[i]);
+ 	}
+	public static void rearrange(int[] arr)
+	{
+       int j=segregate(arr);
+       int i=0;
+       while(i<j && j<arr.length)
+       {
+          int temp=arr[i];
+          arr[i]=arr[j];
+          arr[j]=temp;
+          i+=2;
+          j++;
+       }
+	}
+	
+   public static int segregate(int[] arr)
+	{
+       int i=0,j=0;
+       while(i<(arr.length))
+       {
+           if(arr[i]>=0)
+           {
+               int temp=arr[i];
+               arr[i]=arr[j];
+               arr[j]=temp;
+               
+               i++;
+               j++;
+           }
+           else
+             i++;
+       }
+       return j;
+	}
+}
+
+
+//Optimal Approach (Maintains The order of Appearence of elements)
+/*
+in rearranged array Negative elements are found at Even index(0,2,4,6,8..) and Positive Elements are found at odd index(1,3,5,7,9...)
+The idea is to process array from left to right. While processing, find the first out of place element in the remaining unprocessed array.
+An element is out of place if it is negative and at odd index (0 based index), or it is positive and at even index (0 based index) . Once we find an out of place element, 
+we find the first element after it with opposite sign. We right rotate the subarray between these two elements (including these two).
+*/
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+        rearrange(arr);
+      System.out.println("Rearranged Array is:");
+       for(int i=0;i<arr.length;i++)
+         System.out.println(arr[i]);
+ 	}
+	public static void rearrange(int[] arr)
+	{
+	    int wrongIndex = -1;//No Wrong Index
+      for (int i=0;i<arr.length;i++)
+      {
+          if (wrongIndex>=0)
+            if ((arr[wrongIndex]<0 && arr[i] >= 0) || (arr[wrongIndex]>= 0 && arr[i] < 0))
+            {
+                rightRotate(arr,wrongIndex,i);
+                if((i - wrongIndex)==1)
+                   wrongIndex = -1;
+                else((i - wrongIndex)>= 2)
+                   wrongIndex+=2; 
+            }
+ 
+          if (wrongIndex==-1)
+            if(((i%2)==0 && arr[i]>= 0)|| ((i%2)==1 && arr[i]<0))
+                wrongIndex = i;
+      }
+	}
+	
+	
+	 public static void rightRotate(int[]arr, int wrongIndex, int index)
+	 {
+        int temp=arr[index];
+        for(int i=index;i>wrongIndex;i--)
+          arr[i]=arr[i-1];
+        arr[wrongIndex]=temp;
+    }
+}
