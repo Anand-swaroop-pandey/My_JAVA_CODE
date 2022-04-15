@@ -32,3 +32,37 @@ public class Test
 	    }
 	}
 }
+
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+            printFreq(arr);
+ 	}
+	
+	public static void printFreq(int[] arr)
+	{
+	    int i,freq=1;
+	    for(i=0;i<(arr.length-1);i++)
+	       if(arr[i]==arr[i+1])
+	         freq++;
+	       else
+	       {
+	          System.out.println(arr[i]+"=>"+freq);
+	          freq=1;
+	       }
+	       
+	    if(i==(arr.length-1))
+	        System.out.println(arr[i]+"=>"+freq);
+	}
+}
