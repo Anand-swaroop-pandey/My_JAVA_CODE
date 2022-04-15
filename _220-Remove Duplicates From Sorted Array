@@ -1,12 +1,13 @@
-//Optimal Approach
+// Using Extra Space
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
-       if(n>0)
+      public static void main(String[] args)
+      {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
          {
             int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
@@ -16,21 +17,60 @@ public class Test
            System.out.println("Duplicate Free Array is :");
            for(int i=0;i<index;i++)
               System.out.printf(arr[i]+" ");
-         }
-         else
+          }
+          else
            	System.out.println("Invalid Choice");
 	}
 	
-    public static int  removeDuplicatesFromSortedArray(int[] arr)
+        public static int  removeDuplicatesFromSortedArray(int[] arr)
 	{
-     int n=arr.length;
+            int n=arr.length;
+            int[] temp=new int [n];
 	   int j=0;
-	   for(int i=0;i<n;i++)
-	   {
-	       while(i<(n-1) && arr[i]==arr[i+1])
-	         i++;
-	       arr[j++]=arr[i];
-	   }
+	   for(int i=0;i<(n-1);i++)
+             if(arr[i]!=arr[i+1])
+               temp[j++]=arr[i];
+              
+            temp[j++]=arr[n-1];
+       
+           for(int i=0;i<j;i++)
+            arr[i]=temp[i];
+	      return j;
+	}
+}
+
+// Without Using Extra Space
+import java.util.Scanner;
+public class Test
+{
+      public static void main(String[] args)
+      {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+          int index=removeDuplicatesFromSortedArray(arr);
+           System.out.println("Duplicate Free Array is :");
+           for(int i=0;i<index;i++)
+              System.out.printf(arr[i]+" ");
+          }
+          else
+           	System.out.println("Invalid Choice");
+	}
+	
+        public static int  removeDuplicatesFromSortedArray(int[] arr)
+	{
+           int n=arr.length;
+	   int j=0;
+	   for(int i=0;i<(n-1);i++)
+             if(arr[i]!=arr[i+1])
+               arr[j++]=arr[i];
+           arr[j++]=arr[n-1];
 	   return j;
 	}
 }
