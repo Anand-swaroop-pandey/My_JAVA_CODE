@@ -1,6 +1,6 @@
 //Bruteforce Approach
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Main
              
          }
          else
-           	System.out.println("Invalid Choice");
+            System.out.println("Invalid Choice");
 	}
 	
 	public static String intersectionOfTwoSortedArray(int[] arr1,int[] arr2)
@@ -60,7 +60,7 @@ public class Main
 
 //Better Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
@@ -135,10 +135,10 @@ public class Main
 
 //Optimal Approach
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
@@ -168,15 +168,19 @@ public class Main
 	    int j=0;
 	    String temp="";
         while(i<arr1.length && j<arr2.length)
-          if(arr1[i]<arr2[j])
-            i++;
-          else if(arr2[j]<arr1[i])
-            j++;
-          else if(arr1[i]==arr2[j])
+          if(arr1[i]==arr2[j])
           {
               temp=temp+arr1[i]+",";
               i++;
               j++;
+          }
+          else
+          {
+              int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+              if(min==arr1[i])
+                i++;
+              else if(min==arr2[j])
+                j++;
           }
           String intersection="";
           for(int k=0;k<temp.length()-1;k++)
