@@ -43,12 +43,12 @@ public class Test
         int n=removeDuplicatesFromSortedArray(arr2);
         int o=removeDuplicatesFromSortedArray(arr3);
         int[] common=new int[arr1.length+arr2.length];
-        int len=intersectionOfTwoSortedArray1(arr1,m,arr2,n,common);
-        return intersectionOfTwoSortedArray2(common,len,arr3,o);
+        int len=intersectionOfTwoSortedArray1(arr1,arr2,common);
+        return intersectionOfTwoSortedArray2(common,len,arr3);
     }
 	
-	public static int  removeDuplicatesFromSortedArray(int[] arr)
-	{
+    public static int  removeDuplicatesFromSortedArray(int[] arr)
+    {
            int n=arr.length;
 	   int j=0;
 	   for(int i=0;i<(n-1);i++)
@@ -56,51 +56,56 @@ public class Test
                arr[j++]=arr[i];
            arr[j++]=arr[n-1];
 	   return j;
-	}
+    }
 	
-	public static int intersectionOfTwoSortedArray1(int[] arr1,int m,int[] arr2,int n,int[] arr)
-	{
+    public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
+    {
 	    int i=0;
 	    int j=0;
-	    int k=0;
-        while(i<m && j<n)
-          if(arr1[i]<arr2[j])
-            i++;
-          else if(arr2[j]<arr1[i])
-            j++;
-          else if(arr1[i]==arr2[j])
+            int k=0;
+        while(i<arr1.length && j<arr2.length)
+          if(arr1[i]==arr2[j])
           {
               arr[k++]=arr1[i];
               i++;
               j++;
           }
+	  else
+	  {
+	      int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+              if(min==arr1[i])
+                i++;
+              else if(min==arr2[j])
+                j++;
+	  }
           return k;
-	}
+    }
 	
-	
-	public static String intersectionOfTwoSortedArray2(int[] arr1,int m,int[] arr2,int n)
-	{
+    public static String intersectionOfTwoSortedArray2(int[] arr1,int m,int[] arr2)
+    {
 	    int i=0;
 	    int j=0;
-	    int k=0;
 	    String temp="";
-        while(i<m && j<n)
-          if(arr1[i]<arr2[j])
-            i++;
-          else if(arr2[j]<arr1[i])
-            j++;
-          else if(arr1[i]==arr2[j])
-          {
+           while(i<m && j<arr2.length)
+             if(arr1[i]==arr2[j])
+             {
               temp=temp+arr1[i]+",";
               i++;
               j++;
-          }
-          
-          String intersection="";
-          for(int index=0;index<(temp.length()-1);index++)
-             intersection=intersection+temp.charAt(index);
-          return intersection;
-	}
+             }
+             else
+             {
+              int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+              if(min==arr1[i])
+                i++;
+              else if(min==arr2[j])
+                j++;
+             }
+            String intersection="";
+            for(int k=0;k<temp.length()-1;k++)
+              intersection=intersection+temp.charAt(k);
+            return intersection;
+   }
 }
 
 
