@@ -36,52 +36,60 @@ public class Test
 	}
 	
 	
-	public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
+    public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
         int[] common=new int[arr1.length+arr2.length];
         int len=intersectionOfTwoSortedArray1(arr1,arr2,common);
         return intersectionOfTwoSortedArray2(common,len,arr3);
     }
 	
-	public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
-	{
+    public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
+    {
 	    int i=0;
 	    int j=0;
-        int k=0;
+            int k=0;
         while(i<arr1.length && j<arr2.length)
-          if(arr1[i]<arr2[j])
-            i++;
-          else if(arr2[j]<arr1[i])
-            j++;
-          else if(arr1[i]==arr2[j])
+          if(arr1[i]==arr2[j])
           {
               arr[k++]=arr1[i];
               i++;
               j++;
           }
-        return k;
-	}
+	  else
+	  {
+	      int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+              if(min==arr1[i])
+                i++;
+              else if(min==arr2[j])
+                j++;
+	  }
+          return k;
+    }
 	
 	public static String intersectionOfTwoSortedArray2(int[] arr1,int m,int[] arr2)
 	{
 	    int i=0;
 	    int j=0;
 	    String temp="";
-        while(i<m && j<arr2.length)
-          if(arr1[i]<arr2[j])
-            i++;
-          else if(arr2[j]<arr1[i])
-            j++;
-          else if(arr1[i]==arr2[j])
-          {
+           while(i<m && j<arr2.length)
+             if(arr1[i]==arr2[j])
+             {
               temp=temp+arr1[i]+",";
               i++;
               j++;
-          }
-          String intersection="";
-          for(int k=0;k<temp.length()-1;k++)
-             intersection=intersection+temp.charAt(k);
-          return intersection;
+             }
+             else
+             {
+              int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+              if(min==arr1[i])
+                i++;
+              else if(min==arr2[j])
+                j++;
+             }
+            String intersection="";
+            for(int k=0;k<temp.length()-1;k++)
+              intersection=intersection+temp.charAt(k);
+            return intersection;
 	}
 }
 
@@ -100,7 +108,7 @@ public class Test
        
        System.out.println("Enter the Size of the Array3");
        int o=sc.nextInt();
-       if(m>0 && n>0)
+       if(m>0 && n>0 && o>0)
          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
@@ -116,7 +124,7 @@ public class Test
            System.out.printf("Enter %d Elements of Array3:\n",o);
            for(int i=0;i<o;i++)
               arr3[i]=sc.nextInt();
-            System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
+            System.out.print("Intersection of three Given Sorted Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
              
          }
          else
