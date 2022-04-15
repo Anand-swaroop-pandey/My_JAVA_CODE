@@ -1,0 +1,86 @@
+//Method 1
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+          rearrange(arr);
+      System.out.println("Rearranged Array is:");
+        for(int i=0;i<arr.length;i++)
+           System.out.printf(arr[i]+" ");
+ 	}
+	
+	
+	public static void rearrange(int[] arr)
+	{
+	    int countOdd=segregate(arr);
+	    Arrays.sort(arr,0,countOdd);//First Sort The Array in Descending Order from index=0 to index=(countOdd-1)
+	    for(int i=0;i<(countOdd/2);i++)//Now reverse the array so as to obtain the array sorted in descending order from index=0 to index=(countOdd-1)
+	    {
+	        int temp=arr[i];
+	        arr[i]=arr[countOdd-1-i];
+	        arr[countOdd-1-i]=temp;
+	    }
+	    Arrays.sort(arr,countOdd,arr.length);
+	}
+	
+	public static int segregate(int[] arr)
+	{
+	   int i=0,j=0;
+	   while(i<arr.length)
+	   {
+	     if((arr[i]%2)==1)
+	     {
+	         int temp=arr[i];
+	         arr[i]=arr[j];
+	         arr[j]=temp;
+	         
+	         i++;
+	         j++;
+	     }
+	     else
+	       i++;
+	   }
+	   return j;
+	}
+}
+
+//Method 2
+//This method may not work when input array contains negative numbers.
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+          rearrange(arr);
+      System.out.println("Rearranged Array is:");
+        for(int i=0;i<arr.length;i++)
+           System.out.printf(arr[i]+" ");
+ 	}
+	
+	
+	public static void rearrange(int[] arr)
+	{
+	    int mask=1;
+      for(int i=0;i<arr.length;i++)
+        if((arr[i]&mask)!=0)
+          arr[i]*=-1;
+      Arrays.sort(arr);
+       for(int i=0;i<arr.length;i++)
+        if(arr[i]<0)
+          arr[i]*=-1;
+	}
+}
+
