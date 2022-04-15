@@ -39,7 +39,7 @@ public class Test
 
 //Better Approach
 import java.util.Scanner;
-public class Main
+public class Test
 {
    public static void main(String[] args)
    {
@@ -79,6 +79,7 @@ public class Main
             
            if(start<end)
             {
+                //Swapping
                 int temp=arr[start];
                 arr[start]=arr[end];
                 arr[end]=temp;
