@@ -2,15 +2,15 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
-	     Scanner sc=new Scanner(System.in);
+       public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
        if(m>0 && n>0)
-         {
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
@@ -22,10 +22,10 @@ public class Test
               arr2[i]=sc.nextInt();
               
             System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
-         }
-         else
-           	System.out.println("Invalid Choice");
-	}
+       }
+       else
+          System.out.println("Invalid Choice");
+     }
 	
 	
 	public static float medianOfTwoSortedArray(int[]arr1,int m,int[]arr2,int n)
@@ -34,9 +34,9 @@ public class Test
 	    int[] arr=new int[len];
 	    mergeTwoSortedArrayIntoThirdSortedArray(arr1,m,arr2,n,arr);
 	    if((len%2)==0)
-           return (float)(arr[(len-1)/2]+arr[len/2])/(float)2;
-        else
-           return (float)arr[len/2];
+              return (float)(arr[(len-1)/2]+arr[len/2])/(float)2;
+            else
+              return (float)arr[len/2];
 	}
 	
 	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[]arr1,int m,int[]arr2,int n,int[] arr)
@@ -62,15 +62,15 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
-	     Scanner sc=new Scanner(System.in);
+       public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
        if(m>0 && n>0)
-         {
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
@@ -82,10 +82,10 @@ public class Test
               arr2[i]=sc.nextInt();
               
             System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
-         }
-         else
-           	System.out.println("Invalid Choice");
-	}
+       }
+       else
+           System.out.println("Invalid Choice");
+     }
 	
 	
 	public static float medianOfTwoSortedArray(int[]arr1,int m,int[]arr2,int n)
@@ -94,23 +94,23 @@ public class Test
 	    int len=m+n;
 	    int[] arr=new int[len];
 	    if((len%2)!=0)
-        {
-           while(k<=(len/2))
-           {
-              if(i<m && j<n)
-              {
-                if(arr1[i]<=arr2[j])
+            {
+                while(k<=(len/2))
+                {
+                   if(i<m && j<n)
+                   {
+                      if(arr1[i]<=arr2[j])
 	                arr[k++]=arr1[i++];
 	              else
 	                arr[k++]=arr2[j++];  
-              }
-              else if(j<n)
+                   }
+                   else if(j<n)
 	              arr[k++]=arr2[j++];
-              else if(i<m)
+                   else if(i<m)
 	              arr[k++]=arr1[i++];
-           }
-           return (float)arr[k-1];
-           // return (float)arr[len/2];
+             }
+             return (float)arr[k-1];
+             // return (float)arr[len/2];
         }
         else
         {
@@ -139,7 +139,7 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	     Scanner sc=new Scanner(System.in);
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
@@ -160,7 +160,7 @@ public class Test
             System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	
@@ -169,43 +169,43 @@ public class Test
 	    int i=0,j=0;
 	    int len=m+n;
 	    if((len%2)!=0)
-        {
-           int currVal=-1;
-           for(int count=0;count<=(len/2);count++)
-           {
-              if(i<m && j<n)
-              {
-                if(arr1[i]<=arr2[j])
+            {
+               int currVal=-1;
+               for(int count=0;count<=(len/2);count++)
+               {
+                   if(i<m && j<n)
+                   {
+                       if(arr1[i]<=arr2[j])
+	                 currVal=arr1[i++];
+	               else
+	                 currVal=arr2[j++];  
+                   }
+                   else if(i<m)
+	              currVal=arr1[i++];
+	           else if(j<n)
+	              currVal=arr2[j++];
+              }
+               return (float)currVal; 
+            }
+            else
+            {
+               int currVal=-1,prevVal=-1;
+               for(int count=0;count<=(len/2);count++)
+               {
+                   prevVal=currVal;
+                  if(i<m && j<n)
+                  {
+                      if(arr1[i]<=arr2[j])
 	                currVal=arr1[i++];
 	              else
 	                currVal=arr2[j++];  
-              }
-              else if(i<m)
+                  }
+                   else if(i<m)
 	              currVal=arr1[i++];
-	            else if(j<n)
+	           else if(j<n)
 	              currVal=arr2[j++];
-           }
-           return (float)currVal; 
-        }
-        else
-        {
-           int currVal=-1,prevVal=-1;
-           for(int count=0;count<=(len/2);count++)
-           {
-              prevVal=currVal;
-              if(i<m && j<n)
-              {
-                if(arr1[i]<=arr2[j])
-	                currVal=arr1[i++];
-	              else
-	                currVal=arr2[j++];  
-              }
-              else if(i<m)
-	              currVal=arr1[i++];
-	            else if(j<n)
-	              currVal=arr2[j++];
-           }
-           return (float)(currVal+prevVal)/(float)2;
-        }
-	}
+               }
+              return (float)(currVal+prevVal)/(float)2;
+             }
+	  }
 }
