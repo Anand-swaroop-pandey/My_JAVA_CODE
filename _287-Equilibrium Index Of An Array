@@ -6,34 +6,89 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	      System.out.println("Invalid Choice");
+	      return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-      int eqIndex=equilibrium(arr);
-      if(eqIndex!=-1)
-        System.out.println("Equilibrium Index of The Array is :"+eqIndex);
-      else
-        System.out.println("No Equilibrium Index Exists in The Array:");
+          int eqIndex=equilibrium(arr);
+          if(eqIndex!=-1)
+            System.out.println("Equilibrium Index of The Array is :"+eqIndex);
+          else
+            System.out.println("No Equilibrium Index Exists in The Array");
  	}
 	
 	public static int equilibrium(int[] arr)
 	{
-	  int n=arr.length;
-      for(int i=0;i<n;i++)
-      {
-         int leftSum=0;
-         for(int j=0;j<i;j++)
-            leftSum+=arr[j];
+	   int n=arr.length;
+           for(int i=0;i<n;i++)
+           {
+              int leftSum=0;
+              for(int j=0;j<i;j++)
+                leftSum+=arr[j];
         
-         int rightSum=0;
-         for(int k=(i+1);k<n;k++)
-            rightSum+=arr[k];
+              int rightSum=0;
+              for(int k=(i+1);k<n;k++)
+                rightSum+=arr[k];
         
-        if(leftSum==rightSum)
-          return i;
-      }
-      return -1;
+              if(leftSum==rightSum)
+                return i;
+           }
+          return -1;
+	}
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	      System.out.println("Invalid Choice");
+	      return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+          int eqIndex=equilibrium(arr);
+          if(eqIndex!=-1)
+            System.out.println("Equilibrium Index of The Array is :"+eqIndex);
+          else
+            System.out.println("No Equilibrium Index Exists in The Array");
+ 	}
+	
+	public static int equilibrium(int[] arr)
+	{
+           int n=arr.length;
+           int[] prefixSumFront=new int[n];
+           int[] prefixSumBack=new int[n];
+      
+           for(int i=0;i<n;i++)
+             if(i==0)
+               prefixSumFront[i]=arr[i];
+             else
+               prefixSumFront[i]=arr[i]+prefixSumFront[i-1];
+          
+           for(int i=n-1;i>=0;i--)
+              if(i==(n-1))
+                 prefixSumBack[i]=arr[i];
+              else
+                 prefixSumBack[i]=arr[i]+prefixSumBack[i+1];
+        
+           for(int i=0;i<n;i++)
+              if((prefixSumFront[i]-arr[i])==(prefixSumBack[i]-arr[i]))
+                 return i;
+           return -1;
 	}
 }
 
@@ -42,19 +97,24 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
+          public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	      System.out.println("Invalid Choice");
+	      return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-      int eqIndex=equilibrium(arr);
-      if(eqIndex!=-1)
-        System.out.println("Equilibrium Index of The Array is :"+eqIndex);
-      else
-        System.out.println("No Equilibrium Index Exists in The Array");
+          int eqIndex=equilibrium(arr);
+          if(eqIndex!=-1)
+            System.out.println("Equilibrium Index of The Array is :"+eqIndex);
+          else
+            System.out.println("No Equilibrium Index Exists in The Array");
  	}
 	
 	public static int equilibrium(int[] arr)
@@ -63,13 +123,13 @@ public class Test
 	  for(int i=0;i<n;i++)
 	    arrSum+=arr[i];
 	    
-      for(int i=0;i<n;i++)
-      {
-         arrSum=arrSum-arr[i];//act as rightSum
-        if(leftSum==arrSum)
-          return i;
-        leftSum+=arr[i];
-      }
-      return -1;
+          for(int i=0;i<n;i++)
+          {
+             arrSum=arrSum-arr[i];//act as rightSum
+             if(leftSum==arrSum)
+               return i;
+             leftSum+=arr[i];
+          }
+           return -1;
 	}
 }
