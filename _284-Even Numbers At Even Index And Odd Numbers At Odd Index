@@ -1,0 +1,80 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+    arrangeOddAndEven(arr);
+    System.out.println("Rearranged Array is:");
+      for(int i=0;i<arr.length;i++)
+        System.out.printf(arr[i]+" ");
+ 	}
+	
+	public static void arrangeOddAndEven(int[] arr)
+	{
+	   int n=arr.length;
+	   int[] even=new int[n/2];
+	   int[] odd=new int[n/2];
+	   
+	   int e=0,o=0;
+	   for(int i=0;i<n;i++)
+	     if((arr[i]%2)==0)
+	       even[e++]=arr[i];
+	     else
+	       odd[o++]=arr[i];
+	     
+	    e=0;o=0;  
+	   for(int i=0;i<n;i++)
+	     if((i%2)==0)
+	       arr[i]=even[e++];
+	     else
+	       arr[i]=odd[o++];
+	}
+}
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+    arrangeOddAndEven(arr);  
+    System.out.println(" Rearranged Array is:");
+    for(int i=0;i<arr.length;i++)
+      System.out.printf(arr[i]+" ");
+ 	}
+	
+	public static void arrangeOddAndEven(int[] arr)
+	{
+	     int n=arr.length;
+       int evenIndex=0,oddIndex=1;
+       while(evenIndex<n && oddIndex<n)
+       {
+           while(evenIndex<n && (arr[evenIndex]%2)==0)
+              evenIndex+=2;
+           while(oddIndex<n && (arr[oddIndex]%2)==1)
+              oddIndex+=2;
+              
+           if(evenIndex<n && oddIndex<n)
+            {
+                //Swapping
+                int temp=arr[evenIndex];
+                arr[evenIndex]=arr[oddIndex];
+                arr[oddIndex]=temp;
+            }
+       }
+	}
+}
