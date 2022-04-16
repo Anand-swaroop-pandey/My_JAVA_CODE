@@ -14,15 +14,15 @@ public class Test
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-    System.out.printf("Median of The Sorted Array is: "+findMedian(arr));
+          System.out.printf("Median of The Sorted Array is: "+findMedian(arr));
  	}
 	
 	public static float findMedian(int[] arr)
 	{
-	     int n=arr.length;
-       if((n%2)==0)
-         return (float)(arr[(n-1)/2]+arr[n/2])/(float)2;
-       else
-         return (float)arr[n/2];
+	   int n=arr.length;
+           if((n%2)==0)
+             return (float)(arr[(n-1)/2]+arr[n/2])/(float)2;
+           else
+            return (float)arr[n/2];
 	}
 }
