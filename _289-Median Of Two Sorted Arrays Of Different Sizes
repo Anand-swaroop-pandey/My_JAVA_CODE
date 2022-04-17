@@ -58,7 +58,7 @@ public class Test
 	}
 }
 
-//Better Approach
+//Improved Approach
 import java.util.Scanner;
 public class Test
 {
@@ -134,7 +134,7 @@ public class Test
 	}
 }
 
-//Optimal Approach
+//Better Approach
 import java.util.Scanner;
 public class Test
 {
@@ -209,3 +209,6 @@ public class Test
              }
 	  }
 }
+
+//Optimal Approach
+(To be Updated Soon)
