@@ -1,0 +1,72 @@
+//Bruteforce Approach (Order of Appearence is not maintained)
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  System.out.println("Enter the Size of the Array: ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<3)
+		{
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements of The Array",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+      
+		frequencySort(arr);
+    
+	   System.out.println("Resultant Array is :");
+	    for(int i=0;i<n;i++)
+	      System.out.println(arr[i]+" ");
+	}
+	
+	public static void frequencySort(int[] arr)
+	{
+	   int n=arr.length;
+	   int[][]input=new int[n][2];
+	   int[][]output=new int[n][2];
+	   
+	   for(int i=0;i<n;i++)
+	     input[i][0]=arr[i];
+	    
+	    int k=0; 
+	   for(int i=0;i<n;i++)
+	   {
+	       if(input[i][1]==-1)
+	         continue;
+	         
+	       int count=1;
+	       for(int j=i+1;j<n;j++)
+	         if(input[i][0]==input[j][0])
+	         {
+	             count++;
+	             input[j][1]=-1;
+	         }
+	       output[k][0]=arr[i];
+	       output[k][1]=count;
+	       k++;
+	   }
+	   
+	   for(int i=0;i<k;i++)
+	     for(int j=i+1;j<k;j++)
+	        if(output[i][1]<output[j][1])
+	        {
+	           int temp=output[i][0];
+	           output[i][0]=output[j][0];
+	           output[j][0]=temp;
+	           
+	           temp=output[i][1];
+	           output[i][1]=output[j][1];
+	           output[j][1]=temp;
+	        }
+	        
+	   int idx=0;
+	   for(int i=0;i<k;i++)
+	     for(int j=1;j<=output[i][1];j++)
+	        arr[idx++]=output[i][0];
+	}
+}
+
