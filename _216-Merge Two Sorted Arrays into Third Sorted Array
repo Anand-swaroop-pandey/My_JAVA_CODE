@@ -17,14 +17,14 @@ public class Main
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
               
-           System.out.printf("Enter %d Elements of Array2:\n",m);
+           System.out.printf("Enter %d Elements of Array2:\n",n);
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
               
             mergeTwoSortedArrayIntoThirdSortedArray(arr1,arr2); 
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[] arr1,int[] arr2)
@@ -34,15 +34,15 @@ public class Main
 	    int len=arr1.length+arr2.length;
 	    int[] arr=new int[len];
 	    int k=0;
-        for(int i=0;i<m;i++)
-          arr[k++]=arr1[i];
+            for(int i=0;i<m;i++)
+              arr[k++]=arr1[i];
         
-        for(int i=0;i<n;i++)
-        {
-            arr[k]=arr2[i];
-            modifiedInsertionSort(arr,k);
-            k++;
-        }  
+            for(int i=0;i<n;i++)
+            {
+               arr[k]=arr2[i];
+               modifiedInsertionSort(arr,k);
+               k++;
+            }  
 	    System.out.println("Merged Sorted Array is:");
 	    for(int i=0;i<len;i++)
 	      System.out.println(arr[i]);
@@ -66,7 +66,7 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
@@ -87,7 +87,7 @@ public class Test
             mergeTwoSortedArrayIntoThirdSortedArray(arr1,arr2); 
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[] arr1,int arr2[])
