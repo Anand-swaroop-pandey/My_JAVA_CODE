@@ -1,6 +1,6 @@
 //Good Approach
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Main
             mergeTwoSortedArray(arr1,arr2); 
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	public static void mergeTwoSortedArray(int[] arr1,int[] arr2)
@@ -99,7 +99,7 @@ public class Test
             mergeTwoSortedArray(arr1,arr2); 
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	public static void mergeTwoSortedArray(int[] arr1,int[] arr2)
