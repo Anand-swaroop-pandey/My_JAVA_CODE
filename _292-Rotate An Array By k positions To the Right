@@ -18,8 +18,8 @@ public class Test
 		
 		System.out.println("Enter K:");
 		int k=sc.nextInt();
-    if(k<0)
-    {
+                if(k<0)
+                {
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -68,8 +68,8 @@ public class Test
 		
 		System.out.println("Enter K:");
 		int k=sc.nextInt();
-    if(k<0)
-    {
+                if(k<0)
+                {
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -82,8 +82,9 @@ public class Test
 	       System.out.printf(arr[i]+" ");
 	}
 	
-  public static void rightRotateByK(int[] arr,int n,int k)
+        public static void rightRotateByK(int[] arr,int n,int k)
 	{
+	     k=k%n;
 	    int[] temp=new int[k];
 	    for(int i=0;i<k;i++)
 	       temp[i]=arr[n-k+i];
@@ -91,7 +92,194 @@ public class Test
 	    for(int i=(n-1);i>=k;i--)
 	       arr[i]=arr[i-k];
 	   
-      for(int i=0;i<k;i++)
+            for(int i=0;i<k;i++)
 	       arr[i]=temp[i];
 	}
+}
+
+
+//Method 3
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	 	System.out.println("Enter the Size of the Array: ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements of The Array",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Enter K:");
+		int k=sc.nextInt();
+                if(k<0)
+                {
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+    
+		if(n>1 && k>0)
+		  rightRotateByK(arr,n,k);
+    
+	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	    for(int i=0;i<n;i++)
+	       System.out.printf(arr[i]+" ");
+	}
+	
+        public static void rightRotateByK(int[] arr,int n,int k)
+	{
+	    k=k%n;
+	    int len=2*n;
+	    int[] twice=new int[2*n];
+	    for(int i=0;i<n;i++)
+	    {
+	       twice[i]=arr[i];
+	       twice[n+i]=arr[i];
+	    }
+	    for(int i=0;i<n;i++)
+	        arr[i]=twice[len-n-k+i];
+	}
+}
+
+
+//Method 4(Reversal Algorithm )
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	 	System.out.println("Enter the Size of the Array: ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements of The Array",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Enter K:");
+		int k=sc.nextInt();
+                if(k<0)
+                {
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+    
+		if(n>1 && k>0)
+		  rightRotateByK(arr,n,k);
+    
+	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	    for(int i=0;i<n;i++)
+	       System.out.printf(arr[i]+" ");
+	}
+	
+    public static void rightRotateByK(int[] arr,int n,int k)
+    {
+         k=k%n;
+         reverseArray(arr,0,n-1);
+         reverseArray(arr,0,k-1);
+         reverseArray(arr,k,n-1);
+    }
+	
+    public static void reverseArray(int[]arr, int start, int end)
+    {
+       while (start < end)
+       {
+          swap(arr,start,end);
+          start++;
+          end--;
+       }
+    }
+    
+    public static void swap(int[]arr,int i,int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
+
+//Method 5 (Juggling Algorithm)
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	 	System.out.println("Enter the Size of the Array: ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements of The Array",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Enter K:");
+		int k=sc.nextInt();
+                if(k<0)
+                {
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+    
+		if(n>1 && k>0)
+		  rightRotateByK(arr,n,k);
+    
+	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	    for(int i=0;i<n;i++)
+	       System.out.printf(arr[i]+" ");
+	}
+	
+    public static void rightRotateByK(int[] arr,int n,int k)
+    {
+        k=k%n;
+        // in case the rotating factor is
+        // greater than array length
+        int numSets=gcd(n,k);
+        for(int i=0;i<numSets;i++)
+        {
+            int j=(n-1-i);
+            int temp=arr[n-1-i];
+            while(true)
+            {
+                int idx=(j-k);
+                if(idx<0)
+                  idx=n+idx;
+                  
+                if(idx==(n-1-i))
+                {
+                    arr[j]=temp;
+                    break;
+                }
+                else
+                {
+                    arr[j]=arr[idx];
+                    j=idx;
+                }
+            }
+        }
+     }
+	
+    public static int gcd(int num1,int num2)
+    {
+        int minNum=num1<num2?num1:num2;
+        int i=Integer.MAX_VALUE;
+        for(i=minNum;i>0;i--)
+            if((num1%i)==0 && (num2%i)==0)
+               break;
+         return i;
+    }
 }
