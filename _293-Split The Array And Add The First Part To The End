@@ -18,8 +18,8 @@ public class Test
 		
 		System.out.println("Enter Position to Split from :");
 		int k=sc.nextInt();
-    if(k<1 || k>n)
-    {        
+                if(k<1 || k>n)
+                {        
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -72,8 +72,8 @@ public class Test
 		
 		System.out.println("Enter Position to Split from :");
 		int k=sc.nextInt();
-    if(k<1 || k>n)
-    {        
+                if(k<1 || k>n)
+                {        
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -124,8 +124,8 @@ public class Test
 		
 		System.out.println("Enter Position to Split from :");
 		int k=sc.nextInt();
-    if(k<1 || k>n)
-    {        
+                if(k<1 || k>n)
+                {        
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -175,8 +175,8 @@ public class Test
 		
 		System.out.println("Enter Position to Split from :");
 		int k=sc.nextInt();
-    if(k<1 || k>n)
-    {        
+                if(k<1 || k>n)
+                {        
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -187,19 +187,19 @@ public class Test
 	}
 	
 	
-	   public static void splitArray(int[] arr,int n,int k)
-	   {
-	        leftRotateByK(arr,n,k);
-	   }
+     public static void splitArray(int[] arr,int n,int k)
+     {
+	  leftRotateByK(arr,n,k);
+     }
 	
-     public static void leftRotateByK(int[] arr,int n,int k)
-	   {
+      public static void leftRotateByK(int[] arr,int n,int k)
+      {
             reverseArray(arr, 0, k-1);
             reverseArray(arr, k, n-1);
             reverseArray(arr, 0,n-1);
-	   }
+      }
 	
-	    public static void reverseArray(int[]arr, int start, int end)
+      public static void reverseArray(int[]arr, int start, int end)
       {
             while (start < end)
             {
@@ -238,8 +238,8 @@ public class Test
 		
 		System.out.println("Enter Position to Split from :");
 		int k=sc.nextInt();
-    if(k<1 || k>n)
-    {        
+                if(k<1 || k>n)
+                {        
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -250,10 +250,10 @@ public class Test
 	}
 	
 	
-	 public static void splitArray(int[] arr,int n,int k)
+   public static void splitArray(int[] arr,int n,int k)
    {
-	    leftRotateByK(arr,n,k);
-	 }
+	leftRotateByK(arr,n,k);
+   }
 	
     public static void leftRotateByK(int[] arr,int n,int k)
     {
