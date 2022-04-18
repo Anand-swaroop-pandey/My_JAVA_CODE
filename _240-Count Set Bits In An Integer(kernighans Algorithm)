@@ -10,20 +10,20 @@ public class Test
 	}
     
     public static int countSetBits(int num)
-	{
-	    int count=0;
+    {
+	int count=0;
        for(int i=0;i<32;i++)
          if(checkKthBit(num,i)!=0)
              count++;
         return count;    
-	}
+    }
 	
     public static int checkKthBit(int num,int k)
-	{
+    {
 	   int mask=1<<k;
 	   int res=num & mask;
 	   return res;
-	}
+    }
 }
 
 
