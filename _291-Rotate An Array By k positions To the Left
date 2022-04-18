@@ -97,7 +97,58 @@ public class Test
 }
 
 
-//Method 3(Reversal algorithm for array rotation)
+//Method 3
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	 	System.out.println("Enter the Size of the Array: ");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements of The Array",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Enter K:");
+		int k=sc.nextInt();
+                if(k<0)
+                {
+		    System.out.println("Invalid Choice");
+		    return;
+		}
+    
+		if(n>1 && k>0)
+		  rightRotateByK(arr,n,k);
+    
+	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	    for(int i=0;i<n;i++)
+	       System.out.printf(arr[i]+" ");
+	}
+	
+        public static void leftRotateByK(int[] arr,int n,int k)
+	{
+       
+	    k=k%n;
+	    int len=2*n;
+	    int[] twice=new int[2*n];
+	    for(int i=0;i<n;i++)
+	    {
+	       twice[i]=arr[i];
+	       twice[n+i]=arr[i];
+	    }
+	    for(int i=0;i<n;i++)
+	       arr[i]=twice[k+i];
+	}
+}
+
+
+//Method 4(Reversal algorithm for array rotation)
 import java.util.Scanner;
 public class Test
 {
@@ -150,16 +201,16 @@ public class Test
             }
          }
     
-    public static void swap(int[]arr,int i,int j)
-    {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+       public static void swap(int[]arr,int i,int j)
+       {
+         int temp = arr[i];
+         arr[i] = arr[j];
+         arr[j] = temp;
+       }
 }
 
 
-//Method 4(Juggling algorithm for array rotation)
+//Method 5(Juggling algorithm for array rotation)
 import java.util.Scanner;
 public class Test
 {
@@ -223,12 +274,10 @@ public class Test
     public static int gcd(int num1,int num2)
     {
         int minNum=num1<num2?num1:num2;
-        int temp=minNum;
-        while(true)
-        {
-            if((num1%temp)==0 && (num2%temp)==0)
-               return temp;        
-            temp=temp-1;
-        }
+        int i=Integer.MAX_VALUE;
+        for(i=minNum;i>0;i--)
+            if((num1%i)==0 && (num2%i)==0)
+               break;
+         return i;
     }
 }
