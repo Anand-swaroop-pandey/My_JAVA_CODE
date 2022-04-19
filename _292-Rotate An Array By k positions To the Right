@@ -136,7 +136,7 @@ public class Test
 	{
 	    k=k%n;
 	    int len=2*n;
-	    int[] twice=new int[2*n];
+	    int[] twice=new int[len];
 	    for(int i=0;i<n;i++)
 	    {
 	       twice[i]=arr[i];
