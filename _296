@@ -18,8 +18,8 @@ public class Test
 		
 		System.out.println("Enter K:");
 		int k=sc.nextInt();
-    if(k<0)
-    {
+                if(k<0)
+                {
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -36,9 +36,9 @@ public class Test
 	    for(int i=0;i<n;i++)
 	       twice[i]=twice[n+i]=arr[i];;
         
-        System.out.printf("Array Formed After %d Rotations To the Right is:\n",k);
-	    for(int i=0;i<n;i++)
-	       System.out.println(twice[len-n-k+i]);
+            System.out.printf("Array Formed After %d Rotations To the Right is:\n",k);
+	       for(int i=0;i<n;i++)
+	         System.out.println(twice[len-n-k+i]);
 	}
 }
 
@@ -47,8 +47,9 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	  public static void main(String[] args) {
-	  System.out.println("Enter the Size of the Array: ");
+	  public static void main(String[] args)
+	  {
+	        System.out.println("Enter the Size of the Array: ");
 		Scanner sc=new Scanner(System.in);
 		int n=sc.nextInt();
 		if(n<1)
@@ -63,8 +64,8 @@ public class Test
 		
 		System.out.println("Enter K:");
 		int k=sc.nextInt();
-    if(k<0)
-    {
+                if(k<0)
+                {
 		    System.out.println("Invalid Choice");
 		    return;
 		}
@@ -72,11 +73,12 @@ public class Test
 		  rightRotateBy_K_Quickly(arr,n,k);
 	}
 	
+	
 	public static void rightRotateBy_K_Quickly(int[] arr,int n,int k)
 	{
-      System.out.printf("Array Formed After %d Rotations To the Right is:\n",k);
-      k=k%n;
-	    for(int i=(n-k);i<(n-k+n);i++)
+           System.out.printf("Array Formed After %d Rotations To the Right is:\n",k);
+           k=k%n;
+	   for(int i=(n-k);i<(n-k+n);i++)
 	       System.out.println(arr[i%n]);
 	}
 }
