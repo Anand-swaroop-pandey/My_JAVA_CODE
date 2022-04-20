@@ -1,0 +1,85 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+           System.out.println("Sum Of Minimum Absolute Difference Of Each Array Element is: "+sumOfMinAbsDifferences(arr,n));
+          }
+         else
+            System.out.println("Invalid Choice");
+	}
+	public static int sumOfMinAbsDifferences(int[] arr,int n)
+	{
+	     int sum=0;
+       for(int i=0;i<n;i++)
+       {
+         int min=Integer.MAX_VALUE;
+         for(int j=0;j<n;j++)
+           if(i!=j && Math.abs(arr[i]-arr[j])<min)
+              min=Math.abs(arr[i]-arr[j]);
+          sum+=min;
+       }
+       return sum;
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+           System.out.println("Sum Of Minimum Absolute Difference Of Each Array Element is: "+sumOfMinAbsDifferences(arr,n));
+          }
+         else
+            System.out.println("Invalid Choice");
+	}
+	
+	public static int sumOfMinAbsDifferences(int[] arr,int n)
+	{
+	   Arrays.sort(arr);
+	   int sum=0;
+	   sum+=Math.abs(arr[0]-arr[1]);
+	   for(int i=1;i<(n-1);i++)
+	     sum+=Math.min(Math.abs(arr[i]-arr[i-1]),Math.abs(arr[i]-arr[i+1]));
+	   sum+=Math.abs(arr[n-1]-arr[n-2]);
+	   
+	   return sum;
+	}
+}
