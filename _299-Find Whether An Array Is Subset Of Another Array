@@ -33,10 +33,10 @@ public class Test
 	
 	public static boolean isSubset(int[] arr1,int m,int[] arr2,int n)
 	{
-         for(int i=0;i<n;i++)
-           if(linearSearch(arr2[i],arr1,m)==false)  
-              return false;
-       return true;    
+           for(int i=0;i<n;i++)
+             if(linearSearch(arr2[i],arr1,m)==false)  
+                return false;
+           return true;    
 	}
 	
 	public static boolean linearSearch(int key,int[] arr,int n)
@@ -84,10 +84,10 @@ public class Test
 	public static boolean isSubset(int[] arr1,int m,int[] arr2,int n)
 	{
 	   Arrays.sort(arr1);
-       for(int i=0;i<n;i++)
-         if(binarySearch(arr2[i],arr1,m)==false)  
-             return false;
-       return true;    
+           for(int i=0;i<n;i++)
+             if(binarySearch(arr2[i],arr1,m)==false)  
+               return false;
+           return true;    
 	}
 	
    public static boolean binarySearch(int key,int[]arr,int n)
@@ -142,9 +142,9 @@ public class Test
 	}
 	
   public static boolean isSubset(int[] arr1,int m,int[] arr2,int n)
-	{
-	   Arrays.sort(arr1);
-	   Arrays.sort(arr2);
+  {
+       Arrays.sort(arr1);
+       Arrays.sort(arr2);
        int i=0,j=0;
        while(i<m && j<n)
          if(arr2[j]==arr1[i])
@@ -161,5 +161,5 @@ public class Test
          return true;
        else
          return false;
-	}
+  }
 }
