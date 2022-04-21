@@ -18,18 +18,95 @@ public class Test
             System.out.println("Invalid Choice");
 	}
     
-    /* The function returns a negative value if the array is
-       sorted in decreasing order.
+    /* The function returns 0 if the array is sorted in decreasing order.
        Returns 0 if elements are equal
-       Returns Integer.MIN_VALUE if array has less than 2 Elements */
+       Returns 0 if array has less than 2 Elements */
        
-  public static int findElements(int[] arr,int n)
+        public static int findElements(int[] arr,int n)
 	{
-	   int max_Diff=Integer.MIN_VALUE;
-       for(int i=0;i<n;i++)
-          for(int j=i+1;j<n;j++)
-            if((arr[j]-arr[i])>max_Diff)
-               max_Diff=(arr[j]-arr[i]);  
-        return max_Diff;
+           int max_diff =0;
+           for (int i = 0; i <n; i++)
+              for (int j = i + 1; j <n; j++)
+                  if ((arr[j]>arr[i]) && (arr[j] - arr[i])>max_diff)
+                     max_diff=(arr[j] - arr[i]);
+                    
+            return max_diff;
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Maximum difference between any two elements such that larger element appears after the smaller number is :"+findElements(arr,n));
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+    
+    /* The function returns 0 if the array is sorted in decreasing order.
+       Returns 0 if elements are equal
+       Returns 0 if array has less than 2 Elements */
+       
+        public static int findElements(int[] arr,int n)
+	{
+          int max_diff=0,max_so_far=Integer.MIN_VALUE;
+          for (int i =(n-1);i>=0; i--)
+            if(arr[i]>max_so_far)
+               max_so_far=arr[i];
+            else if((arr[i]<max_so_far) && (max_so_far-arr[i])>max_diff)
+               max_diff=(max_so_far-arr[i]);
+                    
+          return max_diff;
+	}
+}
+
+
+//ALITER
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Maximum difference between any two elements such that larger element appears after the smaller number is :"+findElements(arr,n));
+         }
+         else
+            System.out.println("Invalid Choice");
+	}
+    
+    /* The function returns 0 if the array is sorted in decreasing order.
+       Returns 0 if elements are equal
+       Returns 0 if array has less than 2 Elements */
+       
+        public static int findElements(int[] arr,int n)
+	{
+           int max_diff =0,min_so_far=Integer.MAX_VALUE;
+           for (int i = 0; i < n; i++)
+           {
+            if (arr[i]<min_so_far)
+                min_so_far=arr[i];
+            else if((arr[i]>min_so_far) && (arr[i]-min_so_far)> max_diff)
+                max_diff =(arr[i]-min_so_far);
+           }
+           return max_diff;
 	}
 }
