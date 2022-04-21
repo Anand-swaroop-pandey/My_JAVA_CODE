@@ -1,0 +1,106 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           
+           System.out.println("Enter Target Value:");
+           int target=sc.nextInt();
+           
+           twoSum(arr,n,target);
+         }
+         else
+            System.out.println("Invalid Choice");
+	}
+       
+  public static void twoSum(int[] arr,int n,int target)
+	{
+        int idx1=-1,idx2=-1;
+        for(int i=0;i<n;i++)
+          for(int j=i+1;j<n;j++)
+             if((arr[i]+arr[j])==target)
+             {
+                idx1=i;
+                idx2=j;
+                break;
+             }
+        System.out.println("Indexes are :"+idx1+" , "+idx2);    
+	}
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           
+           System.out.println("Enter Target Value:");
+           int target=sc.nextInt();
+           
+           twoSum(arr,n,target);
+         }
+         else
+            System.out.println("Invalid Choice");
+	}
+       
+  public static void twoSum(int[] arr,int n,int target)
+	{
+      
+       int[] temp=new int[n];
+        for(int i=0;i<n;i++)
+           temp[i]=arr[i];
+        
+        Arrays.sort(arr);
+        int i=0,j=(n-1),idx1=-1,idx2=-1,num1=Integer.MAX_VALUE,num2=Integer.MAX_VALUE;
+        while(i<j)
+          if((arr[i]+arr[j])==target)
+          {
+              num1=arr[i];
+              num2=arr[j];
+              i++;
+              j++;
+              break;
+          }
+          else if((arr[i]+arr[j])<target)
+            i++;
+          else
+            j--;
+        
+         int inValidIndex=-1;
+         for(int k=0;k<n;k++)
+            if(num1==temp[k])
+            {
+              idx1=k;
+              inValidIndex=k;  
+              break;
+            }
+         
+         for(int k=0;k<n;k++)
+            if(inValidIndex!=k && num2==temp[k])
+            {
+              idx2=k;
+              break;
+            }
+        System.out.println("Indexes are :"+idx1+" , "+idx2);    
+	}
+}
+
+//Optimal Approach
