@@ -17,11 +17,11 @@ public class Test
          }
          else
             System.out.println("Invalid Choice");
-	}
+  }
        
   public static void sumIsClosestToZero(int[] arr,int n)
-	{
-	    int num1=arr[0],num2=arr[1],minSum=arr[0]+arr[1];
+  {
+      int num1=arr[0],num2=arr[1],minSum=arr[0]+arr[1];
       for(int i=0;i<n;i++)
         for(int j=i+1;j<n;j++)
            if(Math.abs(arr[i]+arr[j])<Math.abs(minSum))
@@ -31,7 +31,7 @@ public class Test
                 num2=arr[j];
             }
       System.out.println("Pair Whose Sum Is Closest To Zero are  "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+minSum);
-	}
+   }
 }
 
 
@@ -54,11 +54,11 @@ public class Test
          }
          else
             System.out.println("Invalid Choice");
-	}
+   }
        
   public static void sumIsClosestToZero(int[] arr,int n)
-	{
-	    Arrays.sort(arr);
+  {
+      Arrays.sort(arr);
       int i=0,j=(n-1),num1=arr[0],num2=arr[1],minSum=arr[0]+arr[1];;
       while(i<j)
       {
@@ -74,5 +74,5 @@ public class Test
             j--;
       }
       System.out.println("Pair Whose Sum Is Closest To Zero are  "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+minSum);
-	}
+   }
 }
