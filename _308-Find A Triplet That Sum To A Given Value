@@ -1,27 +1,27 @@
 //Bruteforce Approach
 import java.util.*;
-public class Main
+public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
-         if(n>=3)
-         {
-            int[] arr=new int[n];
-           System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
-              arr[i]=sc.nextInt();
-           System.out.println("Enter Target Value:");
-           int target=sc.nextInt();
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the Size of the Array");
+           int n=sc.nextInt();
+           if(n>=3)
+           {
+             int[] arr=new int[n];
+             System.out.printf("Enter %d Elements of Array:\n",n);
+             for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+             System.out.println("Enter Target Value:");
+             int target=sc.nextInt();
            
-           findTriplet(arr,n,target);
-         }
-         else
-            System.out.println("Invalid Choice");
-	}
+             findTriplet(arr,n,target);
+           }
+           else
+              System.out.println("Invalid Choice");
+       }
        
-  public static void findTriplet(int[] arr,int n,int target)
+        public static void findTriplet(int[] arr,int n,int target)
 	{
 	  boolean flag=false;
 	   for(int i=0;i<n-2;i++)
@@ -32,8 +32,8 @@ public class Main
 	             System.out.println(arr[i]+","+arr[j]+","+arr[k]);
 	             flag=true;
 	          }
-       if(flag==false)
-         System.out.println("No Such Triplet Exists");
+           if(flag==false)
+             System.out.println("No Such Triplet Exists");
 	}
 }
 
@@ -59,11 +59,11 @@ public class Test
          }
          else
             System.out.println("Invalid Choice");
-	}
+  }
        
   public static void findTriplet(int[] arr,int n,int target)
-	{
-     Arrays.sort(arr);
+  {
+           Arrays.sort(arr);
 	   boolean flag=false;
 	   for(int i=0;i<n-2;i++)
 	   {
@@ -85,7 +85,7 @@ public class Test
 	     }
 	   }
 	   
-	   if(flag==false)
+      if(flag==false)
          System.out.println("No Such Triplet Exists");
-	}
+   }
 }
