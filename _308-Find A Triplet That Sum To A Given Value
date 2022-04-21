@@ -1,0 +1,91 @@
+//Bruteforce Approach
+import java.util.*;
+public class Main
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>=3)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Enter Target Value:");
+           int target=sc.nextInt();
+           
+           findTriplet(arr,n,target);
+         }
+         else
+            System.out.println("Invalid Choice");
+	}
+       
+  public static void findTriplet(int[] arr,int n,int target)
+	{
+	  boolean flag=false;
+	   for(int i=0;i<n-2;i++)
+	     for(int j=i+1;j<n-1;j++)
+	       for(int k=j+1;k<n;k++)
+	          if((arr[i]+arr[j]+arr[k])==target)
+	          {
+	             System.out.println(arr[i]+","+arr[j]+","+arr[k]);
+	             flag=true;
+	          }
+       if(flag==false)
+         System.out.println("No Such Triplet Exists");
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>=3)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Enter Target Value:");
+           int target=sc.nextInt();
+           
+           findTriplet(arr,n,target);
+         }
+         else
+            System.out.println("Invalid Choice");
+	}
+       
+  public static void findTriplet(int[] arr,int n,int target)
+	{
+     Arrays.sort(arr);
+	   boolean flag=false;
+	   for(int i=0;i<n-2;i++)
+	   {
+	     int j=i+1;
+	     int k=n-1;
+	     
+	     while(j<k)
+	     {
+	        int currSum=(arr[i]+arr[j]+arr[k]);
+	        if(currSum==target)
+	        {
+	           System.out.println(arr[i]+","+arr[j]+","+arr[k]);
+	           flag=true; 
+	        }
+	        else if(currSum<target)
+	          j++;
+	        else
+	          k--;
+	     }
+	   }
+	   
+	   if(flag==false)
+         System.out.println("No Such Triplet Exists");
+	}
+}
