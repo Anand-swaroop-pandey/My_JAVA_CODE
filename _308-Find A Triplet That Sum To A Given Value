@@ -76,6 +76,8 @@ public class Test
 	        if(currSum==target)
 	        {
 	           System.out.println(arr[i]+","+arr[j]+","+arr[k]);
+		   j++;
+		   k--;
 	           flag=true; 
 	        }
 	        else if(currSum<target)
