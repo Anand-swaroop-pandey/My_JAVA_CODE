@@ -104,3 +104,48 @@ public class Test
 }
 
 //Optimal Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           
+           System.out.println("Enter Target Value:");
+           int target=sc.nextInt();
+           
+           twoSum(arr,n,target);
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+       
+    public static void twoSum(int[] arr,int n,int target)
+    {
+       HashMap<Integer,Integer>hm=new HashMap<>(n);
+       for(int i=0;i<n;i++)
+         hm.put(arr[i],i);
+       
+       int idx1=-1,idx2=-1;  
+       for(int i=0;i<n;i++)
+       {
+         int num=arr[i];
+         int rem=target-arr[i];
+         if(hm.containsKey(rem))
+         {
+            idx1=i;
+            idx2=hm.get(rem);
+           if(idx1!=idx2)
+             break;
+         }
+       }
+       System.out.println("Indexes are :"+idx1+" , "+idx2);
+    }
+}
