@@ -3,8 +3,8 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the String");
+	        Scanner sc=new Scanner(System.in);
+        	System.out.println("Enter the String");
 		String str=sc.nextLine();
 		if(str.length()<=0)
 		  System.out.println("Invalid Choice");
@@ -27,7 +27,7 @@ public class Test
 	        maxFreqChar=str.charAt(i);
 	     }
 	     
-       System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
+            System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
 	}
 	
 	public static void countFrequency(String str,int n,int[]freqArr)
@@ -69,7 +69,7 @@ public class Test
 	   int[] freqArr=new int[255+1];
 	   int n=str.length();
 	   for(int i=0;i<n;i++)
-         freqArr[str.charAt(i)]++;
+             freqArr[str.charAt(i)]++;
          
 	   char maxFreqChar=str.charAt(0);
 	   int maxFreq=freqArr[str.charAt(0)];
@@ -81,7 +81,7 @@ public class Test
 	        maxFreqChar=str.charAt(i);
 	     }
 	     
-       System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
+           System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
 	}
 }
 
@@ -102,27 +102,27 @@ public class Test
 	public static void getMaxOccurringChar(String str)
 	{
 	    int n=str.length();
-       HashMap<Character,Integer>hm=new HashMap<>(n);
+            HashMap<Character,Integer>hm=new HashMap<>(n);
        
-       for(int i=0;i<n;i++)
-       {
-           char ch=str.charAt(i);
-           if(hm.containsKey(ch))
-              hm.put(ch,hm.get(ch)+1);
-           else
-              hm.put(ch,1);
-       }
+            for(int i=0;i<n;i++)
+            {
+              char ch=str.charAt(i);
+              if(hm.containsKey(ch))
+                hm.put(ch,hm.get(ch)+1);
+              else
+                hm.put(ch,1);
+            }
        
-	   char maxFreqChar=str.charAt(0);
-	   int maxFreq=hm.get(maxFreqChar);
+	    char maxFreqChar=str.charAt(0);
+	    int maxFreq=hm.get(maxFreqChar);
 	   
-	   for(char ch:hm.keySet())
-         if(hm.get(ch)>maxFreq)
-         {
-            maxFreq=hm.get(ch);
-            maxFreqChar=ch;
-         }
+	    for(char ch:hm.keySet())
+              if(hm.get(ch)>maxFreq)
+              {
+                  maxFreq=hm.get(ch);
+                  maxFreqChar=ch;
+              }
 	     
-       System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
+              System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
 	}
 }
