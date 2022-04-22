@@ -49,3 +49,38 @@ public class Test
 	   }
 	}
 }
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the String");
+		String str=sc.nextLine();
+		if(str.length()<=0)
+		  System.out.println("Invalid Choice");
+		else
+		  getMaxOccurringChar(str);
+	}
+	
+	public static void getMaxOccurringChar(String str)
+	{
+	   int[] freqArr=new int[255+1];
+	   int n=str.length();
+	   for(int i=0;i<n;i++)
+         freqArr[str.charAt(i)]++;
+         
+	   char maxFreqChar=str.charAt(0);
+	   int maxFreq=freqArr[str.charAt(0)];
+	   
+	   for(int i=0;i<n;i++)
+	     if(freqArr[str.charAt(i)]>maxFreq)
+	     {
+	        maxFreq=freqArr[str.charAt(i)]; 
+	        maxFreqChar=str.charAt(i);
+	     }
+	     
+       System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
+	}
+}
