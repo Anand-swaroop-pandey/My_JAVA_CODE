@@ -1,0 +1,51 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the String");
+		String str=sc.nextLine();
+		if(str.length()<=0)
+		  System.out.println("Invalid Choice");
+		else
+		  getMaxOccurringChar(str);
+	}
+	
+	public static void getMaxOccurringChar(String str)
+	{
+	   int n=str.length();
+	   int[]freqArr=new int[n];
+	   countFrequency(str,n,freqArr);
+	   
+	   char maxFreqChar=str.charAt(0);
+	   int maxFreq=freqArr[0];
+	   for(int i=0;i<n;i++)
+	     if(freqArr[i]!=-1 && freqArr[i]>maxFreq)
+	     {
+	        maxFreq=freqArr[i]; 
+	        maxFreqChar=str.charAt(i);
+	     }
+	     
+       System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
+	}
+	
+	public static void countFrequency(String str,int n,int[]freqArr)
+	{
+	   for(int i=0;i<n;i++)
+	   {
+	       if(freqArr[i]==-1)
+	         continue;
+	         
+	       int count=1;
+	       for(int j=i+1;j<n;j++)
+	       if(str.charAt(i)==str.charAt(j))
+	       {
+	          count++;
+	          freqArr[j]=-1;
+	       }
+	 
+	       freqArr[i]=count;
+	   }
+	}
+}
