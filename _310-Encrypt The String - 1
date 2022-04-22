@@ -16,27 +16,27 @@ public class Test
 	{
 	   int n=str.length();
 	   int count=1,i=0;
-       String result="";
-       for(;i<n-1;i++)
-       {
-           if(str.charAt(i)==str.charAt(i+1))
-              count++;
-           else
+           String result="";
+           for(;i<n-1;i++)
            {
+              if(str.charAt(i)==str.charAt(i+1))
+                count++;
+              else
+              {
+                result+=str.charAt(i);
+                result+=count;
+                count=1;
+              }  
+            }
+           //i==(n-1)
              result+=str.charAt(i);
-             result+=count;
-             count=1;
-           }  
-       }
-       //i==(n-1)
-        result+=str.charAt(i);
-        result+=count;        
+             result+=count;        
         
-        String reverseResult="";
-        for(int j=result.length()-1;j>=0;j--)
-          reverseResult+=result.charAt(j);
+             String reverseResult="";
+             for(int j=result.length()-1;j>=0;j--)
+                reverseResult+=result.charAt(j);
 
-	   return reverseResult;
+	    return reverseResult;
 	}
 }
 
@@ -59,23 +59,23 @@ public class Test
 	{
 	     int n=str.length();
 	     int count=1,i=0;
-       StringBuilder result = new StringBuilder();
-       for(;i<n-1;i++)
-       {
-           if(str.charAt(i)==str.charAt(i+1))
-              count++;
-           else
-           {
-             result=result.append(str.charAt(i));
-             result=result.append(count);
-             count=1;
-           }  
-       }
-
-        result=result.append(str.charAt(i));
-        result=result.append(count); 
+             StringBuilder result = new StringBuilder();
+             for(;i<n-1;i++)
+             {
+                if(str.charAt(i)==str.charAt(i+1))
+                  count++;
+                else
+                {
+                  result=result.append(str.charAt(i));
+                  result=result.append(count);
+                  count=1;
+                }  
+             }
+              //i==(n-1)
+              result=result.append(str.charAt(i));
+              result=result.append(count); 
         
-        StringBuilder reverseResult=result.reverse();
+              StringBuilder reverseResult=result.reverse();
 
 	   return reverseResult.toString();
 	}
