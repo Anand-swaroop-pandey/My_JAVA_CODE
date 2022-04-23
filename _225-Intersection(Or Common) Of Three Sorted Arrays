@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
@@ -38,9 +38,12 @@ public class Test
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-        int[] common=new int[arr1.length+arr2.length];
-        int len=intersectionOfTwoSortedArray1(arr1,arr2,common);
-        return intersectionOfTwoSortedArray2(common,len,arr3);
+        int m=arr1.length;
+        int n=arr2.length;
+        int len=m<n?m:n;
+        int[] common=new int[len];
+        int k=intersectionOfTwoSortedArray1(arr1,arr2,common);
+        return intersectionOfTwoSortedArray2(common,k,arr3);
     }
 	
     public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
