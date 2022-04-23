@@ -23,7 +23,8 @@ public class Test
 	    int missingNum=expectedSum-actualSum;
 	    return missingNum;
       
-            int n=arr.length;
+          /* Aliter 
+	    int n=arr.length;
 	    int total=(n+1)*((n+1)+1)/2;
 	    for(int i=0;i<n;i++)
 	       total-=arr[i];
