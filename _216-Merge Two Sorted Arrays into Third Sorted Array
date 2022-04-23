@@ -1,15 +1,61 @@
-//Better Approach
-import java.util.Scanner;
-public class Main
+//Bruteforce Approach;
+import java.util.*;
+public class Test
 {
 	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-       if(m>0 && n>0)
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+            mergeTwoSortedArrayIntoThirdSortedArray(arr1,arr2); 
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[] arr1,int[] arr2)
+	{
+	    int m=arr1.length;
+	    int n=arr2.length;
+	    TreeMap<Integer,Boolean>tm=new TreeMap<>();
+	    for(int i=0;i<m;i++)
+	      tm.put(arr1[i],true);
+	     
+	    for(int i=0;i<n;i++)
+	      tm.put(arr2[i],true);
+	      
+	    System.out.println("Merged Sorted Array is:");
+	    for(int key:tm.keySet())
+	      System.out.println(key+" ");
+	}
+}
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+         if(m>0 && n>0)
          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
@@ -47,8 +93,9 @@ public class Main
 	    for(int i=0;i<len;i++)
 	      System.out.println(arr[i]);
 	}
+	
         public static void modifiedInsertionSort(int[]arr,int k)
-       {
+        {
           int temp=arr[k];
           int j=k-1;
           while(j>=0 && arr[j]>temp)
@@ -57,7 +104,7 @@ public class Main
               j--;
           }
           arr[j+1]=temp;
-      }
+       }
 }
 
 
@@ -72,7 +119,7 @@ public class Test
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-       if(m>0 && n>0)
+         if(m>0 && n>0)
          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
