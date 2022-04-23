@@ -2,7 +2,7 @@ import java.util. Scanner;
 public class Test
 {
 	public static void main(String[] args)
-  {
+        {
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the Number:");
 	    int num=sc.nextInt();
@@ -11,7 +11,7 @@ public class Test
            System.out.printf("Resultant Number after Setting The %d th Bit  is: %d",k,setTheKthBit(num,k));
 	}
 	
-   public static int setTheKthBit(int num,int k)
+        public static int setTheKthBit(int num,int k)
 	{
 	   int mask=1<<(k-1);
 	   int res=num | mask;
