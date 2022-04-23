@@ -93,7 +93,7 @@ public class Test
 }
 
 
-//Bruteforce Approach
+//Better Approach
 import java.util.*;
 public class Test
 {
