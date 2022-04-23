@@ -47,8 +47,8 @@ public class Main
 	    for(int i=0;i<len;i++)
 	      System.out.println(arr[i]);
 	}
-	public static void modifiedInsertionSort(int[]arr,int k)
-   {
+        public static void modifiedInsertionSort(int[]arr,int k)
+       {
           int temp=arr[k];
           int j=k-1;
           while(j>=0 && arr[j]>temp)
@@ -57,7 +57,7 @@ public class Main
               j--;
           }
           arr[j+1]=temp;
-   }
+      }
 }
 
 
