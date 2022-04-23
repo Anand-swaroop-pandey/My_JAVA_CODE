@@ -2,8 +2,8 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
@@ -19,9 +19,9 @@ public class Test
          }
          else
            	System.out.println("Invalid Choice");
-	}
+      }
 	
-   public static int removeDuplicatesFromUnsortedArray(int[] arr)
+        public static int removeDuplicatesFromUnsortedArray(int[] arr)
 	{
 	   Arrays.sort(arr);
 	   return removeDuplicatesFromSortedArray(arr);
@@ -29,7 +29,7 @@ public class Test
 	
 	public static int  removeDuplicatesFromSortedArray(int[] arr)
 	{
-       int n=arr.length;
+           int n=arr.length;
 	   int j=0;
 	   for(int i=0;i<n;i++)
 	   {
@@ -42,57 +42,57 @@ public class Test
 }
 
 
+//Improved Approach
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+          int index=removeDuplicatesFromUnsortedArray(arr);
+           System.out.println("Duplicate Free Array is :");
+           for(int i=0;i<index;i++)
+              System.out.printf(arr[i]+" ");
+         }
+         else
+           	System.out.println("Invalid Choice");
+     }
+	
+        public static int removeDuplicatesFromUnsortedArray(int[] arr)
+	{
+          int n=arr.length;
+          int j,k=0;
+          for(int i=0;i<n;i++)
+          {
+            for(j=i+1;j<n;j++)
+              if(arr[i]==arr[j])
+                break;
+               
+            if(j==n)
+              arr[k++]=arr[i];
+           }
+          return k; 
+	} 
+}
+
+
 //Better Approach
 import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
-           System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
-              arr[i]=sc.nextInt();
-          int index=removeDuplicatesFromUnsortedArray(arr);
-           System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
-              System.out.printf(arr[i]+" ");
-         }
-         else
-           	System.out.println("Invalid Choice");
-	}
-	
-    public static int removeDuplicatesFromUnsortedArray(int[] arr)
-	{
-       int n=arr.length;
-       int j,k=0;
-       for(int i=0;i<n;i++)
        {
-           for(j=i+1;j<n;j++)
-             if(arr[i]==arr[j])
-               break;
-               
-           if(j==n)
-              arr[k++]=arr[i];
-       }
-        return k; 
-	} 
-}
-
-
-//Optimal Approach
-import java.util.Scanner;
-public class Test
-{
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
-       if(n>0)
-         {
             int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
@@ -101,13 +101,13 @@ public class Test
            System.out.println("Duplicate Free Array is :");
            for(int i=0;i<index;i++)
               System.out.printf(arr[i]+" ");
-         }
-         else
-           	System.out.println("Invalid Choice");
-	}
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
 	
     public static int removeDuplicatesFromUnsortedArray(int[] arr)
-	{
+    {
         int n=arr.length;
         int[] freqArr=new int[n];
         countFrequecy(arr,freqArr);
@@ -116,14 +116,14 @@ public class Test
           if(freqArr[i]!=-1)
              arr[j++]=arr[i];
           return j;
-	} 
+     } 
 	
-	public static void countFrequecy(int[] arr,int[] freqArr)
-	{
-	   int n=arr.length;
-	   int count;
-       for(int i=0;i<n;i++)
-        {
+     public static void countFrequecy(int[] arr,int[] freqArr)
+     {
+         int n=arr.length;
+         int count;
+         for(int i=0;i<n;i++)
+         {
             if(freqArr[i]==-1)
                continue;
             count=1;
@@ -134,6 +134,49 @@ public class Test
                    count++;
                }
            freqArr[i]=count;       
-        }
+          }
+       }
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+      public static void main(String[] args)
+      {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           int index=removeDuplicatesFromUnsortedArray(arr);
+           System.out.println("Duplicate Free Array is :");
+           for(int i=0;i<index;i++)
+              System.out.printf(arr[i]+" ");
+          }
+          else
+            System.out.println("Invalid Choice");
+	}
+	
+        public static int removeDuplicatesFromUnsortedArray(int[] arr)
+	{
+          int n=arr.length;
+          HashSet<Integer>hs=new HashSet<>(n);
+          for(int i=0;i<n;i++)
+            hs.add(arr[i]);
+      
+          int j=0;
+          for(int i=0;i<n;i++)
+            if(hs.contains(arr[i]))
+            {
+              arr[j++]=arr[i];
+              hs.remove(arr[i]);
+            }
+           return j;
 	}
 }
