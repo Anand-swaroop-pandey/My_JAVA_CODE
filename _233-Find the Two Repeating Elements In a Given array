@@ -10,11 +10,11 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-      System.out.println("Elements occurring Twice is: ");
-      findTwoRepeated(arr);
+            System.out.println("Elements occurring Twice is: ");
+           findTwoRepeated(arr);
 	}
 	
-  public static void findTwoRepeated(int arr[])
+        public static void findTwoRepeated(int arr[])
 	{
   	    int n=arr.length;
   	    int count=0;
@@ -26,8 +26,7 @@ public class Test
 	                System.out.println(arr[i]+" ");
 	                if(count==2)
 	                  return;
-	            }
-                    
+	            }         
 	}
 }
 
@@ -43,13 +42,13 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-      System.out.println("Elements occurring Twice is: ");
-      findTwoRepeated(arr);
+            System.out.println("Elements occurring Twice is: ");
+            findTwoRepeated(arr);
 	}
 	
 	public static void findTwoRepeated(int arr[])
 	{
-      int n=arr.length;
+          int n=arr.length;
   	  Arrays.sort(arr);
   	  int count=0;
 	    for(int i=0;i<n-1;i++)
@@ -77,11 +76,11 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-      System.out.println("Elements occurring Twice is: ");
-      findTwoRepeated(arr);
+           System.out.println("Elements occurring Twice is: ");
+           findTwoRepeated(arr);
 	}
 	
-  public static void findTwoRepeated(int arr[])
+        public static void findTwoRepeated(int arr[])
 	{
 	    int res=-1;
 	    int[] freqArr=new int[arr.length];
@@ -99,8 +98,8 @@ public class Test
 	
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
-	       int n=arr.length;
-	       int count;   
+	    int n=arr.length;
+	    int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -118,8 +117,46 @@ public class Test
 }
 
 
-//Better Approach
+//Further Improved Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+            System.out.println("Elements occurring Twice is: ");
+            findTwoRepeated(arr);
+	}
+	
+    public static void findTwoRepeated(int arr[])
+    {
+       int n=arr.length;
+       HashMap<Integer,Integer>hm=new HashMap<>(n);
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1);
+         else
+           hm.put(arr[i],1);
+       
+       int cnt=0;
+       for(int i=0;i<n;i++)
+         if(hm.get(arr[i])==2)
+         {
+           cnt++;
+	   System.out.println(arr[i]+" ");
+           if(cnt==2)
+             break;  
+         }
+    }
+}
 
+
+//Better Approach
 import java.util.Scanner;
 public class Test
 {
@@ -131,27 +168,27 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Elements occurring Twice is: ");
-        findTwoRepeated(arr);
+            System.out.println("Elements occurring Twice is: ");
+            findTwoRepeated(arr);
 	}
 	
-  public static void findTwoRepeated(int arr[])
+        public static void findTwoRepeated(int arr[])
 	{
-	  int n=arr.length;
-      int sum=((n-2)*(n-2+1))/2;//Sum of First (n-2) Natural Numbers.
-      int prod=factorial(n-2);//Product of First (n-2) Natural Numbers.
-      int arrSum=0,arrProd=1;
-      for(int i=0;i<n;i++)
-      {
-        arrSum+=arr[i];
-        arrProd*=arr[i];
-      }
-      int sumOfTwoRepeating=arrSum-sum;//R1+R2=sumOfTwoRepeating
-      int prodOfTwoRepeating=arrProd/prod;//R1*R2=prodOfTwoRepeating
-      int differenceOfTwoRepeating=(int)Math.sqrt((sumOfTwoRepeating*sumOfTwoRepeating)-(4*prodOfTwoRepeating));//R1-R2=differenceOfTwoRepeating //(X-Y)^2=((X+Y)^2 - 4*X*Y)
-      int R1=(sumOfTwoRepeating+differenceOfTwoRepeating)/2;//(R1+R2)+(R1-R2)=2R1 => R1=((R1+R2)+(R1-R2))/2
-      int R2=sumOfTwoRepeating-R1;//R2=(R1+R2)-R1
-      System.out.println(R1+" "+R2);
+	    int n=arr.length;
+            int sum=((n-2)*(n-2+1))/2;//Sum of First (n-2) Natural Numbers.
+            int prod=factorial(n-2);//Product of First (n-2) Natural Numbers.
+            int arrSum=0,arrProd=1;
+            for(int i=0;i<n;i++)
+            {
+             arrSum+=arr[i];
+             arrProd*=arr[i];
+            }
+            int sumOfTwoRepeating=arrSum-sum;//R1+R2=sumOfTwoRepeating
+            int prodOfTwoRepeating=arrProd/prod;//R1*R2=prodOfTwoRepeating
+            int differenceOfTwoRepeating=(int)Math.sqrt((sumOfTwoRepeating*sumOfTwoRepeating)-(4*prodOfTwoRepeating));//R1-R2=differenceOfTwoRepeating //(X-Y)^2=((X+Y)^2 - 4*X*Y)
+            int R1=(sumOfTwoRepeating+differenceOfTwoRepeating)/2;//(R1+R2)+(R1-R2)=2R1 => R1=((R1+R2)+(R1-R2))/2
+            int R2=sumOfTwoRepeating-R1;//R2=(R1+R2)-R1
+            System.out.println(R1+" "+R2);
 	}
 	
 	public static int factorial(int num)
@@ -175,26 +212,26 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Elements occurring Twice is: ");
-        findTwoRepeated(arr);
+            System.out.println("Elements occurring Twice is: ");
+            findTwoRepeated(arr);
 	}
 	
-    public static void findTwoRepeated(int arr[])
+         public static void findTwoRepeated(int arr[])
 	 {
-      int n=arr.length;
-      int[] count=new int[n-1];//array size is (n+2) and array element are in the range of 1 to N(both inclusive)
-      for(int i=0;i<n;i++)
-        count[arr[i]]++;
+           int n=arr.length;
+           int[] count=new int[n-1];//array size is (n+2) and array element are in the range of 1 to N(both inclusive)
+           for(int i=0;i<n;i++)
+              count[arr[i]]++;
         
-        int cnt=0;
-       for(int i=1;i<(n-1);i++)
-          if(count[i]==2)
-          {
-             cnt++;
+           int cnt=0;
+           for(int i=1;i<(n-1);i++)
+             if(count[i]==2)
+             {
+                 cnt++;
 	         System.out.println(arr[i]+" ");
 	         if(cnt==2)
 	            break;
-          }
+             }
 	 }
 }
 
@@ -211,25 +248,25 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Elements occurring Twice is: ");
-        findTwoRepeated(arr);
+            System.out.println("Elements occurring Twice is: ");
+            findTwoRepeated(arr);
 	}
 	
-    public static void findTwoRepeated(int arr[])
+         public static void findTwoRepeated(int arr[])
 	 {
-       int n=arr.length;
-       int count=0;
-       for(int i=0;i<n;i++)
-       {
-           int element=arr[Math.abs(arr[i])]; 
-           if(element <0)
+           int n=arr.length;
+           int count=0;
+           for(int i=0;i<n;i++)
            {
-              count++;
-              System.out.println(Math.abs(arr[i])+" ");
-              if(count==2)
-	             break;
+              int element=arr[Math.abs(arr[i])]; 
+              if(element <0)
+              {
+                count++;
+                System.out.println(Math.abs(arr[i])+" ");
+                if(count==2)
+	           break;
+              }
+              arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])]; 
            }
-           arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])]; 
-       }
 	 }
 }
