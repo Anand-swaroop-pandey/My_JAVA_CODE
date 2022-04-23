@@ -136,7 +136,10 @@ public class Test
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-       int m=arr1.length,n=arr2.length,o=arr3.length;
+       int m=arr1.length;
+       int n=arr2.length;
+       int o=arr3.length;
+       
        HashMap<Integer,Integer>hm=new HashMap<>();
        for(int i=0;i<m;i++)
          if(hm.containsKey(arr1[i]))
@@ -157,17 +160,40 @@ public class Test
             hm.put(arr3[i],hm.get(arr3[i])+1);
          else
             hm.put(arr3[i],1);    
-        
+       
        String str="";
-       for(int i=0;i<m;i++)
-         if(hm.get(arr1[i])==3)
-	     str+=arr1[i]+",";
-          
+       int minLen=minimum(m,n,o);
+       if(minLen==m)
+       {
+          for(int i=0;i<m;i++)
+            if(hm.get(arr1[i])==3)
+	        str+=arr1[i]+","; 
+       }
+       else if(minLen==n)
+       {
+          for(int i=0;i<n;i++)
+            if(hm.get(arr2[i])==3)
+	        str+=arr2[i]+","; 
+       }
+       else
+       {
+          for(int i=0;i<o;i++)
+            if(hm.get(arr3[i])==3)
+	        str+=arr3[i]+","; 
+       }
+       
        String intersection="";
        for(int i=0;i<str.length()-1;i++)//To remove the Extra Semicolon
           intersection=intersection+str.charAt(i);
           
        return intersection;
+    }
+    
+    public static int minimum(int a,int b,int c)
+    {
+        int temp=Math.min(a,b);
+        int min=Math.min(temp,c);
+        return min;
     }
 }
 
