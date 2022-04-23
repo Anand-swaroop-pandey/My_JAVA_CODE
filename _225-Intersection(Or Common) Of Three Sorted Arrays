@@ -2,7 +2,7 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
+     public static void main(String[] args) {
        Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
@@ -38,8 +38,7 @@ public class Test
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-        int m=arr1.length;
-        int n=arr2.length;
+        int m=arr1.length,n=arr2.length;
         int len=m<n?m:n;
         int[] common=new int[len];
         int k=intersectionOfTwoSortedArray1(arr1,arr2,common);
@@ -48,9 +47,7 @@ public class Test
 	
     public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
     {
-	    int i=0;
-	    int j=0;
-            int k=0;
+	int i=0,j=0,k=0;
         while(i<arr1.length && j<arr2.length)
           if(arr1[i]==arr2[j])
           {
@@ -71,8 +68,7 @@ public class Test
 	
 	public static String intersectionOfTwoSortedArray2(int[] arr1,int m,int[] arr2)
 	{
-	    int i=0;
-	    int j=0;
+	    int i=0,j=0;
 	    String temp="";
            while(i<m && j<arr2.length)
              if(arr1[i]==arr2[j])
@@ -136,9 +132,7 @@ public class Test
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-       int m=arr1.length;
-       int n=arr2.length;
-       int o=arr3.length;
+       int m=arr1.length,n=arr2.length,o=arr3.length;
        
        HashMap<Integer,Integer>hm=new HashMap<>();
        for(int i=0;i<m;i++)
