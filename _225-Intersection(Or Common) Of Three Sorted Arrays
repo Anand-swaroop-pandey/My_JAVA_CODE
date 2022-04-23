@@ -97,12 +97,12 @@ public class Test
 }
 
 
-//Optimal Approach
-import java.util.Scanner
+//Bruteforce Approach
+import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
@@ -127,20 +127,93 @@ public class Test
            System.out.printf("Enter %d Elements of Array3:\n",o);
            for(int i=0;i<o;i++)
               arr3[i]=sc.nextInt();
+            System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
+         }
+         else
+            System.out.println("Invalid Choice");
+    }
+	
+	
+    public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
+    {
+       int m=arr1.length,n=arr2.length,o=arr3.length;
+       HashMap<Integer,Integer>hm=new HashMap<>();
+       for(int i=0;i<m;i++)
+         if(hm.containsKey(arr1[i]))
+            hm.put(arr1[i],hm.get(arr1[i])+1);
+         else
+            hm.put(arr1[i],1);
+        
+        
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr2[i]))
+            hm.put(arr2[i],hm.get(arr2[i])+1);
+         else
+            hm.put(arr2[i],1);
+        
+        
+       for(int i=0;i<o;i++)
+         if(hm.containsKey(arr3[i]))
+            hm.put(arr3[i],hm.get(arr3[i])+1);
+         else
+            hm.put(arr3[i],1);    
+        
+       String str="";
+       for(int i=0;i<m;i++)
+         if(hm.get(arr1[i])==3)
+	     str+=arr1[i]+",";
+          
+       String intersection="";
+       for(int i=0;i<str.length()-1;i++)//To remove the Extra Semicolon
+          intersection=intersection+str.charAt(i);
+          
+       return intersection;
+    }
+}
+
+
+//Optimal Approach
+import java.util.Scanner
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array3");
+       int o=sc.nextInt();
+         if(m>0 && n>0 && o>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+            int[] arr3=new int[o];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array3:\n",o);
+           for(int i=0;i<o;i++)
+              arr3[i]=sc.nextInt();
             System.out.print("Intersection of three Given Sorted Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
              
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-            int i=0;
-	    int j=0;
-	    int k=0;
-	    String temp="";
+        int i=0,j=0,k=0;
+        String temp="";
         while(i<arr1.length && j<arr2.length && k<arr3.length)
           if(arr1[i]==arr2[j] && arr2[j]==arr3[k])
           {
@@ -162,7 +235,8 @@ public class Test
           String intersection="";
           for(int index=0;index<(temp.length()-1);index++)
              intersection=intersection+temp.charAt(index);
-          return intersection; 
+	     
+        return intersection; 
     }
     
     public static int minimum(int a,int b,int c)
