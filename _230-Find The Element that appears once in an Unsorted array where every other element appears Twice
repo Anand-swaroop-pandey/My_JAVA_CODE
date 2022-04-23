@@ -10,7 +10,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();*
-        System.out.println("Element occurring once is: "+findSingle(arr));
+            System.out.println("Element occurring once is: "+findSingle(arr));
 	}
 	
 	public static int findSingle(int arr[])
@@ -34,7 +34,7 @@ public class Test
 	}
 }
 
-//Better Approach
+//Improved Approach
 import java.util.Scanner;
 public class Test
 {
@@ -46,10 +46,10 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-      System.out.println("Element occurring once is: "+findSingle(arr));
+            System.out.println("Element occurring once is: "+findSingle(arr));
 	}
 	
-   public static int findSingle(int arr[])
+        public static int findSingle(int arr[])
 	{
 	    int res=-1;
 	    int[] freqArr=new int[arr.length];
@@ -62,10 +62,11 @@ public class Test
 	       } 
 	     return res;
 	}
+	
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
-	         int n=arr.length;
-	         int count;   
+           int n=arr.length;
+           int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -83,7 +84,7 @@ public class Test
 }
 
 
-//Improved  Approach
+//Better Approach
 import java.util.Scanner;
 public class  Test
 {
@@ -95,27 +96,28 @@ public class  Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findSingle(arr));
+            System.out.println("Element occurring once is: "+findSingle(arr));
 	}
 	
 	public static int findSingle(int arr[])
-   {
-       int sum=0,arrSum=0;
+        {
+            int sum=0,arrSum=0;
 	    int[] freqArr=new int[arr.length];
 	    countFrequency(arr,freqArr);
 	    for(int i=0;i<arr.length;i++)
 	    {
 	        if(freqArr[i]!=-1)
-              sum+=arr[i];
-            arrSum+=arr[i];  
+                  sum+=arr[i];
+               arrSum+=arr[i];  
 	    }
-        int missing=(2*sum)-arrSum;
-        return missing;
+           int missing=(2*sum)-arrSum;
+           return missing;
 	}
+	
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
-	         int n=arr.length;
-	         int count;   
+           int n=arr.length;
+	   int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -130,7 +132,40 @@ public class  Test
             freqArr[i]=count; 
            }
 	}
-    
+}
+
+
+//Even Better Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+            System.out.println("Element occurring once is: "+findSingle(arr));
+     }
+	
+    public static int findSingle(int arr[])
+    {
+       int n=arr.length;
+       HashMap<Integer,Integer>hm=new HashMap<>(n);
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1);
+         else
+           hm.put(arr[i],1);
+       
+       for(int i=0;i<n;i++)
+         if(hm.get(arr[i])==1)
+             return arr[i];
+             
+       return -1; //No element occurs once
+    }
 }
 
 
@@ -146,7 +181,7 @@ public class Test
 	     System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
-        System.out.println("Element occurring once is: "+findSingle(arr));
+            System.out.println("Element occurring once is: "+findSingle(arr));
 	}
 	
 	public static int findSingle(int[] arr)
