@@ -111,10 +111,10 @@ public class Test
                hm.put(arr[i],1);
         
            for(int i=0;i<n;i++)
-            if(hm.get(arr[i])!=-1)
-            {
-              System.out.println(arr[i]+"==>"+hm.get(arr[i])); 
-              hm.put(arr[i],-1); 
-            }
-	 }
+	     if(hm.containsKey(arr[i]))
+	     {
+	        System.out.println(arr[i]+"==>"+hm.get(arr[i])); 
+                hm.remove(arr[i]);
+             }
+	  }
 }
