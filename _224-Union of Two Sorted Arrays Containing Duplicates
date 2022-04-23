@@ -2,14 +2,14 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-       if(m>0 && n>0)
+         if(m>0 && n>0)
          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
@@ -24,7 +24,7 @@ public class Test
              
          }
          else
-           	System.out.println("Invalid Choice");
+           System.out.println("Invalid Choice");
 	}
 	
 	public static String unionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
@@ -34,17 +34,14 @@ public class Test
 	    return unionOfTwoSortedArray(arr1,index1,arr2,index2);
 	}
 	
-	 public static int removeDuplicatesFromSortedArray(int[] arr)
+        public static int  removeDuplicatesFromSortedArray(int[] arr)
 	{
-       int n=arr.length;
+           int n=arr.length;
 	   int j=0;
-	 
-	   for(int i=0;i<n;i++)
-	   {
-	       while(i<(n-1) && arr[i]==arr[i+1])
-	         i++;
-	       arr[j++]=arr[i];
-	   }
+	   for(int i=0;i<(n-1);i++)
+             if(arr[i]!=arr[i+1])
+               arr[j++]=arr[i];
+           arr[j++]=arr[n-1];
 	   return j;
 	}
 	
@@ -53,29 +50,81 @@ public class Test
 	    int i=0;
 	    int j=0;
 	    String temp="";
-        while(i<m && j<n)
-          if(arr1[i]<arr2[j])
-             temp=temp+arr1[i++]+",";
-          else if(arr2[j]<arr1[i])
-             temp=temp+arr2[j++]+",";
-          else if(arr1[i]==arr2[j])
-          {
-              temp=temp+arr1[i++]+",";
-              j++;
-          }
+            while(i<m && j<n)
+              if(arr1[i]<arr2[j])
+                temp=temp+arr1[i++]+",";
+              else if(arr2[j]<arr1[i])
+                temp=temp+arr2[j++]+",";
+              else if(arr1[i]==arr2[j])
+              {
+                temp=temp+arr1[i++]+",";
+                j++;
+              }
           
-          while(i<m)
-            temp=temp+arr1[i++]+",";
+             while(i<m)
+               temp=temp+arr1[i++]+",";
+             
+             while(j<n)
+               temp=temp+arr2[j++]+",";
             
-          while(j<n)
-            temp=temp+arr2[j++]+",";
-            
-        String union="";
-          for(int k=0;k<(temp.length()-1);k++)
-              union=union+temp.charAt(k);
-          return union;
-	}
+             String union="";
+             for(int k=0;k<(temp.length()-1);k++)
+                union=union+temp.charAt(k);
+            return union;
+	}	
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+       if(m>0 && n>0)
+       {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+            System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArrayContainingDuplicates(arr1,arr2)+"}");  
+             
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
 	
+	
+	public static String unionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
+	{
+            int m=arr1.length;
+	    int n=arr2.length;
+	    TreeMap<Integer,Boolean>tm=new TreeMap<>();
+            for(int i=0;i<m;i++)
+             tm.put(arr1[i],true);
+	    
+            for(int i=0;i<n;i++)
+             tm.put(arr2[i],true);
+        
+            String temp="";
+	    for(int key:tm.keySet())
+               temp+=key+",";
+	    
+	    String union="";
+	    for(int i=0;i<temp.length()-1;i++)
+	       union+=temp.charAt(i);
+	    
+	    return union;
+	} 
 }
 
 
@@ -83,14 +132,14 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-       if(m>0 && n>0)
+         if(m>0 && n>0)
          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
@@ -105,49 +154,44 @@ public class Test
              
          }
          else
-           	System.out.println("Invalid Choice");
-	}
+            System.out.println("Invalid Choice");
+     }
 	
 	public static String unionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
 	{
-        int i=0;
-	    int j=0;
+            int i=0,j=0,m=arr1.length,n=arr2.length,prev1=Integer.MIN_VALUE,prev2=Integer.MIN_VALUE;
 	    String temp="";
-	    int m=arr1.length;
-	    int n=arr2.length;
-	    int prev1=Integer.MIN_VALUE;
-	    int prev2=Integer.MIN_VALUE;
 	    
-        while(i<m && j<n)
-        {
+            while(i<m && j<n)
+            {
           
-          while(i<m && prev1==arr1[i])
-            i++;
+              while(i<m && prev1==arr1[i])
+                i++;
           
-          while(j<n && prev2==arr2[j])
-            j++;
+              while(j<n && prev2==arr2[j])
+               j++;
 
-          if(arr1[i]<arr2[j])
-          {
-             prev1=arr1[i];
-             temp=temp+arr1[i]+",";
-             i++; 
-          }
-          else if(arr2[j]<arr1[i])
-          {
-             prev2=arr2[j]; 
-             temp=temp+arr2[j]+",";
-             j++;
-          }
-          else if(arr1[i]==arr2[j])
-          {
-              temp=temp+arr1[i]+",";
-              prev1=arr1[i];
-              prev2=arr2[j];
-              i++;
-              j++;
-          }
-        }
+              if(arr1[i]<arr2[j])
+              {
+                prev1=arr1[i];
+                temp=temp+arr1[i]+",";
+                i++; 
+              }
+              else if(arr2[j]<arr1[i])
+              {
+                prev2=arr2[j]; 
+                temp=temp+arr2[j]+",";
+                j++;
+              }
+              else if(arr1[i]==arr2[j])
+              {
+                temp=temp+arr1[i]+",";
+                prev1=arr1[i];
+                prev2=arr2[j];
+                i++;
+                j++;
+              }
+           }
         
         if(i<m)
         {
@@ -162,13 +206,12 @@ public class Test
             }
             
             if(i==(m-1))
-              temp=temp+arr1[i]+",";
-            
+              temp=temp+arr1[i]+",";   
         }
         
         
          if(j<n)
-        {
+         {
             while(j<n && arr2[j]==arr2[j-1])
               j++;
             
@@ -181,11 +224,11 @@ public class Test
             
             if(j==(n-1))
               temp=temp+arr2[j]+",";
-        }
+         }
         
           String union="";
           for(int k=0;k<(temp.length()-1);k++)
              union=union+temp.charAt(k);
           return union;
-	}
+      }
 }
