@@ -16,7 +16,7 @@ public class Test
 	
     public static void twoUniqueRestTwice(int arr[])
    {
-      System.out.println("2 Unique Elements are:");
+      System.out.println("Two Unique Elements are:");
        int count=0;
        int n=arr.length;
       for(int i=0;i<n;i++)
@@ -37,7 +37,6 @@ public class Test
 }
 
 //Better Approach
-
 import java.util.Scanner;
 public class Test
 {
@@ -55,12 +54,19 @@ public class Test
 	    
     public static void twoUniqueRestTwice(int arr[])
     {
-	  System.out.println("2 Unique Elements are :");
+	  System.out.println("Two Unique Elements are :");
 	  int[] freqArr=new int[arr.length];
           countFrequency(arr,freqArr);
+	  
+	  int cnt=0;
           for(int i=0;i<arr.length;i++)
             if(freqArr[i]==1)
-	       System.out.print(arr[i]+" ");
+	    {
+	      cnt++;
+	      System.out.print(arr[i]+" ");
+	      if(cnt==2)
+	         break;
+	    }       
     }
 	    
    public static void countFrequency(int[] arr,int[] freqArr)
@@ -82,8 +88,46 @@ public class Test
     }
 }
 
-//Optimal Approach
+//Best Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+            twoUniqueRestTwice(arr);
+	}
+	
+    public static void twoUniqueRestTwice(int arr[])
+    {
+       int n=arr.length;
+       HashMap<Integer,Integer>hm=new HashMap<>(n);
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1);
+         else
+           hm.put(arr[i],1);
+       
+       System.out.println("Two Unique Elements are:");
+       int cnt=0;
+       for(int i=0;i<n;i++)
+         if(hm.get(arr[i])==1)
+         {
+               cnt++;
+	       System.out.println(arr[i]+" ");
+	       if(cnt==2)
+	         break;  
+         }
+    }
+}
 
+
+//Optimal Approach
 import java.util.Scanner;
 public class Test
 {
@@ -114,7 +158,7 @@ public class Test
             else
                y=y^val;
                
-        System.out.printf("2 Unique Elements are : %d and %d",x,y);
+        System.out.printf("Two Unique Elements are : %d and %d",x,y);
     }
 	   
    public static int rMSBM(int n)
@@ -123,10 +167,9 @@ public class Test
        return rsbm;
    }
 		
-    public static int twosCompliment(int n)
+   public static int twosCompliment(int n)
    {
        return -n;//(~n+1);
-   }
-		
+   }		
 }
   
