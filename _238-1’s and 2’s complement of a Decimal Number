@@ -12,6 +12,6 @@ public class Test
 	{
 	   int onesComplement=~num;
 	   int twosComplement=~num+1;//int twosComplement=-num;
-       System.out.printf("1s Complement of "+num+" is = "+onesComplement+"    2s Complement of "+num+" is = "+twosComplement);
+           System.out.printf("1s Complement of "+num+" is = "+onesComplement+"    2s Complement of "+num+" is = "+twosComplement);
 	}
 }
