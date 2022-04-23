@@ -10,9 +10,9 @@ public class Test
 	    int k=sc.nextInt();
 	    int res=checkKthBit(num,k);
 	    if(res==0)
-          System.out.printf("The %d th Bit  is OFF/Unset",k);
-        else
-          System.out.printf("The %d th Bit  is ON/Set",k);
+              System.out.printf("The %d th Bit  is OFF/Unset",k);
+            else
+              System.out.printf("The %d th Bit  is ON/Set",k);
 	}
 	
    	public static int checkKthBit(int num,int k)
