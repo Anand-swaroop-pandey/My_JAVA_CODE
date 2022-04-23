@@ -84,8 +84,8 @@ public class Test
 
 	public static void countFrequency(int[] arr,int[] freqArr)
 	{
-	         int n=arr.length;
-	         int count;   
+            int n=arr.length;
+	    int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -143,11 +143,11 @@ public class Test
                continue;
              count=1;
              for(int j=i+1;j<n;j++)
-                if(arr[i]==arr[j])
-                {
+               if(arr[i]==arr[j])
+               {
                    freqArr[j]=-1;
                    count++;
-                }
+               }
             freqArr[i]=count; 
            }
 	} 
