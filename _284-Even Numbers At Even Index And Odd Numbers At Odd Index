@@ -10,10 +10,10 @@ public class Test
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-    arrangeOddAndEven(arr);
-    System.out.println("Rearranged Array is:");
-      for(int i=0;i<arr.length;i++)
-        System.out.printf(arr[i]+" ");
+          arrangeOddAndEven(arr);
+          System.out.println("Rearranged Array is:");
+          for(int i=0;i<arr.length;i++)
+            System.out.printf(arr[i]+" ");
  	}
 	
 	public static void arrangeOddAndEven(int[] arr)
@@ -51,30 +51,30 @@ public class Test
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-    arrangeOddAndEven(arr);  
-    System.out.println(" Rearranged Array is:");
-    for(int i=0;i<arr.length;i++)
-      System.out.printf(arr[i]+" ");
+          arrangeOddAndEven(arr);  
+          System.out.println(" Rearranged Array is:");
+          for(int i=0;i<arr.length;i++)
+            System.out.printf(arr[i]+" ");
  	}
 	
 	public static void arrangeOddAndEven(int[] arr)
 	{
-	     int n=arr.length;
-       int evenIndex=0,oddIndex=1;
-       while(evenIndex<n && oddIndex<n)
-       {
-           while(evenIndex<n && (arr[evenIndex]%2)==0)
-              evenIndex+=2;
-           while(oddIndex<n && (arr[oddIndex]%2)==1)
-              oddIndex+=2;
-              
-           if(evenIndex<n && oddIndex<n)
+	    int n=arr.length;
+            int evenIndex=0,oddIndex=1;
+            while(evenIndex<n && oddIndex<n)
             {
+               while(evenIndex<n && (arr[evenIndex]%2)==0)
+                 evenIndex+=2;
+               while(oddIndex<n && (arr[oddIndex]%2)==1)
+                 oddIndex+=2;
+              
+               if(evenIndex<n && oddIndex<n)
+               {
                 //Swapping
                 int temp=arr[evenIndex];
                 arr[evenIndex]=arr[oddIndex];
                 arr[oddIndex]=temp;
+               }
             }
-       }
 	}
 }
