@@ -1,5 +1,4 @@
 //Bruteforce Approach
-
 import java.util.Scanner;
 public class Test
 {
@@ -21,15 +20,95 @@ public class Test
 	
 	public static void printFrequency(int [] arr)
 	{
-	     System.out.println("Frequency Of Elements are:");
-	     int size=(arr.length+1);
-         int[] freqArr=new int[size];
-         for(int i=0;i<arr.length;i++)
+	  int size=(arr.length+1);
+          int[] freqArr=new int[size];
+          for(int i=0;i<arr.length;i++)
             freqArr[arr[i]]++;
-            
-         for(int i=1;i<size;i++)
-             System.out.println(i+"=>"+freqArr[i]);  
+          System.out.println("Frequency Of Elements are:");  
+          for(int i=1;i<size;i++)
+            System.out.println(i+"=>"+freqArr[i]);  
 	}
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {	
+       Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");   
+    }
+		
+    public static void printDuplicate(int arr[])
+    {
+       int n=arr.length;
+       HashMap<Integer,Integer>hm=new HashMap<>();
+ 
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1);
+         else
+           hm.put(arr[i],1);
+       
+       System.out.println("Frequency Of Elements are:");
+       for(int i=1;i<=n;i++)
+         if(hm.containsKey(i))
+           System.out.println(i+"=>"+hm.get(i));
+         else
+           System.out.println(i+"=>"+"0");
+    }
+}
+
+
+//Even Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {	
+       Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");   
+    }
+		
+    public static void printDuplicate(int arr[])
+    {
+       int n=arr.length;
+       TreeMap<Integer,Integer>tm=new TreeMap<>();
+ 
+       for(int i=1;i<=n;i++)
+         tm.put(i,0);
+         
+       for(int i=0;i<n;i++)
+         if(tm.containsKey(arr[i]))
+           tm.put(arr[i],tm.get(arr[i])+1);
+
+       System.out.println("Frequency Of Elements are:");
+       for(int key:tm.keySet())
+         System.out.println(key+"=>"+tm.get(key));
+    }
 }
 
 
