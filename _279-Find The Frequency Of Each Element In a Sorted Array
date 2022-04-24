@@ -1,41 +1,71 @@
 //Intuitive Approach
-import java.util.Scanner;
+import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
+    public static void main(String[] args)
+    {	
+         Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-          printFreq(arr);
- 	}
-	public static void printFreq(int[] arr)
-	{
-	    int i,freq=0;
-	    for(i=0;i<(arr.length-1);i++)
-	    {
-	       freq=1;
-	       while(i<(arr.length-1) && arr[i]==arr[i+1])
-	       {
-	           freq++;
-	           i++;
-	       }
-	       System.out.println(arr[i]+"=>"+freq);
-	    }
-	    if(i==(arr.length-1))
-	    {
-	        freq=1;
-	        System.out.println(arr[i]+"=>"+freq);
-	    }
-	}
+	  printFreq(arr);   
+    }
+		
+    public static void printFreq(int arr[])
+    {
+       int n=arr.length;
+       HashMap<Integer,Integer>hm=new HashMap<>();
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1); 
+         else
+           hm.put(arr[i],1);
+       
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+          {
+            System.out.println(arr[i]+"=>"+hm.get(arr[i]));
+            hm.remove(arr[i]);
+          }
+    }
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {	
+          Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements in Sorted Order",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+          printFreq(arr);   
+    }
+		
+    public static void printFreq(int arr[])
+    {
+       int n=arr.length;
+       TreeMap<Integer,Integer>tm=new TreeMap<>();
+       for(int i=0;i<n;i++)
+         if(tm.containsKey(arr[i]))
+           tm.put(arr[i],tm.get(arr[i])+1); 
+         else
+           tm.put(arr[i],1);
+       
+       for(int key:tm.keySet())
+           System.out.println(key+"=>"+tm.get(key));
+    }
 }
 
 
 //Optimal Approach
-
 import java.util.Scanner;
 public class Test
 {
