@@ -108,6 +108,56 @@ public class Test
    }
 }
 
+//Good Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {  
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+           boolean res=isSubset(arr1,m,arr2,n);
+           if(res==false)
+              System.out.println("Array2 is not a Subset Of Array 1");
+           else
+              System.out.println("Array2 is a Subset Of Array 1");
+        }
+         else
+            System.out.println("Invalid Choice");
+    }
+		
+    public static boolean isSubset(int[] arr1,int m,int[] arr2,int n)
+    {
+        
+       HashSet<Integer>hs=new HashSet<>();
+       for(int i=0;i<m;i++)
+         hs.add(arr1[i]);
+        
+       for(int i=0;i<n;i++)
+         if(hs.contains(arr2[i])==false)
+            return false;
+
+      return true;
+    }
+}
+
+
 //Optimal Approach
 import java.util.*;
 public class Test
