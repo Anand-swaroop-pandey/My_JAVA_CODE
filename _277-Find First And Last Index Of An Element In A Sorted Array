@@ -88,17 +88,18 @@ public class Test
 	
 	public static void findFirstAndLast(int [] arr,int key)
 	{
-        int first=firstIndex(arr,key);
-        if(first==-1)
-        {
-           System.out.printf("%d is not Present in the Array",key);
-           return;
-        }
-        int last=lastIndex(arr,key);
+           int first=firstIndex(arr,key);
+           if(first==-1)
+           {
+             System.out.printf("%d is not Present in the Array",key);
+             return;
+           }
+           int last=lastIndex(arr,key);
       
-        System.out.printf("First Occurence of %d is at index : %d\n",key,first);
-        System.out.printf("Last Occurence of %d is at index : %d",key,last);
-	}
+          System.out.printf("First Occurence of %d is at index : %d\n",key,first);
+          System.out.printf("Last Occurence of %d is at index : %d",key,last);
+        }
+	
 	
    public static int firstIndex(int[]arr,int key)
    {
