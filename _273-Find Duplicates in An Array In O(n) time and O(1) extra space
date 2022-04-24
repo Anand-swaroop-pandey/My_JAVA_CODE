@@ -41,12 +41,12 @@ public class Test
 	
 	public static void countFrequecy(int[] arr,int[] freqArr)
 	{
-	       int n=arr.length;
-	       int count;   
+	   int n=arr.length,ount;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
                continue;
+	       
                count=1;
              for(int j=i+1;j<n;j++)
                 if(arr[i]==arr[j])
@@ -59,8 +59,7 @@ public class Test
 	}
 }
 
-//Better Approach
-
+//Improved Approach
 import java.util.Scanner;
 public class Test
 {
@@ -82,7 +81,7 @@ public class Test
 	
         public static void printDuplicate(int [] arr)
 	{
-	     boolean flag=false;
+	    boolean flag=false;
             int[] freqArr=new int[arr.length];
             for(int i=0;i<arr.length;i++)
               freqArr[arr[i]]++;
@@ -97,6 +96,53 @@ public class Test
            if(flag==false)
              System.out.println("No Duplicate Element Exists:");
 	}
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {	
+           Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");   
+    }
+		
+    public static void printDuplicate(int arr[])
+    {
+       int n=arr.length;
+       HashMap<Integer,Integer>hm=new HashMap<>();
+ 
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1);
+         else
+           hm.put(arr[i],1);
+       
+       boolean flag=false;
+       System.out.println("Duplicates Elements are:");
+       for(int i=0;i<=n-1;i++)
+         if(hm.containsKey(i) && hm.get(i)>1)
+         {
+           System.out.println(i);
+           flag=true;
+         }
+           
+       if(flag==false)
+          System.out.println("No Duplicates Elements Exists");
+    
+    }
 }
 
 
@@ -142,6 +188,6 @@ public class Test
 	    }
 	        
 	    if(flag==false)
-	      System.out.println("No Duplicates Elements Exists");
+	     
 	}
 }
