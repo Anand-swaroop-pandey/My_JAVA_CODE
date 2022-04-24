@@ -130,21 +130,16 @@ public class Test
     public static void twoSum(int[] arr,int n,int target)
     {
        HashMap<Integer,Integer>hm=new HashMap<>(n);
-       for(int i=0;i<n;i++)
-         hm.put(arr[i],i);
-       
        int idx1=-1,idx2=-1;  
        for(int i=0;i<n;i++)
        {
-         int num=arr[i];
-         int rem=target-arr[i];
-         if(hm.containsKey(rem))
+         if(hm.containsKey(target-arr[i]))
          {
-            idx1=i;
-            idx2=hm.get(rem);
-           if(idx1!=idx2)
-             break;
+            idx1=hm.get(target-arr[i]);
+            idx2=i;
+            break;
          }
+         hm.put(arr[i],i);
        }
        System.out.println("Indexes are :"+idx1+" , "+idx2);
     }
