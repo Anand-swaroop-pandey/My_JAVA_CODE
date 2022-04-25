@@ -4,12 +4,12 @@ public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the String");
-		String str=sc.nextLine();
-		if(str.length()<=0)
-		  System.out.println("Invalid Choice");
-		else
-		  System.out.println("Encypted String is "+encryptString(str));
+	    System.out.println("Enter the String");
+            String str=sc.nextLine();
+    	    if(str.length()<=0)
+	      System.out.println("Invalid Choice");
+            else
+      	      System.out.println("Encypted String is "+encryptString(str));
 	}
 	
 	public static String encryptString(String str)
