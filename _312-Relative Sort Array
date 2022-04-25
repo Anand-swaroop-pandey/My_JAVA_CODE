@@ -1,3 +1,72 @@
+//Naive Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args){
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2 Such that All Elements of Array2 are Present in Array1:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+            relativeSortArray(arr1,arr2); 
+            System.out.println("Realatively Sorted Array is:");
+            for(int ele:arr1)
+              System.out.println(ele+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void relativeSortArray(int[] arr1,int[] arr2)
+	{
+           int m=arr1.length,n=arr2.length;
+           HashMap<Integer,Integer>hm=new HashMap<>();
+           for(int i=0;i<m;i++)
+             if(hm.containsKey(arr1[i]))
+                hm.put(arr1[i],hm.get(arr1[i])+1);
+             else
+                hm.put(arr1[i],1);
+        
+           int idx=0;
+           for(int i=0;i<n;i++) 
+           {
+             int freq=hm.get(arr2[i]);
+             while(freq!=0)
+             {
+                arr1[idx++]=arr2[i];
+                freq--;
+             }
+             hm.remove(arr2[i]);
+           }
+        
+           int sortPoint=idx;
+           for(int key:hm.keySet())
+           {
+             int freq=hm.get(key);
+             while(freq!=0)
+             {
+                arr1[idx++]=key;
+                freq--;
+             }
+           }
+           Arrays.sort(arr1,sortPoint,m);
+	}
+}
+
+//Optimal Approach
 import java.util.*;
 public class Test
 {
