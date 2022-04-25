@@ -1,0 +1,56 @@
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args){
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the Number");
+      long num=sc.nextLong();
+      sumOfThree(num);
+	}
+    
+    public static void sumOfThree(long num)
+    {
+        if(num%3!=0)
+          System.out.printf("%d cannot be expressed as the sum of three consecutive integers",num);
+        else
+        {
+            /*Three Consecutive Numbers:
+             x+(x+1)+(x+2)=num;
+             or 3x+3=num;
+             or x=(num-3)/3;
+             or x=(num/3)-1;
+              
+             Therefore,numbers are:
+             
+              x=(num/3)-1;
+              x+1=(num/3)-1+1=num/3;
+              x+2=(num/3)-1+2=(num/3)+1
+              
+              */
+            long num1=(num/3)-1;
+            long num2=(num/3);
+            long num3=(num/3)+1;
+            System.out.printf("%d + %d + %d = %d",num1,num2,num3,num);
+        }
+    }
+}
+
+If you add more examples to the ones in the description, you may start to see a pattern.
+
+num = 0 -> []
+num = 1 -> []
+num = 2 -> []
+num = 3 -> [0,1,2]
+num = 4 -> []
+num = 5 -> []
+num = 6 -> [1,2,3]
+num = 7 -> []
+num = 8 -> []
+num = 9 -> [2,3,4]
+...
+num = 33-> [10,11,12]
+...
+num = 99-> [32,33,34]
+
+Based on the above,It looks like the result is Empty(i.e "num" cannot be expressed as the sum of three consecutive integers) only in cases where the "num" is Not divisible by 3
+*/
