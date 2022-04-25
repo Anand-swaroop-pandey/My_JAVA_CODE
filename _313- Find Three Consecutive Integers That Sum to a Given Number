@@ -2,10 +2,10 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args){
-      Scanner sc=new Scanner(System.in);
-      System.out.println("Enter the Number");
-      long num=sc.nextLong();
-      sumOfThree(num);
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Number");
+         long num=sc.nextLong();
+         sumOfThree(num);
 	}
     
     public static void sumOfThree(long num)
