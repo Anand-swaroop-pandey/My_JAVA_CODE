@@ -1,0 +1,57 @@
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+      System.out.println("Enter An Integer");
+      int n=sc.nextInt();
+      
+      if(hasAlternatingBits(n))
+        System.out.printf("%d has Alternating Bits",n);
+      else
+        System.out.printf("%d Donot have Alternating Bits",n);
+	}
+	
+	public boolean hasAlternatingBits(int n)
+    {
+        int all_Ones= (n ^ (n >> 1));
+        if(isPowerOf2(all_Ones+1))
+          return true;
+        else
+          return false;
+    }
+    
+    public static boolean isPowerOf2(int num)
+    {
+       if((num & (num-1))==0)
+          return true;
+       else
+          return false;
+    }
+}
+
+/*
+
+Assume that x has all bits alternating 1010  or like  10101
+let y= x>>1
+
+since the bits are alternating, when you right shift them how will be the new bits compared to old bits????
+
+ALL bits will be flipped
+
+1010 will become
+0101
+and
+10101 will become
+01010
+
+How to detect that all bits are flipped??
+thats why we use XOR
+so if we take x^(x>>1) we should get 1111 all 1s
+
+next question ? how to detect 1111?
+
+if we add 1 to this number it will become power of 2
+
+we know how to detect power of 2 right? x&(x-1)==0
+*/
