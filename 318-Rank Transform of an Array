@@ -1,0 +1,124 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	     Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+              
+            arrayRankTransform(arr); 
+            System.out.println("Resultant Array is:");
+            for(int ele:arr)
+              System.out.println(ele+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void arrayRankTransform(int[] arr)
+	{
+	      HashMap<Integer,Integer>hm=new HashMap<>();
+        int n=arr.length;
+        
+        int[] temp=new int[n];//int[] temp = arr.clone();
+        for(int i=0;i<n;i++)
+          temp[i]=arr[i];
+    
+        Arrays.sort(temp); 
+        int rank=1;
+        for(int val:temp)
+          if(!hm.containsKey(val))
+             hm.put(val,rank++);
+       
+        for(int i=0;i<n;i++)
+           arr[i]=hm.get(arr[i]);
+	}
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	     Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+              
+            arrayRankTransform(arr); 
+            System.out.println("Resultant Array is:");
+            for(int ele:arr)
+              System.out.println(ele+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void arrayRankTransform(int[] arr)
+	{
+      int n=arr.length;
+      TreeSet<Integer>ts=new TreeSet<>();
+      for(int val:arr)
+         ts.add(val);
+      
+      HashMap<Integer,Integer>hm=new HashMap<>();
+      int rank=1;
+      for(int key :ts)
+        hm.put(key,rank++);  
+        
+      for(int i=0;i<n;i++)
+        arr[i]=hm.get(arr[i]);
+	}
+}
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	     Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+              
+            arrayRankTransform(arr); 
+            System.out.println("Resultant Array is:");
+            for(int ele:arr)
+              System.out.println(ele+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void arrayRankTransform(int[] arr)
+	{
+      int n=arr.length;
+      TreeMap<Integer,Integer>tm=new TreeMap<>();
+      for(int i=0;i<n;i++)
+         tm.put(arr[i],0);
+      
+      int rank=1;
+      for(int key:tm.keySet())
+         tm.put(key,rank++);
+
+       for(int i=0;i<n;i++)
+          arr[i]=tm.get(arr[i]);
+	}
+}
