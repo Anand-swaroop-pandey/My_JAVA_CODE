@@ -1,3 +1,4 @@
+//Method 1
 import java.util.*;
 public class Test
 {
@@ -28,26 +29,26 @@ public class Test
     
     public static int countSetBits(int num)//Kernighan's Algorithm
     {
-	    int count=0;
-	    while(num!=0)
-	    {
-	       int rmsbm=rMSBM(num);
-               num=num-rmsbm;
-               count++;  
-	    }
+       int count=0;
+       while(num!=0)
+       {
+          int rmsbm=rMSBM(num);
+          num=num-rmsbm;
+          count++;  
+       }
         return count;
-	}
+    }
 	
-	public static int rMSBM(int num)
-	{
+    public static int rMSBM(int num)
+    {
 	   int rmsbm=num & twosCompliment(num);
 	   return rmsbm;
-	}
+    }
 	
-  public static int twosCompliment(int num)
-	{
+    public static int twosCompliment(int num)
+    {
            return -num;//return (~num+1);
-	}
+    }
     
     public static boolean isPrime(int num)
     {
@@ -64,7 +65,7 @@ public class Test
 //Method 2
 
 import java.util.*;
-public class Main
+public class Test
 {
   public static void main (String[]args)
   {
@@ -88,7 +89,7 @@ public class Main
     public static boolean isPrime(int num)
     {
         if(num<=1)
-	      return false;
+	  return false;
         
         for(int i=2;(i*i)<=num;i++)
           if((num%i)==0)
