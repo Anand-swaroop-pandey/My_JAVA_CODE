@@ -1,0 +1,73 @@
+//Method 1
+import java.util.*;
+public class Test
+{
+	  public static void main(String[] args) {
+		    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            updateArray(arr);
+            System.out.println("Resultant Array is:");  
+            for(int val:arr)
+              System.out.println(val+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void updateArray(int[] arr)
+	{
+	   int n=arr.length;
+	   for(int i=0;i<(n-1);i++)
+	     arr[i]=arr[i+1];
+	   
+	   arr[n-1]=-1; 
+	}
+}
+
+//Method 2
+import java.util.*;
+public class Test
+{
+	  public static void main(String[] args) {
+		    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            updateArray(arr);
+            System.out.println("Resultant Array is:");  
+            for(int val:arr)
+              System.out.println(val+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void updateArray(int[] arr)
+	{
+	   int n=arr.length;
+     leftRotateBy1(arr,n);
+	   arr[n-1]=-1; 
+	}
+  
+  public static void leftRotateBy1(int[] arr,int n)
+	{
+	     int temp=arr[0];
+	     for(int j=0;j<(n-1);j++)
+	       arr[j]=arr[j+1];
+	     arr[n-1]=temp;
+	}
+}
