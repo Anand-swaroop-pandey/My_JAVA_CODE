@@ -82,10 +82,10 @@ public class Test
         if(n==0)
           return 0;
           
-        int sign=1;//1==+ve
+        int sign=1;//1==+ve Number
         if(n<0)
         {
-          sign=-1;//-1==-ve
+          sign=-1;//-1==-ve Number
           n=Math.abs(n);
         }
         
@@ -99,17 +99,16 @@ public class Test
         String res="";
         if(sign==1)
         {
-           for(int i=9;i>=0;i--)
+           for(int i=9;i>=0;i--)  //To Obtain Descending Order
              while(count[i]!=0)
              {
                res+=i;
                count[i]--;
-             }
-                
+             } 
         }
         else//sign=-1
         {
-            for(int i=0;i<9;i++)
+            for(int i=0;i<9;i++) //To Obtain Ascending Order
              while(count[i]!=0)
              {
                res+=i;
