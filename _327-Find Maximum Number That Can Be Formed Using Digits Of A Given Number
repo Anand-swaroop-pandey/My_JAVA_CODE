@@ -1,0 +1,123 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter An Integer");
+       int n=sc.nextInt();
+       System.out.printf("Largest number possible by using the digits of given number is :"+getLargest(n));
+     }
+	
+	
+     public static int getLargest(int n)
+     {
+        if(n==0)
+          return 0;
+          
+        int sign=1;//1==+ve Number
+        if(n<0)
+        {
+          sign=-1;//-1==-ve Number
+          n=Math.abs(n);
+        }
+        
+        int len=countDigits(n);
+        int[] count=new int[len];
+        int idx=0;
+        
+        while(n!=0)
+        {
+          count[idx++]=n%10;
+          n=n/10;
+        }
+        
+        if(sign==1)   //When num=+ve => sort in Descending Order in order to Obtain Largest Number
+        {
+          Arrays.sort(count);
+          for(int i=0;i<(len/2);i++)//Descending order = Ascending order then Reverse the array
+          {
+              int temp=count[i];
+              count[i]= count[len-1-i];
+              count[len-1-i]=temp;
+          }
+        }
+        else   //sign=-1 (When num=-ve => sort in Ascending Order in order to Obtain Largest Number)
+           Arrays.sort(count);
+        
+        //Constructing the Number
+        int maxNum=count[0];
+        for(int i=1;i<len;i++)
+          maxNum=maxNum*10+count[i];
+          
+        return (sign*maxNum);
+     }
+     
+    public static int countDigits(int num)
+    {
+         int count=0;
+         while(num!=0)
+         {
+             count++;
+             num=num/10;
+         }
+         return count;
+    }
+}
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter An Integer");
+       int n=sc.nextInt();
+       System.out.printf("Largest number possible by using the digits of given number is :"+getLargest(n));
+     }
+	
+	
+     public static int getLargest(int n)
+     {
+        if(n==0)
+          return 0;
+          
+        int sign=1;//1==+ve
+        if(n<0)
+        {
+          sign=-1;//-1==-ve
+          n=Math.abs(n);
+        }
+        
+        int[] count=new int[10];
+        while(n!=0)
+        {
+          count[n%10]++;
+          n=n/10;
+        }
+        
+        String res="";
+        if(sign==1)
+        {
+           for(int i=9;i>=0;i--)
+             while(count[i]!=0)
+             {
+               res+=i;
+               count[i]--;
+             }
+                
+        }
+        else//sign=-1
+        {
+            for(int i=0;i<9;i++)
+             while(count[i]!=0)
+             {
+               res+=i;
+               count[i]--;
+             }  
+        }
+        
+        int maxNum=sign*Integer.parseInt(res);
+        return maxNum;
+     }
+}
