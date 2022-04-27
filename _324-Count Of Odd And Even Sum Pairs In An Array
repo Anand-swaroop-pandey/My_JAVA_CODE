@@ -1,8 +1,8 @@
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the Array");
         int n=sc.nextInt();
          if(n>1)
@@ -19,17 +19,16 @@ public class Test
 	
 	public static void countPairs(int[] arr)
 	{
-	   int n=arr.length;
-       int cntOdd=0,cntEven=0;
-       for(int i=0;i<n;i++)
-         for(int j=i+1;j<n;j++)
-           if((arr[i]+arr[j])%2==0)
-              cntEven++;
-           else
-              cntOdd++;
+	   int n=arr.length,cntOdd=0,cntEven=0;
+           for(int i=0;i<n;i++)
+             for(int j=i+1;j<n;j++)
+                if((arr[i]+arr[j])%2==0)
+                  cntEven++;
+                else
+                  cntOdd++;
               
-      System.out.println("Count of Pairs With Even Sum ="+cntEven);
-      System.out.println("Count of Pairs With Even Sum ="+cntOdd);
+           System.out.println("Count of Pairs With Even Sum ="+cntEven);
+           System.out.println("Count of Pairs With Even Sum ="+cntOdd);
 	}
 }
 
@@ -37,8 +36,8 @@ public class Test
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
+     public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the Array");
         int n=sc.nextInt();
          if(n>1)
@@ -55,18 +54,71 @@ public class Test
 	
 	public static void countPairs(int[] arr)
 	{
-	   int n=arr.length;
-       int cntOdd=0,cntEven=0;
-       for(int i=0;i<n;i++)
-         if((arr[i]%2)==0)
-            cntEven++;
-         else
-            cntOdd++;
+	   int n=arr.length,cntOdd=0,cntEven=0;
+           for(int i=0;i<n;i++)
+             if((arr[i]%2)==0)
+              cntEven++;
+             else
+              cntOdd++;
         
-       int cntEvenSumPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
-       int cntOddSumPairs=(cntEven*cntOdd);
+          int cntEvenSumPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
+          int cntOddSumPairs=(cntEven*cntOdd);
         
-       System.out.println("Count of Pairs With Even Sum ="+cntEvenSumPairs);
-       System.out.println("Count of Pairs With Even Sum ="+cntOddSumPairs);
+          System.out.println("Count of Pairs With Even Sum ="+cntEvenSumPairs);
+          System.out.println("Count of Pairs With Even Sum ="+cntOddSumPairs);
 	}
 }
+
+/*
+  int[] arr={6, 7, 1, 3, 2, 5, 4};
+  
+  =>Even Sum
+  
+  Even Element + Even Element =Even Sum
+  Odd Element + Odd Element =Even Sum
+   
+  cntEven=3 and cntOdd=4;
+  No. of Pairs With Even Sum :
+  
+  (Even,Even)
+  
+  (2,4) (Sum=2+4=6)     }
+  (2,6) (Sum=2+6=8)     }=>   3 i.e (3C2)  (3C2 =Number of Ways Of Selecting 2 Elements(i.e Pair) out of 3 Elements (i.e cntEven ) ) 
+  (4,6) (Sum=4+6=10)    }
+  
+  (Odd,Odd)
+  
+  (7,1) (Sum=7+1=8)     }
+  (7,3) (Sum=7+3=10)    }
+  (7,5) (Sum=7+5=12)    }
+  (1,3) (Sum=1+3=4)     }=>   6 i.e (4C2)  (4C2 =Number of Ways Of Selecting 2 Elements(I.e Pair) out of 4 Elements (i.e cntOdd ) ) 
+  (1,3) (Sum=1+3=6)     } 
+  (3,5) (Sum=3+5=8)     }
+  
+  Therefore No. of Possible Pairs With Even Sum are : 3C2 + 4C2 = 3 + 6 = 9.
+  
+  
+  =>Odd Sum
+  
+  Even Element + Odd Element =Odd Sum
+   
+  cntEven=3 and cntOdd=4;
+  
+  No. of Pairs With Odd Sum :
+  
+  (2,7) (Sum=2+7=9)     }
+  (2,1) (Sum=2+1=3)     }
+  (2,3) (Sum=2+3=5)     }
+  (2,5) (Sum=2+5=7)     }
+  (4,7) (Sum=4+7=11)    }
+  (4,1) (Sum=4+1=5)     }
+  (4,3) (Sum=4+3=7)     } =>   12 i.e (3*4)  (cntEven * cntOdd)
+  (4,5) (Sum=4+5=9)     } 
+  (6,7) (Sum=6+7=13)    }
+  (6,1) (Sum=6+1=7)     }
+  (6,3) (Sum=6+3=9)     }
+  (6,5) (Sum=6+5=11)    }
+  
+  Therefore No. of Possible Pairs With Even Sum are : (cntEven * cntOdd) = 3 * 4 = 12.
+                        
+*/
