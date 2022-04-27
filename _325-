@@ -9,7 +9,7 @@ public class Test
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-       if(m>0 && n>0)
+         if(m>0 && n>0)
          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
@@ -28,15 +28,16 @@ public class Test
      }
 	
 	
-	public static int SumofOverlapping(int[] arr1,int[] arr2)
-	{
-	    int m=arr1.length,n=arr2.length,sum=0;
-        for(int i=0;i<m;i++)
-          if(linearSearch(arr2,n,arr1[i]))
-               sum+=2*arr1[i];
-	    return sum;
-	}
-	
+     public static int SumofOverlapping(int[] arr1,int[] arr2)
+     {
+	 int m=arr1.length,n=arr2.length,sum=0;
+         for(int i=0;i<m;i++)
+           if(linearSearch(arr2,n,arr1[i]))
+	      sum+=2*arr1[i];
+	 return sum;
+     }
+
+
    public static boolean linearSearch(int[]arr,int n,int key)
    {
       for(int i=0;i<n;i++)
@@ -46,11 +47,12 @@ public class Test
    }
 }
 
+
 //Improved Bruteforce Approach
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
+     public static void main(String[] args) {
        Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array1");
        int m=sc.nextInt();
@@ -76,15 +78,16 @@ public class Test
      }
 	
 	
-	public static int SumofOverlapping(int[] arr1,int[] arr2)
-	{
-	    int m=arr1.length,n=arr2.length,sum=0;
-	    Arrays.sort(arr2);
+     public static int SumofOverlapping(int[] arr1,int[] arr2)
+     {
+        int m=arr1.length,n=arr2.length,sum=0;
+	Arrays.sort(arr2);
         for(int i=0;i<m;i++)
-          if(binarySearch(arr2,n,arr1[i]))
-               sum+=2*arr1[i];
-	    return sum;
-	}
+	 if(binarySearch(arr2,n,arr1[i]))
+            sum+=2*arr1[i];
+        return sum;
+     }
+	
 	
    public static boolean binarySearch(int[]arr,int n,int key)
    {
@@ -103,6 +106,7 @@ public class Test
       return false;//key doesnot exists
    }
 }
+
 
 //Good Approach
 import java.util.*;
@@ -139,16 +143,17 @@ public class Test
 	    int m=arr1.length,n=arr2.length,len=m+n,sum=0;
 	    int[] arr=new int[len];
 	    
-        for(int i=0;i<m;i++)
-          arr[i]=arr1[i];
+           for(int i=0;i<m;i++)
+             arr[i]=arr1[i];
              
-        for(int i=0;i<n;i++)
-          arr[i+m]=arr2[i];
+           for(int i=0;i<n;i++)
+             arr[i+m]=arr2[i];
         
-        int[] freqArr=new int[len];
+           int[] freqArr=new int[len];
 	    
-        countFrequecy(arr,len,freqArr);
-        for(int i=0;i<m;i++)//No Need to iterate till len
+          countFrequecy(arr,len,freqArr);
+	  
+          for(int i=0;i<m;i++)//No Need to iterate till len
           if(freqArr[i]==2)
               sum+=2*arr[i];
 	   return sum;
@@ -157,20 +162,20 @@ public class Test
 	public static void countFrequecy(int[] arr,int n,int[] freqArr)
 	{
 	   int count;
-       for(int i=0;i<n;i++)
-       {
-          if(freqArr[i]==-1)
-             continue;
-          count=1;
-          for(int j=i+1;j<n;j++)
-            if(arr[i]==arr[j])
-            {
+           for(int i=0;i<n;i++)
+           {
+             if(freqArr[i]==-1)
+               continue;
+             count=1;
+             for(int j=i+1;j<n;j++)
+             if(arr[i]==arr[j])
+             {
                freqArr[j]=-1;
                count++;
-            }
-        freqArr[i]=count;       
-       }
-	}
+             }
+             freqArr[i]=count;       
+           }
+	 }
 }
 
 //Better Approach
@@ -249,8 +254,8 @@ public class Test
      }
 	
 	
-	public static int SumofOverlapping(int[] arr1,int[] arr2)
-	{
+      public static int SumofOverlapping(int[] arr1,int[] arr2)
+      {
 	    Arrays.sort(arr1);
 	    Arrays.sort(arr2);
 	    int i=0,j=0,sum=0;
@@ -271,5 +276,5 @@ public class Test
                 j++;
           }
          return sum;
-	}
+      }
 }
