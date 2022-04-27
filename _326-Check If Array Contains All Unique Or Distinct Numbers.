@@ -1,0 +1,159 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+            if(isDistinctArray(arr,n))
+              System.out.print("Array has all distinct elements");
+            else
+               System.out.print("Array contains duplicates");
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+	
+	
+     public static boolean isDistinctArray(int[] arr,int n)
+     {
+        for(int i=0;i<n;i++)
+          for(int j=i+1;j<n;j++)
+            if(arr[i]==arr[j])
+	          return false;
+	    return true;
+     }
+}
+
+//Improved Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+            if(isDistinctArray(arr,n))
+              System.out.print("Array has all distinct elements");
+            else
+               System.out.print("Array contains duplicates");
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+	
+	
+     public static boolean isDistinctArray(int[] arr,int n)
+     {
+        int[] freqArr=new int[n];
+	     countFrequecy(arr,n,freqArr);
+	     for(int i=0;i<n;i++)
+          if(freqArr[i]>1)
+              return false;
+	     return true;
+     }
+     
+    public static void countFrequecy(int[] arr,int n,int[] freqArr)
+	  {
+	       int count;
+         for(int i=0;i<n;i++)
+         {
+            if(freqArr[i]==-1)
+              continue;
+            count=1;
+            for(int j=i+1;j<n;j++)
+             if(arr[i]==arr[j])
+             {
+               freqArr[j]=-1;
+               count++;
+             }
+             freqArr[i]=count;       
+         }
+	  }
+}
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+            if(isDistinctArray(arr,n))
+              System.out.print("Array has all distinct elements");
+            else
+               System.out.print("Array contains duplicates");
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+	
+	
+     public static boolean isDistinctArray(int[] arr,int n)
+     {
+        Arrays.sort(arr);
+        for(int i=0;i<n-1;i++)
+           if(arr[i]==arr[i+1])
+	          return false;
+	     return true;
+     }
+}
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+            if(isDistinctArray(arr,n))
+              System.out.print("Array has all distinct elements");
+            else
+               System.out.print("Array contains duplicates");
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+	   
+ //since Set cannot contain duplicates, so if array size and HashSet size then it can be concluded that array has all distinct or unique elements otherwise its not
+	
+     public static boolean isDistinctArray(int[] arr,int n)
+     {
+        HashSet<Integer>hs=new HashSet<>();
+        for(int val:arr)
+          hs.add(val);
+          
+        if(n==hs.size())
+          return true;
+          
+	      return false;
+     }
+}
+
