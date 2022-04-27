@@ -1,0 +1,82 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+		    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+               
+            greatestRight(arr);
+            
+            System.out.println("Resultant Array is:");  
+            for(int val:arr)
+              System.out.println(val+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void greatestRight(int[] arr)
+	{
+	    int n=arr.length;
+      for(int i=0;i<(n-1);i++)
+        arr[i]=largestOnRight(arr,n,i);
+      arr[n-1]=-1;
+	}
+	
+	public static int largestOnRight(int[] arr,int n,int idx)
+	{
+	    int max=Integer.MIN_VALUE;
+      for(int i=idx+1;i<n;i++)
+         if(arr[i]>max)
+           max=arr[i];
+      return max;
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+		    Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+               
+            greatestRight(arr);
+            
+            System.out.println("Resultant Array is:");  
+            for(int val:arr)
+              System.out.println(val+" ");
+         }
+         else
+           System.out.println("Invalid Choice");
+	}
+	
+	public static void greatestRight(int[] arr)
+	{
+	  int n=arr.length;
+	  int maxSoFar=-1;
+      for(int i=n-1;i>=0;i--)
+      {
+        int temp=arr[i];
+        arr[i]=maxSoFar;
+        if(temp>maxSoFar)
+          maxSoFar=temp;
+      }
+	}
+}
