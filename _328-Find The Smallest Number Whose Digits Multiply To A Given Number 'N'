@@ -96,6 +96,7 @@ The smallest value of ‘M’ must satisfy the following two conditions:
 1 :The number of digits in ‘M’ must be minimum. To achieve this, assign the maximum possible number of 9’s to ‘M’ 
 (keep dividing ‘N’ by ‘9’ until it is no longer divisible). After that, do the same for 8’s and so on until ‘2’.
 This way, we assign the largest digit first, keeping the number of digits in ‘M’ to a minimum.
+(Ex- n=80 Numbers with Product of Digits as 80  are : 258(2*5*8=80) also 852(8*5*2=80) also 52222(5*2*2*2*2),However the Minimum is 258)
 
 2 : Once the above condition is satisfied, the digits of ‘M’ must be in non-decreasing order for ‘M’ to be the smallest. 
 We can do this by assigning the digits obtained above from right to left. Keep all the 9’s are at the rightmost, all the 8’s to their left, and so on. 
