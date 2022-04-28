@@ -1,0 +1,73 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter N :");
+		int n=sc.nextInt();
+		if(n<0)
+		  System.out.println("Invalid Choice");
+		else
+		  System.out.println("The Smallest Positive Number Having Sum Of Its Digits Equal To "+n+" is :"+smallestNumber(n));
+	} 
+	
+	public static int smallestNumber(int n)
+	{
+	   int num=0;
+	   while(true)
+	   {
+	     if(sumOfDigits(num)==n)
+	       break;
+	     num++;
+	   }
+	   return num;
+	}
+	
+    public static int sumOfDigits(int num)
+    {
+       if(num==0)//Sum of Digits of '0'is 0
+         return 0;
+       return (num%10)+sumOfDigits(num/10);
+    }
+}
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter N :");
+		int n=sc.nextInt();
+		if(n<0)
+		  System.out.println("Invalid Choice");
+		else
+		  System.out.println("The Smallest Positive Number Having Sum Of Its Digits Equal To "+n+" is :"+smallestNumber(n));
+	} 
+	
+	public static int smallestNumber(int n)
+	{
+	   int res=((n % 9) + 1) *(int)Math.pow(10, (n / 9)) - 1;
+     return res;
+	}
+}
+
+/*
+
+An efficient approach to this problem is an observation. Let’s see some examples.
+
+If N = 10, then ans = 19   = (20-1) = (((10 % 9) + 1)* 10^(10/9) ) - 1 = ((1+1)* 10^1 )- 1 = (20-1)= 19.
+If N = 11, then ans = 29   = (30-1) = (((11 % 9) + 1)* 10^(11/9) ) - 1 = ((2+1)* 10^1 )- 1 = (30-1)= 29.
+If N = 12, then ans = 39   = (40-1) = (((12 % 9) + 1)* 10^(12/9) ) - 1 = ((3+1)* 10^1 )- 1 = (40-1)= 39.
+.......
+If N = 20, then ans = 299  = (300-1) = (((20 % 9) + 1)* 10^(20/9) ) - 1 = ((2+1)* 10^2)- 1 = (200-1)= 199.
+If N = 30, then ans = 3999 = (4000 - 1) = (((30 % 9) + 1)* 10^(30/9) ) - 1 = ((3+1)* 10^3)- 1 = (300-1)= 299.
+......
+If N = 43, then ans = 79999 = (80,000 - 1) = (((43 % 9) + 1)* 10^(43/9) ) - 1 = ((7+1)* 10^4)- 1 = (80,000-1)= 79999.
+
+So, it is clear that the answer will have all digits as 9 except the first one so that we get the smallest number.
+So, the Nth term will be = ((n % 9) + 1) *(int)Math.pow(10, (n / 9)) - 1
+
+*/
