@@ -1,0 +1,89 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+ 	public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 'n':");
+		long n=sc.nextLong();
+		String res=findSmallest(n);
+		if(res.equals("-1"))
+		  System.out.println("Not Possible");
+		else
+		  System.out.println("Smallest Number Whose Digits Multiply To "+n+" is "+res);
+	}
+	
+	public static String findSmallest(long n)
+	{
+	   long p=1; 
+	   while(p<=Long.MAX_VALUE)
+	   {
+	     if(prodDigits(p)==n)
+	       break;
+	     if(p==Long.MAX_VALUE)
+	       return "-1";
+	      p++;
+	   }
+	   return Long.toString(p);
+	}
+	
+	public static long prodDigits(long num)
+	{
+	   long prod=1;
+	   while(num!=0)
+	   {
+	     prod*=(num%10);
+	     num=num/10;
+	   }
+	   return prod;
+	}
+}
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+ 	public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 'n':");
+		long n=sc.nextLong();
+		String res=findSmallest(n);
+		if(res.equals("-1"))
+		  System.out.println("Not Possible");
+		else
+		  System.out.println("Smallest Number Whose Digits Multiply To "+n+" is "+res);
+	}
+	
+	public static String findSmallest(long n)
+	{
+      if(n<10)
+        return Long.toString(n);
+          
+	    long res=0;
+	    for (int i=9; i>1; i--)
+        while ((n%i)==0)
+			  {
+			    	res=(res*10)+i;
+				    n = n/i;
+		    }
+		
+      if(n==1)
+      {
+        res=reverse(res);
+        return Long.toString(res);
+      }
+      return "-1";
+	}
+	
+  public static long reverse(long num)
+  {
+     long rev=0;
+     while(num!=0)
+     {
+        int last=(int)(num%10);
+        rev=rev*10+last; 
+        num=num/10;
+     }
+     return rev;
+   }
+}
