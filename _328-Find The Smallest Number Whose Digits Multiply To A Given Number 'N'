@@ -128,6 +128,6 @@ Assign ‘4’ to ‘M’ until ‘N’ is divisible by ‘4’:
 
 ‘N = 1’ is not divisible by ‘2’.
  
-After assigning the digits, we have ‘N = 1’, which means ‘N’ is equal to the multiplication of the digits in ‘M’. Thus, you should return ‘M = 55899’ as the answer.
+After assigning the digits, we have ‘N = 1’, which means ‘N’ is equal to the multiplication of the digits in ‘M’. Thus, you should return ‘M = 455899’ as the answer.
 
 */
