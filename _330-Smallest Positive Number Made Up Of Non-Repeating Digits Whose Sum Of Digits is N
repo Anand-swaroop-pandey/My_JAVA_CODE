@@ -3,18 +3,18 @@ public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter N :");
-		int n=sc.nextInt();
-		if(n<0)
-		  System.out.println("Invalid Choice");
-		else
-		{
-		  int res=result(n);
-		  if(res!=-1)
-		    System.out.println("The Smallest Positive Number Made Up Of Distinct Digits Having Sum Of Its Digits Equal To "+n+" is :"+res);
-	   	  else
-		    System.out.println("No Such Number Exists");  
-		} 
+            System.out.println("Enter N :");
+       	    int n=sc.nextInt();
+            if(n<0)
+               System.out.println("Invalid Choice");
+	    else
+            {
+                int res=result(n);
+	        if(res!=-1)
+	          System.out.println("The Smallest Positive Number Made Up Of Distinct Digits Having Sum Of Its Digits Equal To "+n+" is :"+res);
+	        else
+	          System.out.println("No Such Number Exists");  
+	    } 
 	} 
 	
 	public static int result(int n)
@@ -29,29 +29,30 @@ public class Test
 	       int digit=9;
 	       while(sum<n)
 	       {
-             num=(num*10)+digit;
-             sum+=digit;
-             digit--;
+                 num=(num*10)+digit;
+                 sum+=digit;
+                digit--;
              
-             if((sum+digit)>=n)
-               break;
+                if((sum+digit)>=n)
+                  break;
 	       }
 	       num=(num*10)+(n-sum);
 	       return reverse(num);
 	   }
 	}
 	
+	
 	public static int reverse(int num)
-  {
-        int rev=0;
-        while(num!=0)
         {
-          int last=(num%10);
-           rev=rev*10+last; 
-           num=num/10;
-        }
-        return rev;
-  }
+           int rev=0;
+           while(num!=0)
+           {
+             int last=(num%10);
+             rev=rev*10+last; 
+             num=num/10;
+           }
+         return rev;
+       }
 }
 
 /*
