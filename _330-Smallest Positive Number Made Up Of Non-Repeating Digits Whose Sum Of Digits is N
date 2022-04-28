@@ -1,0 +1,83 @@
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter N :");
+		int n=sc.nextInt();
+		if(n<0)
+		  System.out.println("Invalid Choice");
+		else
+		{
+		  int res=result(n);
+		  if(res!=-1)
+		    System.out.println("The Smallest Positive Number Made Up Of Distinct Digits Having Sum Of Its Digits Equal To "+n+" is :"+res);
+	   	  else
+		    System.out.println("No Such Number Exists");  
+		} 
+	} 
+	
+	public static int result(int n)
+	{
+	   if(n<10)
+	     return n;
+	   else if(n>45)
+	     return -1;
+	   else
+	   {
+	       int num=0,sum=0;
+	       int digit=9;
+	       while(sum<n)
+	       {
+             num=(num*10)+digit;
+             sum+=digit;
+             digit--;
+             
+             if((sum+digit)>=n)
+               break;
+	       }
+	       num=(num*10)+(n-sum);
+	       return reverse(num);
+	   }
+	}
+	
+	public static int reverse(int num)
+  {
+        int rev=0;
+        while(num!=0)
+        {
+          int last=(num%10);
+           rev=rev*10+last; 
+           num=num/10;
+        }
+        return rev;
+  }
+}
+
+/*
+  Approach: The idea is based on the following observations:
+
+If N < 10: Required answer is N itself.
+If N > 45: Required answer is -1 as the smallest number that can be made using non-repeating digits is 123456789, whose sum of digits is 45.
+Otherwise: The answer can be obtained based on the following pattern.
+Consider the following examples, to understand the pattern,
+
+For N = 10: The output is 19.
+For N = 11: The output is 29.
+For N = 12: The output is 39.
+For N = 13: The output is 49.
+…....
+For N = 21: The output is 489.
+For N = 22: The output is 589.
+For N = 23: The output is 689.      
+.....
+
+For N= 41: The Output is 2456789
+
+On observing the above results,
+it is clear that the answer contains digits in decreasing order having a difference of 1 starting from one’s digit() (i.e from right to left) until the digit sum is less than N.
+
+( 9+(9-1)+(8-1)+(7-1)+(6-1)+(5-1) < 41 (number formed till now is 987654 (i.e Iterate till sum of number (formed till now) is less than 41 ) ) 
+now Append (n-sum of number)i.e(41-39=2) at the End of The Number formed(i.e 9876542), finally Reverse The Number.(i.e 2456789)) 
+
+*/
