@@ -47,9 +47,10 @@ public class Test
    	    System.out.println("The Smallest Positive Number Having Sum Of Its Digits Equal To "+n+" is :"+smallestNumber(n));
 	} 
 	
+	//n<=82 otherwise it will lead to Integer Overflow
 	public static int smallestNumber(int n)
 	{
-	   int res=((n % 9) + 1) *(int)Math.pow(10, (n / 9)) - 1;
+	   int res=((n % 9) + 1) *(int)Math.pow(10, (n/9)) - 1;
            return res;
 	}
 }
