@@ -4,25 +4,25 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter N :");
-		int n=sc.nextInt();
-		if(n<0)
-		  System.out.println("Invalid Choice");
-		else
-		  System.out.println("The Smallest Positive Number Having Sum Of Its Digits Equal To "+n+" is :"+smallestNumber(n));
+	  System.out.println("Enter N :");
+	  int n=sc.nextInt();
+	  if(n<0)
+            System.out.println("Invalid Choice");
+	  else
+	    System.out.println("The Smallest Positive Number Having Sum Of Its Digits Equal To "+n+" is :"+smallestNumber(n));
 	} 
 	
-	public static int smallestNumber(int n)
-	{
-	   int num=0;
-	   while(true)
-	   {
-	     if(sumOfDigits(num)==n)
-	       break;
-	     num++;
-	   }
-	   return num;
-	}
+     public static int smallestNumber(int n)
+     {
+         int num=0;
+         while(true)
+	 {
+           if(sumOfDigits(num)==n)
+             break;
+	   num++;
+	 }
+       return num;
+     }
 	
     public static int sumOfDigits(int num)
     {
