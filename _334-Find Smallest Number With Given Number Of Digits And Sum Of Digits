@@ -240,3 +240,63 @@ Smallest number with digit sum 2 and number of digits 4 is :1001
 Smallest number with digit sum 1 and number of digits 4 is :1000
 
 */
+
+//Optimal Approach
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter Sum :");
+	   int sum=sc.nextInt();
+	   
+	   System.out.println("Enter Digit :");
+	   int digit=sc.nextInt();
+	   if(digit<1 || sum<0)
+	   {
+	       System.out.println("Invalid Choice");
+	       return;
+	   }
+	   String res=smallestNum(sum,digit);
+	   if(res.equals("-1"))
+	     System.out.println("Invalid Choice/No "+digit+" Digit Number with Sum as "+sum+" Exists");
+	   else
+	     System.out.println("Smallest number with digit sum "+sum+" and number of digits "+digit+" is :"+res);
+	}
+	
+	public static String smallestNum(int sum,int d)
+	{
+	   if(sum==0 && d==1)
+	     return "0";
+	     
+	   if((sum==0 && d!=1) || (sum>(9*d)))
+	     return "-1";
+
+	   int[] res =new int[d];
+	   
+	   sum-= 1;
+
+	   
+           //Fill last d-1 digits (from right to left) 
+	   for (int i=d-1; i>0; i--)
+	      if (sum > 9) // If sum is still greater than 9,digit must be 9
+	      {
+	         res[i]=9;
+                 sum -= 9;
+	      }
+	      else
+	      {
+                 res[i]=sum;
+  	         sum = 0;
+	      }
+	      
+              sum+=1;
+	      res[0]=sum;
+	      
+	      String str="";
+               for (int i=0; i<d; i++)
+                 str+=res[i];
+            return str;
+        }
+}
+
