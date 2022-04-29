@@ -127,3 +127,36 @@ public class Test
         return sum;
     }
 }
+
+/*
+MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 3 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 3 DIGIT NUMBER) = SUM_OF_DIGITS(999)=(9+9+9)=27
+
+Smallest number with digit sum 27 and number of digits 3 is :999
+Smallest number with digit sum 26 and number of digits 3 is :899
+Smallest number with digit sum 25 and number of digits 3 is :799
+Smallest number with digit sum 24 and number of digits 3 is :699
+Smallest number with digit sum 23 and number of digits 3 is :599
+Smallest number with digit sum 22 and number of digits 3 is :499
+Smallest number with digit sum 21 and number of digits 3 is :399
+Smallest number with digit sum 20 and number of digits 3 is :299
+Smallest number with digit sum 19 and number of digits 3 is :199
+Smallest number with digit sum 18 and number of digits 3 is :189
+Smallest number with digit sum 17 and number of digits 3 is :179
+Smallest number with digit sum 16 and number of digits 3 is :169
+Smallest number with digit sum 15 and number of digits 3 is :159
+Smallest number with digit sum 14 and number of digits 3 is :149
+Smallest number with digit sum 13 and number of digits 3 is :139
+Smallest number with digit sum 12 and number of digits 3 is :129
+Smallest number with digit sum 11 and number of digits 3 is :119
+Smallest number with digit sum 10 and number of digits 3 is :109
+Smallest number with digit sum 9 and number of digits 3 is :108
+Smallest number with digit sum 8 and number of digits 3 is :107
+Smallest number with digit sum 7 and number of digits 3 is :106
+Smallest number with digit sum 6 and number of digits 3 is :105
+Smallest number with digit sum 5 and number of digits 3 is :104
+Smallest number with digit sum 4 and number of digits 3 is :103
+Smallest number with digit sum 3 and number of digits 3 is :102
+Smallest number with digit sum 2 and number of digits 3 is :101
+Smallest number with digit sum 1 and number of digits 3 is :100
+
+*/
