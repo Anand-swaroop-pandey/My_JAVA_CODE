@@ -1,0 +1,81 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter Sum :");
+	   int sum=sc.nextInt();
+	   
+	   System.out.println("Enter Digit :");
+	   int digit=sc.nextInt();
+	   if(digit<1 || sum<0)
+	   {
+	       System.out.println("Invalid Choice");
+	       return;
+	   }
+	   long res=smallestNum(sum,digit);
+	   if(res!=-1)
+	     System.out.println("Smallest number with digit sum "+sum+" and number of digits "+digit+" is :"+res);
+	   else
+	     System.out.printf("Invalid Choice/No %d Digit Number with Sum as %d Exists",digit,sum);
+	}
+	
+	public static long smallestNum(int sum,int d)
+	{
+	   if(sum==0)//Base case (when d=1 and sum=0)
+	     return 0;
+	     
+	   if(sum>sumOfDigits(maxm_D_DigitNum(d)))
+	     return -1;
+ 	   
+ 	   long num=minm_D_DigitNum(d);
+ 	   long limit=maxm_D_DigitNum(d);
+ 	   
+ 	   while(num<=limit)
+ 	   {
+ 	       if(sumOfDigits(num)==sum)
+ 	         break;
+ 	       num++; 
+ 	   }
+ 	   return num;
+	}
+    
+    public static long sumOfDigits(long num)
+    {
+        long sum=0;
+        if(num==0)
+          return 1;
+         while(num!=0)
+         {
+             sum+=(num%10);
+             num=num/10;
+         }
+        return sum;
+    }
+    
+    public static long maxm_D_DigitNum(int d)
+    {
+      long maxm_d_DigitNum=(int)Math.pow(10,d)-1;
+      return maxm_d_DigitNum;
+    }
+    
+    public static long minm_D_DigitNum(int d)
+    {
+      long minm_d_DigitNum=(int)Math.pow(10,d-1);
+      return minm_d_DigitNum;
+    }
+    
+    public static int CountDigits(int num)
+    {
+        if(num==0)
+           return 1;
+        int count=0;
+         while(num!=0)
+         {
+             count++;
+             num=num/10;
+         }
+         return count;
+    }
+}
