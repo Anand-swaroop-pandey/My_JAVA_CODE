@@ -132,7 +132,7 @@ public class Test
   0 is the Only Number(A 1 digit Number) whose Sum of digits is 0,
   there exists no Number more than 1 digit whose sum of Digits is 0 so this is the Corner case which is required to be handled Seprately.
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 1 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 1 DIGIT NUMBER) = SUM_OF_DIGITS(9)=(9)=9.
 
 Smallest number with digit sum 9 and number of digits 1 is :9
@@ -146,7 +146,7 @@ Smallest number with digit sum 2 and number of digits 1 is :2
 Smallest number with digit sum 1 and number of digits 1 is :1
 Smallest number with digit sum 0 and number of digits 1 is :0
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 2 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 2 DIGIT NUMBER) = SUM_OF_DIGITS(99)=(9+9)=18.
 
 Smallest number with digit sum 18 and number of digits 2 is :99
@@ -168,7 +168,7 @@ Smallest number with digit sum 3 and number of digits 2 is :12
 Smallest number with digit sum 2 and number of digits 2 is :11
 Smallest number with digit sum 1 and number of digits 2 is :10
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 3 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 3 DIGIT NUMBER) = SUM_OF_DIGITS(999)=(9+9+9)=27
 
 Smallest number with digit sum 27 and number of digits 3 is :999
@@ -199,7 +199,7 @@ Smallest number with digit sum 3 and number of digits 3 is :102
 Smallest number with digit sum 2 and number of digits 3 is :101
 Smallest number with digit sum 1 and number of digits 3 is :100
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 4 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 4 DIGIT NUMBER) = SUM_OF_DIGITS(9999)=(9+9+9+9)=36.
 
 Smallest number with digit sum 36 and number of digits 4 is :9999
@@ -243,7 +243,7 @@ Smallest number with digit sum 1 and number of digits 4 is :1000
 
 //Optimal Approach
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
@@ -276,18 +276,17 @@ public class Main
 	   
 	   sum-= 1;
 
-	   
            //Fill last d-1 digits (from right to left) 
 	   for (int i=d-1; i>0; i--)
 	      if (sum > 9) // If sum is still greater than 9,digit must be 9
 	      {
 	         res[i]=9;
-                 sum -= 9;
+                 sum-= 9;
 	      }
 	      else
 	      {
                  res[i]=sum;
-  	         sum = 0;
+  	         sum=0;
 	      }
 	      
               sum+=1;
