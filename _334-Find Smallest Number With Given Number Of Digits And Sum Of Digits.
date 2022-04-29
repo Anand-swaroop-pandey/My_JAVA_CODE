@@ -298,4 +298,9 @@ public class Test
             return str;
         }
 }
-
+/*
+There is a Greedy approach to solve the problem. The idea is to one by one fill all digits from rightmost to leftmost (or from least significant digit to most significant). 
+We initially deduct 1 from sum s so that we have smallest digit at the end. After deducting 1, we apply greedy approach. We compare remaining sum with 9,
+if remaining sum is more than 9, we put 9 at the current position, else we put the remaining sum.
+Since we fill digits from right to left, we put the highest digits on the right side.
+*/
