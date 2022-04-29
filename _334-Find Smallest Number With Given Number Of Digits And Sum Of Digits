@@ -23,9 +23,6 @@ public class Test
 	
 	public static long smallestNum(int sum,int d)
 	{
-	   if(sum==0)//Base case (when d=1 and sum=0)
-	     return 0;
-	     
 	   if(sum>sumOfDigits(maxm_D_DigitNum(d)))
 	     return -1;
  	   
@@ -62,6 +59,8 @@ public class Test
     
     public static long minm_D_DigitNum(int d)
     {
+      if(d==0)
+        return 1;
       long minm_d_DigitNum=(int)Math.pow(10,d-1);
       return minm_d_DigitNum;
     }
