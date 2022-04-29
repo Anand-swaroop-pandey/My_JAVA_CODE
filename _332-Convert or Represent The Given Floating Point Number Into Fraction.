@@ -14,7 +14,7 @@ public class Test
 	   int numerator=0,count_after_dot = 0;
 	   boolean dot_found=false;
 	   
-     // To find numerator in fraction form of given number. For example, for 30.25,numerator would be 3025.
+           // To find numerator in fraction form of given number. For example, for 30.25,numerator would be 3025.
 	   for(int i=0;i<str.length();i++)
 	     if(str.charAt(i)!='.')
 	     {
@@ -23,13 +23,13 @@ public class Test
 	          count_after_dot++;
 	     }
 	     else//str.chatAt(i)=='.'
-           dot_found=true;
+               dot_found=true;
            
-        if(dot_found==false)
-        {
-           System.out.println(str+" is not a Floating Point Number i.e It is An Integer");
-           return; 
-        }
+           if(dot_found==false)
+           {
+             System.out.println(str+" is not a Floating Point Number i.e It is An Integer");
+             return; 
+           }
 	   
 	   // Find denominator in fraction form. For example,for 30.25, denominator is 100
 	   int denominator=(int)Math.pow(10,count_after_dot);
@@ -43,7 +43,7 @@ public class Test
 	   System.out.println("Simplified Fraction : "+str+" = "+numerator+" / "+denominator);
 	}
 	
-	  public static int HCF(int num1,int num2)
+    public static int HCF(int num1,int num2)
     {
         if(num1<=0 || num2<=0)
           return -1;
