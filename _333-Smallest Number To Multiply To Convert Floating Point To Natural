@@ -46,3 +46,11 @@ public class Test
       return HCF(num2, num1 % num2);
     }
 }
+
+/*
+The idea is to convert given floating point number into a fraction (not necessarily in reduced form) and 
+find the GCD of numerator and denominator. For example, if input floating point number is 30.25, we convert into fraction as 3025/100. 
+This can be easily done by finding the position of dot. 
+Finally to get the answer, we divide the denominator of the converted fraction by GCD of denominator and numerator. 
+For example, GCD of 3025 and 100 is 25. We divide 100 by 25 and get the answer as 4.
+*/
