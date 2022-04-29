@@ -1,0 +1,59 @@
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter The Floating Point Number :");
+	   String str=sc.nextLine();
+	   representInFraction(str);
+	}
+	
+	public static void representInFraction(String str)
+	{
+	   // count_after_dot : is used to find denominator in fraction form.
+	   int numerator=0,count_after_dot = 0;
+	   boolean dot_found=false;
+	   
+     // To find numerator in fraction form of given number. For example, for 30.25,numerator would be 3025.
+	   for(int i=0;i<str.length();i++)
+	     if(str.charAt(i)!='.')
+	     {
+	        numerator=numerator*10+(str.charAt(i)-'0');
+	        if(dot_found==true)
+	          count_after_dot++;
+	     }
+	     else//str.chatAt(i)=='.'
+           dot_found=true;
+           
+        if(dot_found==false)
+        {
+           System.out.println(str+" is not a Floating Point Number i.e It is An Integer");
+           return; 
+        }
+	   
+	   // Find denominator in fraction form. For example,for 30.25, denominator is 100
+	   int denominator=(int)Math.pow(10,count_after_dot);
+	   
+	   System.out.println("Fraction Form : "+str+" = "+numerator+" / "+denominator);
+	   
+	   int hcf=HCF(numerator,denominator);
+	   numerator=numerator/hcf;
+	   denominator=denominator/hcf;
+	   
+	   System.out.println("Simplified Fraction : "+str+" = "+numerator+" / "+denominator);
+	}
+	
+	  public static int HCF(int num1,int num2)
+    {
+        if(num1<=0 || num2<=0)
+          return -1;
+        int minNum=num1<num2?num1:num2;
+        int temp=minNum;
+        while(true)
+        {
+            if((num1%temp)==0 && (num2%temp)==0)
+               return temp;        
+            temp=temp-1;
+        }
+    }
+}
