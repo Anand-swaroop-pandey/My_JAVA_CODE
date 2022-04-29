@@ -129,6 +129,52 @@ public class Test
 }
 
 /*
+  0 is the Only Number(A 1 digit Number) whose Sum of digits is 0,
+  there exists no Number more than 1 digit whose sum of Digits is 0 so this is the Corner case which is required to be handled Seprately.
+*/
+
+/*
+MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 1 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 1 DIGIT NUMBER) = SUM_OF_DIGITS(9)=(9)=9.
+
+Smallest number with digit sum 9 and number of digits 1 is :9
+Smallest number with digit sum 8 and number of digits 1 is :8
+Smallest number with digit sum 7 and number of digits 1 is :7
+Smallest number with digit sum 6 and number of digits 1 is :6
+Smallest number with digit sum 5 and number of digits 1 is :5
+Smallest number with digit sum 4 and number of digits 1 is :4
+Smallest number with digit sum 3 and number of digits 1 is :3
+Smallest number with digit sum 2 and number of digits 1 is :2
+Smallest number with digit sum 1 and number of digits 1 is :1
+Smallest number with digit sum 0 and number of digits 1 is :0
+
+*/
+
+/*
+MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 2 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 2 DIGIT NUMBER) = SUM_OF_DIGITS(99)=(9+9)=18.
+
+Smallest number with digit sum 18 and number of digits 2 is :99
+Smallest number with digit sum 17 and number of digits 2 is :89
+Smallest number with digit sum 16 and number of digits 2 is :79
+Smallest number with digit sum 15 and number of digits 2 is :69
+Smallest number with digit sum 14 and number of digits 2 is :59
+Smallest number with digit sum 13 and number of digits 2 is :49
+Smallest number with digit sum 12 and number of digits 2 is :39
+Smallest number with digit sum 11 and number of digits 2 is :29
+Smallest number with digit sum 10 and number of digits 2 is :19
+Smallest number with digit sum 9 and number of digits 2 is :18
+Smallest number with digit sum 8 and number of digits 2 is :17
+Smallest number with digit sum 7 and number of digits 2 is :16
+Smallest number with digit sum 6 and number of digits 2 is :15
+Smallest number with digit sum 5 and number of digits 2 is :14
+Smallest number with digit sum 4 and number of digits 2 is :13
+Smallest number with digit sum 3 and number of digits 2 is :12
+Smallest number with digit sum 2 and number of digits 2 is :11
+Smallest number with digit sum 1 and number of digits 2 is :10
+
+*/
+
+
+/*
 MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 3 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 3 DIGIT NUMBER) = SUM_OF_DIGITS(999)=(9+9+9)=27
 
 Smallest number with digit sum 27 and number of digits 3 is :999
@@ -158,5 +204,47 @@ Smallest number with digit sum 4 and number of digits 3 is :103
 Smallest number with digit sum 3 and number of digits 3 is :102
 Smallest number with digit sum 2 and number of digits 3 is :101
 Smallest number with digit sum 1 and number of digits 3 is :100
+
+*/
+
+/*
+MAXIMUM SUM OF DIGITS OBTAINED/POSSIBLE USING 4 DIGIT NUMBER = SUM_OF_DIGITS(MAX. 4 DIGIT NUMBER) = SUM_OF_DIGITS(9999)=(9+9+9+9)=36.
+
+Smallest number with digit sum 36 and number of digits 4 is :9999
+Smallest number with digit sum 35 and number of digits 4 is :8999
+Smallest number with digit sum 34 and number of digits 4 is :7999
+Smallest number with digit sum 33 and number of digits 4 is :6999
+Smallest number with digit sum 32 and number of digits 4 is :5999
+Smallest number with digit sum 31 and number of digits 4 is :4999
+Smallest number with digit sum 30 and number of digits 4 is :3999
+Smallest number with digit sum 29 and number of digits 4 is :2999
+Smallest number with digit sum 28 and number of digits 4 is :1999
+Smallest number with digit sum 27 and number of digits 4 is :1899
+Smallest number with digit sum 26 and number of digits 4 is :1799
+Smallest number with digit sum 25 and number of digits 4 is :1699
+Smallest number with digit sum 24 and number of digits 4 is :1599
+Smallest number with digit sum 23 and number of digits 4 is :1499
+Smallest number with digit sum 22 and number of digits 4 is :1399
+Smallest number with digit sum 21 and number of digits 4 is :1299
+Smallest number with digit sum 20 and number of digits 4 is :1199
+Smallest number with digit sum 19 and number of digits 4 is :1099
+Smallest number with digit sum 18 and number of digits 4 is :1089
+Smallest number with digit sum 17 and number of digits 4 is :1079
+Smallest number with digit sum 16 and number of digits 4 is :1069
+Smallest number with digit sum 15 and number of digits 4 is :1059
+Smallest number with digit sum 14 and number of digits 4 is :1049
+Smallest number with digit sum 13 and number of digits 4 is :1039
+Smallest number with digit sum 12 and number of digits 4 is :1029
+Smallest number with digit sum 11 and number of digits 4 is :1019
+Smallest number with digit sum 10 and number of digits 4 is :1009
+Smallest number with digit sum 9 and number of digits 4 is :1008
+Smallest number with digit sum 8 and number of digits 4 is :1007
+Smallest number with digit sum 7 and number of digits 4 is :1006
+Smallest number with digit sum 6 and number of digits 4 is :1005
+Smallest number with digit sum 5 and number of digits 4 is :1004
+Smallest number with digit sum 4 and number of digits 4 is :1003
+Smallest number with digit sum 3 and number of digits 4 is :1002
+Smallest number with digit sum 2 and number of digits 4 is :1001
+Smallest number with digit sum 1 and number of digits 4 is :1000
 
 */
