@@ -74,18 +74,17 @@ public class Test
    
   public static int merge(int arr[],int temp[],int lb,int mid,int ub)
   {
-    int inv_count=0;
-    int i = lb,j = mid+1,k = lb;
+      int i=lb,j=(mid+1),inv_count=0;
     
     while((i <=mid) && (j <= ub))
-        if(arr[i] <= arr[j])
-            temp[k++] = arr[i++];
-        else
-        {
-            temp[k++] = arr[j++];
-            inv_count+=(mid-i+1);
-        }
-
+       if(arr[i] <=2*(long)arr[j])
+          i++;
+       else
+       {
+          j++;
+          inv_count+=mid-i+1;
+       }
+//<------------------Below Is Normal/Conventional Merge function of Merge Sort------------------------------->  
     while(i <=mid)
         temp[k++] = arr[i++];
 
