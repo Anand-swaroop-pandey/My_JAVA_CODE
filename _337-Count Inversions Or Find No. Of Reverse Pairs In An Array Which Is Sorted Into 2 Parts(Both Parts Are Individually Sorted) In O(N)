@@ -1,1 +1,99 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	  public static void main(String[] args) {
+	      Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            System.out.println("Given array has "+count_Inversion_Sorted(arr,n)+" inversions");   
+         }
+         else
+           System.out.println("Invalid Choice"); 
+    }
+    
+    public static int count_Inversion_Sorted(int arr[], int n)
+    {
+      if(n<2)
+        return 0;
+        
+      int partitionPoint=-1;
+      for(int i=0;i<n-1;i++)
+       if(arr[i]>arr[i+1])
+       {
+          partitionPoint=i;
+          break;
+       }
+          
+      int inv_count=0;
+      for(int i=0;i<=partitionPoint;i++)
+         for(int j=partitionPoint+1;j<n;j++)
+            if(arr[i]>arr[j])
+               inv_count++;
+               
+      return inv_count;
+    }
+}
 
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	  public static void main(String[] args) {
+	      Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            System.out.println("Given array has "+count_Inversion_Sorted(arr,n)+" inversions");   
+         }
+         else
+           System.out.println("Invalid Choice"); 
+    }
+    
+    public static int count_Inversion_Sorted(int arr[], int n)
+    {
+      if(n<2)
+        return 0;
+        
+      int partitionPoint=-1;
+      for(int i=0;i<n-1;i++)
+       if(arr[i]>arr[i+1])
+       {
+          partitionPoint=i;
+          break;
+       }
+          
+      int inv_count=merge(arr,0,partitionPoint,n-1);
+      return inv_count;
+    }
+
+  public static int merge(int arr[],int lb,int mid,int ub)
+  {
+    int inv_count=0,i=lb,j=mid+1;
+    
+    while((i <=mid) && (j <= ub))
+       if(arr[i]<=arr[j])
+          i++;
+       else
+       {
+         inv_count+=(mid-i+1);
+         j++;
+       }
+        
+    return inv_count;
+  }
+}
