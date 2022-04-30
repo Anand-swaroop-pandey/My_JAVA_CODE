@@ -1,0 +1,126 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+     	  Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            System.out.println("Given array has "+count_Inversion2(arr,n)+" inversions");   
+         }
+         else
+           System.out.println("Invalid Choice");
+    }
+    
+    public static int count_Inversion2(int arr[], int n)
+    {
+      int cntInversion=0;
+      for(int i=0;i<n;i++)
+        for(int j=i+1;j<n;j++)
+          if(arr[i]>2*(long)arr[j])
+            cntInversion++;
+      return cntInversion;
+    }
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	 public static void main(String[] args) {
+	      Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            System.out.println("Given array has "+count_Inversion2(arr,n)+" inversions");   
+         }
+         else
+           System.out.println("Invalid Choice"); 
+    }
+    
+    public static int count_Inversion2(int arr[], int n)
+    {
+        int[] temp=new int[n];
+        return mergeSort(arr,temp,0,(n-1));
+    }
+    
+    public static int mergeSort(int[] arr,int[] temp,int lb,int ub)
+    {
+      int inv_count = 0;
+      if(lb<ub)
+      {
+        int mid = (lb + ub)/2;
+        inv_count+=mergeSort(arr,temp,lb,mid);
+        inv_count+=mergeSort(arr,temp,mid+1,ub);
+        inv_count+=merge(arr,temp,lb,mid,ub);
+      }
+      return inv_count;
+    }
+   
+  public static int merge(int arr[],int temp[],int lb,int mid,int ub)
+  {
+     int inv_count=0,idx2=mid+1;
+     for(int idx1=lb; idx1<=mid; idx1++)
+     {
+        while((idx2<=ub) && (arr[idx1]>2*(long)arr[idx2]))
+            idx2++;
+        inv_count+=idx2-(mid+1);
+     } 
+      
+     /*  Example :
+         
+ (index) 0   1  2  3         4  5 6  7
+        {15,16,20,25}  and  {7,9,12,18}
+        
+        Reverse Pairs in first iteration:
+        (15,7)
+        
+        Reverse Pairs in Second iteration:
+        (16,7)
+        
+        Reverse Pairs in Third iteration:
+        (20,7) and (20,9)
+        
+        Reverse Pairs in Fourth iteration:
+        (25,7) and (25,9) and (25,12)
+        
+        thus Total Reverse Pairs =7
+     */
+        
+    int i = lb,j = mid+1,k = lb;
+    
+    while((i <=mid) && (j <= ub))
+        if(arr[i] <= arr[j])
+            temp[k++] = arr[i++];
+        else
+        {
+            temp[k++] = arr[j++];
+            inv_count+=(mid-i+1);
+        }
+
+    while(i <=mid)
+        temp[k++] = arr[i++];
+
+    while(j <= ub)
+        temp[k++] = arr[j++];
+
+    for(i = lb ; i <= ub ; i++)
+        arr[i] = temp[i];
+    
+    return inv_count;
+  }
+}
