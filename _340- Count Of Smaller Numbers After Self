@@ -87,7 +87,7 @@ public class Test
 
     public static void merge(int[] arr, int lb, int mid, int ub,int[] count,int[] originalIndex)
     {
-      int i=lb,j=mid+1,k=0,idx=0;
+      int i=lb,j=mid+1,k=0;
      
       int[] new_indexes=new int[ub-lb+1];
       int[] temp=new int[ub-lb+1];
@@ -96,40 +96,44 @@ public class Test
         if(arr[i]>arr[j])
         {
             count[originalIndex[i]]+=(ub-j+1);
-            temp[k++]=arr[i];
-            new_indexes[idx++]=originalIndex[i];
+            temp[k]=arr[i];
+            new_indexes[k]=originalIndex[i];
             i++;
+            k++;
         }
         else// (arr[i]<=arr[j])
         {
-           temp[k++]=arr[j];
-           new_indexes[idx++]=originalIndex[j];
+           temp[k]=arr[j];
+           new_indexes[k]=originalIndex[j];
            j++;
+           k++;
         }
          
       
        while(j<=ub)
        {
-          temp[k++]=arr[j]; 
-          new_indexes[idx++]=originalIndex[j];
+          temp[k]=arr[j]; 
+          new_indexes[k]=originalIndex[j];
           j++;
+          k++;
        }
          
 
        while(i<=mid)
        {
-         temp[k++]=arr[i];  
-         new_indexes[idx++]=originalIndex[i];
+         temp[k]=arr[i];  
+         new_indexes[k]=originalIndex[i];
          i++;
+         k++;
        }
          
          
        k=0;
-       idx=0;
        for(int index=lb;index<=ub;index++)
        {
-          arr[index]=temp[k++];
-          originalIndex[index]=new_indexes[idx++];   
+          arr[index]=temp[k];
+          originalIndex[index]=new_indexes[k];
+          k++;
        }         
     }
 }
