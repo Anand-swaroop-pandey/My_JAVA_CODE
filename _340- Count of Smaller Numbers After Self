@@ -59,57 +59,85 @@ public class Test
     
     public static void countSmaller(int arr[], int n)
     {
-        int[] res=new int[n];
-        int[] idx= new int[n];
-        
-        for(int i =0; i<n; i++)
-            idx[i] = i;
-        
-        mergeSort(arr,0,n-1,res,idx);
+        int n=arr.length;
+        int[] count=new int[n];
+        int[] originalIndex = new int[n];
+
+        for(int i=0;i<n;i++)
+          originalIndex[i]=i;
+
+        mergeSort(arr,0,n-1,count,originalIndex);
         
         for(int i=0;i<n;i++)
-          System.out.printf("To the right of %d there are %d smaller elements\n",arr[i],res[i]);
+          System.out.printf("To the right of %d there are %d smaller elements\n",arr[i],count[i]);
     }
     
     
-    public static void mergeSort(int[] arr, int lb, int ub,int[] res,int[] idx)
+    public static void mergeSort(int[] arr, int lb, int ub,int[] count,int[] originalIndex)
     {
         if(lb<ub)
         {
           int mid = (lb+ub)/2;
-          mergeSort(arr,lb, mid,res,idx);
-          mergeSort(arr, mid+1,ub,res,idx);
-          merge(arr,lb, mid,ub,res,idx);  
+          mergeSort(arr,lb, mid,count,originalIndex);
+          mergeSort(arr, mid+1,ub,count,originalIndex);
+          merge(arr,lb, mid,ub,count,originalIndex);  
         }
     }
 
-    public static void merge(int[] arr, int lb, int mid, int ub,int[] res,int[] idx)
+    public static void merge(int[] arr, int lb, int mid, int ub,int[] count,int[] originalIndex)
     {
-        int i =lb,j = mid+1,k=0;
-        
-        int[] temp = new int[ub-lb+1];
-        
-        while(i<=mid && j<=ub)
-            if(arr[idx[i]]<=arr[idx[j]])
-            {
-               res[idx[i]]+=j-(mid+1);
-               temp[k++] = idx[i++];
-            }
-            else
-               temp[k++] = idx[j++];
-
-        
-        while(i<=mid)
+      int i=lb,j=mid+1,k=0,idx=0;
+     
+      int[] new_indexes=new int[ub-lb+1];
+      int[] temp=new int[ub-lb+1];
+     
+      while(i<=mid && j<=ub)
+        if(arr[i]>arr[j])
         {
-            res[idx[i]]+=j-(mid+1);
-            temp[k++] = idx[i++];
+            count[originalIndex[i]]+=(ub-j+1);
+            temp[k++]=arr[i];
+            new_indexes[idx++]=originalIndex[i];
+            i++;
         }
-        
-        while(j<=ub)
-            temp[k++] = idx[j++];
-        
-        k = 0;
-        for(i=lb; i<=ub; i++)
-            idx[i] = temp[k++]; 
+        else// (arr[i]<=arr[j])
+        {
+           temp[k++]=arr[j];
+           new_indexes[idx++]=originalIndex[j];
+           j++;
+        }
+         
+      
+       while(j<=ub)
+       {
+          temp[k++]=arr[j]; 
+          new_indexes[idx++]=originalIndex[j];
+          j++;
+       }
+         
+
+       while(i<=mid)
+       {
+         temp[k++]=arr[i];  
+         new_indexes[idx++]=originalIndex[i];
+         i++;
+       }
+         
+         
+       k=0;
+       idx=0;
+       for(int index=lb;index<=ub;index++)
+       {
+          arr[index]=temp[k++];
+          originalIndex[index]=new_indexes[idx++];   
+       }         
     }
 }
+
+/*(Will be Updated Soon) 
+Other Approaches
+->Using BST 
+->Balanced Binary Search Tree
+->Binary Search
+->Segment Tree
+->Binary Indexed Tree
+*/
