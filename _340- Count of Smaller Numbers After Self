@@ -1,0 +1,115 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	  public static void main(String[] args)
+	  {
+      	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            countSmaller(arr,n);
+         }
+         else
+           System.out.println("Invalid Choice");
+    }
+    
+    public static void countSmaller(int arr[], int n)
+    {
+      for(int i=0;i<n;i++)
+      {
+         int cnt=0;
+         for(int j=i+1;j<n;j++)
+          if(arr[j]<arr[i])
+            cnt++;
+        System.out.printf("To The Right Of %d There Are %d Smaller Elements\n",arr[i],cnt);
+      }
+    }
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+     	  Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
+            
+            countSmaller(arr,n);
+         }
+         else
+           System.out.println("Invalid Choice");
+    }
+    
+    
+    public static void countSmaller(int arr[], int n)
+    {
+        int[] res=new int[n];
+        int[] idx= new int[n];
+        
+        for(int i =0; i<n; i++)
+            idx[i] = i;
+        
+        mergeSort(arr,0,n-1,res,idx);
+        
+        for(int i=0;i<n;i++)
+          System.out.printf("To the right of %d there are %d smaller elements\n",arr[i],res[i]);
+    }
+    
+    
+    public static void mergeSort(int[] arr, int lb, int ub,int[] res,int[] idx)
+    {
+        if(lb<ub)
+        {
+          int mid = (lb+ub)/2;
+          mergeSort(arr,lb, mid,res,idx);
+          mergeSort(arr, mid+1,ub,res,idx);
+          merge(arr,lb, mid,ub,res,idx);  
+        }
+    }
+
+    public static void merge(int[] arr, int lb, int mid, int ub,int[] res,int[] idx)
+    {
+        int i =lb,j = mid+1,k=0;
+        
+        int[] temp = new int[ub-lb+1];
+        
+        while(i<=mid && j<=ub)
+            if(arr[idx[i]]<=arr[idx[j]])
+            {
+               res[idx[i]]+=j-(mid+1);
+               temp[k++] = idx[i++];
+            }
+            else
+               temp[k++] = idx[j++];
+
+        
+        while(i<=mid)
+        {
+            res[idx[i]]+=j-(mid+1);
+            temp[k++] = idx[i++];
+        }
+        
+        while(j<=ub)
+            temp[k++] = idx[j++];
+        
+        k = 0;
+        for(i=lb; i<=ub; i++)
+            idx[i] = temp[k++]; 
+    }
+}
