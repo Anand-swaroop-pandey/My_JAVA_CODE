@@ -59,7 +59,6 @@ public class Test
     
     public static void countSmaller(int arr[], int n)
     {
-        int n=arr.length;
         int[] count=new int[n];
         int[] originalIndex = new int[n];
 
@@ -68,8 +67,10 @@ public class Test
 
         mergeSort(arr,0,n-1,count,originalIndex);
         
+        System.out.printf("{");
         for(int i=0;i<n;i++)
-          System.out.printf("To the right of %d there are %d smaller elements\n",arr[i],count[i]);
+          System.out.printf(count[i]+" ");
+        System.out.printf("}");
     }
     
     
