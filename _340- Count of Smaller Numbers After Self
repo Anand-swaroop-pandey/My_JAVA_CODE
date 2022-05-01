@@ -2,11 +2,11 @@
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args)
-	  {
-      	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
+    public static void main(String[] args)
+    {
+      	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -38,9 +38,9 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args)
-	{
-     	  Scanner sc=new Scanner(System.in);
+    public static void main(String[] args)
+    {
+     	Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the Array");
         int n=sc.nextInt();
          if(n>0)
