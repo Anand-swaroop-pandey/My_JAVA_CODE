@@ -223,66 +223,98 @@ public class Test
   firstIndex(5)=5
   count[0]=5;
   sorted.remove(5);
+  
+  (Updated Sorted[])
+ Index=>    0 1 2 3 4 5 6 7 8 9
   Sorted[]={1,1,2,2,4,5,6,6,8,9};
   
   Iteration 2 :(i=1,arr[i]=2)
   firstIndex(2)=2
   count[1]=2;
   sorted.remove(2);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 3 4 5 6 7 8
   Sorted[]={1,1,2,4,5,6,6,8,9};
   
   Iteration 3 :(i=2,arr[i]=4)
   firstIndex(4)=3
   count[2]=3;
   sorted.remove(3);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 3 4 5 6 7 
   Sorted[]={1,1,2,5,6,6,8,9};
   
   Iteration 4 :(i=3,arr[i]=6)
   firstIndex(6)=4
   count[3]=4;
   sorted.remove(4);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 3 4 5 6 
   Sorted[]={1,1,2,5,6,8,9};
   
   Iteration 5 :(i=4,arr[i]=1)
   firstIndex(1)=0
   count[4]=0;
   sorted.remove(0);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 3 4 5 
   Sorted[]={1,2,5,6,8,9};
   
   Iteration 6 :(i=5,arr[i]=2)
   firstIndex(2)=1
   count[5]=1;
   sorted.remove(1);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 3 4 
   Sorted[]={1,5,6,8,9};
   
   Iteration 7 :(i=6,arr[i]=9)
   firstIndex(9)=4
   count[6]=4;
   sorted.remove(4);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 3 
   Sorted[]={1,5,6,8};
   
   Iteration 8 :(i=7,arr[i]=1)
   firstIndex(1)=0
   count[7]=0;
   sorted.remove(0);
+  
+  (Updated Sorted[])
+  Index=>   0 1 2 
   Sorted[]={5,6,8};
   
   Iteration 9 :(i=8,arr[i]=6)
   firstIndex(1)=1
   count[8]=1;
   sorted.remove(1);
+  
+  (Updated Sorted[])
+  Index=>   0 1 
   Sorted[]={5,8};
   
   Iteration 10 :(i=9,arr[i]=5)
   firstIndex(5)=0
   count[9]=0;
   sorted.remove(0);
+  
+  (Updated Sorted[])
+  Index=>   0 
   Sorted[]={8};
   
   Iteration 11 :(i=10,arr[i]=8)
   firstIndex(8)=0
   count[10]=0;
   sorted.remove(0);
+  
+  (Updated Sorted[])
   Sorted[]={};
   
   Therefore;
