@@ -1,0 +1,97 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {
+      	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter 'n'");
+         int n=sc.nextInt();
+         if(n>0)
+           System.out.printf("%dth number whose sum of digits is 10 is: %d",n,findNth(n));
+         else
+           System.out.println("Invalid Choice");
+    }
+    
+    public static int findNth(int n)
+    {
+      int num=19,cnt=0; //Smallest Number Whose Sum of digits is 10 is 19
+      while(true)
+      {
+        if(sumOfDigits(num)==10)
+         cnt++;
+         
+        if(cnt==n)
+         break;
+         
+         num++;
+      }
+      return num;
+    }
+    
+    public static int sumOfDigits(int num)
+    {
+        if(num==0)
+          return 1;
+          
+        int sum=0;
+         while(num!=0)
+         {
+             sum+=(num%10);
+             num=num/10;
+         }
+         return sum;
+    }
+}
+
+//Optimal Approach
+/*
+If we take a closer look, we can notice that from 19 Onwards it forms an arithmetic progression with common difference of 9 
+i.e 19, 28, 37, 46, 55, 64, 73, 82, 91, 100, 109,… 
+However, there are numbers in the above series whose sum of digits is not 10, for example, 100. So instead of checking one by one, we start with 19 and increment by 9.
+*/
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {
+      	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter 'n'");
+         int n=sc.nextInt();
+         if(n>0)
+           System.out.printf("%dth number whose sum of digits is 10 is: %d",n,findNth(n));
+         else
+           System.out.println("Invalid Choice");
+    }
+    
+    public static int findNth(int n)
+    {
+      int num=19,cnt=0; 
+      while(true)
+      {
+        if(sumOfDigits(num)==10)
+         cnt++;
+         
+        if(cnt==n)
+         break;
+         
+         num+=9;
+      }
+      return num;
+    }
+    
+    public static int sumOfDigits(int num)
+    {
+        if(num==0)
+          return 1;
+          
+        int sum=0;
+        while(num!=0)
+        {
+          sum+=(num%10);
+          num=num/10;
+        }
+        
+      return sum;
+    }
+}
