@@ -1,0 +1,136 @@
+//Better Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the String containing lower case Alphabets");
+      String str=sc.nextLine();
+      System.out.println("Enter 'k'");
+      int k=sc.nextInt();
+      System.out.println("Sum of Digits of String After Convert is :"+getLucky(str,k));
+	}
+	
+    public static int getLucky(String str, int k) 
+    {
+      HashMap<Character,Integer>hm= new HashMap<>();
+      int pos=1;
+      for(char ch='a';ch<='z';ch++)
+        hm.put(ch,pos++);
+     
+      int n=str.length();
+      int sum=0;
+      for(int i=0;i<n;i++)
+        sum+=sumOfDigits(hm.get(str.charAt(i)));
+     
+      if(k==1)
+        return sum;
+     
+      int num=sum;
+      sum=0;
+      for(int i=2;i<=k;i++)
+      {
+        sum=sumOfDigits(num);
+        num=sum;  
+      } 
+
+     return sum;
+    }
+    
+    public static int sumOfDigits(int num)
+    {
+        if(num==0)
+          return 1;
+        
+         int sum=0;
+         while(num!=0)
+         {
+             sum+=(num%10);
+             num=num/10;
+         }
+         
+        return sum;
+    }
+}
+
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the String containing lower case Alphabets");
+      String str=sc.nextLine();
+      System.out.println("Enter 'k'");
+      int k=sc.nextInt();
+      System.out.println("Sum of Digits of String After Convert is :"+getLucky(str,k));
+	}
+	
+    public static int getLucky(String str, int k) 
+    {
+      int n=str.length();
+      int sum=0;
+      for(int i=0;i<n;i++)
+        sum+=sumOfDigits(str.charAt(i)-96);//Transformation 1
+     
+      if(k==1)
+        return sum;
+                                          //Transformation 2 and onwards depending on the value of k
+      int num=sum;
+      sum=0;
+      for(int i=2;i<=k;i++)
+      {
+        sum=sumOfDigits(num);
+        num=sum;  
+      } 
+
+     return sum;
+    }
+    
+    
+    public static int sumOfDigits(int num)
+    {
+        if(num==0)
+          return 1;
+        
+         int sum=0;
+         while(num!=0)
+         {
+             sum+=(num%10);
+             num=num/10;
+         }
+         
+        return sum;
+    }
+}
+
+/*ASCII   lower case Alphabet    position
+  97            a                   1
+  98            b                   2
+  99            c                   3
+ 100            d                   4
+ 101            e                   5
+ 102            f                   6 
+ 103            g                   7
+ 104            h                   8
+ 105            i                   9
+ 106            j                  10
+ 107            k                  11
+ 108            l                  12
+ 109            m                  13
+ 110            n                  14
+ 111            o                  15
+ 112            p                  16
+ 113            q                  17
+ 114            r                  18
+ 115            s                  19                                                             
+ 116            t                  20
+ 117            u                  21
+ 118            v                  22
+ 119            w                  23
+ 120            x                  24
+ 121            y                  25
+ 122            z                  26
+*/
