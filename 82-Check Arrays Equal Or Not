@@ -105,11 +105,11 @@ public class Test
 	    else
 	      hm2.put(val,1);
 	     
-	   for(int val:arr1)
-	     if(hm2.containsKey(val)==false)
+          for(int key:hm1.keySet())
+	     if(hm2.containsKey(key)==false)
 	       return "NOT EQUAL";
-	     else if(hm2.containsKey(val) && (hm1.get(val)!=hm2.get(val)))
-           return "NOT EQUAL";
+	     else if(hm2.containsKey(key) && (hm1.get(key)!=hm2.get(key)))
+               return "NOT EQUAL";
        
           return "EQUAL";
 	}
