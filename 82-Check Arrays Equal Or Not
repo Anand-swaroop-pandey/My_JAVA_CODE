@@ -114,3 +114,68 @@ public class Test
           return "EQUAL";
 	}
 }
+
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array1:");
+	   int m=sc.nextInt();
+	   
+	   System.out.println("Enter the Size of the Array2:");
+	   int n=sc.nextInt();
+	   
+	   if(m<=0 || n<=0)
+	   {
+	     System.out.println("Invalid Choice");
+	     return;
+	   }
+	   
+	   int arr1[]=new int [m];
+	   int arr2[]=new int [n];
+	   
+	   System.out.printf("Enter %d Elements of Array1\n",m);
+	   for(int i=0;i<arr1.length;i++)
+	   arr1[i]=sc.nextInt();
+		
+	   System.out.printf("Enter %d Elements of Array2\n",n);
+   	   for(int i=0;i<arr2.length;i++)
+	      arr2[i]=sc.nextInt();
+ 	   sc.close();
+	   
+	   System.out.println("Both Arrays are :"+areEqual(arr1,m,arr2,n));
+	}
+	
+	
+	public static String areEqual(int arr1[],int m,int arr2[],int n)
+	{
+	  if(m!=n)
+	    return "NOT EQUAL";
+	    
+	  HashMap<Integer,Integer>hm=new HashMap<>();
+	  
+	  for(int val:arr1)
+	    if(hm.containsKey(val))
+	      hm.put(val,hm.get(val)+1);
+	    else
+	      hm.put(val,1);
+	    
+	        
+	  for(int i=0;i<m;i++)
+	     if(hm.containsKey(arr2[i])==false)
+	       return "NOT EQUAL";
+	     else 
+               hm.put(arr2[i],hm.get(arr2[i])-1);
+       
+          for(int key :hm.keySet())
+            if(hm.get(key)!=0)
+               return "NOT EQUAL"
+           
+         return "EQUAL";
+	}
+}
