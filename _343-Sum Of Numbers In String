@@ -2,10 +2,10 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter A String Containing Alpha Numeric Characters");
-		String str=sc.nextLine();
-		System.out.println("Sum of all the numbers present in the string is :"+findSum(str));
+	     Scanner sc=new Scanner(System.in);
+	     System.out.println("Enter A String Containing Alpha Numeric Characters");
+	     String str=sc.nextLine();
+	     System.out.println("Sum of all the numbers present in the string is :"+findSum(str));
 	}
 	
 	public static long findSum(String str)
