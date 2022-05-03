@@ -1,0 +1,234 @@
+//Good Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  System.out.println("Enter the Size of the Array:");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+    for(int i=0;i<n;i++)
+      arr[i]=sc.nextInt();
+	    
+	  System.out.println("Enter the Number");
+		int k=sc.nextInt();  
+	    
+	  System.out.println("Output: "+addToArrayForm(arr,k)); 
+	}
+	
+	public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
+    {
+      int n=arr.length;
+      String num1="";
+      for(int i=0;i<n;i++)
+         num1+=arr[i];
+        
+       String num2=String.valueOf(k);
+       String res=addTwoNumbers(num1,num2);
+       ArrayList<Integer>al=new ArrayList<>();
+       for(int i=0;i<res.length();i++)
+       {
+          char ch=res.charAt(i);
+          al.add(ch-'0');
+       }
+       return al;
+    }
+    
+    public static String addTwoNumbers(String num1, String num2) 
+    {
+       int i=num1.length()-1,j=num2.length()-1,carry=0;
+       StringBuilder num=new StringBuilder("");
+        while(i>=0 && j>=0)
+        {
+            int d1=num1.charAt(i)-'0';
+            int d2=num2.charAt(j)-'0';
+            
+            int sum=((d1+d2)+carry)%10;
+            
+            if(((d1+d2)+carry)<=9)
+              carry=0;
+            else
+              carry=1;
+            
+            num.append(sum);
+            i--;
+            j--;
+        }
+        
+        while(i>=0)
+        {
+          int d1=num1.charAt(i)-'0';
+          int sum=(d1+carry)%10; 
+          if((d1+carry)<=9)
+             carry=0;
+          else
+             carry=1;
+          num.append(sum);
+          i--;
+        }
+        
+        while(j>=0)
+        {
+          int d2=num2.charAt(j)-'0';
+          int sum=(d2+carry)%10; 
+          if((d2+carry)<=9)
+             carry=0;
+          else
+             carry=1;
+          num.append(sum);
+          j--;
+        }
+        
+        if(carry!=0)
+          num.append(carry);
+        
+        StringBuilder reverseNum =num.reverse();
+        
+        return reverseNum.toString(); 
+    }
+}
+
+//Better Approach
+
+import java.util.*;
+public class Test
+{
+	 public static void main(String[] args) {
+	    System.out.println("Enter the Size of the Array:");
+		  Scanner sc=new Scanner(System.in);
+		  int n=sc.nextInt();
+		  if(n<=0)
+		  {
+		    System.out.println("Invalid Choice");
+		    return;
+		  }
+	    int[] arr=new int[n];
+	    System.out.println("Enter "+n+" Elements :");
+      for(int i=0;i<n;i++)
+        arr[i]=sc.nextInt();
+	    
+	    System.out.println("Enter the Number");
+	    int k=sc.nextInt();  
+	    
+	    System.out.println("Output: "+addToArrayForm(arr,k)); 
+    }
+	
+	  public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
+    {
+       int n=arr.length;
+       String num1="";
+       for(int i=0;i<n;i++)
+         num1+=arr[i];
+        
+       String num2=String.valueOf(k);
+       ArrayList<Integer>al=new ArrayList<>();
+       return addTwoNumbers(num1,num2,al);
+    }
+    
+    public static ArrayList<Integer> addTwoNumbers(String num1, String num2,ArrayList<Integer>al) 
+    {
+        int i=num1.length()-1,j=num2.length()-1,carry=0;
+ 
+        while(i>=0 && j>=0)
+        {
+            int d1=num1.charAt(i)-'0';
+            int d2=num2.charAt(j)-'0';
+            
+            int sum=((d1+d2)+carry)%10;
+            
+            if(((d1+d2)+carry)<=9)
+              carry=0;
+            else
+              carry=1;
+            
+            al.add(sum);
+            i--;
+            j--;
+        }
+        
+        while(i>=0)
+        {
+          int d1=num1.charAt(i)-'0';
+          int sum=(d1+carry)%10; 
+          if((d1+carry)<=9)
+             carry=0;
+          else
+             carry=1;
+          al.add(sum);
+          i--;
+        }
+        
+        while(j>=0)
+        {
+          int d2=num2.charAt(j)-'0';
+          int sum=(d2+carry)%10; 
+          if((d2+carry)<=9)
+             carry=0;
+          else
+             carry=1;
+          al.add(sum);
+          j--;
+        }
+        
+        if(carry!=0)
+          al.add(carry);
+        
+        Collections.reverse(al);
+        
+        return al; 
+    }
+}
+
+//Optimal Approach
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.println("Enter the Size of the Array:");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+	    int[] arr=new int[n];
+	    System.out.println("Enter "+n+" Elements :");
+	    for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	    
+	    System.out.println("Enter the Number");
+		int k=sc.nextInt();  
+	    
+	    System.out.println("Output: "+addToArrayForm(arr,k)); 
+	}
+	
+  	public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
+    {
+        ArrayList<Integer>al = new ArrayList<>();
+ 
+        for(int i=arr.length-1;i>=0;i--) 
+        {
+            int sum=arr[i]+k;
+            al.add(sum%10);
+            k=sum/10; 
+        }
+
+        while(k!=0)
+        {
+            al.add(k%10);
+            k=k/10;
+        }
+        
+        Collections.reverse(al);
+        return al;
+    }
+}
+
