@@ -2,14 +2,14 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-     Scanner sc=new Scanner(System.in);
-     System.out.println("Enter Number1 in String Form");
-     String str1=sc.nextLine();
-     System.out.println("Enter Number2 in String Form, having same number of Digits as that of Number1");
-     String str2=sc.nextLine();
-     System.out.println(str1+"+"+str2+"= "+addTwoNumbers(str1,str2));
-	}
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number1 in String Form");
+        String str1=sc.nextLine();
+        System.out.println("Enter Number2 in String Form, having same number of Digits as that of Number1");
+        String str2=sc.nextLine();
+        System.out.println(str1+"+"+str2+"= "+addTwoNumbers(str1,str2));
+    }
 	
     public static String addTwoNumbers(String num1, String num2) 
     {
