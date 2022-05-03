@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter A String Containing Alpha Numeric Characters");
+		String str=sc.nextLine();
+		System.out.println("Sum of all the numbers present in the string is :"+findSum(str));
+	}
+	
+	public static long findSum(String str)
+	{
+	  int n=str.length();
+	  long num=0,sum=0;
+	  for(int i=0;i<n;i++)
+	  {
+	     char ch=str.charAt(i);
+	      if(ch>='0' && ch<='9')
+	        num=num*10+(ch-'0');
+	      else
+	      {
+	        sum+=num;
+	        num=0;
+	      }
+	  }
+	  return (sum+num);
+	}
+}
