@@ -4,41 +4,43 @@ public class Test
 {
 	public static void main(String[] args) {
 	  System.out.println("Enter the Size of the Array:");
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
-		if(n<=0)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
+          Scanner sc=new Scanner(System.in);
+	  int n=sc.nextInt();
+          if(n<=0)
+  	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+  	  }
 	  int[] arr=new int[n];
 	  System.out.println("Enter "+n+" Elements :");
-    for(int i=0;i<n;i++)
-      arr[i]=sc.nextInt();
+          for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
 	    
 	  System.out.println("Enter the Number");
-		int k=sc.nextInt();  
+	  int k=sc.nextInt();  
 	    
 	  System.out.println("Output: "+addToArrayForm(arr,k)); 
-	}
-	
-	public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
-    {
-      int n=arr.length;
-      String num1="";
-      for(int i=0;i<n;i++)
-         num1+=arr[i];
-        
-       String num2=String.valueOf(k);
-       String res=addTwoNumbers(num1,num2);
-       ArrayList<Integer>al=new ArrayList<>();
-       for(int i=0;i<res.length();i++)
-       {
-          char ch=res.charAt(i);
-          al.add(ch-'0');
-       }
-       return al;
     }
+	
+	
+    public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
+    {
+          int n=arr.length;
+          String num1="";
+          for(int i=0;i<n;i++)
+            num1+=arr[i];
+        
+          String num2=String.valueOf(k);
+          String res=addTwoNumbers(num1,num2);
+          ArrayList<Integer>al=new ArrayList<>();
+          for(int i=0;i<res.length();i++)
+          {
+            char ch=res.charAt(i);
+           al.add(ch-'0');
+          }
+          return al;
+    }
+    
     
     public static String addTwoNumbers(String num1, String num2) 
     {
@@ -99,27 +101,27 @@ public class Test
 import java.util.*;
 public class Test
 {
-	 public static void main(String[] args) {
-	    System.out.println("Enter the Size of the Array:");
-		  Scanner sc=new Scanner(System.in);
-		  int n=sc.nextInt();
-		  if(n<=0)
-		  {
-		    System.out.println("Invalid Choice");
-		    return;
-		  }
-	    int[] arr=new int[n];
-	    System.out.println("Enter "+n+" Elements :");
-      for(int i=0;i<n;i++)
-        arr[i]=sc.nextInt();
+    public static void main(String[] args) {
+	  System.out.println("Enter the Size of the Array:");
+          Scanner sc=new Scanner(System.in);
+	  int n=sc.nextInt();
+          if(n<=0)
+  	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+  	  }
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+          for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
 	    
-	    System.out.println("Enter the Number");
-	    int k=sc.nextInt();  
+	  System.out.println("Enter the Number");
+	  int k=sc.nextInt();  
 	    
-	    System.out.println("Output: "+addToArrayForm(arr,k)); 
-    }
+	  System.out.println("Output: "+addToArrayForm(arr,k)); 
+     }
 	
-	  public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
+    public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
        int n=arr.length;
        String num1="";
@@ -188,29 +190,30 @@ public class Test
 //Optimal Approach
 
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
-	    System.out.println("Enter the Size of the Array:");
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
-		if(n<=0)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-	    int[] arr=new int[n];
-	    System.out.println("Enter "+n+" Elements :");
-	    for(int i=0;i<n;i++)
-	      arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array:");
+          Scanner sc=new Scanner(System.in);
+	  int n=sc.nextInt();
+          if(n<=0)
+  	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+  	  }
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+          for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
 	    
-	    System.out.println("Enter the Number");
-		int k=sc.nextInt();  
+	  System.out.println("Enter the Number");
+	  int k=sc.nextInt();  
 	    
-	    System.out.println("Output: "+addToArrayForm(arr,k)); 
+	  System.out.println("Output: "+addToArrayForm(arr,k)); 
 	}
-	
-  	public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
+
+
+    public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
         ArrayList<Integer>al = new ArrayList<>();
  
