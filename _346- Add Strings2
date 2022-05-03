@@ -121,11 +121,11 @@ public class Test
           int d1=num1.charAt(i)-'0';
           int sum=(d1+carry)%10; 
           if((d1+carry)<=9)
-               carry=0;
-            else
-              carry=1;
-            num.append(sum);
-            i--;
+             carry=0;
+          else
+             carry=1;
+          num.append(sum);
+          i--;
         }
         
         while(j>=0)
@@ -136,8 +136,8 @@ public class Test
              carry=0;
           else
              carry=1;
-           num.append(sum);
-           j--;
+          num.append(sum);
+          j--;
         }
         
         if(carry!=0)
