@@ -1,36 +1,116 @@
-import java.util.Scanner;
+//Bruteforce Approach
+import java.util.*;
 public class Test
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Enter the Size of the Array1:");
-		Scanner sc=new Scanner(System.in);
-		int m=sc.nextInt();
-		System.out.println("Enter the Size of the Array2:");
-		int n=sc.nextInt();
-		int arr1[]=new int [m];
-		int arr2[]=new int [n];
-		System.out.printf("Ente %d Elements of Array1\n",m);
-		for(int i=0;i<arr1.length;i++)
-		  arr1[i]=sc.nextInt();
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array1:");
+	   int m=sc.nextInt();
+	   
+	   System.out.println("Enter the Size of the Array2:");
+	   int n=sc.nextInt();
+	   
+	   if(m<=0 || n<=0)
+	   {
+	     System.out.println("Invalid Choice");
+	     return;
+	   }
+	   
+	   int arr1[]=new int [m];
+	   int arr2[]=new int [n];
+	   
+	   System.out.printf("Enter %d Elements of Array1\n",m);
+	   for(int i=0;i<arr1.length;i++)
+	   arr1[i]=sc.nextInt();
 		
-		System.out.printf("Ente %d Elements of Array2\n",n);
-		for(int i=0;i<arr2.length;i++)
-		  arr2[i]=sc.nextInt();
-		  sc.close();
-		  System.out.println(arraysEqualOrNot(arr1,arr2));
+	   System.out.printf("Enter %d Elements of Array2\n",n);
+   	   for(int i=0;i<arr2.length;i++)
+	      arr2[i]=sc.nextInt();
+ 	   sc.close();
+	   
+	   System.out.println("Both Arrays are :"+areEqual(arr1,m,arr2,n));
 	}
-	public static boolean arraysEqualOrNot(int arr1[],int arr2[])
+	
+	
+	public static String areEqual(int arr1[],int m,int arr2[],int n)
 	{
-       if((arr1.length)!=(arr2.length))
-    	   return false;
-       else
-       {
-    	   int len=arr1.length;
-    	   for(int i=0;i<len;i++)
-    		   if(arr1[i]!=arr2[i])
-    			    return false;
-    	   return true;
-       }
+	   if(m!=n)
+	     return "NOT EQUAL";
+	  
+           Arrays.sort(arr1);
+           Arrays.sort(arr2);
+      
+           for(int i=0;i<m;i++)
+             if(arr1[i]!=arr2[i])
+               return "NOT EQUAL";
+           
+           return "EQUAL";
+	}
+}
+
+//Better Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size of the Array1:");
+	   int m=sc.nextInt();
+	   
+	   System.out.println("Enter the Size of the Array2:");
+	   int n=sc.nextInt();
+	   
+	   if(m<=0 || n<=0)
+	   {
+	     System.out.println("Invalid Choice");
+	     return;
+	   }
+	   
+	   int arr1[]=new int [m];
+	   int arr2[]=new int [n];
+	   
+	   System.out.printf("Enter %d Elements of Array1\n",m);
+	   for(int i=0;i<arr1.length;i++)
+	   arr1[i]=sc.nextInt();
+		
+	   System.out.printf("Enter %d Elements of Array2\n",n);
+   	   for(int i=0;i<arr2.length;i++)
+	      arr2[i]=sc.nextInt();
+ 	   sc.close();
+	   
+	   System.out.println("Both Arrays are :"+areEqual(arr1,m,arr2,n));
+	}
+	
+	
+	public static String areEqual(int arr1[],int m,int arr2[],int n)
+	{
+	  if(m!=n)
+	    return "NOT EQUAL";
+	    
+	  HashMap<Integer,Integer>hm1=new HashMap<>();
+	  HashMap<Integer,Integer>hm2=new HashMap<>();
+	  
+	  for(int val:arr1)
+	    if(hm1.containsKey(val))
+	      hm1.put(val,hm1.get(val)+1);
+	    else
+	      hm1.put(val,1);
+	    
+	  for(int val:arr2)
+	    if(hm2.containsKey(val))
+	      hm2.put(val,hm2.get(val)+1);
+	    else
+	      hm2.put(val,1);
+	     
+	   for(int val:arr1)
+	     if(hm2.containsKey(val)==false)
+	       return "NOT EQUAL";
+	     else if(hm2.containsKey(val) && (hm1.get(val)!=hm2.get(val)))
+           return "NOT EQUAL";
+       
+          return "EQUAL";
 	}
 }
