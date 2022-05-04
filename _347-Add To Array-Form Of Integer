@@ -36,7 +36,7 @@ public class Test
           for(int i=0;i<res.length();i++)
           {
             char ch=res.charAt(i);
-           al.add(ch-'0');
+            al.add(ch-'0');
           }
           return al;
     }
@@ -44,21 +44,17 @@ public class Test
     
     public static String addTwoNumbers(String num1, String num2) 
     {
-       int i=num1.length()-1,j=num2.length()-1,carry=0;
-       StringBuilder num=new StringBuilder("");
+        int i=num1.length()-1,j=num2.length()-1,carry=0;
+        StringBuilder num=new StringBuilder("");
         while(i>=0 && j>=0)
         {
             int d1=num1.charAt(i)-'0';
             int d2=num2.charAt(j)-'0';
             
-            int sum=((d1+d2)+carry)%10;
-            
-            if(((d1+d2)+carry)<=9)
-              carry=0;
-            else
-              carry=1;
-            
-            num.append(sum);
+            int base=((d1+d2)+carry)%10;
+            carry=((d1+d2)+carry)/10;
+	    
+            num.append(base);
             i--;
             j--;
         }
@@ -66,24 +62,22 @@ public class Test
         while(i>=0)
         {
           int d1=num1.charAt(i)-'0';
-          int sum=(d1+carry)%10; 
-          if((d1+carry)<=9)
-             carry=0;
-          else
-             carry=1;
-          num.append(sum);
+	  
+          int base=(d1+carry)%10;
+	  carry=(d1+carry)/10;
+	  
+          num.append(base);
           i--;
         }
         
         while(j>=0)
         {
           int d2=num2.charAt(j)-'0';
-          int sum=(d2+carry)%10; 
-          if((d2+carry)<=9)
-             carry=0;
-          else
-             carry=1;
-          num.append(sum);
+	  
+          int base=(d2+carry)%10;
+	  carry=(d2+carry)/10;
+ 
+          num.append(base);
           j--;
         }
         
@@ -141,15 +135,11 @@ public class Test
         {
             int d1=num1.charAt(i)-'0';
             int d2=num2.charAt(j)-'0';
-            
-            int sum=((d1+d2)+carry)%10;
-            
-            if(((d1+d2)+carry)<=9)
-              carry=0;
-            else
-              carry=1;
-            
-            al.add(sum);
+	    
+            int base=((d1+d2)+carry)%10;
+            carry=((d1+d2)+carry)/10;
+	    
+            al.add(base);
             i--;
             j--;
         }
@@ -157,24 +147,22 @@ public class Test
         while(i>=0)
         {
           int d1=num1.charAt(i)-'0';
-          int sum=(d1+carry)%10; 
-          if((d1+carry)<=9)
-             carry=0;
-          else
-             carry=1;
-          al.add(sum);
-          i--;
+          
+	   int base=(d1+carry)%10;
+	   carry=(d1+carry)/10;
+	   
+           al.add(base);
+           i--;
         }
         
         while(j>=0)
         {
           int d2=num2.charAt(j)-'0';
-          int sum=(d2+carry)%10; 
-          if((d2+carry)<=9)
-             carry=0;
-          else
-             carry=1;
-          al.add(sum);
+          
+	  int base=(d2+carry)%10;
+	  carry=(d2+carry)/10;
+	  
+	  al.add(base);
           j--;
         }
         
@@ -227,14 +215,10 @@ public class Test
             int d1=num1[i];
             int d2=num2%10;
             
-            int sum=((d1+d2)+carry)%10;
+            int base=((d1+d2)+carry)%10;
+            carry=((d1+d2)+carry)/10;
             
-            if(((d1+d2)+carry)<=9)
-              carry=0;
-            else
-              carry=1;
-            
-            al.add(sum);
+            al.add(base);
             i--;
             num2=num2/10;
         }
@@ -242,24 +226,22 @@ public class Test
         while(i>=0)
         {
           int d1=num1[i];
-          int sum=(d1+carry)%10; 
-          if((d1+carry)<=9)
-             carry=0;
-          else
-             carry=1;
-          al.add(sum);
+	  
+          int base=(d1+carry)%10; 
+	  carry=(d1+carry)/10;
+	  
+          al.add(base);
           i--;
         }
         
         while(num2!=0)
         {
-          int d2=num2%10;;
-          int sum=(d2+carry)%10; 
-          if((d2+carry)<=9)
-             carry=0;
-          else
-             carry=1;
-          al.add(sum);
+          int d2=num2%10;
+	  
+          int base=(d2+carry)%10; 
+          carry=(d2+carry)/10;
+	  
+          al.add(base);
           num2=num2/10;
         }
         
