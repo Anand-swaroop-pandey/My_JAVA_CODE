@@ -1,0 +1,223 @@
+//Good Approach
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number1 in String Form :");
+        String str1=sc.nextLine();
+        System.out.println("Enter Number2 in String Form :");
+        String str2=sc.nextLine();
+        System.out.println(str1+"*"+str2+"= "+muntiplyTwoNumbers(str1,str2));
+    }
+	
+	
+  	public static String muntiplyTwoNumbers(String num1, String num2)
+    {
+      int len1=num1.length();
+      int len2=num2.length();
+      String res="0";
+      int padding=0;
+      
+      if(len1>len2)
+        for(int i=len2-1;i>=0;i--)
+        {
+           String pass=multiplyDigit(num1,num2.charAt(i)-'0',padding++);  
+           res=addTwoNumbers(res,pass);
+        }  
+      else
+        for(int i=len1-1;i>=0;i--)
+        {
+           String pass=multiplyDigit(num2,num1.charAt(i)-'0',padding++);  
+           res=addTwoNumbers(res,pass);
+        }   
+   
+       return res; 
+    }
+
+    public static String multiplyDigit(String num1,int dgt,int padding)
+    {
+      if(dgt==0)
+        return "0";
+      
+      int carry=0;
+      StringBuilder ans=new StringBuilder("");
+      for(int pad=1;pad<=padding;pad++)
+        ans.append(0);
+      
+      for(int i=num1.length()-1;i>=0;i--)
+      { 
+         int prod=(num1.charAt(i)-'0')*dgt;
+         int base;
+         if((prod+carry)<=9)
+         {
+            base=(prod+carry);
+            carry=0;
+         }
+         else
+         {
+            base=(prod+carry)%10;
+            carry=(prod+carry)/10;
+         }
+         ans.append(base);
+      }
+      
+      if(carry!=0)
+        ans.append(carry);
+        
+      StringBuilder reverse=ans.reverse();
+      
+      return reverse.toString();
+    }
+
+
+    public static String addTwoNumbers(String num1, String num2) 
+    {
+        int i=num1.length()-1,j=num2.length()-1,carry=0;
+        StringBuilder num=new StringBuilder("");
+        
+        while(i>=0 && j>=0)
+        {
+           int d1=num1.charAt(i)-'0';
+           int d2=num2.charAt(j)-'0';
+            
+           int sum=((d1+d2)+carry)%10;
+             carry=((d1+d2)+carry)/10;   
+        
+           num.append(sum);
+           i--;
+           j--;
+        }
+        
+        while(i>=0)
+        {
+          int d1=num1.charAt(i)-'0';
+          int sum=(d1+carry)%10;
+          carry=(d1+carry)/10;
+          num.append(sum);
+          i--;
+        }
+        
+        while(j>=0)
+        {
+          int d2=num2.charAt(j)-'0';
+          int sum=(d2+carry)%10;
+          carry=(d2+carry)/10; 
+          num.append(sum);
+          j--;
+        }
+        
+        if(carry!=0)
+          num.append(carry);
+        
+        StringBuilder reverseNum =num.reverse();
+        
+        return reverseNum.toString(); 
+    }
+}
+
+//Optimal Approach (Compressed/Optimised Code)
+
+import java.util.*;
+public class Main
+{
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number1 in String Form :");
+        String str1=sc.nextLine();
+        System.out.println("Enter Number2 in String Form :");
+        String str2=sc.nextLine();
+        System.out.println(str1+"*"+str2+"= "+muntiplyTwoNumbers(str1,str2));
+    }
+	
+	
+	  public static String muntiplyTwoNumbers(String num1, String num2)
+    {
+      int len1=num1.length();
+      int len2=num2.length();
+      String res="0";
+      int padding=0;
+
+      for(int i=len2-1;i>=0;i--)
+      {
+         String pass=multiplyDigit(num1,num2.charAt(i)-'0',padding++);  
+         res=addTwoNumbers(res,pass);
+      }  
+      
+      return res; 
+    }
+
+
+    public static String multiplyDigit(String num1,int dgt,int padding)
+    {
+      if(dgt==0)
+        return "0";
+      
+      int carry=0;
+    
+      StringBuilder ans=new StringBuilder("");
+    
+      for(int pad=1;pad<=padding;pad++)
+        ans.append(0);
+      
+      for(int i=num1.length()-1;i>=0;i--)
+      { 
+         int prod=(num1.charAt(i)-'0')*dgt;
+         int base=(prod+carry)%10;
+         carry=(prod+carry)/10;
+         ans.append(base);
+      }
+      
+      if(carry!=0)
+        ans.append(carry);
+        
+      StringBuilder reverse=ans.reverse();
+      
+      return reverse.toString();
+    }
+
+
+    public static String addTwoNumbers(String num1, String num2) 
+    {
+        int i=num1.length()-1,j=num2.length()-1,carry=0;
+        StringBuilder num=new StringBuilder("");
+        
+        while(i>=0 && j>=0)
+        {
+           int d1=num1.charAt(i)-'0';
+           int d2=num2.charAt(j)-'0';
+            
+           int sum=((d1+d2)+carry)%10;
+             carry=((d1+d2)+carry)/10;   
+        
+           num.append(sum);
+           i--;
+           j--;
+        }
+        
+        while(i>=0)
+        {
+          int d1=num1.charAt(i)-'0';
+          int sum=(d1+carry)%10;
+          carry=(d1+carry)/10;
+          num.append(sum);
+          i--;
+        }
+        
+        while(j>=0)
+        {
+          int d2=num2.charAt(j)-'0';
+          int sum=(d2+carry)%10;
+          carry=(d2+carry)/10; 
+          num.append(sum);
+          j--;
+        }
+        
+        if(carry!=0)
+          num.append(carry);
+        
+        StringBuilder reverseNum =num.reverse();
+        
+        return reverseNum.toString(); 
+    }
+}
