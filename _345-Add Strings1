@@ -1,3 +1,48 @@
+//Good Approach
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number1 in String Form");
+        String str1=sc.nextLine();
+        System.out.println("Enter Number2 in String Form, having same number of Digits as that of Number1");
+        String str2=sc.nextLine();
+        System.out.println(str1+"+"+str2+"= "+addTwoNumbers(str1,str2));
+    }
+	
+    public static String addTwoNumbers(String num1, String num2) 
+    {
+       int m=num1.length(),n=num2.length(),carry=0;
+       StringBuilder num=new StringBuilder("");
+       for(int i=m-1,j=n-1;(i>=0 && j>=0);i--,j--)
+        {
+            int d1=num1.charAt(i)-'0';
+            int d2=num2.charAt(j)-'0';
+            int base;
+            if(((d1+d2)+carry)<=9)
+            {
+               base=((d1+d2)+carry);
+               carry=0;
+            }
+            else
+            {
+              base=((d1+d2)+carry)%10; 
+              carry=1;
+            }
+            
+            num.append(base);
+        }
+        if(carry!=0)
+          num.append(carry);
+        
+        StringBuilder reverseNum =num.reverse();
+        
+        return reverseNum.toString();
+    }
+}
+
+//Optimal Approach (Optimised/Compressed Code)
 
 import java.util.*;
 public class Test
@@ -13,51 +58,25 @@ public class Test
 	
     public static String addTwoNumbers(String num1, String num2) 
     {
-       if(allZero(num1,num2))
-         return "0";   
-         
-       int m=num1.length(),n=num2.length(),carry=0;
-       StringBuilder num=new StringBuilder("");
-       for(int i=m-1,j=n-1;(i>=0 && j>=0);i--,j--)
+        int m=num1.length(),n=num2.length(),carry=0;
+        StringBuilder num=new StringBuilder("");
+       
+        for(int i=m-1,j=n-1;(i>=0 && j>=0);i--,j--)
         {
             int d1=num1.charAt(i)-'0';
             int d2=num2.charAt(j)-'0';
-            int sum;
-            if(((d1+d2)+carry)<=9)
-            {
-               sum=((d1+d2)+carry);
-               carry=0;
-            }
-            else
-            {
-              sum=((d1+d2)+carry)%10; 
-              carry=1;
-            }
             
-            num.append(sum);
+            int base=((d1+d2)+carry)%10;
+            carry=((d1+d2)+carry)/10;
+            
+            num.append(base);
         }
+	
         if(carry!=0)
           num.append(carry);
         
         StringBuilder reverseNum =num.reverse();
         
         return reverseNum.toString();
-    }
-    
-    public static boolean allZero(String str1,String str2)
-    {
-      int m=str1.length(),n=str2.length(),count1=0,count2=0;
-      for(int i=0;i<m;i++)
-        if(str1.charAt(i)=='0')
-          count1++;
-       
-      for(int i=0;i<n;i++)
-        if(str2.charAt(i)=='0')
-          count2++; 
-          
-      if(count1==m && count2==n)
-        return true;
-        
-      return false;
     }
 }
