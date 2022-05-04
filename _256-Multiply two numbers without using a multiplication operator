@@ -39,14 +39,14 @@ public class Test
 import java.util.Scanner;
 class Test
 {
-    public static void main(String[] args)
+        public static void main(String[] args)
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number1:");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2:");
-        int num2=sc.nextInt();
-        System.out.printf("%d x %d = %d\n",num1,num2,multiply(num1,num2));
+            int num1=sc.nextInt();
+            System.out.println("Enter Number2:");
+            int num2=sc.nextInt();
+            System.out.printf("%d x %d = %d\n",num1,num2,multiply(num1,num2));
 	}
 	
 	public static long multiply(int num1, int num2)
@@ -83,6 +83,8 @@ public class Test
             int num2=sc.nextInt();
             System.out.printf("%d x %d =%d\n",num1,num2,muntiplyUsingBitwise(num1,num2));
 	}
+	
+	
     public static int muntiplyUsingBitwise(int num1,int num2) //Russian Peasant Algorithm 
     {
        int signNum1=0;//0 =positive
