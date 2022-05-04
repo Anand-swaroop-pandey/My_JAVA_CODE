@@ -14,10 +14,11 @@ public class Test
 	
     public static String muntiplyTwoNumbers(String num1, String num2)
     {
-      int len1=num1.length();
-      int len2=num2.length();
+      if(num1.equals("0") || num2.equals("0"))
+        return "0";
+	
+      int len1=num1.length(),len2=num2.length(),padding=0;
       String res="0";
-      int padding=0;
       
       if(len1>len2)
         for(int i=len2-1;i>=0;i--)
@@ -133,8 +134,10 @@ public class Test
 	
     public static String muntiplyTwoNumbers(String num1, String num2)
     {
-      int len1=num1.length();
-      int len2=num2.length();
+      if(num1.equals("0") || num2.equals("0"))
+        return "0";
+	
+      int len1=num1.length(),len2=num2.length();
       
       if(len1<len2)
         return multiply(num2,num1);
