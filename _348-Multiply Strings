@@ -12,7 +12,7 @@ public class Test
     }
 	
 	
-  	public static String muntiplyTwoNumbers(String num1, String num2)
+    public static String muntiplyTwoNumbers(String num1, String num2)
     {
       int len1=num1.length();
       int len2=num2.length();
@@ -131,7 +131,7 @@ public class Main
     }
 	
 	
-	  public static String muntiplyTwoNumbers(String num1, String num2)
+    public static String muntiplyTwoNumbers(String num1, String num2)
     {
       int len1=num1.length();
       int len2=num2.length();
