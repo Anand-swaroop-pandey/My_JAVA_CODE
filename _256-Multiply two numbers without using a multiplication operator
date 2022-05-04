@@ -29,14 +29,14 @@ public class Test
           num2=Math.abs(num2);
        }
        
-       long res=0;
+       long prod=0;
        for(int i=1;i<=num2;i++)
-         res=res+num1;
+         prod=prod+num1;
          
        if((sign1*sign2)<0)
-         return (res*-1); 
+         return (prod*-1); 
          
-       return res;
+       return prod;
     }
     /*
     The idea is that for given two numbers a and b, we can get a×b by adding an integer b exactly a times to the result. 
@@ -55,14 +55,14 @@ public class Test
           num2=Math.abs(num2);
        } 
        
-       lon res=0;
+       long prod=0;
        for(int i=1;i<=num1;i++)
-         res=res+num2;
+         prod=prod+num2;
        
        if((sign1*sign2)<0)
-         return (res*-1); 
+         return (prod*-1); 
          
-       return res;
+       return prod;
     }
 }
 
@@ -73,15 +73,15 @@ class Test
 {
     public static void main(String[] args)
     {
-	 Scanner sc=new Scanner(System.in);
-	 System.out.println("Enter Number1:");
-         int num1=sc.nextInt();
-         System.out.println("Enter Number2:");
-	 int num2=sc.nextInt();
-         System.out.printf("%d x %d = %d\n",num1,num2,multiply(num1,num2));
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter Number1:");
+      int num1=sc.nextInt();
+      System.out.println("Enter Number2:");
+      int num2=sc.nextInt();
+      System.out.printf("%d x %d = %d\n",num1,num2,multiply(num1,num2));
     }
 	
-    public static long muntiply(int num1,int num2)
+    public static long multiply(int num1,int num2)
     {
        int sign1=1,sign2=1;
        if(num1<0)
@@ -95,15 +95,19 @@ class Test
           num2=Math.abs(num2);
        }
        
-       long res= 0;
+       long prod= 0;
        for(int count=0;num2!=0;count++)
        {
-	   if((num2 & 1)!=0)			
-   	     res=res+(num1<<count);   //(num1<<count)=num1*(2^count)
+	    if((num2 & 1)!=0)			
+   	       prod=prod+(num1<<count);   //(num1<<count)=num1*(2^count)
 		    
-	   num2=num2>>1;    //(num2>>1)=(num2/2);
+	    num2=num2>>1;    //(num2>>1)=(num2/2);
        }
-       return res;
+       
+       if((sign1*sign2)<0)
+         return (prod*-1);
+        
+       return prod;
     }
 }
 
