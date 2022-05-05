@@ -1,8 +1,8 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
+    public static void main(String[] args)
+    {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of the Array:");
 	  int n=sc.nextInt();
@@ -21,10 +21,10 @@ public class Test
 	  int[] ans=plusOne(digits);
 	  
 	  for(int val : ans)
-        System.out.printf(val+" ");	
-	}
+            System.out.printf(val+" ");	
+    }
 	
-	  public static int[] plusOne(int[] arr)
+    public static int[] plusOne(int[] arr)
     {
        int[]res=new int[arr.length+1]; // Ex: arr[]={9,9,9} +1 = res[]={1,0,0,0} 
        int k=add1(arr,res); 
