@@ -1,0 +1,59 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array:");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	      System.out.println("Invalid Choice");
+	      return;
+	  }
+	  int[]digits=new int[n];
+	  
+	  System.out.printf("Enter %d Elements of Array Representing Digits of An Integer(0<=arr[i]<=9) :\n",n);
+	  for(int i=0;i<n;i++)
+	    digits[i]=sc.nextInt();
+	    
+	  System.out.println("Resultant Number :");
+	  int[] ans=plusOne(digits);
+	  
+	  for(int val : ans)
+        System.out.printf(val+" ");	
+	}
+	
+	  public static int[] plusOne(int[] arr)
+    {
+       int[]res=new int[arr.length+1]; // Ex: arr[]={9,9,9} +1 = res[]={1,0,0,0} 
+       int k=add1(arr,res); 
+        
+       int[] ans=new int[k];      
+       for (int i=0;i<k; i++)
+         ans[i]=res[k-1-i];
+        return ans;
+    }
+	
+	
+    public static int add1(int[] num,int[] res) 
+    {
+        int i=num.length-1,k=0;
+        
+        res[k++]=(num[i]+1)%10;
+        int carry=(num[i]+1)/10; 
+        i--;
+
+        while(i>=0)
+        {
+          res[k++]=(num[i]+carry)%10; 
+	      carry=(num[i]+carry)/10;
+          i--;
+        }
+        
+        if(carry!=0)
+          res[k++]=carry;
+        
+        return k; 
+    }
+}
