@@ -48,7 +48,7 @@ public class Test
         while(i>=0)
         {
           res[k++]=(num[i]+carry)%10; 
-	      carry=(num[i]+carry)/10;
+	  carry=(num[i]+carry)/10;
           i--;
         }
         
