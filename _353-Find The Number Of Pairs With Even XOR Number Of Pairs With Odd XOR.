@@ -1,0 +1,89 @@
+/*
+Note : This Questiton is Similar to Q-324 
+*/
+
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter The Size Of The Array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	      System.out.println("Invalid Choice");
+	      return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements :\n",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	  
+	  countEvenOddXor(arr,n);
+	}
+	
+	public static void countEvenOddXor(int[] arr,int n)
+	{
+	  int cntOdd=0,cntEven=0;
+	  for(int i=0;i<n;i++)
+	    for(int j=i+1;j<n;j++)
+	      if((arr[i]^arr[j])%2==0)
+	        cntEven++;
+	      else
+	        cntOdd++;
+	   
+	  System.out.println("Count Of Pairs with Even XOR :"+cntEven+"\nand Count Of Pairs with Odd XOR :"+cntOdd);
+	}
+}
+
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter The Size Of The Array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	      System.out.println("Invalid Choice");
+	      return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements :\n",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	  
+	  countEvenOddXor(arr,n);
+	}
+	
+	public static void countEvenOddXor(int[] arr,int n)
+	{
+	  int cntOdd=0,cntEven=0;
+	  
+      for(int i=0;i<n;i++)
+        if((arr[i]%2)==0)
+          cntEven++;
+        else
+          cntOdd++;
+        
+      int cntEvenXorPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
+      int cntOddXorPairs=(cntEven*cntOdd);
+        
+	  System.out.println("Count Of Pairs with Even Sum :"+cntEvenXorPairs+"\nand Count Of Pairs with Odd sum :"+cntOddXorPairs);
+	}
+}
+
+/*
+=>Even XOR
+  
+Even Element + Even Element =Even XOR
+Odd Element + Odd Element =Even XOR
+  
+=>Odd Sum
+  
+Even Element + Odd Element =Odd XOR
+*/
