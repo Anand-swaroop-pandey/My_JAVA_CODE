@@ -73,7 +73,7 @@ public class Test
      }
 }
 
-//Better Approach
+//Good Approach
 import java.util.*;
 public class Test
 {
@@ -103,6 +103,46 @@ public class Test
         for(int i=0;i<n-1;i++)
            if(arr[i]==arr[i+1])
 	       return false;
+	 return true;
+     }
+}
+
+
+//Better Approach
+
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+	      
+            if(isDistinctArray(arr,n))
+              System.out.print("Array has all distinct elements");
+            else
+               System.out.print("Array contains duplicates");
+         }
+         else
+            System.out.println("Invalid Choice");
+     }
+	
+	
+     public static boolean isDistinctArray(int[] arr,int n)
+     {
+        HashSet<Integer>hs=new HashSet<>();
+        for(int val:arr)
+          if(hs.contains(val))
+            return false;
+          else
+            hs.add(val);
+            
 	 return true;
      }
 }
