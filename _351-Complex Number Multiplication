@@ -1,0 +1,146 @@
+//Using .split() Method
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a Complex Number in the form (a+bi) (a and b are integer) :");
+		String num1=sc.nextLine();
+		System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
+		String num2=sc.nextLine();
+	  System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
+	}
+	
+  	public static String complexNumberMultiply(String num1, String num2)
+    {
+        String[] str1=num1.split("\\+");
+        String[] str2=num2.split("\\+");
+        
+        int a1=Integer. parseInt(str1[0]); 
+        int a2=Integer. parseInt(str2[0]);
+        
+        int idx=str1[1].indexOf("i");
+        String subStr1=str1[1].substring(0,idx);
+        int b1=Integer. parseInt(subStr1); 
+        
+                
+        idx=str2[1].indexOf("i");
+        String subStr2=str2[1].substring(0,idx);
+        int b2=Integer. parseInt(subStr2);
+        
+        int real=(a1*a2)-(b1*b2);
+        int imaginary=(a1*b2)+(a2*b1);
+        
+        String res=real+"+"+imaginary+"i";
+        return res;
+    }
+}
+
+//Optimised Version :
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a Complex Number in the form (a+bi) (a and b are integer) :");
+		String num1=sc.nextLine();
+		System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
+		String num2=sc.nextLine();
+	  System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
+	}
+	
+	  public static String complexNumberMultiply(String num1, String num2)
+    {
+        String[] str1=num1.split("\\+");
+        String[] str2=num2.split("\\+");
+        
+        int a1=Integer. parseInt(str1[0]); 
+        int a2=Integer. parseInt(str2[0]);
+        
+        int b1=Integer. parseInt(str1[1].substring(0,str1[1].indexOf("i"))); 
+        int b2=Integer. parseInt(str2[1].substring(0,str2[1].indexOf("i"))); 
+                
+        int real=(a1*a2)-(b1*b2);
+        int imaginary=(a1*b2)+(a2*b1);
+        
+        String res=real+"+"+imaginary+"i";
+        return res;
+    }
+}
+
+//Without .split() Method
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a Complex Number in the form (a+bi) (a and b are integer) :");
+		String num1=sc.nextLine();
+		System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
+		String num2=sc.nextLine();
+	  System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
+	}
+	
+	  public static String complexNumberMultiply(String num1, String num2)
+    {
+        int idx1=num1.indexOf("+");
+        String str1=num1.substring(0,idx1);
+        
+        int idx2=num1.indexOf("i");
+        String str2=num1.substring(idx1+1,idx2);
+        
+        idx1=num2.indexOf("+");
+        String str3=num2.substring(0,idx1);
+        
+        idx2=num2.indexOf("i");
+        String str4=num2.substring(idx1+1,idx2);
+        
+        
+        int a1=Integer. parseInt(str1); 
+        int a2=Integer. parseInt(str3);
+        
+     
+        int b1=Integer. parseInt(str2);
+        int b2=Integer. parseInt(str4); 
+                
+        int real=(a1*a2)-(b1*b2);
+        int imaginary=(a1*b2)+(a2*b1);
+        
+        String res=real+"+"+imaginary+"i";
+        return res;
+    }
+}
+
+//Compressed Code
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a Complex Number in the form (a+bi) (a and b are integer) :");
+		String num1=sc.nextLine();
+		System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
+		String num2=sc.nextLine();
+	  System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
+	}
+	
+  	public static String complexNumberMultiply(String num1, String num2)
+    {
+        int a1=Integer. parseInt(num1.substring(0,num1.indexOf("+"))); 
+        int a2=Integer. parseInt(num2.substring(0,num2.indexOf("+")));
+        
+     
+        int b1=Integer. parseInt(num1.substring(num1.indexOf("+")+1,num1.indexOf("i")));
+        int b2=Integer. parseInt(num2.substring(num2.indexOf("+")+1,num2.indexOf("i"))); 
+                
+        int real=(a1*a2)-(b1*b2);
+        int imaginary=(a1*b2)+(a2*b1);
+        
+        String res=real+"+"+imaginary+"i";
+        return res;
+    }
+}
