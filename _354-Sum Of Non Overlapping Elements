@@ -9,8 +9,8 @@ public class Test
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-         if(m>0 && n>0)
-         {
+       if(m>0 && n>0)
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
@@ -22,24 +22,24 @@ public class Test
               arr2[i]=sc.nextInt();
             System.out.print("Sum Of Non Overlapping Elements in Two Sets is "+sumOfNonOverlapping(arr1,arr2));  
              
-         }
-         else
-            System.out.println("Invalid Choice");
-     }
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
 	
 	
    public static int sumOfNonOverlapping(int[] arr1,int[] arr2)
    {
-	   int m=arr1.length,n=arr2.length,sum=0;
+     int m=arr1.length,n=arr2.length,sum=0;
      for(int i=0;i<m;i++)
        if(linearSearch(arr2,n,arr1[i])==false)
-	       sum+=arr1[i];
+	  sum+=arr1[i];
 	     
-	   for(int i=0;i<n;i++)
+     for(int i=0;i<n;i++)
        if(linearSearch(arr1,m,arr2[i])==false)
-	       sum+=arr2[i];
+	  sum+=arr2[i];
 	     
-	   return sum;
+      return sum;
    }
 
 
@@ -85,8 +85,8 @@ public class Test
 	
    public static int sumOfNonOverlapping(int[] arr1,int[] arr2)
    {
-	   int m=arr1.length,n=arr2.length,sum=0;
-	   HashMap<Integer,Integer>hm=new HashMap<>();
+      int m=arr1.length,n=arr2.length,sum=0;
+      HashMap<Integer,Integer>hm=new HashMap<>();
 
      for(int i=0;i<m;i++)
        if(hm.containsKey(arr1[i]))
@@ -104,6 +104,6 @@ public class Test
        if(hm.get(key)==1)
          sum+=key;  
 	     
-	   return sum;
+     return sum;
    }
 }
