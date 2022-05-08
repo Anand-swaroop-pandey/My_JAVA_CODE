@@ -1,0 +1,61 @@
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+    {
+        System.out.println("Invalid Choice");
+        return;
+    }
+      
+    int[] arr=new int[n];
+    System.out.println("Enter "+n+" Elements of the Array");
+    for(int i=0;i<n;i++)
+      arr[i]=sc.nextInt();
+      
+    System.out.println("Enter Target Value :");
+    int targetSum=sc.nextInt();
+      
+    System.out.println("Triplet Sum which is Closest to "+targetSum+" is :"+threeSumClosest(arr,targetSum));
+	}
+	
+   public static int threeSumClosest(int[]arr,int target)
+   {
+     int minTillNow=Integer.MAX_VALUE,closestSum=Integer.MAX_VALUE,n=arr.length;
+        
+     Arrays.sort(arr);
+
+	   for(int i=0;i<n-2;i++)
+	   {
+	     int j=i+1;
+	     int k=n-1;
+	     
+	     while(j<k)
+         {
+           int currSum=(arr[i]+arr[j]+arr[k]);
+             
+           int diff=Math.abs(target-currSum);
+           if(diff<minTillNow)
+           {
+              minTillNow=diff;
+              closestSum=currSum;
+           }
+             
+           if (currSum == target)
+			  return target;
+	       else if(currSum<target)
+              j++;
+	       else//(currSum>target)
+              k--;
+         }   
+	   }
+	   
+      return closestSum;
+   } 
+}
