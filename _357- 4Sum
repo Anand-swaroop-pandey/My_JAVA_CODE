@@ -2,8 +2,8 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	     Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array :");
        int n=sc.nextInt();
        if(n<1)
@@ -22,9 +22,9 @@ public class Test
       
        System.out.println("Distinct quadruplets that Sums to "+targetSum+" are :");
        System.out.println(fourSum(arr,targetSum));
-	}
+     }
 	
-	  public static List<List<Integer>> fourSum(int[]arr,int target)
+    public static List<List<Integer>> fourSum(int[]arr,int target)
     {
        List<List<Integer>>ll=new ArrayList<>();
         
@@ -88,8 +88,8 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	     Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array :");
        int n=sc.nextInt();
        if(n<1)
@@ -108,9 +108,9 @@ public class Test
       
        System.out.println("Distinct quadruplets that Sums to "+targetSum+" are :");
        System.out.println(fourSum(arr,targetSum));
-	}
+    }
 	
-	  public static List<List<Integer>> fourSum(int[]arr,int target)
+    public static List<List<Integer>> fourSum(int[]arr,int target)
     {
        List<List<Integer>>ll=new ArrayList<>();
         
