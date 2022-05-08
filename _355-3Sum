@@ -36,7 +36,7 @@ public class Test
     
      Arrays.sort(arr);
     
-     for(int i = 0; i<n-2; i++)
+     for(int i=0;i<n-2; i++)
      {
         if(arr[i]>0)
           break;
@@ -45,9 +45,9 @@ public class Test
         int j=i+1;
         int k=n-1;
         
-        while (j<k) 
+        while(j<k) 
         {
-            if ((arr[j]+arr[k])==remTarget)
+            if((arr[j]+arr[k])==remTarget)
             {
                 List<Integer>triplet=new ArrayList<>(3);
                 
@@ -59,7 +59,7 @@ public class Test
                 j++;
                 k--;
             } 
-            else if ((arr[j]+arr[k])>remTarget)
+            else if((arr[j]+arr[k])>remTarget)
                k--;
             else
                j++;
@@ -112,7 +112,7 @@ public class Test
     
      Arrays.sort(arr);
     
-     for (int i = 0; i <n-2; i++)
+     for(int i = 0; i <n-2; i++)
      {
         if(arr[i]>0)
           break;
@@ -124,9 +124,9 @@ public class Test
         int j=i+1;
         int k=n-1;
         
-        while (j<k) 
+        while(j<k) 
         {
-            if ((arr[j]+arr[k])==remTarget)
+            if((arr[j]+arr[k])==remTarget)
             {
                 List<Integer> triplet=new ArrayList<>(3);
                 
@@ -146,7 +146,7 @@ public class Test
                   k--;
                 
             } 
-            else if ((arr[j]+arr[k])>remTarget)
+            else if((arr[j]+arr[k])>remTarget)
                k--;
             else
                j++;
