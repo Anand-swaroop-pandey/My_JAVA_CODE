@@ -98,10 +98,15 @@ public class Test
          }
          
          if (currSum == target)
-           closestSum=target;
-	     else if(currSum<target)
+	 {
+	   closestSum=target;
+	   num1=arr[i];
+	   num2=arr[j];
+	   break;
+	 }
+	 else if(currSum<target)
            i++;
-	     else//(currSum>target)
+	 else//(currSum>target)
            j--;
       }
       System.out.println("Pair Whose Sum Is Closest To Zero are  "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+closestSum);
