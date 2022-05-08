@@ -49,7 +49,7 @@ public class Test
            }
              
         }
-      System.out.println("Pair Whose Sum Is Closest To Zero are  "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+closestSum);
+      System.out.println("Pair Whose Sum Is Closest To "+target+" are "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+closestSum);
    }
 }
 
@@ -109,6 +109,6 @@ public class Test
 	 else//(currSum>target)
            j--;
       }
-      System.out.println("Pair Whose Sum Is Closest To Zero are  "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+closestSum);
+      System.out.println("Pair Whose Sum Is Closest To "+target+" are "+num1+" and "+num2+" i.e "+num1+" + "+num2+" = "+closestSum);
    }
 }
