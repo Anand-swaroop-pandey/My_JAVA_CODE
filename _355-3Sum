@@ -2,25 +2,25 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	  Scanner sc=new Scanner(System.in);
-	  System.out.println("Enter the Size of the Array :");
-	  int n=sc.nextInt();
-	  if(n<1)
+    public static void main(String[] args)
     {
-        System.out.println("Invalid Choice");
-        return;
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array :");
+       int n=sc.nextInt();
+       if(n<1)
+       {
+         System.out.println("Invalid Choice");
+         return;
+       }
+  
+       int[] arr=new int[n];
+       System.out.println("Enter "+n+" Elements of the Array");
+       for(int i=0;i<n;i++)
+         arr[i]=sc.nextInt();
+      
+       System.out.println("Distinct Triplets are :");
+       System.out.println(threeSum(arr));
     }
-      
-    int[] arr=new int[n];
-    System.out.println("Enter "+n+" Elements of the Array");
-    for(int i=0;i<n;i++)
-      arr[i]=sc.nextInt();
-      
-    System.out.println("Distinct Triplets are :");
-    System.out.println(threeSum(arr));
-	}
 	
    public static List<List<Integer>> threeSum(int[]arr)
    {
@@ -36,7 +36,7 @@ public class Test
     
      Arrays.sort(arr);
     
-     for (int i = 0; i <n; i++)
+     for(int i = 0; i<n-2; i++)
      {
         if(arr[i]>0)
           break;
@@ -79,25 +79,26 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	  Scanner sc=new Scanner(System.in);
-	  System.out.println("Enter the Size of the Array :");
-	  int n=sc.nextInt();
-	  if(n<1)
+    public static void main(String[] args)
     {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the Size of the Array :");
+      int n=sc.nextInt();
+      if(n<1)
+      {
         System.out.println("Invalid Choice");
         return;
-    }
+      }
       
-    int[] arr=new int[n];
-    System.out.println("Enter "+n+" Elements of the Array");
-    for(int i=0;i<n;i++)
-      arr[i]=sc.nextInt();
+      int[] arr=new int[n];
       
-    System.out.println("Distinct Triplets are :");
-    System.out.println(threeSum(arr));
-	}
+      System.out.println("Enter "+n+" Elements of the Array");
+      for(int i=0;i<n;i++)
+        arr[i]=sc.nextInt();
+      
+      System.out.println("Distinct Triplets are :");
+      System.out.println(threeSum(arr));
+   }
 	
    public static List<List<Integer>> threeSum(int[]arr)
    {
