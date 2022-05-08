@@ -43,7 +43,7 @@ public class Test
              }
 	     
 	     if(currSum==target)
-               return target;
+               return currSum;
           }
 
       return closestSum;  
@@ -100,7 +100,7 @@ public class Test
            }
              
            if (currSum == target)
-             return target;
+             return currSum;
 	   else if(currSum<target)
               j++;
 	   else//(currSum>target)
