@@ -1,0 +1,131 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args){
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements of the Array in the Range: [1,%d] :\n",n,n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	  
+	  System.out.printf("An Array Of All The Integers In The Range [1, %d] That Do Not Appear In Nums :\n",n);
+	  System.out.println(findDisappearedNumbers(arr));
+	}
+	
+	public static List<Integer>findDisappearedNumbers(int[] arr)
+	{
+	   List<Integer>al=new ArrayList<>();
+       int n=arr.length;
+	   for(int i=1;i<=n;i++)
+         if(linearSearch(arr,n,i)==false)
+           al.add(i);
+           
+	   return al;
+	}
+	
+  public static boolean linearSearch(int[] arr,int n,int key)
+	{
+	   for(int i=0;i<n;i++)
+         if(arr[i]==key)
+            return true;
+           
+	   return false;
+	}
+}
+
+
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args){
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements of the Array in the Range: [1,%d] :\n",n,n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	  
+	  System.out.printf("An Array Of All The Integers In The Range [1, %d] That Do Not Appear In Nums :\n",n);
+	  System.out.println(findDisappearedNumbers(arr));
+	}
+	
+	public static List<Integer>findDisappearedNumbers(int[] arr)
+	{
+     int n=arr.length;
+     int[] count=new int[n];
+        
+	   for(int i=0;i<n;i++)
+	   {
+	     int ele=arr[i];
+	     int idx=ele-1;
+	     if(count[idx]==0)
+	       count[idx]=-1;
+	   }
+	   
+	   List<Integer>al=new ArrayList<>();
+	   for(int i=0;i<n;i++)
+	     if(count[i]==0)
+	       al.add(i+1);
+	   
+	   return al;
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args){
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements of the Array in the Range: [1,%d] :\n",n,n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	  
+	  System.out.printf("An Array Of All The Integers In The Range [1, %d] That Do Not Appear In Nums :\n",n);
+	  System.out.println(findDisappearedNumbers(arr));
+	}
+	
+	public static List<Integer>findDisappearedNumbers(int[] arr)
+	{
+	   int n=arr.length; 
+	   for(int i=0;i<n;i++)
+	   {
+	     int orgVal=Math.abs(arr[i]);
+	     int idx=orgVal-1;
+	     if(arr[idx]>0)
+	       arr[idx]*=-1;
+	   }
+	   
+	   List<Integer>al=new ArrayList<>();
+	   for(int i=0;i<n;i++)
+	     if(arr[i]>0)
+	       al.add(i+1);
+	   
+	   return al;
+	}
+}
