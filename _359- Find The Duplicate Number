@@ -652,8 +652,8 @@ public class Test
 	int mid = (low + high) / 2;
     	int count = 0;
         for (int val:arr)
-	      if (val <= mid)
-	        count++;
+	  if (val <= mid)
+            count++;
 
 	if (count > mid)//Duplicate would be present in the range [low ,mid](both inclusive) so search space [low,mid]
           high=mid;
@@ -675,7 +675,7 @@ public class Test
   mid=(1+4)/2=2;
   (count of numbers in array) <= mid(i.e 2) =3.
   
-  (Had there been no duplicates in the array then "count of numbers in array <=2" would have been <= 2 but here exists more than 2 numbers in the array which are <=2 which means there lies the duplicate in range (1,2)(both inclusive) so our search space will be (1,2)   i.e (low,mid))
+  (Had there been no duplicates in the array then "count of numbers in array <=2" would have been <= 2 but here exists more than 2 numbers in the array which are <=2 which means there lies/Exists a duplicate in range (1,2)(both inclusive) so our search space will be (1,2)   i.e (low,mid))
   thus high=mid i.e high =2;
   i.e low=1 and high=2
   
@@ -685,7 +685,7 @@ public class Test
   mid=(1+2)/2=1;
   (count of numbers in array) <= mid(i.e 1) =1.
   
-  (Had there been duplicates in the array then "count of numbers in array<=1" would have been more than 1,but here exists only 1 num. less <= 1     which means there lies no duplicate in range (1,1))(both inclusive) so our search space will be [2,2] i.e[mid+1,high]).
+  (Had there been duplicates in the array then "count of numbers in array<=1" would have been more than 1,but here exists only 1 num. less <= 1 which means there Exists  no duplicate in range (1,1))(both inclusive) so our search space will be [2,2] i.e[mid+1,high]).
   
   thus low=mid+1 i.e low=2;
   
@@ -698,7 +698,7 @@ public class Test
   (count of numbers in array) <= mid(i.e 2) =3
   
   
-  (Had there been no duplicates in the array  then "count of numbers in array <=2" would have been <= 2 but here exists more than 2 numbers in the array which are <=2 which means there lies the duplicate in range (2,2)(both inclusive) so our search space will be (2,2)   i.e (low,mid))
+  (Had there been no duplicates in the array  then "count of numbers in array <=2" would have been <= 2 but here exists more than 2 numbers in the array which are <=2 which means there lies/Exists a duplicate in range (2,2)(both inclusive) so our search space will be (2,2)   i.e (low,mid))
   thus high=mid i.e high =2;
   i.e low=2 and high=2.
   
