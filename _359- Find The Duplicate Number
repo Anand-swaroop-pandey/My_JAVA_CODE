@@ -534,12 +534,7 @@ public class Test
  now print the element which is not at its correct index i.e arr[i]!=i+1
  Thus the Duplicate number is 2(at index 4).
  
- /*Optimisation
- if you observe carefully ,the Duplicate number will automatically get segregated at last index (in this case its 4) 
- coz other elements have taken their correct correct position so only place left is last index 
- (the elements are in range of [1,n] so their correct index would be arr[i]-1,i.e for 1 correct index =0 similarly for 'n' correct index =(n-1),so the nth index is left vacant(coz array is of Size (n+1))
- */
- 
+
  Ex-2
   
  int[] arr={1,3,2,4,2,2};
@@ -604,6 +599,12 @@ public class Test
  now print the element which is not at its correct index i.e arr[i]!=i+1
  Thus the Duplicate number is 2(at index 4 or 5).
   
+  
+ /*Optimisation
+ In other words all the distinct elements will occupy their correct index while remaining duplicate instances will occupy the remaining indexes,
+ so this gurantees that last index will always carry duplicate number.
+ */
+   
 */
 
 //Method 11
