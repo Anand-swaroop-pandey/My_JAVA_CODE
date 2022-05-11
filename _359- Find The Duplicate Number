@@ -675,7 +675,7 @@ public class Test
   mid=(1+4)/2=2;
   (count of numbers in array) <= mid(i.e 2) =3.
   
-  (Had there been no duplicates in the array then "count of numbers in array <=2" would have been 2 only i.e '1' and '2' but here exists more       than 2 numbers in the array which are <=2 which means there lies the duplicate in range (1,2)(both inclusive) so our search space will be (1,2)   i.e (low,mid))
+  (Had there been no duplicates in the array then "count of numbers in array <=2" would have been <= 2 but here exists more than 2 numbers in the array which are <=2 which means there lies the duplicate in range (1,2)(both inclusive) so our search space will be (1,2)   i.e (low,mid))
   thus high=mid i.e high =2;
   i.e low=1 and high=2
   
@@ -698,7 +698,7 @@ public class Test
   (count of numbers in array) <= mid(i.e 2) =3
   
   
-  (Had there been no duplicates in the array  then "count of numbers in array <=2" would have been 2 only  i.e '1' and '2' but here exists more     than 2 numbers in the array which are <=2 which means there lies the duplicate in range (2,2)(both inclusive) so our search space will be (2,2)   i.e (low,mid))
+  (Had there been no duplicates in the array  then "count of numbers in array <=2" would have been <= 2 but here exists more than 2 numbers in the array which are <=2 which means there lies the duplicate in range (2,2)(both inclusive) so our search space will be (2,2)   i.e (low,mid))
   thus high=mid i.e high =2;
   i.e low=2 and high=2.
   
