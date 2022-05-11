@@ -608,5 +608,104 @@ public class Test
 */
 
 //Method 11
+/*
+This solution is based on binary search.
+
+At first the search space is numbers between 1 to n. Each time I select a number mid (which is the one in the middle)
+and count all the numbers equal to or less than mid. Then if the count is more than mid, the search space will be [1 mid] 
+otherwise [mid+1 n]. I do this until search space is only one number.
+
+Let's say n=10 and I select mid=5. Then I count all the numbers in the array which are less than equal mid. 
+If the there are more than 5 numbers that are less than 5, 
+then by Pigeonhole Principle (https://en.wikipedia.org/wiki/Pigeonhole_principle) one of them has occurred more than once.
+So I shrink the search space from [1 10] to [1 5]. Otherwise the duplicate number is in the second half so for the next step the search space would be [6 10].
+
+*/
+import java.util.*;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    System.out.println ("Enter the Size of the Array :");
+    int n = sc.nextInt ();
+    if (n < 1)
+      {
+	System.out.println ("Invalid Choice");
+	return;
+      }
+    int[] arr = new int[n];
+    System.out.printf ("Enter %d Elements Of The Array :\n", n);
+    for (int i = 0; i < n; i++)
+      arr[i] = sc.nextInt ();
+
+    System.out.println ("Repeating Element is :" + findDuplicate (arr));
+  }
+
+  public static int findDuplicate (int[]arr)
+  {
+    int low = 1;
+    int high = arr.length - 1;	//coz array consists of Elements in range [1,n] while size of array is n+1
+
+      while (low < high)
+      {
+	int mid = (low + high) / 2;
+    	int count = 0;
+        for (int val:arr)
+	      if (val <= mid)
+	        count++;
+
+	if (count > mid)//Duplicate would be present in the range [low ,mid](both inclusive) so search space [low,mid]
+          high=mid;
+        else//if(count<=mid) //Duplicate is not present in the range [low ,mid](both inclusive) so search space [mid+1,high]
+	  low=mid + 1;
+      }
+
+    return low;
+    // or return high;
+  }
+}
+
+/*
+  int[] arr={1,3,4,2,2};
+  
+
+  Iteration 1:(low=1,high=4)
+  
+  mid=(1+4)/2=2;
+  (count of numbers in array) <= mid(i.e 2) =3.
+  
+  (Had there been no duplicates in the array then "count of numbers in array <=2" would have been 2 only i.e '1' and '2' but here exists more       than 2 numbers in the array which are <=2 which means there lies the duplicate in range (1,2)(both inclusive) so our search space will be (1,2)   i.e (low,mid))
+  thus high=mid i.e high =2;
+  i.e low=1 and high=2
+  
+  
+  Iteration 2:(low=1 and high=2)
+  
+  mid=(1+2)/2=1;
+  (count of numbers in array) <= mid(i.e 1) =1.
+  
+  (Had there been duplicates in the array then "count of numbers in array<=1" would have been more than 1,but here exists only 1 num. less <= 1     which means there lies no duplicate in range (1,1))(both inclusive) so our search space will be [2,2] i.e[mid+1,high]).
+  
+  thus low=mid+1 i.e low=2;
+  
+  i.e low=2 and high=2.
+  
+  
+  Iteration 2:(low=2 and high=2)
+  
+   mid=(2+2)/2=2;
+  (count of numbers in array) <= mid(i.e 2) =3
+  
+  
+  (Had there been no duplicates in the array  then "count of numbers in array <=2" would have been 2 only  i.e '1' and '2' but here exists more     than 2 numbers in the array which are <=2 which means there lies the duplicate in range (2,2)(both inclusive) so our search space will be (2,2)   i.e (low,mid))
+  thus high=mid i.e high =2;
+  i.e low=2 and high=2.
+  
+  //Loop Terminates
+  
+  return low or high
+  
+*/
 
 
