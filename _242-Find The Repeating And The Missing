@@ -11,26 +11,34 @@ public class Test
            System.out.printf("Enter %d of the Array:\n",n);
 	   for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   RepeatingAndTheMissing(arr); 
+	   int[]res=RepeatingAndTheMissing(arr);
+	   System.out.printf("Repeating : %d  and  Missing : %d",res[0],res[1]);
     }
 		
-    public static void RepeatingAndTheMissing(int arr[])
+    public static int[] RepeatingAndTheMissing(int arr[])
     {
        Arrays.sort(arr);
-       int repeat=0,missing=0,n=arr.length;;
+       int repeat=0,missing=0,n=arr.length;
+        
        for(int i=0;i<n;i++)
          if(arr[i]==arr[i+1])
          {
            repeat=arr[i];
            break;
          }
+        
        for(int i=1;i<=n;i++)
          if(binarySearch(arr,i)==false)
          {
             missing=i;
             break;
          }
-       System.out.println("Repeating Number = "+repeat+"\nMissing Number = "+missing);
+        
+        int[] res=new int[2];
+        res[0]=repeat;
+        res[1]=missing;
+        
+        return res;
     }
     
     public static boolean binarySearch(int[] arr,int key)
@@ -51,7 +59,7 @@ public class Test
 }
 
 //Improved Approach
-import java.util.Scanner;
+import java.util.*;
 public class Test
 {
     public static void main(String[] args)
@@ -63,10 +71,11 @@ public class Test
            System.out.printf("Enter %d of the Array:\n",n);
 	   for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   RepeatingAndTheMissing(arr); 
+	   int[]res=RepeatingAndTheMissing(arr);
+	   System.out.printf("Repeating : %d  and  Missing : %d",res[0],res[1]);
     }
 		
-    public static void RepeatingAndTheMissing(int arr[])
+    public static int[] RepeatingAndTheMissing(int arr[])
     {
        int n=arr.length;
        int[]count=new int[n+1];
@@ -84,7 +93,12 @@ public class Test
            if(repeat!=0 && missing!=0)
              break;
        }
-       System.out.println("Repeating Number = "+repeat+"\nMissing Number = "+missing);
+        
+        int[] res=new int[2];
+        res[0]=repeat;
+        res[1]=missing;
+        
+        return res;
     }
 }
 
@@ -101,12 +115,13 @@ public class Test
            System.out.printf("Enter %d of the Array:\n",n);
 	   for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   RepeatingAndTheMissing(arr); 
+	   int[]res=RepeatingAndTheMissing(arr);
+	   System.out.printf("Repeating : %d  and  Missing : %d",res[0],res[1]);
     }
 		
-    public static void RepeatingAndTheMissing(int arr[])
+    public static int[] RepeatingAndTheMissing(int arr[])
     {
-       int n=arr.length;
+       int n=arr.length,repeating=0,missing=0;
        HashMap<Integer,Integer>hm=new HashMap<>();
        for(int i=0;i<n;i++)
          if(hm.containsKey(arr[i]))
@@ -114,24 +129,27 @@ public class Test
          else
            hm.put(arr[i],1);
        
-       System.out.println("Repeating Number:");
        for(int i=0;i<n;i++)
          if(hm.get(arr[i])==2)
          {
-            System.out.println(arr[i]);
+            repeating=arr[i];
             break;
          }
        
-       System.out.println("Missing Number:");  
        for(int i=1;i<=n;i++)
          if(hm.containsKey(i)==false)
          {
-            System.out.println(i);
+            missing=i;
             break;
          }
+        
+        int[] res=new int[2];
+        res[0]=repeating;
+        res[1]=missing;
+        
+        return res;
     }
 }
-
 
 //Even Better Approach
 import java.util.*;
@@ -146,12 +164,13 @@ public class Test
            System.out.printf("Enter %d of the Array:\n",n);
 	   for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   RepeatingAndTheMissing(arr); 
+	   int[]res=RepeatingAndTheMissing(arr);
+	   System.out.printf("Repeating : %d  and  Missing : %d",res[0],res[1]);
     }
 		
-    public static void RepeatingAndTheMissing(int arr[])
+    public static int[] RepeatingAndTheMissing(int arr[])
     {
-       int n=arr.length;
+       int n=arr.length,repeating=0,missing=0;
        HashMap<Integer,Integer>hm=new HashMap<>();
        for(int i=1;i<=n;i++)
           hm.put(i,0);
@@ -159,37 +178,92 @@ public class Test
        for(int i=0;i<n;i++)
          hm.put(arr[i],hm.get(arr[i])+1);
        
-       int missing=0,repeat=0;    
+
        for(int key:hm.keySet())
          if(hm.get(key)==2)
-           repeat=key;
+           repeating=key;
          else if(hm.get(key)==0)
            missing=key;
-       
-       System.out.println("Repeating Number = "+repeat+"\nMissing Number = "+missing);
+        
+        int[] res=new int[2];
+        res[0]=repeating;
+        res[1]=missing;
+        
+        return res;
+    }
+}
+
+//Best Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+           System.out.printf("Enter %d of the Array:\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   int[]res=RepeatingAndTheMissing(arr);
+	   System.out.printf("Repeating : %d  and  Missing : %d",res[0],res[1]);
+    }
+		
+    public static int[] RepeatingAndTheMissing(int arr[])
+    {
+       int n=arr.length,i=0,repeating=0,missing=0;
+          while(i<n)
+          {
+             int correctIndex=arr[i]-1;
+             if(arr[correctIndex]==arr[i])
+	            i++;
+	         else //if arr[i] is not at its correct index
+             {
+               int temp=arr[correctIndex];
+               arr[correctIndex]=arr[i];
+               arr[i]=temp;
+             }      
+           }  
+        
+           List<Integer>al=new ArrayList<>();
+           for (i=0; i<n; i++) 
+             if(arr[i]!=i+1)
+             {
+               repeating=arr[i];
+               missing=i+1;
+               break;
+             }
+           
+        int[] res=new int[2];
+        res[0]=repeating;
+        res[1]=missing;
+        
+        return res;
     }
 }
 
 
 //Optimal Approach
-import java.util.Scanner;
+import java.util.*;
 public class Test
 {
     public static void main(String[] args)
     {
-	     System.out.println("Enter the Size of the Array:");
-	     Scanner sc=new Scanner(System.in);
-	     int n=sc.nextInt();
-	     int[] arr=new int[n];
-	     System.out.printf("Enter %d of the Array:\n",n);
-	     for(int i=0;i<n;i++)
-	       arr[i]=sc.nextInt();
-	     RepeatingAndTheMissing(arr); 
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   int[] arr=new int[n];
+           System.out.printf("Enter %d of the Array:\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	   int[]res=RepeatingAndTheMissing(arr);
+	   System.out.printf("Repeating : %d  and  Missing : %d",res[0],res[1]);
     }
 		
-    public static void RepeatingAndTheMissing(int arr[])
+    public static int[] RepeatingAndTheMissing(int arr[])
     {
-          int n=arr.length;
+          int n=arr.length,repeating=0,missing=0;
           int xXory=0;
           for(int i=1;i<=n;i++)
              xXory=xXory^i;
@@ -215,23 +289,32 @@ public class Test
           for(int i=0;i<n;i++)
             if(arr[i]==x)
             {
-                System.out.println("Repeating Number = "+x+"\nMissing Number = "+y);
+                repeating=x;
+                missing=y;
                 break;
+                
             }
             else if(arr[i]==y)
             {
-                System.out.println("Repeating Number = "+y+"\nMissing Number = "+x);
+                repeating=y;
+                missing=x;
                 break;
             }
+       
+        int[] res=new int[2];
+        res[0]=repeating;
+        res[1]=missing;
+        
+        return res;
     }
-	   
+    
    public static int rMSBM(int n)
    {
        int rsbm= n & twosCompliment(n);
        return rsbm;
    }
 		
-    public static int twosCompliment(int n)
+   public static int twosCompliment(int n)
    {
        return -n;//(~n+1);
    }
