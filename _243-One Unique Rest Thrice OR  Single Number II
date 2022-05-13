@@ -15,14 +15,13 @@ public class Test
 	
 	public static int findSingle(int arr[])
 	{
-	    int res=-1;
-	    int n=arr.length;
+            int res=-1,n=arr.length;
 	    for(int i=0;i<n;i++)
 	    {
 	        int j;
 	        for(j=0;j<n;j++)
-	            if(j!=i && arr[i]==arr[j])
-	                break;
+	          if(j!=i && arr[i]==arr[j])
+	             break;
 	              
 	        if(j==n)
 	        {
@@ -52,10 +51,10 @@ public class Test
 	
 	public static int findSingle(int arr[])
 	{
-	    int res=-1;
-	    int[] freqArr=new int[arr.length];
-	    countFrequency(arr,freqArr);
-	    for(int i=0;i<arr.length;i++)
+	    int res=-1,n=arr.length;
+	    int[] freqArr=new int[n];
+	    countFrequency(arr,n,freqArr);
+	    for(int i=0;i<n;i++)
 	       if(freqArr[i]==1)
 	       {
 	           res=arr[i];
@@ -64,22 +63,21 @@ public class Test
 	     return res;
 	}
 	
-	public static void countFrequency(int[] arr,int[] freqArr)
+	public static void countFrequency(int[] arr,int n,int[] freqArr)
 	{
-	    int n=arr.length;
-	    int count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
                continue;
-             count=1;
+            
+             int count=1;
              for(int j=i+1;j<n;j++)
                 if(arr[i]==arr[j])
                 {
                    freqArr[j]=-1;
                    count++;
                 }
-            freqArr[i]=count; 
+             freqArr[i]=count; 
            }
 	}
 }
@@ -103,10 +101,10 @@ public class Test
 	
        public static int findSingle(int arr[])
        {
-           int sum=0,arrSum=0;
-	    int[] freqArr=new int[arr.length];
-	    countFrequency(arr,freqArr);
-	    for(int i=0;i<arr.length;i++)
+            int sum=0,arrSum=0,n=arr.length;
+	    int[] freqArr=new int[n];
+	    countFrequency(arr,n,freqArr);
+	    for(int i=0;i<n;i++)
 	    {
 	        if(freqArr[i]!=-1)
                    sum+=arr[i];
@@ -117,15 +115,14 @@ public class Test
 	}
 	
 	
-	public static void countFrequency(int[] arr,int[] freqArr)
-	{
-	       int n=arr.length;
-	       int count;   
+	public static void countFrequency(int[] arr,n,int[] freqArr)
+	{  
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
                continue;
-             count=1;
+	       
+             int count=1;
              for(int j=i+1;j<n;j++)
                 if(arr[i]==arr[j])
                 {
@@ -155,20 +152,14 @@ public class Test
         public static int findSingle(int[] arr)
 	{
 	   Arrays.sort(arr);
-	   int res=-1;
-	   int n=arr.length;
+	   int res=-1,n=arr.length;
 	   for(int i=0;i<n;i++)
 	   {   
-	        if(i==(n-1))
-	         {
-	             res=arr[i];
-	             break;
-	         }
-	         else if(arr[i]!=arr[i+1])
-	         {
-	             res=arr[i];
-	             break;
-	         }
+	       if( i==(n-1) || arr[i]!=arr[i+1] )
+	       {
+	          res=arr[i];
+	          break;
+	       }
 	       
 	       while(i<(n-1) && arr[i]==arr[i+1])
 	         i++;
@@ -195,20 +186,23 @@ public class Test
 		
     public static int findSingle(int arr[])
     {
-       int n=arr.length;
+       int n=arr.length,res=-1;
        HashMap<Integer,Integer>hm=new HashMap<>(n);
        
-       for(int i=0;i<n;i++)
-         if(hm.containsKey(arr[i]))
-            hm.put(arr[i],hm.get(arr[i])+1);
-         else
-            hm.put(arr[i],1);
+        for(int i=0;i<n;i++)
+          if(hm.containsKey(arr[i]))
+             hm.put(arr[i],hm.get(arr[i])+1);
+          else
+             hm.put(arr[i],1);
        
-        for(int key:hm.keySet())
+        for(int key:hm.keySet()) 
           if(hm.get(key)==1)
-             return key;
-        
-        return -1;//No single Occuring Element
+          {
+            res=key;
+            break;
+          }
+	  
+        return res;
     }
 }
 
