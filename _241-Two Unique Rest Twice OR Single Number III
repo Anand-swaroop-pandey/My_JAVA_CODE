@@ -17,7 +17,7 @@ public class Test
 		
     public static int[] twoUniqueRestTwice(int arr[])
     {
-      int count=0,k=0,n=arr.length;
+      int k=0,n=arr.length;
       int[] res=new int[2];
       for(int i=0;i<n;i++)
       {
@@ -28,9 +28,7 @@ public class Test
                
           if(j==n)
           {
-             count++;
              res[k++]=arr[i];
-             
              if(k==2)
               break;
           }
@@ -127,8 +125,8 @@ public class Test
          if(hm.get(arr[i])==1)
          {
            res[k++]=arr[i];
-	       if(k==2)
-	         break;  
+	   if(k==2)
+	     break;  
          }
          
         return res;
