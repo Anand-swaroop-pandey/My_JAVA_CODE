@@ -4,32 +4,32 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+  	  if(n<1)
+  	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+ 	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+ 	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-      List<Integer>al=new ArrayList<>();
-      int n=arr.length;
-      for(int i=0;i<n;i++)
-        for(int j=i+1;j<n;j++)
-           if(arr[i]==arr[j])
-             al.add(arr[i]);
+        {
+           List<Integer>al=new ArrayList<>();
+           int n=arr.length;
+           for(int i=0;i<n;i++)
+             for(int j=i+1;j<n;j++)
+               if(arr[i]==arr[j])
+                 al.add(arr[i]);
             
-      return al;
-  }
+           return al;
+        }
 }
 
 //Method 2
@@ -37,41 +37,41 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
+         public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+  	  if(n<1)
+  	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+ 	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+ 	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-      List<Integer>al=new ArrayList<>();
-      HashMap<Integer,Integer>hm=new HashMap<>();
-      int n=arr.length;
+        {
+          List<Integer>al=new ArrayList<>();
+          HashMap<Integer,Integer>hm=new HashMap<>();
+          int n=arr.length;
         
-      for(int i=0;i<n;i++)
-       if(hm.containsKey(arr[i]))
-         hm.put(arr[i],hm.get(arr[i])+1);
-       else
-         hm.put(arr[i],1);
+          for(int i=0;i<n;i++)
+           if(hm.containsKey(arr[i]))
+            hm.put(arr[i],hm.get(arr[i])+1);
+           else
+            hm.put(arr[i],1);
         
-      for(int key:hm.keySet())
-        if(hm.get(key)==2)
-          al.add(key);
+          for(int key:hm.keySet())
+            if(hm.get(key)==2)
+              al.add(key);
         
-      return al;
-  }
+          return al;
+        }
 }
 
 //Method 3
@@ -81,36 +81,36 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+  	  if(n<1)
+ 	  {
+	    System.out.println("Invalid Choice");
+ 	    return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-      List<Integer>al=new ArrayList<>();
-      int n=arr.length;
-      int[] count=new int[n];
+        {
+         List<Integer>al=new ArrayList<>();
+         int n=arr.length;
+         int[] count=new int[n];
       
-      for(int i=0;i<n;i++)
-         count[arr[i]-1]++;
+         for(int i=0;i<n;i++)
+           count[arr[i]-1]++;
       
-      for(int i=0;i<n;i++)
-        if(count[i]==2)
-          al.add(i+1);
+         for(int i=0;i<n;i++)
+           if(count[i]==2)
+             al.add(i+1);
              
-       return al;
-  }
+         return al;
+        }
 }
 
 //Method 4
@@ -120,35 +120,35 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+  	  int n=sc.nextInt();
+	  if(n<1)
+ 	  {
+ 	    System.out.println("Invalid Choice");
+ 	    return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-    List<Integer>al=new ArrayList<>();
-    HashSet<Integer>hs=new HashSet<>();
-    int n=arr.length;
+        {
+          List<Integer>al=new ArrayList<>();
+          HashSet<Integer>hs=new HashSet<>();
+          int n=arr.length;
         
-    for(int i=0;i<n;i++)
-     if(hs.contains(arr[i]))
-       al.add(arr[i]);
-     else
-       hs.add(arr[i]);
+          for(int i=0;i<n;i++)
+            if(hs.contains(arr[i]))
+               al.add(arr[i]);
+            else
+               hs.add(arr[i]);
         
-    return al;
-  }
+         return al;
+        }
 }
 
 
@@ -159,37 +159,37 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+ 	  if(n<1)
+	  {
+   	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+  	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-     List<Integer>al=new ArrayList<>();
-     int n=arr.length;
-     int[] count=new int[n];
+        {
+          List<Integer>al=new ArrayList<>();
+          int n=arr.length;
+          int[] count=new int[n];
       
-     for(int i=0;i<n;i++)
-     {
-       if(count[arr[i]-1]==1)
-          al.add(arr[i]);
+          for(int i=0;i<n;i++)
+          {
+             if(count[arr[i]-1]==1)
+               al.add(arr[i]);
            
-       count[arr[i]-1]++;  
-     }
+             count[arr[i]-1]++;  
+          }
         
-     return res;
-  }
+          return res;
+        }
 }
 
 //Method 6
@@ -199,36 +199,36 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+  	  int n=sc.nextInt();
+	  if(n<1)
+ 	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+  	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	   System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-      List<Integer>al=new ArrayList<>();
-      Arrays.sort(arr);
-      int n=arr.length;
-      
-      for(int i=0;i<n-1;i++)
-        if(arr[i]==arr[i+1])
         {
-          al.add(arr[i]);
-          i++;
-        }     
+          List<Integer>al=new ArrayList<>();
+          Arrays.sort(arr);
+          int n=arr.length;
+      
+          for(int i=0;i<n-1;i++)
+            if(arr[i]==arr[i+1])
+            {
+              al.add(arr[i]);
+              i++;
+            }     
 
-      return al;
-  }
+          return al;
+        }
 }
 
 //Method 7
@@ -238,36 +238,36 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+   	  }
+ 	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
-	  public static List<Integer> findDuplicates(int[]arr)
-    {
-      List<Integer>al=new ArrayList<>();
-      Arrays.sort(arr);
-      int n=arr.length;
+	public static List<Integer> findDuplicates(int[]arr)
+        {
+          List<Integer>al=new ArrayList<>();
+          Arrays.sort(arr);
+          int n=arr.length;
 
-      for(int i=0;i<n-1;i++)
-        if(arr[i]!=arr[i+1] && areFirstAndLastIndexEqual(arr,arr[i])==false)
-           al.add(arr[i]);
+          for(int i=0;i<n-1;i++)
+            if(arr[i]!=arr[i+1] && areFirstAndLastIndexEqual(arr,arr[i])==false)
+               al.add(arr[i]);
         
-      if(n>1 && arr[n-1]==arr[n-2])
-         al.add(arr[n-1]);
+          if(n>1 && arr[n-1]==arr[n-2])
+            al.add(arr[n-1]);
         
-      return al;
-    }
+          return al;
+        }
     
     public static boolean areFirstAndLastIndexEqual(int [] arr,int key)
     {
@@ -332,39 +332,39 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+    	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	  System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-      List<Integer>al=new ArrayList<>();
-      int n=arr.length;
-      boolean[] visited=new boolean[n];
+        {
+          List<Integer>al=new ArrayList<>();
+          int n=arr.length;
+          boolean[] visited=new boolean[n];
       
-      for(int i=0;i<n;i++)
-      {
-         int ele=arr[i];
-         int idx=ele-1;
-         if(visited[idx]==true)
-           al.add(ele);
+          for(int i=0;i<n;i++)
+          {
+             int ele=arr[i];
+             int idx=ele-1;
+             if(visited[idx]==true)
+               al.add(ele);
            
-         visited[idx]=true;
-      }
+             visited[idx]=true;
+          }
       
-      return al;
-  }
+         return al;
+        }
 }
 
 //Method 9
@@ -374,38 +374,38 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	   System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-     List<Integer>al=new ArrayList<>();
-     int n=arr.length;
-     for(int i=0;i<n;i++)
-     {
-        int ele=Math.abs(arr[i]);
-        int idx=ele-1;
+        {
+           List<Integer>al=new ArrayList<>();
+           int n=arr.length;
+           for(int i=0;i<n;i++)
+           {
+               int ele=Math.abs(arr[i]);
+               int idx=ele-1;
 	 
-        if(arr[idx]<0)
-          al.add(ele);
+               if(arr[idx]<0)
+                 al.add(ele);
            
 	      arr[idx]*=-1;
-     }
+           }
       
-     return al;
-  }
+          return al;
+        }
 }
 
 //Method 10
@@ -415,42 +415,42 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+ 	    System.out.println("Invalid Choice");
+	    return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
 		
-		System.out.println("Repeating Elements are :"+findDuplicates(arr));
+	   System.out.println("Repeating Elements are :"+findDuplicates(arr));
 	}
 	
 	public static List<Integer> findDuplicates(int[]arr)
-  {
-      int n=arr.length,i=0;
-      while(i<n)
-      {
-         int correctIndex=arr[i]-1;
-         if (arr[correctIndex]==arr[i])
+        {
+          int n=arr.length,i=0;
+          while(i<n)
+          {
+             int correctIndex=arr[i]-1;
+             if(arr[correctIndex]==arr[i])
 	          i++;
-	       else //if arr[i] is not at its correct index
-         {
-             int temp=arr[correctIndex];
-             arr[correctIndex]=arr[i];
-             arr[i]=temp;
-         }      
-      }  
+	     else //if arr[i] is not at its correct index
+             {
+               int temp=arr[correctIndex];
+               arr[correctIndex]=arr[i];
+               arr[i]=temp;
+             }      
+           }  
         
-      List<Integer>al=new ArrayList<>();
-      for (i=0; i<n; i++) 
-        if(arr[i]!=i+1)
-           al.add(arr[i]);
+           List<Integer>al=new ArrayList<>();
+           for (i=0; i<n; i++) 
+             if(arr[i]!=i+1)
+                al.add(arr[i]);
              
 	    return al;
-  }
+        }
 }
