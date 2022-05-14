@@ -2,10 +2,10 @@
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
-		    System.out.println("Enter the Size of Array");
-		    int n=sc.nextInt();
+   public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of Array");
+        int n=sc.nextInt();
         if(n<1)
         {
            System.out.println("Invalid Choice");
@@ -20,8 +20,8 @@ public class Test
         System.out.printf("Enter Target Value :\n");
         int key=sc.nextInt();
           
-        System.out.println(searchInsert(arr,n,key));
-	 }
+        System.out.println(searchInsert(arr,n,key)); 
+   }
 	
    public static int searchInsert(int[] arr,int n,int key)
    {
@@ -64,10 +64,10 @@ public class Test
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
-		    System.out.println("Enter the Size of Array");
-		    int n=sc.nextInt();
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of Array");
+	int n=sc.nextInt();
         if(n<1)
         {
            System.out.println("Invalid Choice");
