@@ -2,10 +2,10 @@
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
-		    System.out.println("Enter the Size of Array");
-		    int n=sc.nextInt();
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of Array");
+        int n=sc.nextInt();
         if(n<1)
         {
            System.out.println("Invalid Choice");
@@ -33,10 +33,10 @@ public class Test
           arr4[i]=sc.nextInt();
           
         System.out.println("Count of Tuples Such that (arr1[i] + arr2[j] + arr3[k] + arr4[l])== 0  are :"+fourSumCount(arr1,arr2,arr3,arr4,n));
-	}
+    }
 	
-	public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
-	{
+    public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
+    {
       int fourSumCount=0;
       for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
@@ -55,10 +55,10 @@ public class Test
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
-		    System.out.println("Enter the Size of Array");
-		    int n=sc.nextInt();
+   public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of Array");
+        int n=sc.nextInt();
         if(n<1)
         {
            System.out.println("Invalid Choice");
@@ -86,17 +86,17 @@ public class Test
           arr4[i]=sc.nextInt();
           
         System.out.println("Count of Tuples Such that (arr1[i] + arr2[j] + arr3[k] + arr4[l])== 0  are :"+fourSumCount(arr1,arr2,arr3,arr4,n));
-	}
+   }
 	
-	public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
-	{
+   public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
+   {
       HashMap<Integer,Integer>hm=new HashMap<>();
       
       for(int l=0;l<n;l++)
         if(hm.containsKey(arr4[l]))
-            hm.put(arr4[l],hm.get(arr4[l])+1);
-          else
-            hm.put(arr4[l],1);
+           hm.put(arr4[l],hm.get(arr4[l])+1);
+        else
+           hm.put(arr4[l],1);
       
       
       int fourSumCount=0;
@@ -120,10 +120,10 @@ public class Test
 import java.util.*;
 public class Test
 {
-	  public static void main(String[] args) {
-	      Scanner sc=new Scanner(System.in);
-		    System.out.println("Enter the Size of Array");
-		    int n=sc.nextInt();
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the Size of Array");
+        int n=sc.nextInt();
         if(n<1)
         {
            System.out.println("Invalid Choice");
@@ -151,10 +151,10 @@ public class Test
           arr4[i]=sc.nextInt();
           
         System.out.println("Count of Tuples Such that (arr1[i] + arr2[j] + arr3[k] + arr4[l])== 0  are :"+fourSumCount(arr1,arr2,arr3,arr4,n));
-	}
+    }
 	
-	public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
-	{
+    public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
+    {
       HashMap<Integer,Integer>hm=new HashMap<>();
     
       for(int i=0;i<n;i++)
@@ -181,5 +181,5 @@ public class Test
         }
       
        return fourSumCount;
-    }
+   }
 }
