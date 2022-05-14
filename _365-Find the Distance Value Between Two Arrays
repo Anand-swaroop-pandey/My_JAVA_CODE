@@ -2,32 +2,32 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array1 :");
-		int m=sc.nextInt();
-		System.out.println("Enter the Size of the Array2 :");
-		int n=sc.nextInt();
-		if(m<1 || n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr1=new int[m];
-		int[] arr2=new int[n];
-		System.out.printf("Enter %d Elements Of The Array1 :\n",m);
-		for(int i=0;i<m;i++)
-		  arr1[i]=sc.nextInt();
-		  
-		System.out.printf("Enter %d Elements Of The Array2 :\n",n);
-		for(int i=0;i<n;i++)
-		  arr2[i]=sc.nextInt();
-		  
-		System.out.println("Enter 'd':");
-		int d=sc.nextInt();
-		
-		System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+     public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the Size of the Array1 :");
+	int m=sc.nextInt();
+  	System.out.println("Enter the Size of the Array2 :");
+	int n=sc.nextInt();
+	if(m<1 || n<1)
+	{
+	  System.out.println("Invalid Choice");
+	  return;
 	}
+	int[] arr1=new int[m];
+	int[] arr2=new int[n];
+	System.out.printf("Enter %d Elements Of The Array1 :\n",m);
+	for(int i=0;i<m;i++)
+	  arr1[i]=sc.nextInt();
+		  
+	System.out.printf("Enter %d Elements Of The Array2 :\n",n);
+	for(int i=0;i<n;i++)
+	  arr2[i]=sc.nextInt();
+		  
+        System.out.println("Enter 'd':");
+	int d=sc.nextInt();
+		
+	System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+     }
 	
     public static int findTheDistanceValue(int[] arr1,int m, int[] arr2, int n, int d)
     {
@@ -68,32 +68,32 @@ Expression |arr1[i] - arr2[j]| <= d equals to (arr1[i] - d) <= arr2[j] <= (arr1[
 import java.util.*;
 public class  Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array1 :");
-		int m=sc.nextInt();
-		System.out.println("Enter the Size of the Array2 :");
-		int n=sc.nextInt();
-		if(m<1 || n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr1=new int[m];
-		int[] arr2=new int[n];
-		System.out.printf("Enter %d Elements Of The Array1 :\n",m);
-		for(int i=0;i<m;i++)
-		  arr1[i]=sc.nextInt();
-		  
-		System.out.printf("Enter %d Elements Of The Array2 :\n",n);
-		for(int i=0;i<n;i++)
-		  arr2[i]=sc.nextInt();
-		  
-		System.out.println("Enter 'd':");
-		int d=sc.nextInt();
-		
-		System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the Size of the Array1 :");
+	int m=sc.nextInt();
+  	System.out.println("Enter the Size of the Array2 :");
+	int n=sc.nextInt();
+	if(m<1 || n<1)
+	{
+	  System.out.println("Invalid Choice");
+	  return;
 	}
+	int[] arr1=new int[m];
+	int[] arr2=new int[n];
+	System.out.printf("Enter %d Elements Of The Array1 :\n",m);
+	for(int i=0;i<m;i++)
+	  arr1[i]=sc.nextInt();
+		  
+	System.out.printf("Enter %d Elements Of The Array2 :\n",n);
+	for(int i=0;i<n;i++)
+	  arr2[i]=sc.nextInt();
+		  
+        System.out.println("Enter 'd':");
+	int d=sc.nextInt();
+		
+	System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+     }
 	
     public static int findTheDistanceValue(int[] arr1,int m, int[] arr2, int n, int d)
     {
@@ -133,32 +133,32 @@ public class  Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array1 :");
-		int m=sc.nextInt();
-		System.out.println("Enter the Size of the Array2 :");
-		int n=sc.nextInt();
-		if(m<1 || n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr1=new int[m];
-		int[] arr2=new int[n];
-		System.out.printf("Enter %d Elements Of The Array1 :\n",m);
-		for(int i=0;i<m;i++)
-		  arr1[i]=sc.nextInt();
-		  
-		System.out.printf("Enter %d Elements Of The Array2 :\n",n);
-		for(int i=0;i<n;i++)
-		  arr2[i]=sc.nextInt();
-		  
-		System.out.println("Enter 'd':");
-		int d=sc.nextInt();
-		
-		System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the Size of the Array1 :");
+	int m=sc.nextInt();
+  	System.out.println("Enter the Size of the Array2 :");
+	int n=sc.nextInt();
+	if(m<1 || n<1)
+	{
+	  System.out.println("Invalid Choice");
+	  return;
 	}
+	int[] arr1=new int[m];
+	int[] arr2=new int[n];
+	System.out.printf("Enter %d Elements Of The Array1 :\n",m);
+	for(int i=0;i<m;i++)
+	  arr1[i]=sc.nextInt();
+		  
+	System.out.printf("Enter %d Elements Of The Array2 :\n",n);
+	for(int i=0;i<n;i++)
+	  arr2[i]=sc.nextInt();
+		  
+        System.out.println("Enter 'd':");
+	int d=sc.nextInt();
+		
+	System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+     }
 	
     public static int findTheDistanceValue(int[] arr1,int m, int[] arr2, int n, int d)
     {
@@ -177,7 +177,7 @@ public class Test
              distance++;
           
         }
-        
+	
        return distance;
     }
 }
