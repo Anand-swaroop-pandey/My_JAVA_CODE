@@ -1,0 +1,184 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array1 :");
+		int m=sc.nextInt();
+		System.out.println("Enter the Size of the Array2 :");
+		int n=sc.nextInt();
+		if(m<1 || n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr1=new int[m];
+		int[] arr2=new int[n];
+		System.out.printf("Enter %d Elements Of The Array1 :\n",m);
+		for(int i=0;i<m;i++)
+		  arr1[i]=sc.nextInt();
+		  
+		System.out.printf("Enter %d Elements Of The Array2 :\n",n);
+		for(int i=0;i<n;i++)
+		  arr2[i]=sc.nextInt();
+		  
+		System.out.println("Enter 'd':");
+		int d=sc.nextInt();
+		
+		System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+	}
+	
+    public static int findTheDistanceValue(int[] arr1,int m, int[] arr2, int n, int d)
+    {
+       int distance=0;
+       for(int i=0;i<m;i++)
+       {
+          int j;
+          for(j=0;j<n;j++)
+            if(Math.abs(arr1[i]-arr2[j])<=d)
+               break;
+           
+           if(j==n)
+             distance++;
+       }
+       return distance;  
+    }
+}
+
+//Optimal Approach
+
+/*    
+The math rule is: |x| <= a equals to -a <= x <= a. Check it and you'll see that it's correct. So:
+
+the initial/Given inequality is: |arr1[i] - arr2[j]| <= d
+
+according to the rule: -d <= (arr1[i] - arr2[j]) <= d
+
+then move arr1[i] to the other sides: (-d - arr1[i]) <= -arr2[j] <= (d - arr1[i])
+
+then multiply it by -1 and flip inequality signs: (d + arr1[i]) >= arr2[j] >= (arr1[i] - d)
+
+that's the same as: (arr1[i] - d) <= arr2[j] <= (arr1[i] + d)
+
+Expression |arr1[i] - arr2[j]| <= d equals to (arr1[i] - d) <= arr2[j] <= (arr1[i] + d)  So for every value val in the array arr1 we need to check (using binary search) if the array arr2 contains any value in range from val - d to val + d. If not, increment distance.
+
+*/
+
+import java.util.*;
+public class  Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array1 :");
+		int m=sc.nextInt();
+		System.out.println("Enter the Size of the Array2 :");
+		int n=sc.nextInt();
+		if(m<1 || n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr1=new int[m];
+		int[] arr2=new int[n];
+		System.out.printf("Enter %d Elements Of The Array1 :\n",m);
+		for(int i=0;i<m;i++)
+		  arr1[i]=sc.nextInt();
+		  
+		System.out.printf("Enter %d Elements Of The Array2 :\n",n);
+		for(int i=0;i<n;i++)
+		  arr2[i]=sc.nextInt();
+		  
+		System.out.println("Enter 'd':");
+		int d=sc.nextInt();
+		
+		System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+	}
+	
+    public static int findTheDistanceValue(int[] arr1,int m, int[] arr2, int n, int d)
+    {
+       Arrays.sort(arr2);    
+       int distance = 0;
+        
+       for(int val : arr1)
+         if(notInRange(arr2, val - d, val + d))
+            distance++;
+        
+        return distance;
+    }
+    
+     // Checks if the array doesn't contain any value in range (from <= value <= to) using binary search
+    private static boolean notInRange(int[] arr, int from, int to) 
+    {
+        int low= 0;
+        int high=arr.length - 1;
+        
+        while (low<=high)
+        {
+            int mid =low+(high-low)/2;
+            if (arr[mid]>=from && arr[mid]<=to)//arr2 contains value in range (from <= value <= to) so return false
+                return false;
+            else if(from>arr[mid])
+                low=mid+1;
+            else 
+                high=mid-1;
+        }
+        //arr2 doesn't contain any value in range (from <= value <= to) so return true
+        return true;
+    }
+}
+
+//Aliter
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array1 :");
+		int m=sc.nextInt();
+		System.out.println("Enter the Size of the Array2 :");
+		int n=sc.nextInt();
+		if(m<1 || n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr1=new int[m];
+		int[] arr2=new int[n];
+		System.out.printf("Enter %d Elements Of The Array1 :\n",m);
+		for(int i=0;i<m;i++)
+		  arr1[i]=sc.nextInt();
+		  
+		System.out.printf("Enter %d Elements Of The Array2 :\n",n);
+		for(int i=0;i<n;i++)
+		  arr2[i]=sc.nextInt();
+		  
+		System.out.println("Enter 'd':");
+		int d=sc.nextInt();
+		
+		System.out.println("Distance Value Between The Two Arrays is :"+findTheDistanceValue(arr1,m,arr2,n,d));
+	}
+	
+    public static int findTheDistanceValue(int[] arr1,int m, int[] arr2, int n, int d)
+    {
+        TreeSet<Integer> ts = new TreeSet<>();
+        for(int i=0;i<n;i++)
+           ts.add(arr2[i]);
+        
+        int distance=0;
+        for(int i=0;i<m;i++)
+        {
+           int from=arr1[i]-d;
+           int to=arr1[i]+d;
+            
+           Set<Integer> set =ts.subSet(from,to+1);
+           if(set.isEmpty())
+             distance++;
+          
+        }
+        
+       return distance;
+    }
+}
+
