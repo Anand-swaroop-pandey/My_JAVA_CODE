@@ -1,0 +1,78 @@
+//Using Modulous Operator
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	      Scanner sc=new Scanner(System.in);
+	     	System.out.println("Enter the Size of Array");
+		    int n=sc.nextInt();
+        if(n<1)
+        {
+           System.out.println("Invalid Choice");
+           return;
+        }
+        int[]arr=new int[n];
+        
+        System.out.printf("Enter %d Elements of Array :\n",n);
+        for(int i=0;i<n;i++)
+          arr[i]=sc.nextInt();
+        
+        int idx=smallestEqual(arr,n);
+        if(idx!=-1)
+          System.out.println("Smallest index 'i' of nums such that 'i' % 10 == arr[i] is :"+idx);
+        else
+          System.out.println("No index 'i' of nums such that 'i' % 10 == arr[i]");
+	}
+	
+   public static int smallestEqual(int[] arr,int n)
+   {
+      for(int i=0;i<n;i++)
+        if((i%10)==arr[i])
+           return i;
+      return -1; 
+   }
+}
+
+
+//Without using Modulous Operator
+import java.util.*;
+public class Test
+{
+	  public static void main(String[] args) {
+	      Scanner sc=new Scanner(System.in);
+	    	System.out.println("Enter the Size of Array");
+    		int n=sc.nextInt();
+        if(n<1)
+        {
+           System.out.println("Invalid Choice");
+           return;
+        }
+        int[]arr=new int[n];
+        
+        System.out.printf("Enter %d Elements of Array :\n",n);
+        for(int i=0;i<n;i++)
+          arr[i]=sc.nextInt();
+        
+        int idx=smallestEqual(arr,n);
+        if(idx!=-1)
+          System.out.println("Smallest index 'i' of nums such that 'i' % 10 == arr[i] is :"+idx);
+        else
+          System.out.println("No index 'i' of nums such that 'i' % 10 == arr[i]");
+	}
+	
+   public static int smallestEqual(int[] arr,int n)
+   {
+      int idx = 0;
+      for (int i=0;i<n;i++)
+      {
+        if (idx==arr[i])
+          return i;
+          
+         idx++;
+         
+        if (idx==10)
+         idx=0;
+      }
+      return -1;
+   }
+}
