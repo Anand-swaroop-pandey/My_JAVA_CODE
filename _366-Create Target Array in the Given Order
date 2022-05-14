@@ -1,0 +1,152 @@
+//Using ArrayList
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		int[] index=new int[n];
+    
+		System.out.printf("Enter %d Elements Of The Value Array :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.printf("Enter %d Elements Of The Index Array :\n",n);
+		for(int i=0;i<n;i++)
+		  index[i]=sc.nextInt();
+		  
+		System.out.println("Target Array is : ");
+		int[] res=createTargetArray(arr,index,n);
+		
+		System.out.print("[");
+	    for(int val :res)
+	      System.out.print(val+" ");
+	    System.out.print("]");
+	}
+	
+	public static int[] createTargetArray(int[] arr, int[] index,int n) 
+	{
+      List<Integer>al=new ArrayList<>(n);
+      for(int i=0;i<n;i++)
+        al.add(index[i],arr[i]);
+      
+      int[] res=new int[n];
+      for(int i=0;i<n;i++)
+        res[i]=al.get(i);
+        
+      return res;
+    }
+}
+
+//Without ArrayList 
+// When index[i] < i, it means nums[i]'s position in target array has been occupied. So we need to move target array rightward by one position.
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		int[] index=new int[n];
+		System.out.printf("Enter %d Elements Of The Value Array :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.printf("Enter %d Elements Of The Index Array :\n",n);
+		for(int i=0;i<n;i++)
+		  index[i]=sc.nextInt();
+		  
+		System.out.println("Target Array is : ");
+		int[] res=createTargetArray(arr,index,n);
+		
+		System.out.print("[");
+	    for(int val :res)
+	      System.out.print(val+" ");
+	    System.out.print("]");
+	}
+	
+	public static int[] createTargetArray(int[] arr, int[] index,int n) 
+	{
+        int[] res=new int[n];
+
+        for(int i=0;i<n;i++)
+          if(index[i]==i)
+            res[index[i]]=arr[i];
+        else//(index[i]<i)
+        {
+           //rightShift res by 1 position
+           for(int j=i;j>index[i];j--) //or for(int j=i-1;j>=index[i];j--) res[j+1]=res[j];
+              res[j]=res[j-1];
+            
+           res[index[i]]=arr[i];  
+        }    
+      return res;
+    }
+}
+
+//Aliter Implementation
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		int[] index=new int[n];
+		System.out.printf("Enter %d Elements Of The Value Array :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.printf("Enter %d Elements Of The Index Array :\n",n);
+		for(int i=0;i<n;i++)
+		  index[i]=sc.nextInt();
+		  
+		System.out.println("Target Array is : ");
+		int[] res=createTargetArray(arr,index,n);
+		
+		System.out.print("[");
+	    for(int val :res)
+	      System.out.print(val+" ");
+	    System.out.print("]");
+	}
+	
+	public static int[] createTargetArray(int[] arr, int[] index,int n) 
+	{
+      int[] res=new int[n];
+      for(int i=0;i<n;i++)
+      {
+        if(index[i]<i)
+        {
+           //rightShift res by 1 position
+           for(int j=i;j>index[i];j--) //or for(int j=i-1;j>=index[i];j--) res[j+1]=res[j];
+              res[j]=res[j-1];
+        }
+        
+        res[index[i]]=arr[i];  
+      }
+        
+      return res;
+    }
+}
+
