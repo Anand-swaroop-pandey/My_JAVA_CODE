@@ -15,20 +15,22 @@ public class Test
 	
     public static double myPow(double x, int n) 
     {
+      long p=n;
+      
       if(n==0)
         return (double)1;
         
       if(n > 0)
-        return result(x, n);
+        return result(x,p);
       else
-        return(1/result(x,Math.abs(n))); 
+        return(1/result(x,Math.abs(p))); 
     }
     
-    public static double result(double x, int n)
+    public static double result(double base, long power)
     {
-       double res=1.0;
-       for(int exp=1;exp<=n;exp++)
-         res=res*x;
+       double res=1d;
+       for(int exp=1;exp<=power;exp++)
+         res=res*base;
          
        return res;
     }
