@@ -17,18 +17,18 @@ public class Test
     {
       long p=n;
       
-      if(n==0)
-        return (double)1;
+      if(p==0)
+        return 1D;
         
-      if(n > 0)
+      if(p > 0)
         return result(x,p);
-      else
+      else //(p<0)
         return(1/result(x,Math.abs(p))); 
     }
     
     public static double result(double base, long power)
     {
-       double res=1d;
+       double res=1D;
        for(int exp=1;exp<=power;exp++)
          res=res*base;
          
@@ -195,7 +195,7 @@ public class Test
 }
 
 /*
-Why we have Converted Power to long data type ?
+Why we have Converted 'Power' from int to long data type ?
 
 Reason :
 
@@ -203,11 +203,9 @@ Input:
 -1.00000 (base)
 -2147483648 (power)
 
-To Find :
+To Find : (-1.00000)^(-2147483648)==?
 
-(-1.00000)^(-2147483648)==?
-
-(-1.00000)^(-2147483648)== 1/ (-1.00000)^(2147483648) => There is the Catch : Reason :Integer Overflow (Integer Variable Cannot Store (2147483648))
-                                                                              Integer.MAX_VALUE = 2^31-1 = 2147483647
-									      Integer.MIN_VALUE = -2^31 = -2147483648
+(-1.00000)^(-2147483648)== (1/ (-1.00000)^(2147483648) ) => There is the Catch/ERROR : Reason :Integer Overflow (Integer Variable Cannot Store (2147483648))
+                                                                                       Integer.MAX_VALUE = 2^31-1 = 2147483647
+									               Integer.MIN_VALUE = -2^31 = -2147483648
 */
