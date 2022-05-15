@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Main
+public class Test
 {
 	public static void main(String[] args)
 	{
@@ -20,7 +20,7 @@ public class Main
 	    {
 	        int rem=num%10;
 	        if(rem==x)
-               rem=y;
+                  rem=y;
 	       sum=sum+placeValue*rem;
 	       placeValue=placeValue*10;
 	       num=num/10;
