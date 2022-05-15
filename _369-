@@ -70,12 +70,12 @@ public class Test
        double res=1d;
         
        while(power!=0)
-         if((power%2)!=0)
+         if((power%2)!=0)//If Power is Odd
          {
            res*=base;
            power--;
          } 
-         else
+         else //if((power%2)==0) i.e if power is Even
          {
             base=base*base;
             power/=2;
