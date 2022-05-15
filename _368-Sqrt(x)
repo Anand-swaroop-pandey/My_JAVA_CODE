@@ -2,12 +2,12 @@
 import java.util.*;
 public class Test
 {
-	 public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
-		 System.out.println("Enter a Non Negative Integer:");
-		 int n=sc.nextInt();
-		 System.out.printf("SquareRoot of %d(only integer Part) is %d",n,mySqrt(n));
-	  }
+   public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter a Non Negative Integer:");
+      int n=sc.nextInt();
+      System.out.printf("SquareRoot of %d(only integer Part) is %d",n,mySqrt(n));
+    }
 	
     public static int mySqrt(int x) 
     {
@@ -19,12 +19,12 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	    Scanner sc=new Scanner(System.in);
-	  	System.out.println("Enter a Non Negative Integer:");
-	  	int n=sc.nextInt();
-	  	System.out.printf("SquareRoot of %d(only integer Part) is %d",n,mySqrt(n));
-	  }
+   public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter a Non Negative Integer:");
+      int n=sc.nextInt();
+      System.out.printf("SquareRoot of %d(only integer Part) is %d",n,mySqrt(n));
+    }
 	
     public static int mySqrt(int x) 
     {
@@ -58,12 +58,12 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter a Non Negative Integer:");
-		int n=sc.nextInt();
-		System.out.printf("SquareRoot of %d(only integer Part) is %d",n,mySqrt(n));
-	}
+   public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter a Non Negative Integer:");
+      int n=sc.nextInt();
+      System.out.printf("SquareRoot of %d(only integer Part) is %d",n,mySqrt(n));
+    }
 	
     public static int mySqrt(int x) 
     {
