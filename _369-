@@ -38,6 +38,120 @@ public class Test
 
 
 //Optimal Approach
+/*
+In order to improve efficiency we will opt for Binary Exponentiation using which we can calculate base^power using O log2(power) multiplications.
+
+Basic Idea is to divide the work using binary representation of exponents
+i.e. is to keep multiplying res with base, if the bit is ON, and keep multiplying base with itself until we get power as 0
+Ex-
+base= 7, power = 11 and res= 1
+Here, we have to calculate 7^11
+Binary of power i.e (11) is (1011)
+ 1    0    1    1
+2^3  2^2  2^1  2^0   <-- Corresponding place values of each bit
+
+OR we can also write this as
+1 0 1 1
+8 4 2 1 <-- Corresponding place values of each bit
+
+Now, 7^8 × 7^2 × 7^1 == 5764801 × 49 × 7 == 1977326743 <-- Desired Output
+NOTE: We have not considered 7^4 in this case as the 3rd place bit is OFF
+
+Now, applying logic keeping this concept in mind
+*/
+
+//Naive Implementation of Optimal Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Base(Double value):");
+	double base=sc.nextDouble();
+
+	System.out.println("Enter Exponent(Integer Value):");
+	int exp=sc.nextInt();
+		
+	System.out.println("Base ^ exp == "+myPow(base,exp));
+    }
+	
+    public static double myPow(double x, int n) 
+    {
+        long p=n;
+        
+        if(p==0)
+          return 1D;
+         
+        if(p > 0)
+          return result(x,p);
+        else//(p<0)
+          return(1D/result(x,Math.abs(p)));
+    }
+    
+    public static double result(double base, long power)
+    {
+       double res=1D;
+       int i=0;
+       while(power!= 0)
+       {
+           if((power & 1)!= 0) //If Bit is ON
+              res=res*Math.pow(base,Math.pow(2,i));
+            
+           i++;
+           power=power>>1; 
+       }
+       return res; 
+    }
+}
+
+
+
+//Better Implementation of Optimal Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter Base(Double value):");
+	 double base=sc.nextDouble();
+
+	 System.out.println("Enter Exponent(Integer Value):");
+	 int exp=sc.nextInt();
+		
+	 System.out.println("Base ^ exp == "+myPow(base,exp));
+    }
+	
+    public static double myPow(double x, int n) 
+    {
+        long p=n;
+	
+        if(p==0)
+          return 1D;
+         
+        if(p > 0)
+          return result(x,p);
+        else//(p<0)
+          return(1D/result(x,Math.abs(p)));
+    }
+    
+    public static double result(double base, long power)
+    {
+       double res=1D;
+       long powerOf2=1L; //(i.e powerOf2=2^0)
+       while(power!= 0)
+       {
+          if((power & 1)!= 0) //If Bit is ON
+             res=res*Math.pow(base,powerOf2);
+           
+           powerOf2=powerOf2<<1;//powerOf2=powerOf2*2;
+           power=power>>1; 
+       }
+       return res;
+    }
+}
+
+
+//Optimal Implementation of Optimal Approach
 import java.util.*;
 public class Test
 {
@@ -54,33 +168,46 @@ public class Test
 	
     public static double myPow(double x, int n) 
     {
-      long p=n;
-      
-      if(n==0)
-        return (double)1;
-        
-      if(n > 0)
-        return result(x,p);
-      else
-        return(1/result(x,Math.abs(p))); 
+        long p=n;
+
+        if(p==0)
+          return 1d;
+         
+        if(p > 0)
+          return result(x,p);
+        else//(p<0)
+          return(1/result(x,Math.abs(p)));
     }
     
     public static double result(double base, long power)
     {
        double res=1d;
-        
-       while(power!=0)
-         if((power%2)!=0)//If Power is Odd
-         {
-           res*=base;
-           power--;
-         } 
-         else //if((power%2)==0) i.e if power is Even
-         {
-            base=base*base;
-            power/=2;
-         }
-        
+       while(power!= 0)
+       {
+           if((power & 1)!= 0) //If Bit is ON
+             res=res*base;
+            
+           base=base*base;
+           power=power>>1; 
+        }
        return res;
     }
 }
+
+/*
+Why we have Converted Power to long data type ?
+
+Reason :
+
+Input:
+-1.00000 (base)
+-2147483648 (power)
+
+To Find :
+
+(-1.00000)^(-2147483648)==?
+
+(-1.00000)^(-2147483648)== 1/ (-1.00000)^(2147483648) => There is the Catch : Reason :Integer Overflow (Integer Variable Cannot Store (2147483648))
+                                                                              Integer.MAX_VALUE = 2^31-1 = 2147483647
+									      Integer.MIN_VALUE = -2^31 = -2147483648
+*/
