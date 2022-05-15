@@ -35,3 +35,52 @@ public class Test
        return res;
     }
 }
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Base(Double value):");
+	double base=sc.nextDouble();
+
+	System.out.println("Enter Exponent(Integer Value):");
+	int exp=sc.nextInt();
+		
+	System.out.println("Base ^ exp == "+myPow(base,exp)); 
+     }
+	
+    public static double myPow(double x, int n) 
+    {
+      long p=n;
+      
+      if(n==0)
+        return (double)1;
+        
+      if(n > 0)
+        return result(x,p);
+      else
+        return(1/result(x,Math.abs(p))); 
+    }
+    
+    public static double result(double base, long power)
+    {
+       double res=1d;
+        
+       while(power!=0)
+         if((power%2)!=0)
+         {
+           res*=base;
+           power--;
+         } 
+         else
+         {
+            base=base*base;
+            power/=2;
+         }
+        
+       return res;
+    }
+}
