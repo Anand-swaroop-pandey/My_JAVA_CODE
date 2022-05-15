@@ -1,0 +1,35 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Base(Double value):");
+		double base=sc.nextDouble();
+
+		System.out.println("Enter Exponent(Integer Value):");
+		int exp=sc.nextInt();
+		
+		System.out.println("Base ^ exp == "+myPow(base,exp));
+	}
+	
+    public static double myPow(double x, int n) 
+    {
+      if(n==0)
+        return (double)1;
+        
+      if(n > 0)
+        return result(x, n);
+      else
+        return(1/result(x,Math.abs(n))); 
+    }
+    
+    public static double result(double x, int n)
+    {
+       double res=1.0;
+       for(int exp=1;exp<=n;exp++)
+         res=res*x;
+         
+       return res;
+    }
+}
