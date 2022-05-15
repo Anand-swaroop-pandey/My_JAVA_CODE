@@ -3,13 +3,12 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		Scanner sc=new Scanner(System.in);
-		int x=sc.nextInt();
-		int y=sc.nextInt();
-		int num=sc.nextInt();
-		System.out.println(replace(x,y,num));
-		
-	    System.out.println(reverseModified(num,0,x,y));
+	   Scanner sc=new Scanner(System.in);
+	   int x=sc.nextInt();
+	   int y=sc.nextInt();
+	   int num=sc.nextInt();
+	   System.out.println(replace(x,y,num));
+	   System.out.println(reverseModified(num,0,x,y));
 	}
     
 	//Optimal Method
@@ -29,25 +28,26 @@ public class Main
 	   return sum;  
 	}
 	
-	//Method 2(Not efficient)
-	 public static int reverseModified(int num,int rev,int x,int y)
+	 
+    //Method 2(Not efficient)
+    public static int reverseModified(int num,int rev,int x,int y)
     {
-        if(num==0)
-          return reverse(rev,0);
-        else
-           {
-               int rem=num%10;
-               if(rem==x)
-                 rem=y;
-               return reverseModified(num/10,rev*10+rem,x,y);
-           }
+       if(num==0)
+         return reverse(rev,0);
+       else
+       {
+          int rem=num%10;
+          if(rem==x)
+            rem=y;
+          return reverseModified(num/10,rev*10+rem,x,y);
+       }
     }
     
     public static int reverse(int num,int rev)
     {
-        if(num==0)
-          return rev;
-        else
-          return reverse(num/10,rev*10+(num%10));
+       if(num==0)
+         return rev;
+       else
+         return reverse(num/10,rev*10+(num%10));
     }
 }
