@@ -63,7 +63,7 @@ public class Test
 //Further Optimised
 /*No non-negative integer has SquareRoot == 0 (except 0 i.e sqrt(0)==0)
   Similarly No non-negative integer has SquareRoot == number itself (except 1 i.e sqrt(1)==1)
-  Both the Cases Are Already Handled so the SquareRoot of all the Numbers (Except 0 and 1) lies within the Range [1,number-1] */
+  Both the Cases Are Already Handled so the SquareRoot of all the Numbers (Except 0 and 1) lies within the Range [1,number-1] i.e i.e 1<=sqrt(x)<=(x-1) */
   
 import java.util.*;
 public class Test
