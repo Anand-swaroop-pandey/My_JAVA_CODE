@@ -85,7 +85,7 @@ public class Test
     }
     
     public static boolean isPerfectSquare(int num)
-	  {
+    {
        return mySqrt(num);
     }
     
@@ -107,7 +107,7 @@ public class Test
     }
     
     public static int nextPerfectSquareNumber(int num)
-	  {
+    {
       int next=num+1;
       while(true)
       {
