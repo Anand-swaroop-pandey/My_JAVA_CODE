@@ -46,7 +46,7 @@ public class Test
       while(low<=high)
       {
         long mid=low+(high-low)/2;
-        if(x==(mid*mid))
+        if(x==(mid*mid)) //for Perfect Square Numbers
           return (int)mid;
         else if(x>(mid*mid))
         {
@@ -63,7 +63,17 @@ public class Test
 //Further Optimised
 /*No non-negative integer has SquareRoot == 0 (except 0 i.e sqrt(0)==0)
   Similarly No non-negative integer has SquareRoot == number itself (except 1 i.e sqrt(1)==1)
-  Both the Cases Are Already Handled so the SquareRoot of all the Numbers (Except 0 and 1) lies within the Range [1,number-1] i.e i.e 1<=sqrt(x)<=(x-1) */
+  Both the Cases Are Already Handled so the SquareRoot of all the Numbers (Except 0 and 1) lies within the Range [1,number-1] i.e i.e 1<=sqrt(x)<=(x-1) 
+  
+ Important TestCase :
+ x=5;
+
+The Control was not supposed to enter Inside  the if statement ( i.e if((x/mid)==mid) return mid;)
+coz this if statement is only meant for perfect Square numbers (and 5 is not a perfect Square number).
+However Code gives the Correct Output as we are only Concerned about the integer part of the Squareroot of Non perfect Square Numbers.
+However this code fails if we are asked to check whether the given number 'x' is a perfect square Number ,it will output "true" for x==5. 
+  
+  */
   
 import java.util.*;
 public class Test
@@ -88,7 +98,7 @@ public class Test
       while(low<=high)
       {
         int mid=low+(high-low)/2;
-        if((x/mid)==mid)
+        if((x/mid)==mid) //for Perfect Square Numbers
           return mid;
         else if((x/mid)>mid)
         {
