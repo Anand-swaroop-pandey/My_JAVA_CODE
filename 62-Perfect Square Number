@@ -15,10 +15,21 @@ public class Test
 	public static boolean perfectSquareNumber(int num)
 	{
             double sqrt=Math.sqrt(num);
-            double floor=Math.floor(sqrt);
+            double floor=Math.floor(sqrt); //double ceil=Math.ceil(sqrt);
 	    if(sqrt==floor)
 	      return true;
 	    else
 	     return false;   
         }
+	
+	/*Aliter
+        public static boolean perfectSquareNumber(int num)
+	{
+            double sqrt=Math.sqrt(num);
+            double ceil=Math.ceil(sqrt);
+	    if(sqrt==ceil)
+	      return true;
+	    else
+	     return false;   
+        }*/
 }
