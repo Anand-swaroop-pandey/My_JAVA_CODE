@@ -1,3 +1,8 @@
+/*Square root of perfect square Numbers are always whole numbers.
+(Natural numbers are set of positive integers, whereas natural numbers and zero(0) are called whole numbers)
+Ex-0,1,4,9,16,25,36,49,64....
+*/
+
 //Bruteforce Approach
 import java.util.Scanner;
 public class Test
