@@ -7,17 +7,18 @@ public class Test
 	    Scanner sc=new Scanner(System.in);
 	    int num=sc.nextInt();
 	    if(perfectSquareNumber(num))
-		     System.out.println("is a perfectSquareNumber");
-		  else
-		     System.out.println("is not a perfectSquareNumber");
+	       System.out.println("is a perfectSquareNumber");
+	    else
+	       System.out.println("is not a perfectSquareNumber");
 	}
+	
 	public static boolean perfectSquareNumber(int num)
 	{
-       double sqrt=Math.sqrt(num);
-       double floor=Math.floor(sqrt);
-	     if(sqrt==floor)
-	       return true;
-	     else
-	       return false;   
-   }
+            double sqrt=Math.sqrt(num);
+            double floor=Math.floor(sqrt);
+	    if(sqrt==floor)
+	      return true;
+	    else
+	     return false;   
+        }
 }
