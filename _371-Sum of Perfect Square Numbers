@@ -1,0 +1,181 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	  public static void main(String[] args) 
+	  {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter a non-negative integer :");
+	    int c=sc.nextInt();
+	    if(perfectSquareSum(c))
+	       System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
+	    else
+	       System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
+	  }
+	
+    public static boolean perfectSquareSum(int c)
+    {
+      int a=0;//0 is the First perfect Square Number
+      while(a<=c)
+      {
+        if(isPerfectSquare(c-a))
+          return true;
+          
+        a=nextPerfectSquareNumber(a);
+      }
+      return false;
+    }
+    
+   public static boolean isPerfectSquare(int num)
+	 {
+      if(Math.sqrt(num)==(int)Math.sqrt(num))
+        return true;
+      else
+        return false;
+   }
+    
+   public static int nextPerfectSquareNumber(int num)
+	 {
+      int next=num+1;
+      while(true)
+      {
+        if(isPerfectSquare(next))
+           return next;
+        next++;  
+      }
+   }
+}
+
+//>Better Implementation
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter a non-negative integer :");
+	    int c=sc.nextInt();
+	    if(perfectSquareSum(c))
+	       System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
+	    else
+	       System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
+	}
+	
+    public static boolean perfectSquareSum(int c) 
+    {
+      int a=0; //0 is the First perfect Square Number
+      while(a<=c)
+      {
+         if(isPerfectSquare(c-a))
+           return true;
+          
+         a=nextPerfectSquareNumber(a);
+      }
+      return false;
+    }
+    
+    public static boolean isPerfectSquare(int num)
+	  {
+       return mySqrt(num);
+    }
+    
+    public static boolean mySqrt(int x)
+    {
+      int low =0,high=x;
+      while(low<=high)
+      {
+        long mid=low+(high-low)/2;
+
+        if(x==(mid*mid))
+           return true;
+        else if(x>(mid*mid))
+          low=(int)mid+1;
+        else//if(x<(mid*mid))
+          high=(int)mid-1;
+      }
+      return false;
+    }
+    
+    public static int nextPerfectSquareNumber(int num)
+	  {
+      int next=num+1;
+      while(true)
+      {
+        if(isPerfectSquare(next))
+           return next;
+        next++;  
+      }
+    }
+}
+
+//> Optimal Implementation
+/*
+How To Efficiently Find Next perfect square ?
+
+The very first perfect square is important for this method. Now the original answer is hidden over this pattern i.e. 0, 1, 4, 9, 16, 25, 36, 49, 64,..... 
+the difference between 0 and 1 is 1 
+the difference between 1 and 4 is 3 
+the difference between 4 and 9 is 5 and so on… 
+which means that the difference between two perfect squares is always an odd number.
+Now, the question arises what must be added to get the next number and the answer is (sqrt(X) * 2) + 1 where X is the already known perfect square.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	 public static void main(String[] args) 
+	 {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter a non-negative integer :");
+	    int c=sc.nextInt();
+	    if(judgeSquareSum(c))
+	       System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
+	    else
+	       System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
+	  }
+	
+    public static boolean judgeSquareSum(int c) 
+    {
+      int a=0; //0 is the First perfect Square Number
+      while(a<=c)
+      {
+        if(isPerfectSquare(c-a))
+          return true;
+          
+         a=nextPerfectSquareNumber(a);
+      }
+      return false;
+    }
+    
+    public static boolean isPerfectSquare(int num)
+	  {
+       if(mySqrt(num)!=-1)
+         return true;
+         
+       return false;
+    }
+    
+    public static int mySqrt(int x)
+    {
+      int low =0,high=x;
+      while(low<=high)
+      {
+        long mid=low+(high-low)/2;
+
+        if(x==(mid*mid))
+           return (int)mid;
+        else if(x>(mid*mid))
+          low=(int)mid+1;
+        else//if(x<(mid*mid))
+          high=(int)mid-1;
+      }
+      return -1;
+    }
+    
+    public static int nextPerfectSquareNumber(int num)
+	  {
+      int next=num+(mySqrt(num)*2)+1;
+      return next;
+    }
+}
