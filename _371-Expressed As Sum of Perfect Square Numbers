@@ -1,6 +1,10 @@
 /*Square root of perfect square Numbers are always whole numbers.
 (Natural numbers are set of positive integers, whereas natural numbers and zero(0) are called whole numbers)
 Ex-0,1,4,9,16,25,36,49,64....
+In other words,
+A perfect square is a number that can be expressed as the product of an integer by itself or as the second exponent of an integer.(i.e Square(num*num))
+A perfect square can never be negative coz Square of a number can never be negative.
+ex-4 is a perfect square(i.e 2*2) but -4 isnot.
 */
 
 //Bruteforce Approach
