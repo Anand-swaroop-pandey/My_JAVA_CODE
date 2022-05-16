@@ -2,16 +2,16 @@
 import java.util.Scanner;
 public class Test
 {
-	  public static void main(String[] args) 
-	  {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter a non-negative integer :");
-	    int c=sc.nextInt();
-	    if(perfectSquareSum(c))
-	       System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
-	    else
-	       System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
-	  }
+    public static void main(String[] args) 
+    {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter a non-negative integer :");
+	int c=sc.nextInt();
+	if(perfectSquareSum(c))
+	  System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
+	else
+	   System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
+    }
 	
     public static boolean perfectSquareSum(int c)
     {
@@ -27,7 +27,7 @@ public class Test
     }
     
    public static boolean isPerfectSquare(int num)
-	 {
+   {
       if(Math.sqrt(num)==(int)Math.sqrt(num))
         return true;
       else
@@ -35,7 +35,7 @@ public class Test
    }
     
    public static int nextPerfectSquareNumber(int num)
-	 {
+   {
       int next=num+1;
       while(true)
       {
@@ -51,17 +51,17 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) 
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter a non-negative integer :");
-	    int c=sc.nextInt();
-	    if(perfectSquareSum(c))
-	       System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
-	    else
-	       System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
-	}
-	
+    public static void main(String[] args) 
+    {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter a non-negative integer :");
+	int c=sc.nextInt();
+	if(perfectSquareSum(c))
+	  System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
+	else
+	   System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
+    }
+    
     public static boolean perfectSquareSum(int c) 
     {
       int a=0; //0 is the First perfect Square Number
@@ -124,16 +124,16 @@ Now, the question arises what must be added to get the next number and the answe
 import java.util.Scanner;
 public class Test
 {
-	 public static void main(String[] args) 
-	 {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter a non-negative integer :");
-	    int c=sc.nextInt();
-	    if(judgeSquareSum(c))
-	       System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
-	    else
-	       System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
-	  }
+    public static void main(String[] args) 
+    {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter a non-negative integer :");
+	int c=sc.nextInt();
+	if(perfectSquareSum(c))
+	  System.out.printf("%d can be represented as a Sum of Two Perfect Square Numbers",c);
+	else
+	   System.out.printf("%d cannot be represented as a Sum of Two Perfect Square Numbers",c);
+    }
 	
     public static boolean judgeSquareSum(int c) 
     {
@@ -149,7 +149,7 @@ public class Test
     }
     
     public static boolean isPerfectSquare(int num)
-	  {
+    {
        if(mySqrt(num)!=-1)
          return true;
          
@@ -174,7 +174,7 @@ public class Test
     }
     
     public static int nextPerfectSquareNumber(int num)
-	  {
+    {
       int next=num+(mySqrt(num)*2)+1;
       return next;
     }
