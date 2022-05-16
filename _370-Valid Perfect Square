@@ -1,0 +1,98 @@
+//Bruteforce Approach
+import java.util.Scanner;
+import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int num=sc.nextInt();
+	    if(isPerfectSquare(num))
+	       System.out.println("is a perfectSquareNumber");
+	    else
+	       System.out.println("is not a perfectSquareNumber");
+	}
+	
+	public static boolean isPerfectSquare(int num)
+	{
+      double sqrt=Math.sqrt(num);
+      double floor=Math.floor(sqrt);
+	    if(sqrt==floor)
+	      return true;
+	    else
+	      return false;   
+  }
+}
+
+//ALITER
+
+import java.util.Scanner;
+import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int num=sc.nextInt();
+	    if(isPerfectSquare(num))
+	       System.out.println("is a perfectSquareNumber");
+	    else
+	       System.out.println("is not a perfectSquareNumber");
+	}
+	
+	public static boolean isPerfectSquare(int num)
+	{
+     double sqrt=Math.sqrt(num);
+     double ceil=Math.ceil(sqrt);
+	   if(sqrt==ceil)
+	     return true;
+	   else
+	     return false;   
+  }
+}
+
+//Optimal Approach
+
+import java.util.Scanner;
+import java.lang.Math;
+public class Test
+{
+	 public static void main(String[] args) 
+	 {
+	    Scanner sc=new Scanner(System.in);
+	    int num=sc.nextInt();
+	    if(isPerfectSquare(num))
+	       System.out.println("is a perfectSquareNumber");
+	    else
+	       System.out.println("is not a perfectSquareNumber");
+	  }
+	
+	  public static boolean isPerfectSquare(int num)
+	  {
+      return  mySqrt(num);
+    }
+    
+    public static boolean mySqrt(int x)
+    {
+       if(x==1)
+        return true;
+        
+       return BinarySearch(x);  
+    }
+    
+    public static boolean BinarySearch(int x)
+    {
+      long low =1,high=x-1;
+      while(low<=high)
+      {
+        long mid=low+(high-low)/2;
+        if(x==(mid*mid))
+          return true; //x is a perfect Square Number
+        else if(x>(mid*mid))
+          low=mid+1;
+        else//if(x<(mid*mid))
+          high=mid-1;
+      }
+      return false; //x is not a perfect Square Number
+    }
+}
