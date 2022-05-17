@@ -4,13 +4,13 @@ public class Test
 {
     public static void main(String[] args) 
     {
-	     Scanner sc=new Scanner(System.in);
- 	     System.out.println("Enter a non-negative integer :");
-   	   int num1=sc.nextInt();
-	     System.out.println("Enter another non-negative integer :");
-	     int num2=sc.nextInt();
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a non-negative integer :");
+	int num1=sc.nextInt();
+	System.out.println("Enter another non-negative integer :");
+	int num2=sc.nextInt();
 	
-	     System.out.println("Number of Operations Required are :"+countOperations(num1,num2));
+	System.out.println("Number of Operations Required are :"+countOperations(num1,num2));
     }
 	
     public static int countOperations(int num1, int num2) 
@@ -36,13 +36,13 @@ public class Test
 {
     public static void main(String[] args) 
     {
-	     Scanner sc=new Scanner(System.in);
- 	     System.out.println("Enter a non-negative integer :");
-   	   int num1=sc.nextInt();
-	     System.out.println("Enter another non-negative integer :");
-	     int num2=sc.nextInt();
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a non-negative integer :");
+	int num1=sc.nextInt();
+	System.out.println("Enter another non-negative integer :");
+	int num2=sc.nextInt();
 	
-	     System.out.println("Number of Operations Required are :"+countOperations(num1,num2));
+	System.out.println("Number of Operations Required are :"+countOperations(num1,num2));
     }
 	
     public static int countOperations(int num1, int num2) 
