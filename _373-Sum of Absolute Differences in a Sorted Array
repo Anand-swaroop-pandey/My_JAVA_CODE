@@ -48,7 +48,7 @@ for every element(i.e arr[i]),the absolute difference is :
 
 => (arr[i]*i - (arr[0]+arr[1]+...arr[i-1])) + ((arr[i+1]+arr[i+2]+....arr[length-1]) - arr[i]*(length-1-i))
 
-=> ((arr[i]*i) - prefixsum[i]) + (suffixsum[i] - (arr[i]*(length-1-i)))
+=> ((arr[i]*i) - prefixsum[i]) + (postfixsum[i] - (arr[i]*(length-1-i)))
 
 Note :
 
