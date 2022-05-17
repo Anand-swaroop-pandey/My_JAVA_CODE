@@ -1,0 +1,58 @@
+//Iterative Approach
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args) 
+    {
+	     Scanner sc=new Scanner(System.in);
+ 	     System.out.println("Enter a non-negative integer :");
+   	   int num1=sc.nextInt();
+	     System.out.println("Enter another non-negative integer :");
+	     int num2=sc.nextInt();
+	
+	     System.out.println("Number of Operations Required are :"+countOperations(num1,num2));
+    }
+	
+    public static int countOperations(int num1, int num2) 
+    {
+      int cnt=0;
+      while(num1!=0 && num2!=0)
+      {
+          if(num1>=num2)
+           num1=num1-num2;
+          else
+           num2=num2-num1; 
+          
+          cnt++;
+      }   
+      return cnt;
+    }
+}
+
+//Recurssive Approach
+
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args) 
+    {
+	     Scanner sc=new Scanner(System.in);
+ 	     System.out.println("Enter a non-negative integer :");
+   	   int num1=sc.nextInt();
+	     System.out.println("Enter another non-negative integer :");
+	     int num2=sc.nextInt();
+	
+	     System.out.println("Number of Operations Required are :"+countOperations(num1,num2));
+    }
+	
+    public static int countOperations(int num1, int num2) 
+    {
+      if(num1==0 || num2==0)
+         return 0;//Target Acheived,No More Operations Required so return 0
+       
+      if(num1>=num2)  
+        return 1+countOperations(num1-num2,num2) ;
+      else
+        return 1+countOperations(num1,num2-num1) ;
+    }
+}
