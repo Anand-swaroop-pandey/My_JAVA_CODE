@@ -64,3 +64,25 @@ class Test
        return (num%10)+sumOfDigits(num/10);
     }
 }
+
+//When Input Number is in the Form of A String
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String num=sc.nextLine();//Enter a Non -ve Number
+        System.out.println(sumOfDigits(num));
+    }
+      
+    public static int sumOfDigits(String num)
+    {
+       int sum=0;
+       
+       for(int i=0;i<num.length();i++)
+         sum+=num.charAt(i)-'0'; //ASCII VALUE OF Character '0' is 48 
+         
+       return sum;
+    }
+}
