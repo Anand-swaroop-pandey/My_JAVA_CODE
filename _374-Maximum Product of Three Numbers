@@ -1,0 +1,151 @@
+//Approach 1 : Via Sorting
+/*
+Case-1 :(If Array Contains All +ve Elements)
+If array contains all positive Elements(0 included) then the Maximum Product of Three Numbers will be product of last three elements of the Sorted array.(Ascending order).
+Ex: arr[]={6,5,1,6,2,0};
+
+      After Sorting :
+      arr[]={0,1,2,5,6,6};
+      
+      MaxProduct=5*6*6=180.
+
+Case-2 :(If Array Contains All -ve Elements)
+If array contains all negative Elements then the Maximum Product of Three Numbers will be product of last three elements of the Sorted array(Ascending order).
+Ex: arr[]={-6,-8,-7,-100,-7};
+
+    After Sorting :
+    arr[]={-100,-8,-7,-7,-6};
+      
+    MaxProduct=-7*-7*-6=-294.
+
+Case-3 :(If Array Contains Mixed Elements (Some +ve(0 included) and some -ve Elements)
+If Array Contains Mixed Elements,then the Maximum Product of Three Numbers will Either be the  product of last three elements of the Sorted array(Ascending order) or Product of First Two elements and last Element of the Sorted array(Ascending order). i.e maximum((arr[0]*arr[1]*arr[n-1]),(arr[n-1]*arr[n-2]*arr[n-3]));
+
+Ex:1 arr[]={3,1,4,-9,2};
+
+    After Sorting :
+    arr[]={-9,1,2,3,4};
+      
+    MaxProduct= 2*3*4= 24.
+    
+    
+Ex:2 arr[]={3,-7,4,-9,2};
+
+    After Sorting :
+    arr[]={-9,-7,2,3,4};
+      
+    MaxProduct= -9*-7*4= 252.
+    
+    
+Ex:3 arr[]={-9,-6,1,-7};
+
+    After Sorting :
+    arr[]={-9,-7,-6,1};
+      
+    MaxProduct= -9*-7*1= 63.
+   
+   
+Ex:4 arr[]={-9,1,0,-7};
+
+    After Sorting :
+    arr[]={-9,-7,-7,-6,0};
+      
+    MaxProduct= -9*-7*0=0.
+ 
+ 
+Ex:5 arr[]={-9,-7,-7,1,2,1};
+
+    After Sorting :
+    arr[]={-9,-7,-7,1,1,2};
+      
+    MaxProduct= -9*-7*2=126.
+ 
+*/
+//Intuitive Implementation :
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		
+		System.out.println("Maximum Product of Three Numbers is: "+maximumProduct(arr,n));
+	}
+	
+  public static int maximumProduct(int[] arr,int n)
+  {
+       if(n==3)
+         return (arr[0]*arr[1]*arr[2]);
+       else
+       {
+          Arrays.sort(arr);
+          if(allPositiveOrAllNegative(arr,n))
+              return (arr[n-1]*arr[n-2]*arr[n-3]);
+          else//if array is of Mixed type (i.e some positive or some negative)
+             return Math.max((arr[0]*arr[1]*arr[n-1]),(arr[n-1]*arr[n-2]*arr[n-3]));
+       }
+    }
+    
+    public static boolean allPositiveOrAllNegative(int[]arr,int n)
+    {
+      int neg=0,pos=0;
+      for(int i=0;i<n;i++)
+        if(arr[i]>=0)
+          pos++;
+        else
+          neg++;
+      
+        if(pos==n || neg==n)
+          return true;
+        
+      return false;
+    }
+}
+
+
+//Optimal Implementation
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		
+		System.out.println("Maximum Product of Three Numbers is: "+maximumProduct(arr,n));
+	}
+	
+  
+  public static int maximumProduct(int[] arr,int n)
+  {
+       if(n==3)
+         return (arr[0]*arr[1]*arr[2]);
+       else
+       {
+          Arrays.sort(arr);
+          return Math.max((arr[0]*arr[1]*arr[n-1]),(arr[n-1]*arr[n-2]*arr[n-3]));
+       }
+  }
+}
