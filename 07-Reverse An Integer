@@ -59,16 +59,17 @@ class Test
     public static void main(String[] args) {
        Scanner sc=new Scanner(System.in);
        int n=sc.nextInt();
-       System.out.println(reverse(n));
+       reverse(n);
+       System.out.println(rev);
     }
 
-    public static int reverse(int num)
+    public static void reverse(int num)
     {
        if(num==0)
-        return rev;
+        return;
           
        rev=rev*10+(num%10);
-       return reverse(num/10);
+       reverse(num/10);
     }
 }
 
@@ -98,11 +99,11 @@ class Test
        	StringBuilder strBld = new StringBuilder(Integer.toString(num));
         
         //Reverse the String Builder
-		strBld.reverse();
+	strBld.reverse();
         
         //StringBuilder => String => Integer
-		num = Integer.parseInt(strBld.toString());
+	num = Integer.parseInt(strBld.toString());
 
-		return num*sign;
+	return num*sign;
     }
 }
