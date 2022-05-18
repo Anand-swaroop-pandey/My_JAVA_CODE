@@ -1,20 +1,66 @@
+//Iterative Approach
 import java.util.Scanner;
-class Test {
+class Test 
+{
     public static void main(String[] args) {
-         Scanner sc=new Scanner(System.in);
-         int n=sc.nextInt();
-         System.out.println(sumOfDigits(n));
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(sumOfDigits(n));
     }
+    
+    
     public static int sumOfDigits(int num)
     {
+        if(num<0)
+         num=Math.abs(num);
+         
         int sum=0;
-        if(num==0)
-          return 1;
-         while(num!=0)
-         {
-             sum+=(num%10);
-             num=num/10;
-         }
-         return sum;
+        while(num!=0)
+        {
+          sum+=(num%10);
+          num=num/10;
+        }
+        return sum;
+    }
+}
+
+//Compressed Version
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(sumOfDigits(Math.abs(n)));
+    }
+    
+    public static int sumOfDigits(int num)
+    {
+       int sum;
+       for (sum=0; num!=0; sum+=(num%10),num=num/10){}
+
+       return sum;
+    }
+}
+
+
+//Recurssive Approach
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(sumOfDigits(Math.abs(n)));
+    }
+    
+    public static int sumOfDigits(int num)
+    {
+       if(num==0) //Base Case ,Sum of Digits of '0'is 0
+         return 0;
+         
+       return (num%10)+sumOfDigits(num/10);
     }
 }
