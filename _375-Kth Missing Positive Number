@@ -1,0 +1,306 @@
+//Bruteforce Approach
+
+//=>Naive Implementation
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.println("Enter a Positive Value :");
+		int k=sc.nextInt();
+		
+		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+   }
+	
+   public static int findKthPositive(int[] arr,int n, int k)
+   {
+      int num=1,missingCnt=0;
+      while(true)
+      {
+        if(binarySearch(arr,num)==false)
+          missingCnt++;
+        
+        if(missingCnt==k)
+          break;
+         
+         num++;
+      }   
+      return num;
+   }
+    
+   public static boolean binarySearch(int[]arr,int key)
+   {
+      int low=0;
+      int high=arr.length-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+            return true;
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return false;
+   }
+}
+
+
+//=>Optimal Implementation
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.println("Enter a Positive Value :");
+		int k=sc.nextInt();
+		
+		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+   }
+	
+   public static int findKthPositive(int[] arr,int n, int k)
+   {
+      int num=1,missingCnt=0;
+      
+      /*
+      if all the nums. in the range [1,n](both Inclusive) are present in the array then 
+      1st Missing +ve number is (n+1).
+      2nd Missing +ve number is (n+2).
+      .
+      .
+      .
+      kth missing number=(n+k).
+      
+      Example :
+      Input: arr = [1,2,3,4], k = 2
+      Output: 6
+      */
+      
+      if(arr[n-1]==n) 
+        return (n+k);  
+        
+      /*
+	    if all the nums. in the range [1,n](both Inclusive) are not  present in the array then ;
+        Range : 1<=kth Misisng +ve Number<(n+k)
+        
+        Input: arr = [2,3,4,7,11], k = 5
+        Output: 9
+        The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+        
+        Input: arr = [2,3,4,9,11], k = 5
+        Output: 8
+        The missing positive integers are [1,5,6,7,8,10,12,13,...]. The 5th missing positive integer is 8.
+		
+		    Input: arr = [2,3,4,5,6], k = 5
+        Output: 10
+        The missing positive integers are [1,7,8,9,10,11,12,13,...]. The 5th missing positive integer is 10.
+      */
+      while(num<(n+k))
+      { 
+        if(binarySearch(arr,num)==false)
+          missingCnt++;
+        
+        if(missingCnt==k)
+          break;
+        
+        num++;
+      }
+    
+      return num;
+   }
+    
+   public static boolean binarySearch(int[]arr,int key)
+   {
+      int low=0;
+      int high=arr.length-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+            return true;
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return false;
+   }
+}
+
+
+//Improved Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.println("Enter a Positive Value :");
+		int k=sc.nextInt();
+		
+		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+   }
+	
+   public static int findKthPositive(int[] arr,int n, int k)
+   {
+      int num=1,missingCnt=0;
+      
+      if(arr[n-1]==n) //if all the nums. in the range [1,n] are present in the array then kth missing number=(n+k)
+        return (n+k);
+				
+      HashSet<Integer>hs=new HashSet<>();
+      for(int val:arr)
+        hs.add(val);
+   
+      /* if all the nums. in the range [1,n](both Inclusive) are not  present in the array then ;
+        Range : 1<=kth Misisng +ve Number<(n+k)*/
+		
+      while(num<(n+k))
+      {
+        if(hs.contains(num)==false)
+          missingCnt++;
+   
+        if(missingCnt==k)
+          break;
+        
+        num++;
+      }
+      return num;
+   }
+}
+
+
+//Better Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.println("Enter a Positive Value :");
+		int k=sc.nextInt();
+		
+		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+   }
+	
+   public static int findKthPositive(int[] arr,int n, int k)
+   {
+       int res= k;
+        for(int val: arr)
+        {
+          if(val>res)
+            break;
+          //if(val<=res) 
+          res++;
+        }
+        return res;
+   }
+}
+
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		System.out.println("Enter a Positive Value :");
+		int k=sc.nextInt();
+		
+		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+   }
+	
+   public static int findKthPositive(int[] arr,int n, int k)
+   {
+      if(arr[n-1]==n) //if all the nums. in the range [1,n] are present in the array then kth missing number=(n+k)
+        return (n+k);
+        
+      return binarySearch(arr,n,k);
+   }
+   
+   public static int binarySearch(int[]arr,int n,int k)
+   {
+      if(arr[n-1]==n) //if all the nums. in the range [1,n] are present in the array then kth missing number=(n+k)
+        return (n+k);
+       
+      int low=0;
+      int high=n-1;
+      while(low<=high)
+      {
+        int mid=(low+high)/2;
+        int expValAt_arrMid=(mid+1);
+        int valPresentAt_Mid=arr[mid];
+        int cntOfMissingNumsBefore_arrMid = valPresentAt_Mid - expValAt_arrMid;
+          
+        if(cntOfMissingNumsBefore_arrMid< k)
+           low=mid+1;
+        else
+           high=mid-1;
+      }
+       return low + k;
+   }
+}
+
+
