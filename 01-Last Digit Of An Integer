@@ -3,10 +3,13 @@ class Test {
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
-         System.out.println(LastDigit(n));
+         System.out.println(lastDigit(n));
     }
-    public static int LastDigit(int N)
+    public static int lastDigit(int num)
     {
-         return (N%10);
+       if(num<0)
+         num=Math.abs(num);
+         
+       return (num%10);
     }
 }
