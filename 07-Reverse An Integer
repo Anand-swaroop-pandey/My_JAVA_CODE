@@ -1,0 +1,108 @@
+//=>Method 1
+
+//Iterative Version
+
+import java.util.Scanner;
+class Test 
+{
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int n=sc.nextInt();
+         System.out.println(reverse(n));
+    }
+    public static int reverse(int num)
+    {
+        int rev=0;
+        while(num!=0)
+        {
+           int last=(num%10);
+           rev=rev*10+last; 
+           num=num/10;
+        }
+        return rev;
+    }
+}
+
+//Recurssive Version
+
+//Implementaton 1
+import java.util.Scanner;
+class Test 
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       System.out.println(driver(n));
+    }
+    
+    public static int driver(int num)
+    {
+       return reverse(num,0);
+    }
+
+    public static int reverse(int num,int rev)
+    {
+        if(num==0)
+          return rev;
+        
+        return reverse(num/10,rev*10+(num%10));
+    }
+}
+
+//Implementaton 2
+
+import java.util.Scanner;
+class Test
+{
+    static int rev=0;
+    
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       System.out.println(reverse(n));
+    }
+
+    public static int reverse(int num)
+    {
+       if(num==0)
+        return rev;
+          
+       rev=rev*10+(num%10);
+       return reverse(num/10);
+    }
+}
+
+
+//Method -2 :(By Converting Number into String Builder)
+
+import java.util.Scanner;
+class Test 
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(reverse(n));
+    }
+
+    public static int reverse(int num)
+    {
+        int sign=1;
+        
+        if(num<0)
+        {
+          num=Math.abs(num);
+          sign=-1;  
+        }
+
+        //Integer => String => StringBuilder
+       	StringBuilder strBld = new StringBuilder(Integer.toString(num));
+        
+        //Reverse the String Builder
+		strBld.reverse();
+        
+        //StringBuilder => String => Integer
+		num = Integer.parseInt(strBld.toString());
+
+		return num*sign;
+    }
+}
