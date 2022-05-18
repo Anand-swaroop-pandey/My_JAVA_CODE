@@ -6,22 +6,22 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  System.out.println("Enter the Size of the Array :");
+   	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		  
-		System.out.println("Enter a Positive Value :");
-		int k=sc.nextInt();
+	  System.out.println("Enter a Positive Value :");
+	  int k=sc.nextInt();
 		
-		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+	  System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
    }
 	
    public static int findKthPositive(int[] arr,int n, int k)
@@ -66,22 +66,22 @@ public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	    System.out.println("Enter the Size of the Array :");
+  	    int n=sc.nextInt();
+	    if(n<1)
+	    {
+  	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	    int[] arr=new int[n];
+	    System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
 		  
-		System.out.println("Enter a Positive Value :");
-		int k=sc.nextInt();
+	    System.out.println("Enter a Positive Value :");
+	    int k=sc.nextInt();
 		
-		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+	    System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
    }
 	
    public static int findKthPositive(int[] arr,int n, int k)
@@ -158,25 +158,26 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+   	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array :");
+  	    int n=sc.nextInt();
+	    if(n<1)
+	    {
+  	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	    int[] arr=new int[n];
+	    System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
 		  
-		System.out.println("Enter a Positive Value :");
-		int k=sc.nextInt();
+	    System.out.println("Enter a Positive Value :");
+	    int k=sc.nextInt();
 		
-		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+	    System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
    }
+	
 	
    public static int findKthPositive(int[] arr,int n, int k)
    {
@@ -212,24 +213,24 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+   	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array :");
+  	    int n=sc.nextInt();
+	    if(n<1)
+	    {
+  	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	    int[] arr=new int[n];
+	    System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
 		  
-		System.out.println("Enter a Positive Value :");
-		int k=sc.nextInt();
+	    System.out.println("Enter a Positive Value :");
+	    int k=sc.nextInt();
 		
-		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+	    System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
    }
 	
    public static int findKthPositive(int[] arr,int n, int k)
@@ -252,24 +253,24 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the Size of the Array :");
-		int n=sc.nextInt();
-		if(n<1)
-		{
-		   System.out.println("Invalid Choice");
-		   return;
-		}
-		int[] arr=new int[n];
-		System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+   	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array :");
+  	    int n=sc.nextInt();
+	    if(n<1)
+	    {
+  	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	    int[] arr=new int[n];
+	    System.out.printf("Enter %d Elements Of The Array in the Strictly Increasing Order(Ascending Order) (i.e arr[i]<arr[i+1]) :\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
 		  
-		System.out.println("Enter a Positive Value :");
-		int k=sc.nextInt();
+	    System.out.println("Enter a Positive Value :");
+	    int k=sc.nextInt();
 		
-		System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
+	    System.out.printf("%d th positive integer that is missing from this Array is %d",k,findKthPositive(arr,n,k));
    }
 	
    public static int findKthPositive(int[] arr,int n, int k)
@@ -281,10 +282,7 @@ public class Test
    }
    
    public static int binarySearch(int[]arr,int n,int k)
-   {
-      if(arr[n-1]==n) //if all the nums. in the range [1,n] are present in the array then kth missing number=(n+k)
-        return (n+k);
-       
+   { 
       int low=0;
       int high=n-1;
       while(low<=high)
