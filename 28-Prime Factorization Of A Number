@@ -75,5 +75,5 @@ To prove that this optimization works, let us consider the following property of
 
 "Every composite number has at least one prime factor less than or equal to the square root of itself." 
 This property can be proved using a counter statement.
-Let a and b be two factors of n such that a*b = n. If both are greater than √n, then a.b > √n, * √n, which contradicts the expression “a * b = n”. 
+Let a and b be two factors of n such that a*b = n. If both are greater than √n, then a.b > √n, which contradicts the expression “a * b = n”. 
 */
