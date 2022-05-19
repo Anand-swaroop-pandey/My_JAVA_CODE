@@ -1,0 +1,80 @@
+/*
+The process of writing a number as the product of prime numbers is prime factorization.
+Prime numbers are the numbers that have only two factors, 1 and the number itself. For example, 2, 3, 5, 7, 11, 13, 17, 19, and so on are prime numbers.
+*/
+
+//Bruteforce Approach
+import java.util.*;
+import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Number:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   sc.close();
+	   primeFactorization(n);
+	}
+  
+	public static void primeFactorization(int num)
+	{
+	    if(num<2)
+	    {
+	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	      
+	    for(int i=2;i<=num;i++)
+	      while((num%i)==0)
+	      {
+		  System.out.print(i+" ");
+		  num=num/i;
+	      }
+        }
+}
+
+//Optimal Approach
+
+import java.util.*;
+import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Number:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   sc.close();
+	   primeFactorization(n);
+	}
+  
+	public static void primeFactorization(int num)
+	{
+	    if(num<2)
+	    {
+	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	    
+	    int sqrt=(int)Math.sqrt(num); 
+	    for(int i=2;i<=sqrt;i++)
+	      while((num%i)==0)
+	      {
+		 System.out.print(i+" ");
+		 num=num/i;
+	      }
+
+	    if(num!=1)
+	       System.out.print(num);  
+       }
+}
+
+/*
+Now the main part is, Why the loop runs till the square root of n not till n? 
+To prove that this optimization works, let us consider the following property of composite numbers. 
+
+"Every composite number has at least one prime factor less than or equal to the square root of itself." 
+This property can be proved using a counter statement.
+Let a and b be two factors of n such that a*b = n. If both are greater than √n, then a.b > √n, * √n, which contradicts the expression “a * b = n”. 
+*/
