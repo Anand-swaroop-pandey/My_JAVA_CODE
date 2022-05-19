@@ -8,6 +8,8 @@ class Test
          int x=sc.nextInt();
          System.out.println(Series(n,x));
     }
+    
+    
     public static float Series(int n,int x)
     {
         if(x<=0 || n<=0)//invalid Input
@@ -22,6 +24,7 @@ class Test
         }
         return sum;
     }
+    
     
     public static long factorial(int num)
     {
