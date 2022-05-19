@@ -12,6 +12,7 @@
 - Zero is not the factor of any number because if we divide a number by zero, the value is not defined.
 
 - The number of factors of a number is finite.
+
 */
 
 //Bruteforce Approach
