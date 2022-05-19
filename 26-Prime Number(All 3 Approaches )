@@ -1,69 +1,87 @@
+/*
+A prime number is a natural number greater than 1, which is only divisible by 1 and itself. First few prime numbers are : 2 3 5 7 11 13 17 19 23 …..
+
+Some interesting fact about Prime numbers :
+
+-Two is the only even Prime number.
+-Every prime number can be represented in form of 6n+1 or 6n-1 except the prime number 2 and 3, where n is a natural number.
+-Two and Three are only two consecutive natural numbers that are prime.
+*/
+
+//Bruteforce Approach
 import java.util.Scanner;
-import java.lang.Math;
 public class Test
 {
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		int num=sc.nextInt();
-		int res=isPrime1(num);
-        if(res==-1) 
-		   System.out.println("is Not Prime");
-		else 
-		   System.out.println("is Prime");
-		   
-		res=isPrime2(num);
-        if(res==-1) 
-		   System.out.println("is Not Prime");
-		else 
-		   System.out.println("is Prime");
-		   
-		res=isPrime3(num);
-        if(res==-1) 
-		   System.out.println("is Not Prime");
-		else 
-		   System.out.println("is Prime");
+	   Scanner sc=new Scanner(System.in);
+    	   int num=sc.nextInt();
+           System.out.println(isPrime(num));
 	} 
 	
-	//Bruteforce Approach
-	public static int isPrime1(int num)
+	public static String isPrime(int num)
 	{
-        if(num<=1)
-	      return -1;
+           if(num<=1)
+	     return "is Not Prime";
 	     
-	     int count=0;
+	   int count=0;
 	     
-        for(int i=1;i<=num;i++)
-            if((num%i)==0)
-                 count++;  
+           for(int i=1;i<=num;i++)
+             if((num%i)==0)
+               count++;  
                  
-        if(count==2)
-          return 1;
-        else
-          return -1;  
+           if(count==2)
+             return "is Prime";
+           else
+             return "is Not Prime";  
 	}
+}
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int num=sc.nextInt();
+            System.out.println(isPrime(num));
+	} 
 	
-	//Better Approach
-	public static int isPrime2(int num)
+
+	public static String isPrime(int num)
+	{
+           if(num<=1)
+	      return "is Not Prime";
+	     
+           for(int i=2;i<=(num/2);i++)
+              if((num%i)==0)
+                 return "is Not Prime";  
+                 
+           return "is Prime";
+	}
+}
+	
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   int num=sc.nextInt();
+           System.out.println(isPrime(num));
+	} 
+	
+	
+	public static String isPrime(int num)
 	{
             if(num<=1)
-	          return -1;
-	     
-            for(int i=2;i<=(num/2);i++)
+	      return "is Not Prime";
+	   
+	    int sqrt=(int)Math.sqrt(num); 
+            for(int i=2;i<=sqrt;i++)
               if((num%i)==0)
-                 return -1;  
+                 return "is Not Prime";  
                  
-            return 1;  
-	}
-	
-	//Optimal Approach
-	public static int isPrime3(int num)
-	{
-            if(num<=1)
-	          return -1;
-	     
-            for(int i=2;i<=Math.sqrt(num);i++)//for(int i=2;(i*i)<=num;i++)
-              if((num%i)==0)
-                 return -1;  
-            return 1;  
+            return "is Prime";
 	}
 }
