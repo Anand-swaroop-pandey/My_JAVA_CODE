@@ -1,0 +1,70 @@
+/*
+Factorial of a non-negative integer, is the multiplication of all integers smaller than or equal to n. For example factorial of 6 is 6*5*4*3*2*1 which is 720.
+The factorial of a negative number doesn't exist. And, the factorial of 0 is 1.
+*/
+
+//Method 1
+
+//Iterative Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		System.out.println(factorial(num));
+	}
+	
+	public static long factorial(int num)
+	{
+	   long fact=1;
+	   for(int i=num;i>0;i--) // or for(int i=1;i<=num;i++)
+	      fact=fact*i;
+          
+	   return fact;
+	}
+}
+
+//RECURSSIVE Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		System.out.println(factorial(num));
+	}
+	
+	public static long factorial(int num)
+	{
+	   if(num==0) //Base Case (Factorial of A 0 is 1)
+	     return 1;
+	   return (num*factorial(num-1));
+	}
+}
+
+//Method 2 (Using BigInteger)(used for Claculating Factorial of Large Numbers )
+
+import java.math.BigInteger;
+import java.util.Scanner;
+class Test 
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       System.out.println(factorial(n));
+    }
+    
+    public static BigInteger factorial(int num)
+    {
+       // Initialize result
+      BigInteger fact=new BigInteger("1"); // Or BigInteger.ONE
+ 
+      for(int i=num;i>0;i--) // or for(int i=1;i<=num;i++)
+        fact=fact.multiply(BigInteger.valueOf(i));
+ 
+      return fact;
+    }
+}
