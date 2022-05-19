@@ -1,0 +1,90 @@
+//Using Third Variable
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int a=sc.nextInt();
+         int b=sc.nextInt();
+         Swapping(a,b);
+    }
+    
+    
+    public static void Swapping(int a,int b)
+    {
+       System.out.println("Before Swapping: a = "+a +" b= "+b);
+       int temp=a;
+       a=b;
+       b=temp;
+       System.out.println("\nAfter Swapping: a = "+a +" b= "+b);
+    }
+}
+
+//Without Using Two Variables :
+
+//Method 1 (using '*' and '/' operator only)
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int a=sc.nextInt();
+       int b=sc.nextInt();
+       Swapping(a,b);
+    }
+    
+  
+    public static void Swapping(int a,int b)
+    {
+      System.out.println("Before Swapping: a = "+a +" b= "+b);
+      a=a*b;
+      b=a/b;
+      a=a/b;
+      System.out.println("\nAfter Swapping: a = "+a +" b= "+b);
+    }
+}
+
+//Method 2 (using '+' and '-' operator only)
+
+import java.util.Scanner;
+class Test 
+{
+    public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         int a=sc.nextInt();
+         int b=sc.nextInt();
+         Swapping(a,b);
+    }
+    
+    public static void Swapping(int a,int b)
+    {
+      System.out.println("Before Swapping: a = "+a +" b= "+b);
+      a=a+b;
+      b=a-b;
+      a=a-b;
+      System.out.println("\nAfter Swapping: a = "+a +" b= "+b);
+    }
+}
+
+//Method 3 (using Bitwise XOR Operator)
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        Swapping(a,b);
+    }
+    
+    public static void Swapping(int a,int b)
+    {
+      System.out.println("Before Swapping: a = "+a +" b= "+b);
+      a=a^b;
+      b=a^b;
+      a=a^b;
+      System.out.println("\nAfter Swapping: a = "+a +" b= "+b);
+    }
+}
