@@ -5,7 +5,6 @@ Prime numbers are the numbers that have only two factors, 1 and the number itsel
 
 //Bruteforce Approach
 import java.util.*;
-import java.lang.Math;
 public class Test
 {
 	public static void main(String[] args)
@@ -37,7 +36,6 @@ public class Test
 //Optimal Approach
 
 import java.util.*;
-import java.lang.Math;
 public class Test
 {
 	public static void main(String[] args)
