@@ -106,8 +106,7 @@ public class Test
         return (n+k);  
         
       /*
-	    if all the nums. in the range [1,n](both Inclusive) are not  present in the array then ;
-        Range : 1<=kth Misisng +ve Number<(n+k)
+        Range : 1<=kth Misisng +ve Number<=(n+k)
         
         Input: arr = [2,3,4,7,11], k = 5
         Output: 9
@@ -117,11 +116,11 @@ public class Test
         Output: 8
         The missing positive integers are [1,5,6,7,8,10,12,13,...]. The 5th missing positive integer is 8.
 		
-		    Input: arr = [2,3,4,5,6], k = 5
+	Input: arr = [2,3,4,5,6], k = 5
         Output: 10
         The missing positive integers are [1,7,8,9,10,11,12,13,...]. The 5th missing positive integer is 10.
       */
-      while(num<(n+k))
+      while(num<=(n+k))
       { 
         if(binarySearch(arr,num)==false)
           missingCnt++;
@@ -190,10 +189,9 @@ public class Test
       for(int val:arr)
         hs.add(val);
    
-      /* if all the nums. in the range [1,n](both Inclusive) are not  present in the array then ;
-        Range : 1<=kth Misisng +ve Number<(n+k)*/
+   //Range : 1<=kth Misisng +ve Number<=(n+k)
 		
-      while(num<(n+k))
+      while(num<=(n+k))
       {
         if(hs.contains(num)==false)
           missingCnt++;
