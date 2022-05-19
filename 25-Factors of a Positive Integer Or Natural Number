@@ -1,0 +1,65 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+           Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   factors(n);
+	}
+	
+	public static void factors(int num)
+	{
+	   for(int i=1;i<=num;i++)
+           if((num%i)==0)
+              System.out.println(i);
+	}
+}
+
+
+//Better Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+           Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   factors(n);
+	}
+	
+	public static void factors(int num)
+	{    
+	   System.out.println(1);
+	    
+           for(int i=2;i<=(num/2);i++)
+             if((num%i)==0)
+               System.out.println(i);
+         
+           System.out.println(num);
+	}
+}
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+           Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   factors(n);
+	}
+	
+	public static void factors(int num)
+	{
+           //Note that this loop runs till square root
+	    int Sqrt_n=(int)Math.sqrt(num);
+	    for(int i=1;i<=Sqrt_n;i++)
+	       if(num%i==0)
+	  	  if((num/i)==i)      // If divisors are equal, print only one
+		     System.out.print(" "+ i);
+		  else //Otherwise print both
+		     System.out.print(i+" " + (num/i) + " " ); 
+	}
+}
