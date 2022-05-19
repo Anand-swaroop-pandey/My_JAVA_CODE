@@ -1,15 +1,18 @@
 //1 +11 +111 +1111 +.......111111...n?
 import java.util.Scanner;
-class Test {
+class Test 
+{
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
          System.out.println(Series(n));
     }
+    
+    
     public static int Series(int n)
     {
         if(n<=0)//invalid Input
-        return -1;
+          return -1;
         
         int sum=0;
         int temp=0;
