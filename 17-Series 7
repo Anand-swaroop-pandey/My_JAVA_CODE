@@ -1,12 +1,14 @@
-// 1+(1+2)+(1+2+3)+(1+2+3+4)+..........+(1+2+3+4+5++......n)
+// 1+(1+2)+(1+2+3)+(1+2+3+4)+..........+(1+2+3+4+5+.....+n)
 
 import java.util.Scanner;
-class Main {
+class Test
+{
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
          System.out.println(Series(n));
     }
+    
     public static float Series(int n)
     {
         if(n<=0)//invalid Input
@@ -15,13 +17,14 @@ class Main {
         float sum=0;
         for(int i=1;i<=n;i++)
         {
-            float curr_sum=i*((float)(i+1)/2);//Sn=n*(n+1)/2
+            float curr_sum=i*((float)(i+1)/2);   //Sn=n*(n+1)/2  (Each value of i denotes number of terms in each SubSeries and Each SubSeries is sum of First i Natural Nos.)
             sum=sum+curr_sum;
         }
+        
         return sum;
     }
 }
 
 /*
-1+(1+2)+(1+2+3)+(1+2+3+4)+...+(1+2+3+4+5++......n)=(n/6)*(n+1)*(n+2)
+1+(1+2)+(1+2+3)+(1+2+3+4)+...+(1+2+3+4+5+.....+n)=(n/6)*(n+1)*(n+2)
 */
