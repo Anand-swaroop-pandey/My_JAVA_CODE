@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		int num=sc.nextInt();
-		System.out.println(factorial(num));
+	   Scanner sc=new Scanner(System.in);
+	   int num=sc.nextInt();
+	   System.out.println(factorial(num));
 	}
 	
 	public static long factorial(int num)
@@ -36,6 +36,7 @@ public class Test
 		int num=sc.nextInt();
 		System.out.println(factorial(num));
 	}
+	
 	
 	public static long factorial(int num)
 	{
