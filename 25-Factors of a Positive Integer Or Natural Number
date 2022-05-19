@@ -1,3 +1,11 @@
+/*
+- A factor of a number in math is a number that divides the given number. Hence, a factor is nothing but a divisor of the given number. 
+- A factor of a number is always less than or equal to the given number.
+  i.e Range :  1<=(factor of number)<=num
+- Every number except 0 and 1 has at least two factors, 1 and itself.
+- Zero is not the factor of any number because if we divide a number by zero, the value is not defined.
+*/
+
 //Bruteforce Approach
 import java.util.Scanner;
 public class Test
