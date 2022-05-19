@@ -57,7 +57,7 @@ public class Test
 	    int Sqrt_n=(int)Math.sqrt(num);
 	    for(int i=1;i<=Sqrt_n;i++)
 	       if(num%i==0)
-	  	  if((num/i)==i)      // If divisors are equal, print only one
+	  	  if((num/i)==i) // If divisors are equal, print only one
 		     System.out.print(" "+ i);
 		  else //Otherwise print both
 		     System.out.print(i+" " + (num/i) + " " ); 
