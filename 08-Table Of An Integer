@@ -1,3 +1,5 @@
+//Variation 1 (Display Multiplication table up to 10) 
+
 import java.util.Scanner;
 class Test
 {
@@ -11,6 +13,28 @@ class Test
     {
       System.out.printf("Table of %d is \n:",num);
       for(int i=1;i<=10;i++)
+         System.out.printf("%d x %d = %d\n",num,i,num*i);
+    }
+}
+
+
+//Variation 2 (Display multiplication table up to a given range) 
+
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int n=sc.nextInt();
+        table(num,n);
+    }
+    
+    public static void table(int num,int limit)
+    {
+      System.out.printf("Table of %d till %d is \n:",num,limit);
+      for(int i=1;i<=limit;i++)
          System.out.printf("%d x %d = %d\n",num,i,num*i);
     }
 }
