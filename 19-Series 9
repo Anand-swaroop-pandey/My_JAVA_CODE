@@ -1,6 +1,7 @@
 // X + X/2! + X/3! + .......+X/N!=?
 import java.util.Scanner;
-class Main {
+class Test 
+{
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
@@ -10,9 +11,9 @@ class Main {
     public static float Series(int n,int x)
     {
         if(x<=0 || n<=0)//invalid Input
-        return -1;
+          return -1;
         
-        float sum=0.0f;
+        float sum=0f;
         int count=0;
         for(int i=1;i<=n;i++)
         {
