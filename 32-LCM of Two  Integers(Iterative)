@@ -7,9 +7,9 @@
    Muntiples of 4 :  4 , 8 , 12 , 16 , 20 , 24 , 28 , 32 , 36 , 40 , 44 , 48 , 52 , 56 , 60 , 64....
    Muntiples of 8 :  8 , 16 , 24 , 32 , 40 , 48 , 56 , 64 , 72 , 80 , 88 , 96 , 104 , 112 , 120 , 128 .....
   
-  Common Muntiples of 4 and 8 : 8 ,16 ,24 ,32 ,40 ,48....
+   Common Muntiples of 4 and 8 : 8 ,16 ,24 ,32 ,40 ,48....
   
-  Least Common Muntiple of 4 and 8 : 8
+   Least Common Muntiple of 4 and 8 : 8
 
 
 
@@ -26,5 +26,98 @@
   
 */
 
+//Iterative Approach 
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) 
+    {
+       Scanner sc=new Scanner(System.in);
+       int num1=sc.nextInt();
+       int num2=sc.nextInt();
+       System.out.println(LCM(num1,num2));
+    }
+    
+    
+    public static int LCM(int num1,int num2)
+    {
+       int maxNum=(num1>num2)?num1:num2;
+       int temp=maxNum;
+       
+       while(true)
+       {
+          if((temp%num1)==0 && (temp%num2)==0)
+             break;
+               
+          temp+=maxNum;   //Basically it is a muntiple of maxNum i.e temp=(maxNum*i) (where i=2 ,3 ,4 ,5....)        
+       }
+       
+       return temp;
+    }
+}
+
+//Optimised Iterative Approach 
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) 
+    {
+       Scanner sc=new Scanner(System.in);
+       int num1=sc.nextInt();
+       int num2=sc.nextInt();
+       System.out.println(LCM(num1,num2));
+    }
+    
+    public static int LCM(int num1,int num2)
+    {
+       int maxNum=Math.max(num1,num2);
+       int minNum=Math.max(num1,num2);
+       int temp=maxNum;
+       
+       while(true)
+       {
+          if((temp%minNum)==0)
+             break;
+   
+          temp+=maxNum; //Basically it is a muntiple of maxNum i.e temp=(maxNum*i) (where i=2 ,3 ,4 ,5....)           
+       }
+       
+       return temp;
+    }
+}
+
+
+//Recurssive Approach
+
+import java.util.Scanner;
+class Test
+{
+    static int max;
+    
+    public static void main(String[] args) 
+    {
+         Scanner sc=new Scanner(System.in);
+         int num1=sc.nextInt();
+         int num2=sc.nextInt();
+         System.out.println(driver(num1,num2));
+    }
+
+    
+    public static int driver(int num1,int num2)
+    {
+       max=num1>num2?num1:num2;
+
+       return LCM(num1,num2,max);
+    }
+    
+    public static int LCM(int num1,int num2,int temp)
+    {
+       if((temp%num1)==0 && (temp%num2)==0)
+          return temp;
+          
+       return LCM(num1,num2,temp+max);
+    }
+}
 
 
