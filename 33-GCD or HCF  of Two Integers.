@@ -1,0 +1,53 @@
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) 
+    {
+         Scanner sc=new Scanner(System.in);
+         int num1=sc.nextInt();
+         int num2=sc.nextInt();
+          System.out.println(HCF(num1,num2));
+    }
+    
+    public static int HCF(int num1,int num2)
+    {
+        int minNum=Math.min(num1,num2);
+        int temp=minNum;
+        while(true)
+        {
+            if((num1%temp)==0 && (num2%temp)==0)
+               return temp;        
+            temp=temp-1;
+        }
+    }
+}
+
+
+//Improved Iterative Approach
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) 
+    {
+         Scanner sc=new Scanner(System.in);
+         int num1=sc.nextInt();
+         int num2=sc.nextInt();
+          System.out.println(HCF(num1,num2));
+    }
+    
+    
+    public static int HCF(int num1,int num2)
+    {
+        int minNum=Math.min(num1,num2);
+        
+        if(Math.max(num1,num2)%minNum==0)
+          return minNum;
+        
+        for(int temp=(minNum/2);temp>1;temp--)
+          if((num1%temp)==0 && (num2%temp)==0)
+              return temp;
+              
+        return 1;
+    }
+}
