@@ -1,3 +1,5 @@
+//Iterative Approach
+
 import java.util.Scanner;
 class Test
 {
@@ -13,6 +15,7 @@ class Test
     {
         int minNum=Math.min(num1,num2);
         int temp=minNum;
+        
         while(true)
         {
             if((num1%temp)==0 && (num2%temp)==0)
