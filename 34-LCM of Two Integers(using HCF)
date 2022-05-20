@@ -11,9 +11,9 @@ class Test
     
     public static int LCM(int num1,int num2)
     {
-	    int HCF=GCD(num1,num2);
-	    int lcm=(num1*num2)/HCF;
-	    return lcm;
+     	int HCF=GCD(num1,num2);
+	int lcm=(num1*num2)/HCF;
+	return lcm;
     }
 	
     public static int GCD(int divisor,int dividend)
