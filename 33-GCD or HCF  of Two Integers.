@@ -90,5 +90,55 @@ class Test
 }
 
 
-//Optimal Approach :
+//Optimal Approach :(Euclidean algorithm)
 
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        int num1=sc.nextInt();
+        int num2=sc.nextInt();
+        System.out.println(GCD(num1,num2));
+    }
+    
+    
+    public static int driver(int num1,int num2)
+    {
+       return GCD(Math.min(num1,num2),Math.max(num1,num2));
+    }
+	
+    public static int GCD(int divisor,int dividend)
+    {
+        int rem=dividend%divisor;
+	if(rem==0)
+	   return divisor;
+	      
+	return GCD(rem,divisor);      
+    }
+}
+
+
+//Aliter (Compressed Version)
+
+import java.util.Scanner;
+class Test
+{
+    public static void main(String[] args) 
+    {
+       Scanner sc=new Scanner(System.in);
+       int num1=sc.nextInt();
+       int num2=sc.nextInt();
+       System.out.println(GCD(num1,num2));
+    }
+
+    public static int GCD(int divisor,int dividend)
+    {
+        int rem=dividend%divisor;
+	if(rem==0)
+	   return divisor;
+	      
+	return GCD(rem,divisor);      
+    }
+}
