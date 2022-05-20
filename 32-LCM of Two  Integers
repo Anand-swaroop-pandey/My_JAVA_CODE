@@ -4,23 +4,23 @@
    num1=4
    num2=8
    
-   Muntiples of 4 :  4 , 8 , 12 , 16 , 20 , 24 , 28 , 32 , 36 , 40 , 44 , 48 , 52 , 56 , 60 , 64....
-   Muntiples of 8 :  8 , 16 , 24 , 32 , 40 , 48 , 56 , 64 , 72 , 80 , 88 , 96 , 104 , 112 , 120 , 128 .....
+   Multiples of 4 :  4 , 8 , 12 , 16 , 20 , 24 , 28 , 32 , 36 , 40 , 44 , 48 , 52 , 56 , 60 , 64....
+   Multiples of 8 :  8 , 16 , 24 , 32 , 40 , 48 , 56 , 64 , 72 , 80 , 88 , 96 , 104 , 112 , 120 , 128 .....
   
-   Common Muntiples of 4 and 8 : 8 ,16 ,24 ,32 ,40 ,48....
+   Common Multiples of 4 and 8 : 8 ,16 ,24 ,32 ,40 ,48....
   
-   Least Common Muntiple of 4 and 8 : 8
+   Least Common Multiple of 4 and 8 : 8
 
    Ex 2:
    num1=8
    num2=12
   
-   Muntiples of 8 :  8 , 16 , 24 , 32 , 40 , 48 , 56 , 64 , 72 , 80 , 88 , 96 , 104 , 112 , 120 , 128 .....
-  Muntiples of 12 : 12 , 24 , 36 , 48 , 60 , 72 , 84 , 96 , 108 , 120 , 132 , 144 , 156 , 168 , 180 , 192 ....
+   Multiples of 8 :  8 , 16 , 24 , 32 , 40 , 48 , 56 , 64 , 72 , 80 , 88 , 96 , 104 , 112 , 120 , 128 .....
+  Multiples of 12 : 12 , 24 , 36 , 48 , 60 , 72 , 84 , 96 , 108 , 120 , 132 , 144 , 156 , 168 , 180 , 192 ....
   
-  Common Muntiples of 8 and 12 : 24 ,48 ,72 ,96 ,120....
+  Common Multiples of 8 and 12 : 24 ,48 ,72 ,96 ,120....
   
-  Least Common Muntiple of 8 and 12 : 24
+  Least Common Multiple of 8 and 12 : 24
   
 */
 
@@ -39,7 +39,7 @@ class Test
     
     public static int LCM(int num1,int num2)
     {
-       int maxNum=(num1>num2)?num1:num2;
+       int maxNum=Math.max(num1,num2);
        int temp=maxNum;
        
        while(true)
@@ -105,7 +105,7 @@ class Test
     public static int driver(int num1,int num2)
     {
        int maxNum=Math.max(num1,num2);
-       int minNum=Math.max(num1,num2);
+       int minNum=Math.min(num1,num2);
        
        return LCM(minNum,maxNum,maxNum);
     }
