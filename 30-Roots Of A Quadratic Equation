@@ -10,43 +10,36 @@ class Test
          Double c=sc.nextDouble();
          Roots(a,b,c);
     }
+    
+    
     public static void Roots(double a,double b,double c)
     {
         System.out.println("Resultant Quadratic Equation is :");
         System.out.printf("%.2f*X^X + %.2f*X + %.2f\n",a,b,c);
 
        double determinant = (b * b) - (4 * a * c);
+       
+       if (determinant > 0) 
+       {
 
-    // check if determinant is greater than 0
-    if (determinant > 0) 
-    {
+          // two real and distinct roots
+          double root1=(-b + Math.sqrt(determinant)) / (2 * a);
+          double root2=(-b - Math.sqrt(determinant)) / (2 * a);
 
-      // two real and distinct roots
-      double root1=(-b + Math.sqrt(determinant)) / (2 * a);
-      double root2=(-b - Math.sqrt(determinant)) / (2 * a);
-
-      System.out.printf("root1 = %.2f and root2 = %.2f", root1, root2);
-    }
-
-    // check if determinant is equal to 0
-    else if (determinant == 0) 
-    {
-
-      // two real and equal roots
-      // determinant is equal to 0
-     
-      double  root=-b / (2 * a);
-      System.out.printf("root1 = root2 = %.2f;", root);
-    }
-
-    // if determinant is less than zero
-    else 
-    {
-
-      // roots are complex number and distinct
-      System.out.printf("root1 = %.2f+i%.2f\n",-(b / (2 * a)),Math.sqrt(-determinant) / (2 * a));
-      System.out.printf("root2 = %.2f-i%.2f",-(b / (2 * a)),Math.sqrt(-determinant) / (2 * a));
-    }
+          System.out.printf("root1 = %.2f and root2 = %.2f", root1, root2);
+       }
+       else if (determinant == 0)
+       {
+         // two real and equal roots
+         double  root=-b / (2 * a);
+         System.out.printf("root1 = root2 = %.2f;", root);
+       }
+       else // if determinant is less than zero
+       {
+          // roots are complex number and distinct
+          System.out.printf("root1 = %.2f+i%.2f\n",-(b / (2 * a)),Math.sqrt(-determinant) / (2 * a));
+          System.out.printf("root2 = %.2f-i%.2f",-(b / (2 * a)),Math.sqrt(-determinant) / (2 * a));
+       }
     
     }
 }
