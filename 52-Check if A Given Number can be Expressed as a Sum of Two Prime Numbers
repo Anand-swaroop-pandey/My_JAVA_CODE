@@ -1,5 +1,60 @@
 import java.util.Scanner;
-import java.lang.Math;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+           sumPrime(n);
+	} 
+    
+    
+        public static void sumPrime(int num)
+	{
+           int i=2;//prime number starts from 2
+           while(i<=(num-2))
+           {
+             if(isPrime(num-i))
+               System.out.printf("%d + %d = %d\n",i,num-i,num);
+             
+             i=nextPrime(i);
+           }
+	}
+	
+	public static boolean isPrime(int num)
+	{
+	  int sqrt=(int)Math.sqrt(num);   
+          for(int i=2;i<=sqrt;i++)
+            if((num%i)==0)
+              return false;
+            
+          return true;
+	}
+	
+	public static int nextPrime(int num)
+	{
+	   num=num+1;
+	   while(true)
+	    if(isPrime(num))
+              return num;
+	    else 
+              num++;
+	}
+}
+/*
+num=34
+
+3 + 31 = 34
+5 + 29 = 34
+11 + 23 = 34
+17 + 17 = 34
+23 + 11 = 34
+29 + 5 = 34
+31 + 3 = 34
+*/
+
+
+//Optimal Approach
+import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
@@ -20,6 +75,7 @@ public class Test
             }
 	}
 	
+	
 	public static boolean isPrime(int num)
 	{
           for(int i=2;i<=Math.sqrt(num);i++)//for(int i=2;(i*i)<=num;i++)
@@ -27,6 +83,7 @@ public class Test
                return false;
           return true;
 	}
+	
 	
 	public static int nextPrime(int num)
 	{
@@ -38,3 +95,12 @@ public class Test
                 num++;
 	}
 }
+
+/*
+num=34
+
+3 + 31 = 34
+5 + 29 = 34
+11 + 23 = 34
+17 + 17 = 34
+*/
