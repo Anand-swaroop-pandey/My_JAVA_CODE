@@ -8,12 +8,12 @@ class Test
          Double a=sc.nextDouble();
          Double b=sc.nextDouble();
          Double c=sc.nextDouble();
-          Roots(a,b,c);
+         Roots(a,b,c);
     }
     public static void Roots(double a,double b,double c)
     {
         System.out.println("Resultant Quadratic Equation is :");
-        System.out.printf("%.2f*X*X + %.2f*X + %.2f\n",a,b,c);
+        System.out.printf("%.2f*X^X + %.2f*X + %.2f\n",a,b,c);
 
        double determinant = (b * b) - (4 * a * c);
 
