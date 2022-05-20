@@ -68,15 +68,16 @@ class Test
        System.out.println(driver(num1,num2));
     }
     
+    
     public static int driver(int num1,int num2)
-	{
+    {
        int minNum=Math.min(num1,num2); 
        
        if(Math.max(num1,num2)%minNum==0)
           return minNum;
           
        return HCF(num1,num2,minNum/2);
-	}
+    }
 	
 	
     public static int HCF(int num1,int num2,int temp)
