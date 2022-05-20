@@ -1,0 +1,32 @@
+/*
+A palindrome number is a number that is same after reverse. For example 121, 34543, 343, 131, 48984 are the palindrome numbers.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  int num=sc.nextInt();
+          System.out.println(isPalindrome(num));
+	} 
+    
+        public static boolean isPalindrome(int num)
+	{
+          if(reverse(num)==num)
+            return true;
+          else 
+            return false;
+	}
+	
+	public static int reverse(int num,int rev)
+        {
+	   int rev=0;
+	   while(num!=0)
+	   {
+	     rev=rev*10+num%10;
+	     num=num/10;
+	   }
+           return rev;
+        }
+}
