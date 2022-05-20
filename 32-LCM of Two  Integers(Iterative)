@@ -11,8 +11,6 @@
   
    Least Common Muntiple of 4 and 8 : 8
 
-
-
    Ex 2:
    num1=8
    num2=12
@@ -72,7 +70,7 @@ class Test
     public static int LCM(int num1,int num2)
     {
        int maxNum=Math.max(num1,num2);
-       int minNum=Math.max(num1,num2);
+       int minNum=Math.min(num1,num2);
        int temp=maxNum;
        
        while(true)
@@ -90,10 +88,44 @@ class Test
 
 //Recurssive Approach
 
+
 import java.util.Scanner;
 class Test
 {
-    static int max;
+
+    public static void main(String[] args) 
+    {
+         Scanner sc=new Scanner(System.in);
+         int num1=sc.nextInt();
+         int num2=sc.nextInt();
+         System.out.println(driver(num1,num2));
+    }
+
+    
+    public static int driver(int num1,int num2)
+    {
+       int maxNum=Math.max(num1,num2);
+       int minNum=Math.max(num1,num2);
+       
+       return LCM(minNum,maxNum,maxNum);
+    }
+    
+    public static int LCM(int min,int max,int temp)
+    {
+        if((temp%min)==0)
+          return temp;
+        
+        return LCM(min,max,temp+max);
+    }
+}
+
+
+//Another Implementation
+
+import java.util.Scanner;
+class Test
+{
+    static int maxNum,minNum;
     
     public static void main(String[] args) 
     {
@@ -106,18 +138,17 @@ class Test
     
     public static int driver(int num1,int num2)
     {
-       max=num1>num2?num1:num2;
-
-       return LCM(num1,num2,max);
+       maxNum=Math.max(num1,num2);
+       minNum=Math.min(num1,num2);
+       
+       return LCM(maxNum);
     }
     
-    public static int LCM(int num1,int num2,int temp)
+    public static int LCM(int temp)
     {
-       if((temp%num1)==0 && (temp%num2)==0)
+        if((temp%minNum)==0)
           return temp;
           
-       return LCM(num1,num2,temp+max);
+        return LCM(temp+maxNum);
     }
 }
-
-
