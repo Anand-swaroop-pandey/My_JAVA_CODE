@@ -1,50 +1,109 @@
-//Given a number n, print all primes smaller than or equal to n. It is also given that n is a small number. 
+//Bruteforce Approach
+
 import java.util.Scanner;
-import java.lang.Math;
-import java.util.Arrays;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
-        isPrime1(n);
-        isPrime2(n);
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+           isPrime(n);
+	} 
+
+	public static void isPrime(int n)
+	{
+	   if(n<2)
+	   {
+	     System.out.println("No Prime Numbers Exists within the Range of 0 to %d(both Inclusive)");
+	     return;    
+	   }
+	   
+	   int len=(n+1);
+           boolean isPrime[]=new boolean[len];
+           for(int i=2;i<len;i++)
+             isPrime[i]=true;
+          
+           for(int num=2;num<=n;num++)
+             if(isPrime[num]==true)
+                for(int mark=(num*2);mark<len;mark+=num)
+                    isPrime[mark]=false;
+                
+           System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
+           for(int i=2;i<len;i++)
+             if(isPrime[i]==true)
+                System.out.println(i);
+	}
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+           isPrime(n);
+	} 
+
+	public static void isPrime(int n)
+	{
+           if(n<2)
+	   {
+	     System.out.println("No Prime Numbers Exists within the Range of 0 to %d(both Inclusive)");
+	     return;    
+	   }
+	   
+	   int len=(n+1);
+           boolean isPrime[]=new boolean[len];
+           for(int i=2;i<len;i++)
+             isPrime[i]=true;
+          
+           for(int num=2;num<=(n/2);num++)
+           if(isPrime[num]==true)
+              for(int mark=(num*2);mark<len;mark+=num)
+                isPrime[mark]=false;
+                
+           System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
+           for(int i=2;i<len;i++)
+            if(isPrime[i]==true)
+               System.out.println(i);
+	}
+}
+
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+           isPrime(n);
 	} 
 	
-	//Bruteforce Approach
-	public static void isPrime1(int n)
+
+	public static void isPrime(int n)
 	{
-	    int len=(n+1);
-       boolean isPrime[]=new boolean[len];
-       for(int i=2;i<len;i++)
-          isPrime[i]=true;
+	   if(n<2)
+	   {
+	     System.out.println("No Prime Numbers Exists within the Range of 0 to %d(both Inclucive)");
+	     return;    
+	   }
+	   
+	   int len=(n+1);
+           boolean isPrime[]=new boolean[len];
+           for(int i=2;i<len;i++)
+            isPrime[i]=true;
           
-       for(int num=2;num<=(n/2);num++)
-         if(isPrime[num]==true)
-             for(int mark=(num*2);mark<len;mark+=num)
-                isPrime[mark]=false;
+           for(int num=2;num<=Math.sqrt(n);num++)
+             if(isPrime[num]==true)
+               for(int mark=(num*num);mark<len;mark+=num)
+                 isPrime[mark]=false;
                 
-       System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
-       for(int i=2;i<len;i++)
-         if(isPrime[i]==true)
-            System.out.println(i);
-	}
-	
-	//Optimal Approach
-	public static void isPrime2(int n)
-	{
-	    int len=(n+1);
-       boolean isPrime[]=new boolean[len];
-        Arrays.fill(isPrime,true);
-          
-       for(int num=2;num<=Math.sqrt(n);num++)
-         if(isPrime[num]==true)
-             for(int mark=(num*num);mark<len;mark+=num)
-                isPrime[mark]=false;
-                
-       System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
-       for(int i=2;i<len;i++)
-         if(isPrime[i]==true)
-            System.out.println(i);
+           System.out.printf("Prime Numbers within the Range of 0 to %d(both Inclucive) are :\n",n);
+           for(int i=2;i<len;i++)
+             if(isPrime[i]==true)
+                System.out.println(i);
 	}
 }
