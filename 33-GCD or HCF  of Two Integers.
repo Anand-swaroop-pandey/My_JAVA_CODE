@@ -1,3 +1,14 @@
+/*
+   H.C.F(16,48)
+   
+   Factors of 16 = 1 ,2 ,4 ,8 , 16 .
+   Factors of 48 = 1 ,2 ,3 ,4 ,6 ,8 ,12 ,16 ,24
+   
+   Common Factors of 16 and 48 : 1 ,2 ,4 ,8 ,16
+   
+   Highest Common Factor : 16
+*/
+
 //Iterative Approach
 
 import java.util.Scanner;
@@ -100,7 +111,7 @@ class Test
         Scanner sc=new Scanner(System.in);
         int num1=sc.nextInt();
         int num2=sc.nextInt();
-        System.out.println(GCD(num1,num2));
+        System.out.println(driver(num1,num2));
     }
     
     
