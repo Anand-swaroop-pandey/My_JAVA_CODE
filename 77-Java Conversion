@@ -36,188 +36,188 @@ public class Main
 	public static void StringToIntegerFunction()
 	{
 	    //The parseInt() is the static method of Integer class. The signature of parseInt() method is given below:
-        //public static int parseInt(String s) 
-        String s="200";  
-        int i=Integer.parseInt(s);  
-        System.out.println(i);  
+           //public static int parseInt(String s) 
+           String s="200";  
+           int i=Integer.parseInt(s);  
+           System.out.println(i);  
 	}
 	
 	public static void IntegerToStringFunctions()
 	{
-       //The valueOf() is the static method of String class. The signature of valueOf() method is given below:
-      //public static String valueOf(int i) 
-      //The String.valueOf() is an overloaded method.
-       int i=200;  
-       String s=String.valueOf(i);  
-       System.out.println(s+100);
+           //The valueOf() is the static method of String class. The signature of valueOf() method is given below:
+          //public static String valueOf(int i) 
+          //The String.valueOf() is an overloaded method.
+          int i=200;  
+          String s=String.valueOf(i);  
+          System.out.println(s+100);
        
-      //The toString() is the static method of Integer class. The signature of toString() method is given below:
-      //public static String toString(int i)  
-      int j=200;  
-      String s1=Integer.toString(j);  
-      System.out.println(s1+100);
+          //The toString() is the static method of Integer class. The signature of toString() method is given below:
+          //public static String toString(int i)  
+          int j=200;  
+          String s1=Integer.toString(j);  
+          System.out.println(s1+100);
  	}
  	
  	public static void StringToLongFunction()
 	{
-      //The parseLong() is the static method of Long class. The signature of parseLong() method is given below:
-      //public static long parseLong(String s)
-      String s="9990449935";  
-      long l=Long.parseLong(s);  
-      System.out.println(l);  
+           //The parseLong() is the static method of Long class. The signature of parseLong() method is given below:
+           //public static long parseLong(String s)
+           String s="9990449935";  
+           long l=Long.parseLong(s);  
+           System.out.println(l);  
  	}
  	
  	public static void LongToStringFunctions()
 	{
-     //The valueOf() is the static method of String class. The signature of valueOf() method is given below:
-     //public static String valueOf(long i) 
-     // The String.valueOf() is an overloaded method.
-     long i=9993939399L;  
-     String s=String.valueOf(i);  
-     System.out.println(s);  
+            //The valueOf() is the static method of String class. The signature of valueOf() method is given below:
+           //public static String valueOf(long i) 
+          // The String.valueOf() is an overloaded method.
+           long i=9993939399L;  
+           String s=String.valueOf(i);  
+           System.out.println(s);  
      
-     //The toString() is the static method of Long class. The signature of toString() method is given below:
-     //public static String toString(long i)
-     long j=9993939399L;  
-     String s1=Long.toString(j);  
-     System.out.println(s1); 
+         //The toString() is the static method of Long class. The signature of toString() method is given below:
+        //public static String toString(long i)
+          long j=9993939399L;  
+          String s1=Long.toString(j);  
+          System.out.println(s1); 
 	}
 	
 	public static void StringToFloatFunction()
 	{
-      //The parseFloat() is the static method of Float class. The signature of parseFloat() method is given below:
-      //public static int parseFloat(String s)  
-      String s="23.6";  
-      float f=Float.parseFloat("23.6");  
-      System.out.println(f);
+           //The parseFloat() is the static method of Float class. The signature of parseFloat() method is given below:
+          //public static int parseFloat(String s)  
+          String s="23.6";  
+          float f=Float.parseFloat("23.6");  
+          System.out.println(f);
  	}
  	
  	public static void floatToStringFunctions()
 	{
-         //The valueOf() is the static method of String class. The signature of valueOf() method for the float conversion is given below:
-         //public static String valueOf(float f)
-         // The String.valueOf() is an overloaded method.
-         float f=12.3F;//F is the suffix for float  
-         String s=String.valueOf(f);  
-         System.out.println(s); 
+          //The valueOf() is the static method of String class. The signature of valueOf() method for the float conversion is given below:
+          //public static String valueOf(float f)
+          // The String.valueOf() is an overloaded method.
+	   float f=12.3F;//F is the suffix for float 
+           String s=String.valueOf(f);  
+           System.out.println(s); 
          
-         //The toString() is the static method of Float class. The signature of toString() method is given below:
-        //public static String toString(float f)  
-        float f1=89.7F;  
-        String s1=Float.toString(f1);  
-        System.out.println(s1);  
+          //The toString() is the static method of Float class. The signature of toString() method is given below:
+          //public static String toString(float f)  
+          float f1=89.7F;  
+          String s1=Float.toString(f1);  
+          System.out.println(s1);  
 	}
 	
 	public static void StringToDoubleFunction()
 	{
-       //The parseDouble() is the static method of Double class. The signature of parseDouble() method is given below:
-       //public static double parseDouble(String s)  
-       String s="23.6";  
-       double d=Double.parseDouble("23.6");  
-       System.out.println(d);  
+          //The parseDouble() is the static method of Double class. The signature of parseDouble() method is given below:
+          //public static double parseDouble(String s)  
+          String s="23.6";  
+          double d=Double.parseDouble("23.6");  
+          System.out.println(d);  
  	}
  	
  	public static void DoubleToStringFunctions()
 	{
-        //The valueOf() is the static method of String class. The signature of valueOf() method for the double conversion is given below:
-       //public static String valueOf(double d)  
-      // The String.valueOf() is an overloaded method.
-       double d=12.3;  
-       String s=String.valueOf(d);  
-       System.out.println(s);
+          //The valueOf() is the static method of String class. The signature of valueOf() method for the double conversion is given below:
+          //public static String valueOf(double d)  
+          // The String.valueOf() is an overloaded method.
+          double d=12.3;  
+          String s=String.valueOf(d);  
+          System.out.println(s);
        
-       //The toString() is the static method of Double class. The signature of toString() method is given below:
-       //public static String toString(double d)  
-       double d1=89.7;  
-       String s1=Double.toString(d1);  
-       System.out.println(s1);  
+         //The toString() is the static method of Double class. The signature of toString() method is given below:
+         //public static String toString(double d)  
+          double d1=89.7;  
+          String s1=Double.toString(d1);  
+          System.out.println(s1);  
 	}
 
 	public static void StringToboolean()
 	{
 	  // The parseBoolean() is the static method of Boolean class. The signature of parseBoolean() method is given below:
-      //public static int parseBoolean(String s)   
-         String s1="true";  
-         String s2="TRue";  
-         String s3="ok";  
-         boolean b1=Boolean.parseBoolean(s1);  
-         boolean b2=Boolean.parseBoolean(s2);  
-         boolean b3=Boolean.parseBoolean(s3);  
-         System.out.println(b1);  
-         System.out.println(b2);  
-         System.out.println(b3);
+          //public static int parseBoolean(String s)   
+           String s1="true";  
+           String s2="TRue";  
+           String s3="ok";  
+           boolean b1=Boolean.parseBoolean(s1);  
+           boolean b2=Boolean.parseBoolean(s2);  
+           boolean b3=Boolean.parseBoolean(s3);  
+           System.out.println(b1);  
+           System.out.println(b2);  
+           System.out.println(b3);
 	}
 	
 	public static void booleanToString()
-    {
-      //The valueOf() is the static method of String class. The signature of valueOf() method is given below:
-      //public static String valueOf(boolean b)
-      boolean b1=true;  
-      boolean b2=false;  
-      String s1=String.valueOf(b1);  
-      String s2=String.valueOf(b2);  
-      System.out.println(s1);  
-      System.out.println(s2);  
+        {
+          //The valueOf() is the static method of String class. The signature of valueOf() method is given below:
+         //public static String valueOf(boolean b)
+         boolean b1=true;  
+         boolean b2=false;  
+         String s1=String.valueOf(b1);  
+         String s2=String.valueOf(b2);  
+         System.out.println(s1);  
+         System.out.println(s2);  
       
-      //The toString() is the static method of Boolean class. The signature of toString() method is given below:
-      //public static String toString(boolean b)  
-      boolean b3=true;  
-     boolean b4=false;  
-     String s3=Boolean.toString(b3);  
-     String s4=Boolean.toString(b4);  
-     System.out.println(s3);  
-     System.out.println(s4);  
-    }  
+         //The toString() is the static method of Boolean class. The signature of toString() method is given below:
+         //public static String toString(boolean b)  
+         boolean b3=true;  
+         boolean b4=false;  
+         String s3=Boolean.toString(b3);  
+         String s4=Boolean.toString(b4);  
+         System.out.println(s3);  
+         System.out.println(s4);  
+       }  
     
     	
 	public static void IntToChar()
 	{
-	    int a=65;  
-        char c=(char)a;  
-        System.out.println(a);  
+	   int a=65;  
+           char c=(char)a;  
+           System.out.println(a);  
 	}
 	
 	public static void CharToInt()
 	{
-	    //Java char to int Example: Get ASCII value
-	    char c1='a';  
-        char c2='1';  
-        int a=c1;  
-        int b=c2;  
-        System.out.println(a);  
-        System.out.println(b);   
+	   //Java char to int Example: Get ASCII value
+	   char c1='a';  
+           char c2='1';  
+           int a=c1;  
+           int b=c2;  
+           System.out.println(a);  
+           System.out.println(b);   
         
-      //Java char to int Example: Character.getNumericValue()
-      char c3='1';  
-      int c=Character.getNumericValue(c3); 
-      System.out.println(c);  
+          //Java char to int Example: Character.getNumericValue()
+          char c3='1';  
+          int c=Character.getNumericValue(c3); 
+          System.out.println(c);  
 	}
 	
 	public static void DoubleToInt()
 	{
 	   double d=10.5;  
-       int i=(int)d;  
-       System.out.println(i);
+           int i=(int)d;  
+           System.out.println(i);
 	}
 	
 	public static void IntToDouble()
 	{
 	   int i=200;  
-       double d=i;  
-       System.out.println(d);  
+           double d=i;  
+           System.out.println(d);  
 	}
 	
 	public static void LongToInt()
 	{
 	  long l=500;  
-      int i=(int)l;  
-      System.out.println(i);  
+          int i=(int)l;  
+          System.out.println(i);  
 	}
 	
 	public static void IntToLong()
 	{
-	    int i=200;  
-       long l=i;  
-       System.out.println(l);
+	   int i=200;  
+           long l=i;  
+           System.out.println(l);
 	}
 }
