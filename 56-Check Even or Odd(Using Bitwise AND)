@@ -1,0 +1,87 @@
+//Method 1 (Using BITWISE AND)
+/*
+The idea is to check whether the last bit of the number is set or not. If last bit is set then the number is odd, otherwise even.
+As we know bitwise AND Operation of the Number by 1 will be 1, If it is odd because the last bit will be already set. Otherwise it will give 0 as output. 
+*/
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    if(isEven(num))
+       System.out.println ("is EVEN");
+    else
+       System.out.println ("is ODD");
+  }
+
+  public static boolean isEven(int num)
+  {
+    if((num&1)==0)
+      return true;
+    else 
+      return false;
+  }
+}
+
+
+//Method 2 (Using BITWISE XOR)
+/*
+The idea is to check whether the last bit of the number is set or not. If the last bit is set then the number is odd, otherwise even. 
+As we know bitwise XOR Operation of the Number by 1 increment the value of the number by 1 if the number is even
+otherwise it decrements the value of the number by 1 if the value is odd.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    if(isEven(num))
+       System.out.println ("is EVEN");
+    else
+       System.out.println ("is ODD");
+  }
+
+  public static boolean isEven(int num)
+  {
+    if((num^1)==(num+1))
+      return true;
+    else //if((num^1)==(num-1))
+      return false; //Number is ODD
+  }
+}
+
+
+//Method 3 (Using BITWISE OR)
+/*
+The idea is to check whether the last bit of the number is set or not. If the last bit is set then the number is odd, otherwise even. 
+As we know bitwise OR Operation of the Number by 1 increment the value of the number by 1 if the number is even
+otherwise the value of the number remains the same/Unchanged, if the value is odd.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    if(isEven(num))
+       System.out.println ("is EVEN");
+    else
+       System.out.println ("is ODD");
+  }
+
+  public static boolean isEven(int num)
+  {
+    if((num^1)==(num+1))
+      return true;
+    else //if((num^1)==num)
+      return false; //Number is ODD
+  }
+}
