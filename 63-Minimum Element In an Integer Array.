@@ -1,0 +1,64 @@
+//Method 1
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   if(n<1)
+	     return;
+	     
+	   int arr[]=new int [n];
+	   
+	   System.out.printf("Ente %d Elements\n",n);
+	   for(int i=0;i<arr.length;i++)
+	     arr[i]=sc.nextInt();
+	     
+	   sc.close();
+	   System.out.println(minElement(arr));
+	}
+	
+	
+	public static int minElement(int arr[])
+        {   
+	    int minIndex=0;
+	    for(int i=1;i<arr.length;i++)
+	      if(arr[i]<arr[minIndex])
+	        minIndex=i;
+		
+	    return arr[minIndex];      
+	}
+}
+
+//Method 2
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   if(n<1)
+	     return;
+	     
+	   int arr[]=new int [n];
+	   
+	   System.out.printf("Ente %d Elements\n",n);
+	   for(int i=0;i<arr.length;i++)
+	     arr[i]=sc.nextInt();
+	     
+	   sc.close();
+	   System.out.println(minElement(arr));
+	}
+	
+	
+	public static int minElement(int arr[])
+        {   
+           Arrays.sort(arr);
+	   return arr[0];       
+	}
+}
