@@ -1,0 +1,64 @@
+/*
+A number is called an automorphic number if and only if the square of the given number ends with the same number itself.
+For example, 25, 76 are automorphic numbers because their square is 625 and 5776, respectively and the last two digits of the square represent the number itself.
+Some other automorphic numbers are 5, 6, 36, 890625, etc.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    
+	    if(isAutomorphic(n))
+	       System.out.println("is Automorphic");
+  	    else
+	       System.out.println("is not Automorphic");
+	}
+	
+
+	public static boolean isAutomorphic(int num)
+	{
+	    int countDigits=(int)Math.ceil(Math.log10(num));
+	    long sqr=num*num;
+	    int temp=(int)(sqr % (int)Math.pow(10,countDigits));
+	    if(temp==num)
+	      return true;
+	    else
+	      return false;
+	}
+}
+
+//optimal(using BigInteger Class)
+
+import java.util.Scanner;
+import java.math.BigInteger;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    
+	    if(isAutomorphic(n))
+	       System.out.println("is Automorphic");
+	    else
+	       System.out.println("is not Automorphic");
+	}
+	
+	
+	public static boolean isAutomorphic(int num)
+	{
+	    BigInteger sqr=BigInteger.valueOf(num).multiply(BigInteger.valueOf(num));
+	    BigInteger temp=BigInteger.valueOf((int)Math.pow(10,(int)Math.ceil(Math.log10(num))));
+	    BigInteger res=sqr.remainder(temp); 
+	    int result=res.compareTo(BigInteger.valueOf(num));
+	    
+	    if(result==0)
+	      return true;
+	    else
+	      return false;
+	}
+}
