@@ -1,0 +1,89 @@
+//Bruteforce Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   Scanner sc=new Scanner(System.in);
+	   int x=sc.nextInt(); //x>=0 && x<=9
+	   int y=sc.nextInt(); //y>=0 && y<=9
+	   int num=sc.nextInt();
+	   System.out.println(replace(x,y,num));
+	}
+    
+	
+	public static int replace(int x,int y,int num)
+	{
+	   if(num==0 && x==0)
+	     return y;
+	     
+	   return reverse(modifiedReverse(num,x,y));
+	}
+	
+	
+        public static int modifiedReverse(int num,int x,int y)
+        {
+          int rev=0;
+          while(num!=0)
+          {
+            int rem=num%10;
+            if(rem==x)
+              rem=y;
+        
+            rev=rev*10+rem;  
+            num=num/10;
+          }
+      
+         return rev;
+        }
+    
+    
+       public static int reverse(int num)
+       {
+         int rev=0;
+         while(num!=0)
+         {
+           rev=rev*10+num%10;  
+           num=num/10;
+         }
+	 
+         return rev;
+       }
+} 
+
+
+//Optimal Method
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   Scanner sc=new Scanner(System.in);
+	   int x=sc.nextInt();
+	   int y=sc.nextInt();
+	   int num=sc.nextInt();
+	   System.out.println(replace(x,y,num));
+	}
+    
+	
+	public static int replace(int x,int y,int num)
+	{
+	    if(num==0 && x==0)
+	       return y;
+	       
+	    int sum=0;
+	    int placeValue=1;
+	    while(num!=0)
+	    {
+	        int rem=num%10;
+	        if(rem==x)
+                  rem=y;
+              
+	       sum=sum+placeValue*rem;
+	       placeValue=placeValue*10;
+	       num=num/10;
+	    }
+	   return sum;  
+	}
+}
