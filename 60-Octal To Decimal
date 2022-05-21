@@ -1,0 +1,46 @@
+//Method 1
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    int oct= sc.nextInt();
+    System.out.println (octToDec(oct));
+  }
+ 
+  public static long octToDec(int oct)
+  {
+      if(oct==0)
+        return 0;
+        
+      long sum=0,powerOf8=1; //8^0 =1
+      while(oct!=0)
+      {
+        int rem=oct%10;
+        sum+=rem*powerOf8;
+        oct=oct/10;
+        powerOf8=powerOf8*8;
+      }
+      return sum;
+  }
+}
+
+//Method 2 (using Inbuilt Method)
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    int oct= sc.nextInt();
+    System.out.println (octToDec(oct));
+  }
+  
+  public static long octToDec(int oct)
+  {
+    return Integer.parseInt(Integer.toString(oct),8);  
+  }
+}
