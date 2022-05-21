@@ -1,31 +1,30 @@
+//Method 1
+
 import java.util.Scanner;
 public class Test
 {
   public static void main (String[]args)
   {
-
     Scanner sc = new Scanner (System.in);
     int num= sc.nextInt();
     System.out.println (decToOct(num));
-    System.out.println (decToOct1(num));
   }
  
-  //Method 1
   public static String decToOct(int dec)
   {
       String res="";
-        if(dec==0)
-        {
-          res=res+dec;
-          return res;
-        }
+      if(dec==0)
+      {
+         res=res+dec;
+         return res;
+      }
        
-        while(dec!=0)
-        {
-         int rem=dec%8;
-         res=res+rem;
-         dec=dec/8;
-        }
+      while(dec!=0)
+      {
+        res=res+dec%8;
+        dec=dec/8;
+      }
+      
      return reverse(res);  
   }
   
@@ -36,11 +35,24 @@ public class Test
           rev=rev+str.charAt(i);
       return rev;      
   }
+}
+
   
-  //Method2(inbuilt function)
-  
-  public static String decToOct1(int dec)
+//Method2(inbuilt function)
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
   {
-     return Integer.toOctalString(dec);
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    System.out.println (decToOct(num));
+  }
+ 
+  public static String decToOct(int dec)
+  {
+     return Integer.toOctalString(dec);  
   }
 }
+
