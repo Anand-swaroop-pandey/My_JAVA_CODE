@@ -1,3 +1,5 @@
+// Method 1
+
 import java.util.Scanner;
 public class Test
 {
@@ -7,13 +9,13 @@ public class Test
     Scanner sc = new Scanner (System.in);
     int num= sc.nextInt();
     System.out.println (decToHex(num));
-    System.out.println (decToHex1(num));
   }
  
-  //Method 1
+
   public static String decToHex(int dec)
   {
-      String res="";
+        String res="";
+        
         if(dec==0)
         {
           res=res+dec;
@@ -27,8 +29,11 @@ public class Test
          res=res+hexArray[rem];
          dec=dec/16;
         }
-     return reverse(res);  
+        
+        return reverse(res);  
   }
+  
+  
   public static String reverse(String str)
   {
       String rev="";
@@ -36,11 +41,24 @@ public class Test
           rev=rev+str.charAt(i);
       return rev;      
   }
-  
-  //Method2(inbuilt function)
-  
-  public static String decToHex1(int dec)
+}
+
+//Method 2 (using Inbuilt Method)
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
   {
-     return Integer.toHexString(dec);
+
+    Scanner sc = new Scanner (System.in);
+    int num= sc.nextInt();
+    System.out.println (decToHex(num));
+  }
+ 
+
+  public static String decToHex(int dec)
+  {
+    return Integer.toHexString(dec);
   }
 }
