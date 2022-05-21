@@ -5,7 +5,6 @@ public class Test
 {
   public static void main (String[]args)
   {
-
     Scanner sc = new Scanner (System.in);
     int num= sc.nextInt();
     System.out.println (decToHex(num));
@@ -25,9 +24,9 @@ public class Test
         char hexArray[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'}; 
         while(dec!=0)
         {
-         int rem=dec%16;
-         res=res+hexArray[rem];
-         dec=dec/16;
+          int rem=dec%16;
+          res=res+hexArray[rem];
+          dec=dec/16;
         }
         
         return reverse(res);  
@@ -43,6 +42,7 @@ public class Test
   }
 }
 
+
 //Method 2 (using Inbuilt Method)
 
 import java.util.Scanner;
@@ -50,7 +50,6 @@ public class Test
 {
   public static void main (String[]args)
   {
-
     Scanner sc = new Scanner (System.in);
     int num= sc.nextInt();
     System.out.println (decToHex(num));
