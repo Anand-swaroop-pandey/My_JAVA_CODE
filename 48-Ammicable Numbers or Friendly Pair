@@ -1,0 +1,38 @@
+/*
+Amicable numbers are two different natural numbers related in such a way that the sum of the proper divisors of each is equal to the other number.
+The first ten amicable pairs are: (220, 284), (1184, 1210), (2620, 2924), (5020, 5564), (6232, 6368), (10744, 10856), (12285, 14595), (17296, 18416), (63020, 76084), and (66928, 66992).
+(A proper divisor of a natural number is the divisor that is strictly less than the number. For example, number 20 has 5 proper divisors: 1, 2, 4, 5, 10)
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int num1=sc.nextInt();
+	    int num2=sc.nextInt();
+	    if(AmmicableNumbers(num1,num2))
+	       System.out.println("are AmmicableNumbers");
+	    else
+	       System.out.println("are not AmmicableNumbers");
+	}
+	
+	public static boolean AmmicableNumbers(int num1,int num2)
+	{
+	   int sum1=0;
+	   for(int i=1;i<=(num1/2);i++)
+	     if((num1%i)==0)
+	       sum1+=i;
+	       
+	   int sum2=0;    
+	   for(int i=1;i<=(num2/2);i++)
+	     if((num2%i)==0)
+	       sum2+=i; 
+	       
+	   if((sum1==num2) && (sum2==num1))
+	      return true;
+	   else
+	      return false;   
+	}
+}
