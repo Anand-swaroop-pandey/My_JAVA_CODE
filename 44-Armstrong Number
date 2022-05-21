@@ -13,9 +13,9 @@ public class Test
 	    Scanner sc=new Scanner(System.in);
 	    int n=sc.nextInt();
 	    if(isArmstrong(n))
-		  System.out.println("is Armstrong");
-		else
-		  System.out.println("is not Armstrong");
+	       System.out.println("is Armstrong");
+	    else
+	       System.out.println("is not Armstrong");
 	}
 	
 	
