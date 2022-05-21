@@ -1,0 +1,86 @@
+import java.util.Scanner;
+public class Test 
+{
+     public static void main (String[]args) 
+     {
+        Scanner sc = new Scanner (System.in); 
+        int num = sc.nextInt ();
+        numberToEquivalentWord (num);
+     } 
+ 
+     public static void numberToEquivalentWord (int num) 
+     {
+       if(num==0)
+       {
+         System.out.printf("Zero ");
+         return;
+       }
+        
+       int rev=reverse(num);
+       
+       while(rev!=0)
+       {
+         int rem=rev%10;
+         rev=rev/10;
+        
+        switch (rem)
+        {
+	  
+         case 0:
+         System.out.printf("Zero ");
+         break;
+         
+         case 1:
+	 System.out.printf("One ");
+	 break;
+	     
+	 case 2:
+         System.out.printf("Two ");
+         break;
+         
+         case 3:
+         System.out.printf("Three ");
+         break;
+         
+         case 4:
+         System.out.printf("Four ");
+         break;
+         
+         case 5:
+         System.out.printf("Five ");
+         break;
+         
+	 case 6:
+         System.out.printf("Six ");
+         break;
+         
+	 case 7:
+         System.out.printf("Seven ");
+         break;
+         
+         case 8:
+         System.out.printf("Eight ");
+	     break;
+	     
+         case 9:
+         System.out.printf("Nine ");
+         break;
+         
+         default:
+         System.out.printf("Invalid");
+       }   
+      }
+     }
+     
+     
+     public static int reverse(int num)
+     {
+       int rev=0;
+       while(num!=0)
+       {
+         rev=rev*10+num%10;
+         num=num/10;
+       } 
+       return rev;
+     }
+} 
