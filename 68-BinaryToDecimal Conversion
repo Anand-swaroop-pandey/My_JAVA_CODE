@@ -1,0 +1,151 @@
+/*
+   Ex - (1   0   1   1   0   1   1)
+        2^6 2^5 2^4 2^3 2^2 2^1 2^0
+        
+       (2^6)*1 + (2^5)*0 + (2^4)*1 + (2^3)*1 + (2^2)*0 + (2^1)*1 + (2^0)*1 =  1+2+8+16+64= 91.
+*/
+
+//Method 1 : 
+
+//Bruteforce Implementation
+
+import java.util.Scanner;
+public class Test 
+{
+     public static void main (String[]args) 
+     {
+        Scanner sc = new Scanner (System.in); 
+        int bin=sc.nextInt();
+      
+        System.out.println(binaryToDecimal(bin));
+     } 
+    
+     public static int binaryToDecimal(int bin) 
+     {
+         int count=0,decValue=0;
+         while(bin!=0)
+         {
+           decValue+=(int)Math.pow(2,count) * (bin%10); 
+             
+           bin/=10;
+           count++;
+         }
+         return decValue;
+     }
+}
+
+
+//Better Implementation :
+
+import java.util.Scanner;
+public class Test 
+{
+     public static void main (String[]args) 
+     {
+        Scanner sc = new Scanner (System.in); 
+        int bin=sc.nextInt();
+      
+        System.out.println(binaryToDecimal(bin));
+     } 
+    
+     public static int binaryToDecimal(int bin) 
+     {
+         int count=0;
+         int decValue=0;
+         while(bin!=0)
+         {
+            int rem=bin%10;
+            if(rem==1)
+             decValue+=(int)Math.pow(2,count); 
+             
+            bin/=10;
+            count++;
+         }
+         return decValue;
+     }
+}
+
+
+//Optimal Implementation 
+
+import java.util.Scanner;
+public class Test 
+{
+     public static void main (String[]args) 
+     {
+        Scanner sc = new Scanner (System.in); 
+        int bin=sc.nextInt();
+      
+        System.out.println(binaryToDecimal(bin));
+     } 
+    
+     public static int binaryToDecimal(int bin) 
+     { 
+         int powerOf2=1; //2^0
+         int decValue=0;
+         while(bin!=0)
+         {
+            if((bin%10)==1)
+              decValue+=powerOf2; 
+             
+            powerOf2=(powerOf2*2);
+            bin/=10;
+         }
+         return decValue;
+     }
+}
+
+
+
+//Method 2 (When Input is in the Form Of a String)
+
+import java.util.Scanner;
+public class Test
+{
+     public static void main (String[]args) 
+     {
+    
+        Scanner sc = new Scanner (System.in); 
+        String str= sc.nextLine ();
+      
+        System.out.println(binaryToDecimal(str));
+     } 
+
+
+    public static int binaryToDecimal(String bin)
+    {
+        int dec_value = 0;
+        int powerOf2 =1; // 2^0
+        for (int i=bin.length()-1; i >= 0; i--) 
+        {
+           if (bin.charAt(i)== '1')
+              dec_value +=powerOf2;
+                
+           powerOf2=powerOf2*2;
+        }
+        return dec_value;
+    }
+}
+
+
+    
+//Using inbuilt Method
+import java.util.Scanner;
+public class Test
+{
+     public static void main (String[]args) 
+     {
+    
+        Scanner sc = new Scanner (System.in); 
+        String str= sc.nextLine ();
+      
+        System.out.println(binaryToDecimal(str));
+     } 
+
+
+    public static int binaryToDecimal(String bin)
+    {
+      int dec_value=Integer.parseInt(bin,2); 
+      return dec_value;
+    }
+}
