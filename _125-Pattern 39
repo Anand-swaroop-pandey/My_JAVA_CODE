@@ -17,6 +17,7 @@ public class Test
   {
     pattern39();
   }
+  
   public static void pattern39()
   {
     for (int i = 1; i <= 5; i++)
@@ -65,7 +66,8 @@ public class Test
         int col=(2*row)-1;
         pattern39(row,col);
   }
-   public static void pattern39(int row,int col)
+  
+  public static void pattern39(int row,int col)
   {
     for (int i = 1; i <= row; i++)
       {
