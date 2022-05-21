@@ -1,0 +1,50 @@
+//Method 1
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    String hex= sc.nextLine();
+    System.out.println (hexToDec(hex));
+  }
+ 
+
+  public static long hexToDec(String hex)
+  {
+      if(hex.length()==0)
+        return -1;
+        
+      String res="",digits = "0123456789ABCDEF";
+      long sum=0,powerOf16=1; // 16^0
+      
+      for(int i=hex.length()-1;i>=0;i--)
+      {
+         char ch=hex.charAt(i);
+         int index=digits.indexOf(ch);
+         sum+=(index*powerOf16);
+         powerOf16=powerOf16*16;
+      }
+      
+      return sum;
+  }
+}
+
+//Method2(inbuilt function)  
+
+import java.util.Scanner;
+public class Test
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    String hex= sc.nextLine();
+    System.out.println (hexToDec(hex));
+  }
+ 
+
+  public static int hexToDec(String hex)
+  { 
+    return Integer.parseInt(hex,16);
+  }
+}
