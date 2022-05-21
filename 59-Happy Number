@@ -8,7 +8,7 @@ Ex 1:
 A good way to get started with a question like this is to make a couple of examples. Let's start with the number 7. 
 The next number will be 49 (as 7^2 = 49), and then the next after that will be 97 (as 4^2 + 9^2 = 97)
 We can continually repeat the process of squaring and then adding the digits until we get to 1.
-Because we got to 11, we know that 7 is a happy number, and the function should return true.
+Because we got to 1, we know that 7 is a happy number, and the function should return true.
 
 7 -> 49 -> 97 -> 130 -> 10 -> 1
 
@@ -16,7 +16,7 @@ Because we got to 11, we know that 7 is a happy number, and the function should 
 Ex 2:
 
 As another example, let's start with 116. By repeatedly applying the squaring and adding process, we eventually get to 58,and then a bit after that, we get back to 58. 
-Because we are back at a number we've already seen, we know there is a cycle, and therefore it is impossible to ever reach 11. 
+Because we are back at a number we've already seen, we know there is a cycle, and therefore it is impossible to ever reach 1. 
 So for 116, the function should return false.                         
                      
                           145 - 42  
