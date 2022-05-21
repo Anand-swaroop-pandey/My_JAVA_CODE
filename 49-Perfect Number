@@ -1,0 +1,34 @@
+/*
+A number whose sum of factors (excluding the number itself) is equal to the number is called a perfect number. 
+In other words, if the sum of proper divisors of a number equals the number itself is called a perfect number.
+
+The smallest perfect number is 6, which is the sum of 1, 2, and 3. Other perfect numbers are 28, 496, and 8,128. 
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int num=sc.nextInt();
+	    if(perfectNumber(num))
+	       System.out.println("is a perfectNumber");
+	    else
+	       System.out.println("is not a perfectNumber");
+	}
+	
+	
+	public static boolean perfectNumber(int num)
+	{
+	   int sum=0;
+	   for(int i=1;i<=(num/2);i++)
+	     if((num%i)==0)
+	       sum+=i;
+	       
+	   if(sum==num)
+	      return true;
+	   else
+	      return false;   
+	}
+}
