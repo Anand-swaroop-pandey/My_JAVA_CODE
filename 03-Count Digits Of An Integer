@@ -2,12 +2,15 @@
 
 //Iterative Version
 import java.util.Scanner;
-class Test {
+class Test 
+{
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
          System.out.println(CountDigits(n));
     }
+    
+    
     public static int CountDigits(int num)
     { 
         if(num==0) //0 has 1 Digit
@@ -27,12 +30,15 @@ class Test {
 //Recurssive Version
 
 import java.util.Scanner;
-class Test {
+class Test 
+{
     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          int n=sc.nextInt();
          System.out.println(CountDigits(n));
     }
+    
+    
     public static int CountDigits(int num)
     {
       if(num<10)//Base Case ,Single Digit Number has Only Digit so return 1
@@ -58,6 +64,8 @@ class Test
          int n=sc.nextInt();
          System.out.println(CountDigits(n));
     }
+    
+    
     public static int CountDigits(int num)
     {
         if(num<0)
@@ -78,6 +86,8 @@ class Test
          int n=sc.nextInt();
          System.out.println(CountDigits(n));
     }
+    
+    
     public static int CountDigits(int num)
     {
         if(num<0)
