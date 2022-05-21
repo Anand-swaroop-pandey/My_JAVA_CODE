@@ -1,0 +1,38 @@
+/*
+What is Armstrong of a number?
+
+What is an Armstrong Number? A number is thought of as an Armstrong number if the sum of its own digits raised to the power number of digits gives the number itself. 
+For example, 0, 1, 153, 370, 371, 407 are three-digit Armstrong numbers and, 1634, 8208, 9474 are four-digit Armstrong numbers and there are many more.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    if(isArmstrong(n))
+		  System.out.println("is Armstrong");
+		else
+		  System.out.println("is not Armstrong");
+	}
+	
+	
+	public static boolean isArmstrong(int num)
+	{
+	    int count=(int)Math.ceil(Math.log10(num)); 
+	    int sum=0,temp=num;
+	    while(temp!=0)
+	    {
+	       int rem=temp%10;
+	       sum+=Math.pow(rem,count);
+	       temp=temp/10;
+	    }
+	    
+	    if(num==sum)
+	      return true;
+	    else
+	      return false;
+	}
+}
