@@ -7,8 +7,8 @@ public class Test
        System.out.println("Enter Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-             int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
              
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
@@ -27,31 +27,32 @@ public class Test
             System.out.println("Sorted Array:");
             for(int i=0;i<n;i++)
                 System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
-       
+       }
+       else
+          System.out.println("Invalid Choice");    
    }
 
-    public static void countingSort(int[]arr,int range)//will only work for +ve integers
+   public static void countingSort(int[]arr,int range)//will only work for +ve integers
    {
-       int[] count=new int[range+1];
-       int[] temp=new  int[arr.length];
-       for(int i=0;i<arr.length;i++)
-          count[arr[i]]++;
+        int[] count=new int[range+1];
+        int n=arr.length;
+        int[] temp=new  int[n];
+       
+        for(int i=0;i<n;i++)
+           count[arr[i]]++;
           
-        for(int i=1;i<(count.length);i++)
-           count[i]=count[i]+count[i-1];
+        for(int i=1;i<(range+1);i++)
+           count[i]+=count[i-1];
            
-        for(int i=(arr.length-1);i>=0;i--)
+        for(int i=(n-1);i>=0;i--)
            temp[--count[arr[i]]]=arr[i];
           
-        for(int i=0;i<arr.length;i++)
+        for(int i=0;i<n;i++)
            arr[i]=temp[i];
    }
 }
-/*
 
+/*
  Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be sorted. 
  Consider the situation where the input sequence is between range 1 to 10K and the data is 10, 5, 10K, 5K. 
 */
@@ -66,43 +67,44 @@ public class Test
        System.out.println("Enter Size of the Character Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-             char[] arr=new char[n];
+       {
+           char[] arr=new char[n];
              
            System.out.printf("Enter %d Characters:\n",n);
            for(int i=0;i<n;i++)
-                arr[i]=sc.next().charAt(0);
+              arr[i]=sc.next().charAt(0);
                 
            System.out.println("Entered Characters are:");
-            for(int i=0;i<n;i++)
-                  System.out.println(arr[i]);
+           for(int i=0;i<n;i++)
+               System.out.println(arr[i]);
             
             if(n>1)
-              countingSort(arr,255);//https://www.commfront.com/pages/ascii-chart
+              countingSort(arr,255);   //https://www.commfront.com/pages/ascii-chart
             
             System.out.println("Sorted Array:");
             for(int i=0;i<n;i++)
                 System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
-       
+        }
+        else
+           System.out.println("Invalid Choice");
    }
 
-    public static void countingSort(char[] arr,int range)
+   public static void countingSort(char[] arr,int range)
    {
        int[] count=new int[range+1];
-       char[] temp=new char[arr.length];
-       for(int i=0;i<arr.length;i++)
+       int n=arr.length;
+       char[] temp=new char[n];
+       
+       for(int i=0;i<n;i++)
           count[arr[i]]++;
           
-        for(int i=1;i<(count.length);i++)
-           count[i]=count[i]+count[i-1];
+       for(int i=1;i<(range+1);i++)
+          count[i]+=count[i-1];
            
-        for(int i=(arr.length-1);i>=0;i--)
+       for(int i=(n-1);i>=0;i--)
            temp[--count[arr[i]]]=arr[i];
           
-        for(int i=0;i<arr.length;i++)
+        for(int i=0;i<n;i++)
            arr[i]=temp[i];
    }
 }
