@@ -17,9 +17,10 @@ public class Test {
     public static void main(String[] args) {
         pattern94();
     }
+    
     public static void pattern94()
     {
-        int k=0,
+       int k=0,
        for(int i=1;i<=5;i++)
        {
            System.out.print(data++);
@@ -51,9 +52,11 @@ public class Test {
         int col=row;
         pattern94(row,col);
     }
+    
+    
     public static void pattern94(int row,int col)
     {
-        int k=0,data=1;;
+       int k=0,data=1;;
        for(int i=1;i<=col;i++)
        {
            System.out.print(data++);
