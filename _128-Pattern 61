@@ -17,20 +17,23 @@ public class Test
   {
       pattern61();
   }
-   public static void pattern61()
+  
+  public static void pattern61()
   {
       char data='A';
       for (int i = 1; i <= 5; i++)
       {
-	       for (int j = 1; j <=5; j++)
-	          if(i==1 || i==5 || j==1 || j==5)
+	   for (int j = 1; j <=5; j++)
+	     if(i==1 || i==5 || j==1 || j==5)
                System.out.print("*");
              else
                System.out.print(data++);
+	       
 	    System.out.println ();
       }
   }
 }
+
 
 //Genralised code
 import java.util.Scanner;
@@ -45,16 +48,18 @@ public class Test
      int col=row;
      pattern61(row,col);
   }
-   public static void pattern61(int row,int col)
+  
+  public static void pattern61(int row,int col)
   {
       char data= 'A';
       for (int i = 1; i <= row; i++)
       {
-	       for (int j = 1; j <=col; j++)
-	          if(i==1 || j==1 || i==row || j==row)
+	   for (int j = 1; j <=col; j++)
+	     if(i==1 || j==1 || i==row || j==row)
                System.out.print("*");
              else
                System.out.print(data++);
+	       
 	    System.out.println ();
       }
   }
