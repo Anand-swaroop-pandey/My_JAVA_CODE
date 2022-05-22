@@ -33,6 +33,7 @@ public class Test {
             }
             else
                  System.out.print("*");
+                 
           System.out.println(); 
        }
     }
@@ -44,12 +45,13 @@ import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) {
-    System.out.println("Enter Rows");
-    Scanner sc=new Scanner(System.in);
-    int row=sc.nextInt();
-    int col=row;
-    pattern17(row,col);
+      System.out.println("Enter Rows");
+      Scanner sc=new Scanner(System.in);
+      int row=sc.nextInt();
+      int col=row;
+      pattern17(row,col);
     }
+    
     
     public static void pattern17(int row,int col)
     {
@@ -65,6 +67,7 @@ public class Test {
             }
             else
                  System.out.print("*");
+                 
           System.out.println(); 
        }
     }
