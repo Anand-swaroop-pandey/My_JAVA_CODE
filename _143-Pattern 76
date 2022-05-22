@@ -16,20 +16,21 @@ public class Test
   {
       pattern76();
   }
-   public static void pattern76()
-   {
+  
+  public static void pattern76()
+  {
      for (int i = 1; i <= 4; i++)
-      {
-           int data1=i;
-           int data2=i-1;
-	       for (int j = 1; j <=4; j++)
-	          if(j<=(5-i))
-	            System.out.print(data1++);
-              else
-                System.out.print(data2--);
-	    System.out.println ();
+     {
+        int data1=i,data2=i-1;
+	for(int j = 1; j <=4; j++)
+	   if(j<=(5-i))
+	      System.out.print(data1++);
+           else
+              System.out.print(data2--);
+	      
+	 System.out.println ();
       } 
-   }
+  }
 }
 
 //Genralised code
@@ -44,17 +45,18 @@ public class Test
         int col=row;
         pattern76(row,col);
   }
-   public static void pattern76(int row,int col)
+  
+  public static void pattern76(int row,int col)
   {     
       for (int i = 1; i <= row; i++)
       {
-           int data1=i;
-           int data2=i-1;
-	       for (int j = 1; j <=col; j++)
-	          if(j<=(row+1-i))
-	            System.out.print(data1++);
-              else
-                System.out.print(data2--);
+           int data1=i,data2=i-1;
+	   for(int j = 1; j <=col; j++)
+	       if(j<=(row+1-i))
+	          System.out.print(data1++);
+               else
+                  System.out.print(data2--);
+		  
 	    System.out.println ();
       } 
   }
