@@ -1,0 +1,91 @@
+//Method 1
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   if(n<1)
+	     return;
+	     
+	   int arr[]=new int [n];
+	     
+	   System.out.printf("Enter %d Elements\n",n);
+	   for(int i=0;i<arr.length;i++)
+	      arr[i]=sc.nextInt();
+	      
+	   sc.close();
+	   
+	   int res=secSmallestElement(arr);
+	   if(res!=-1)
+	     System.out.println("Second Smallest Element is "+res);
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	
+	public static int secSmallestElement(int arr[])
+	{
+           int min=Integer. MAX_VALUE,secMin=Integer. MAX_VALUE,n=arr.length;
+           if(n<2)
+             return -1;
+         
+	   for(int i=0;i<n;i++)
+	      if(arr[i]<min)
+	      {
+	         secMin=min;
+	         min=arr[i];
+	      }
+           else if((arr[i]>=min) && (arr[i]<secMin))
+              secMin=arr[i];
+	    
+	   return secMin;       
+	}
+}
+
+
+//Method 2
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   if(n<1)
+	     return;
+	     
+	   int arr[]=new int [n];
+	     
+	   System.out.printf("Enter %d Elements\n",n);
+	   for(int i=0;i<arr.length;i++)
+	      arr[i]=sc.nextInt();
+	      
+	   sc.close();
+	   
+	   int res=secSmallestElement(arr);
+	   if(res!=-1)
+	     System.out.println("Second Smallest Element is "+res);
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	
+	public static int secSmallestElement(int arr[])
+	{
+	    int n=arr.length;
+	    if(n<2)
+              return -1;
+	      
+	    Arrays.sort(arr);
+	    return arr[1];  
+	}
+}
+
+
+
