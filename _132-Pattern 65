@@ -22,19 +22,21 @@ Enter Rows:13
 import java.util.Scanner;
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         pattern65();
     }
+    
     public static void pattern65()
     {
        for(int i=1;i<=13;i++)
        {
-           for(int j=1;j<=13;j++)
-             if(j>=(6-i))
-               System.out.print(i%10);
-             else
-               System.out.print("1");
-            System.out.println();   
+          for(int j=1;j<=13;j++)
+            if(j>=(6-i))
+              System.out.print(i%10);
+            else
+              System.out.print("1");
+              
+           System.out.println();   
        }
     }
 }
@@ -53,6 +55,7 @@ public class Test {
         int col=row;
         pattern65(row,col);
     }
+    
     public static void pattern65(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -62,6 +65,7 @@ public class Test {
                System.out.print(i%10);
              else
                System.out.print("1");
+               
             System.out.println();   
        }
     }
