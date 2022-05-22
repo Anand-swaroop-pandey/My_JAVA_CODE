@@ -15,6 +15,7 @@ public class Test {
     public static void main(String[] args) {
         pattern37();
     }
+    
     public static void pattern37()
     {
        for(int i=1;i<=5;i++)
@@ -25,6 +26,7 @@ public class Test {
                  System.out.print(data++);
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
@@ -42,6 +44,7 @@ public class Main{
         int col=row;
         pattern37(row,col);
     }
+    
     public static void pattern37(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -52,6 +55,7 @@ public class Main{
               System.out.print(data++);
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
