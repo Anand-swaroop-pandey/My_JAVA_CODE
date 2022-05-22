@@ -15,6 +15,7 @@ public class Test {
     public static void main(String[] args) {
         pattern20();
     }
+    
     public static void pattern20()
     {
        for(int i=1;i<=4;i++)
@@ -49,6 +50,7 @@ public class Test {
         int col=(2*row)-1;
         pattern20(row,col);
     }
+    
     public static void pattern20(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -62,10 +64,10 @@ public class Test {
                    data++;
                  else
                    data--;
-             }
-               
+             } 
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
