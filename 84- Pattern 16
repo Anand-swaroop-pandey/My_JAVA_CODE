@@ -21,6 +21,7 @@ public class Test {
         pattern16();
     }
     
+    
     public static void pattern16()
     {
         int k=0;
@@ -42,8 +43,8 @@ public class Test {
     }
 }
 
-//Genralised Code
 
+//Genralised Code
 
 import java.util.Scanner;
 public class Test {
@@ -56,9 +57,10 @@ public class Test {
     pattern16(row,col);
     }
     
+    
     public static void pattern16(int row,int col)
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=row;i++)
        {   
            int m=(row+1)/2;
