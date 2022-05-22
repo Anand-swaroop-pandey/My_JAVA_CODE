@@ -1,4 +1,4 @@
- import java.util.Scanner;
+import java.util.Scanner;
 public class Test 
 {
     public static void main(String[] args) 
@@ -8,15 +8,16 @@ public class Test
         System.out.print("Enter no. of elements you want in array:");
         int n = sc.nextInt();
         
-        int arr[] = new int[n+1];//(n+1)=>to accomodate the new element
+        int arr[] = new int[n+1]; //(n+1)=>to accomodate the new element
         
         System.out.println("Enter all the elements:");
         for(int i = 0; i < n; i++)
-            arr[i] = sc.nextInt();
+           arr[i] = sc.nextInt();
             
         System.out.print("Enter the position where you want to insert element:");
         int pos = sc.nextInt();
-        if(pos>(n+1))//pos>=1 && pos<=(n+1)
+        
+        if(pos>(n+1)) //pos>=1 && pos<=(n+1)
           System.out.println("Invalid Choice");
         else
         {
