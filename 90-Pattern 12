@@ -9,6 +9,7 @@
 *
 
 */
+
 //Figure Specific Code
 import java.util.Scanner;
 public class Test {
@@ -16,24 +17,29 @@ public class Test {
     public static void main(String[] args) {
         pattern12();
     }
+    
+    
     public static void pattern12()
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=7;i++)
        {
            if(i<=4)
              k++;
            else
              k--;
+             
            for(int j=1;j<=4;j++)
             if(j<=k)
                 System.out.print("*");
              else
-                 System.out.print(" ");
+                System.out.print(" ");
+                
           System.out.println(); 
        }
     }
 }
+
 
 
 //Genralised Code
@@ -48,9 +54,11 @@ public class Test {
         int col=(row+1)/2;
         pattern12(row,col);
     }
+    
+    
     public static void pattern12(int row,int col)
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=row;i++)
        {
            int m=(row+1)/2;
@@ -58,11 +66,13 @@ public class Test {
              k++;
            else
              k--;
+             
            for(int j=1;j<=col;j++)
             if(j<=k)
                 System.out.print("*");
              else
-                 System.out.print(" ");
+                System.out.print(" ");
+                
           System.out.println(); 
        }
     }
