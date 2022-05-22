@@ -13,6 +13,8 @@ public class Test {
     public static void main(String[] args) {
         pattern27();
     }
+    
+    
     public static void pattern27()
     {
        for(int i=1;i<=4;i++)
@@ -47,11 +49,13 @@ public class Test {
         int col=(2*row)-1;
         pattern27(row,col);
     }
+    
+    
     public static void pattern27(int row,int col)
     {
        for(int i=1;i<=row;i++)
        { 
-             int data=i;
+          int data=i;
           for(int j=1;j<=col;j++)
              if(j>=(row+1-i) && j<=(row-1+i))
              {
@@ -63,6 +67,7 @@ public class Test {
              }
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
