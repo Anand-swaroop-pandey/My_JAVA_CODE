@@ -29,6 +29,7 @@ public class Test
           System.out.println("Invalid Choice");
    }
 
+
    public static void quickSort(int[]arr,int lb,int ub)
    {
       if(lb<ub)
@@ -39,15 +40,14 @@ public class Test
       }
    }
    
+   
    public static int partition(int[] arr,int lb,int ub)
    {
-     int i=lb;
-     int j=ub;
-     int pivot=arr[lb];
+     int i=lb,j=ub,pivot=arr[lb],n=arr.length;
      
      while(i<j)
      {
-        while(i<(arr.length) && arr[i]<=pivot )
+        while(i<n && arr[i]<=pivot )
           i++;
         while(j>=0 && arr[j]>=pivot)
           j--;
@@ -55,9 +55,9 @@ public class Test
         if(i<j)
          swap(arr,i,j);
      }
-      swap(arr,i,j);
+     swap(arr,i,j);
        
-      return j;  //index of pivot element    
+     return j;  //index of pivot element    
    }
    
     
