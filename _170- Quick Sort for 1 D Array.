@@ -12,18 +12,18 @@ public class Test
              
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
-                arr[i]=sc.nextInt();
+              arr[i]=sc.nextInt();
                 
            System.out.println("Entered Elements are:");
-            for(int i=0;i<n;i++)
-                  System.out.println(arr[i]);
+           for(int i=0;i<n;i++)
+               System.out.println(arr[i]);
             
-            if(n>1)
-            quickSort(arr,0,(n-1));
+           if(n>1)
+             quickSort(arr,0,(n-1));
             
-            System.out.println("Sorted Array:");
-            for(int i=0;i<n;i++)
-                System.out.println(arr[i]);
+           System.out.println("Sorted Array:");
+           for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
         }
         else
           System.out.println("Invalid Choice");
@@ -49,6 +49,7 @@ public class Test
      {
         while(i<n && arr[i]<=pivot )
           i++;
+          
         while(j>=0 && arr[j]>=pivot)
           j--;
           
