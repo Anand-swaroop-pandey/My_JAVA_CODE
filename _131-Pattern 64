@@ -17,7 +17,9 @@ public class Test
   {
       pattern64();
   }
-   public static void pattern64()
+  
+  
+  public static void pattern64()
   {  
      int data=0;
      for (int i = 1; i <= 6; i++)
@@ -26,14 +28,16 @@ public class Test
              data=0;
            else
              data=1;
-	       for (int j = 1; j <=6; j++)
-	          if(j<=i)
-	          {
-	             System.out.print(data +" ");
-	             data=1-data;
-	          }
+	     
+	   for(int j = 1; j <=6; j++)
+	      if(j<=i)
+	      {
+	          System.out.print(data +" ");
+	          data=1-data;
+	      }
               else
                 System.out.print(" ");
+		
 	    System.out.println ();
       } 
   }
@@ -53,7 +57,9 @@ public class Test
         int col=row;
         pattern64(row,col);
   }
-   public static void pattern64(int row,int col)
+  
+  
+  public static void pattern64(int row,int col)
   {
       int data=0;
       for (int i = 1; i <= row; i++)
@@ -62,15 +68,17 @@ public class Test
              data=0;
            else
              data=1;
-	       for (int j = 1; j <=col; j++)
-	          if(j<=i)
-	          {
-	             System.out.print(data +" ");
-	             data=1-data;
-	          }
+	     
+	   for(int j = 1; j <=col; j++)
+	       if(j<=i)
+	       {
+	           System.out.print(data +" ");
+	           data=1-data;
+	       }
               else
                 System.out.print(" ");
-	    System.out.println ();
+		
+	   System.out.println ();
       } 
   }
 }
