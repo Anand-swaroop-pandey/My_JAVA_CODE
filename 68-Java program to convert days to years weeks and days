@@ -9,6 +9,8 @@ public class Test {
         int days = sc.nextInt();
         convert(days);
     }
+
+
     public static void convert(int days)
     {
         int years=(days / 365);
