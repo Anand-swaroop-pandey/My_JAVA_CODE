@@ -16,7 +16,7 @@ public class Test
             
         System.out.print("Enter the position where you want to Delete element:");
         int pos = sc.nextInt();
-        if(pos>n)//pos>=1 && pos<=n
+        if(pos>n)  //pos>=1 && pos<=n
           System.out.println("Invalid Choice");
         else
         {
