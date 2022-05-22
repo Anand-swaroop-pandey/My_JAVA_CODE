@@ -17,16 +17,18 @@ public class Test
   {
       pattern80();
   }
+  
    public static void pattern80()
    {
      for (int i = 1; i <= 5; i++)
       {
            int data=(70-i);
-	       for (int j = 1; j <=5; j++)
-	          if(j<=i)
-	            System.out.print((char)data++ +" ");
-	          else
-                System.out.print(" ");
+	   for(int j = 1; j <=5; j++)
+	       if(j<=i)
+	         System.out.print((char)data++ +" ");
+	       else
+                 System.out.print(" ");
+		 
 	    System.out.println ();
       } 
   }
@@ -41,22 +43,24 @@ public class Test
   public static void main (String[]args)
   {
       Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Rows:");
-        int row = sc.nextInt();
-        int col=row;
-        pattern80(row,col);
+      System.out.print("Enter Rows:");
+      int row = sc.nextInt();
+      int col=row;
+      pattern80(row,col);
   }
+  
    public static void pattern80(int row,int col)
    {
      for (int i = 1; i <= row; i++)
       {
-           int data=(65+row-i);
-	       for (int j = 1; j <=col; j++)
-	          if(j<=i)
-	            System.out.print((char)data++ +" ");
-	          else
+          int data=(65+row-i);
+	  for(int j = 1; j <=col; j++)
+	     if(j<=i)
+	        System.out.print((char)data++ +" ");
+	     else
                 System.out.print(" ");
-	    System.out.println ();
+		
+	    System.out.println();
       } 
   }
 }
