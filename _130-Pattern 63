@@ -31,6 +31,7 @@
 1                           1
 
 */
+
 //Figure Specific Code
 import java.util.Scanner;
 public class Test
@@ -40,7 +41,8 @@ public class Test
   {
       pattern63();
   }
-   public static void pattern63()
+  
+  public static void pattern63()
   {
       int k=0;
       for (int i = 1; i <=29; i++)
@@ -49,14 +51,16 @@ public class Test
            k++;
           else
             k--;
-	       for (int j = 1; j <=29; j++)
-	          if(j==k || j==(12-k))
-	              System.out.print(k%10);
-              else
-                 System.out.print(" ");
-	    System.out.println ();
+	    
+	  for(int j = 1; j <=29; j++)
+	     if(j==k || j==(12-k))
+	       System.out.print(k%10);
+             else
+               System.out.print(" ");
+	       
+	  System.out.println ();
       }
-  }
+   }
 }
 
 
@@ -73,22 +77,25 @@ public class Test
      int col=row;
      pattern63(row,col);
   }
-   public static void pattern63(int row,int col)
+  
+  
+  public static void pattern63(int row,int col)
   {   
-      int k=0;
-      int m=(row+1)/2;
-      for (int i = 1; i <=row; i++)
+      int k=0,m=(row+1)/2;
+      for(int i = 1; i <=row; i++)
       {
           if(i<=m)
             k++;
           else
             k--;
-	       for (int j = 1; j <=col; j++)
-	          if(j==k || j==(row+1-k))
-	              System.out.print(k%10);
-              else
+	    
+	  for(int j = 1; j <=col; j++)
+	     if(j==k || j==(row+1-k))
+	         System.out.print(k%10);
+             else
                  System.out.print(" ");
-	    System.out.println ();
+		 
+	  System.out.println ();
       }
   }
 }
