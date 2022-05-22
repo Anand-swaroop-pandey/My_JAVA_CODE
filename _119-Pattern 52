@@ -21,7 +21,8 @@ public class Test
   {
       pattern51();
   }
-   public static void pattern51()
+  
+  public static void pattern51()
   {
       int k=0;
       for (int i = 1; i <= 9; i++)
@@ -30,12 +31,14 @@ public class Test
             k++;
           else
             k--;
-	       for (int j = 1; j <=9; j++)
-	          if(i==5 || j==(4+k))
+	    
+	  for (int j = 1; j <=9; j++)
+	     if(i==5 || j==(4+k))
                System.out.print("*");
              else
                System.out.print(" ");
-	    System.out.println ();
+	       
+	   System.out.println ();
       }
   }
 }
@@ -54,22 +57,24 @@ public class Test
      int col=row;
      pattern51(row,col);
   }
-   public static void pattern51(int row,int col)
+  
+  public static void pattern51(int row,int col)
   {
-      int k=0;
-      int m=(row+1)/2;
+      int k=0,m=(row+1)/2;
       for (int i = 1; i <= row; i++)
       {
           if(i<=m)
             k++;
           else
             k--;
-	       for (int j = 1; j <=col; j++)
-	          if(i==m || j==(m-1+k))
+	    
+	  for (int j = 1; j <=col; j++)
+	     if(i==m || j==(m-1+k))
                System.out.print("*");
              else
                System.out.print(" ");
-	    System.out.println ();
+	       
+	   System.out.println ();
       }
   }
 }
