@@ -1,0 +1,87 @@
+//Method 1
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   if(n<1)
+	     return;
+	     
+	   int arr[]=new int [n];
+	     
+	   System.out.printf("Ente %d Elements\n",n);
+	   for(int i=0;i<arr.length;i++)
+	      arr[i]=sc.nextInt();
+	      
+	   sc.close();
+	   
+	   int res=secLargestElement(arr);
+	   if(res!=-1)
+	     System.out.println("Second Largest Element is "+res);
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	
+	public static int secLargestElement(int arr[])
+	{
+	    int max=Integer. MIN_VALUE,secMax=Integer. MIN_VALUE,n=arr.length;
+	    if(n<2)
+              return -1;
+	      
+	    for(int i=0;i<n;i++)
+	      if(arr[i]>max)
+	      {
+	          secMax=max;
+	          max=arr[i];
+	      }
+              else if((arr[i]<= max) && (arr[i]>secMax))
+                 secMax=arr[i];
+             
+	    return secMax;      
+	}
+}
+
+
+// Method 2
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	   System.out.println("Enter the Size of the Array:");
+	   Scanner sc=new Scanner(System.in);
+	   int n=sc.nextInt();
+	   if(n<1)
+	     return;
+	     
+	   int arr[]=new int [n];
+	     
+	   System.out.printf("Ente %d Elements\n",n);
+	   for(int i=0;i<arr.length;i++)
+	      arr[i]=sc.nextInt();
+	      
+	   sc.close();
+	   
+	   int res=secLargestElement(arr);
+	   if(res!=-1)
+	     System.out.println("Second Largest Element is "+res);
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	
+	public static int secLargestElement(int arr[])
+	{
+	    int n=arr.length;
+	    if(n<2)
+              return -1;
+	      
+	    Arrays.sort(arr);
+	    return arr[n-2];  
+	}
+}
