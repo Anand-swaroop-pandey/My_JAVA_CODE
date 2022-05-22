@@ -16,9 +16,11 @@ public class Test {
     public static void main(String[] args) {
         pattern92();
     }
+    
+    
     public static void pattern92()
     {
-        int count=0;
+       int count=0;
        for(int i=1;i<=4;i++)
        {
            System.out.print("#");
@@ -38,20 +40,23 @@ public class Test {
 }
 
 
+
 //Genralised Code
 import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) {
-       Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter Rows:");
         int row = sc.nextInt();
         int col=row;
         pattern92(row,col);
     }
+    
+    
     public static void pattern92(int row,int col)
     {
-        int count=0;
+       int count=0;
        for(int i=1;i<=row;i++)
        {
            System.out.print("#");
