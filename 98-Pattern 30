@@ -5,6 +5,7 @@
 A B C D
 
 */
+
 //Figure Specific Code
 import java.util.Scanner;
 public class Main {
@@ -12,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         pattern30();
     }
+    
     public static void pattern30()
     {
        for(int i=1;i<=4;i++)
@@ -35,6 +37,7 @@ public class Main {
             }
              else
                System.out.print(" ");
+               
           System.out.println();   
        }
     }
@@ -52,6 +55,7 @@ public class Test {
         int col=(2*row)-1;
         pattern30(row,col);
     }
+    
     public static void pattern30(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -75,6 +79,7 @@ public class Test {
             }
              else
                System.out.print(" ");
+               
           System.out.println();   
        }
     }
