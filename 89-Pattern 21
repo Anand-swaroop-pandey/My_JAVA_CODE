@@ -13,6 +13,8 @@ public class Test {
     public static void main(String[] args) {
         pattern21();
     }
+    
+    
     public static void pattern21()
     {
        for(int i=1;i<=4;i++)
@@ -49,6 +51,8 @@ public class Test {
         int col=(2*row);
         pattern21(row,col);
     }
+    
+    
     public static void pattern21(int row,int col)
     {
        for(int i=1;i<=row;i++)
