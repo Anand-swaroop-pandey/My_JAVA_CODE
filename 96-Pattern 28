@@ -1,4 +1,5 @@
 /*Q-To Print
+
 1        
 3*2      
 4*5*6    
@@ -14,9 +15,10 @@ public class Test {
     public static void main(String[] args) {
         pattern28();
     }
+    
     public static void pattern28()
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=5;i++)
        {
            if((i%2)!=0)
@@ -43,6 +45,7 @@ public class Test {
              }
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
@@ -59,9 +62,10 @@ public class Test {
         int col=(2*row)-1;
         pattern28(row,col);
     }
+    
     public static void pattern28(int row,int col)
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=row;i++)
        {
            if((i%2)!=0)
@@ -88,6 +92,7 @@ public class Test {
              }
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
