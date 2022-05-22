@@ -33,27 +33,30 @@ public class Test
   {
       pattern85();
   }
-   public static void pattern85()
+  
+  public static void pattern85()
   {
-      int k=0;
+     int k=0;
      for (int i = 1; i <= 21; i++)
       {
           if(i<=11)
             k++;
           else
             k--;
+	    
           int data=k-1;
-	       for (int j = 1; j <=21; j++)
-	          if(j>=(12-k) && j<=(10+k))
-	          {
-	            System.out.print((data%10)+" ");
-	            if(j<11)
-	             data++;
-	            else
-	             data--;
-	          }
-	          else
+	  for(int j = 1; j <=21; j++)
+	      if(j>=(12-k) && j<=(10+k))
+	      {
+	         System.out.print((data%10)+" ");
+	         if(j<11)
+	           data++;
+	         else
+	           data--;
+	      }
+	      else
                 System.out.print("  ");
+		
 	    System.out.println ();
       } 
   }
