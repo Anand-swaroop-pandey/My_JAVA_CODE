@@ -6,6 +6,7 @@
    *
    
 */
+
 //Figure Specific code
 import java.util.Scanner;
 public class  Test {
@@ -13,6 +14,8 @@ public class  Test {
     public static void main(String[] args) {
         pattern13();
     }
+    
+    
     public static void pattern13()
     {
        for(int i=1;i<=4;i++)
@@ -22,6 +25,7 @@ public class  Test {
                 System.out.print("*");
              else
                  System.out.print(" ");
+                 
           System.out.println(); 
        }
     }
@@ -40,6 +44,8 @@ public class Test {
         int col=(2*row)-1;
         pattern13(row,col);
     }
+    
+    
     public static void pattern13(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -48,7 +54,8 @@ public class Test {
             if((j>=i) && (j<=((2*row)-i)))
                 System.out.print("*");
              else
-                 System.out.print(" ");
+                System.out.print(" ");
+          
           System.out.println(); 
        }
     }
