@@ -1,6 +1,7 @@
-//Bruteforce Approach(using Extra Space)
+//Iterative
+//(using Extra Space)
 import java.util.Scanner;
-public class Main 
+public class Test 
 {
     public static void main(String[] args) 
     {
@@ -8,14 +9,14 @@ public class Main
 
         System.out.print("Enter no. of elements you want in array:");
         int n = sc.nextInt();
-        if(n>1)
+        if(n>0)
         {
             int arr[] = new int[n];
             System.out.println("Enter all the elements:");
             for(int i = 0; i < n; i++)
               arr[i] = sc.nextInt();
               
-              reverse(arr);
+            reverse(arr);
             System.out.print("Reversed Array is:");
             for(int i = 0; i < n; i++)
                 System.out.println(arr[i]);
@@ -36,7 +37,7 @@ public class Main
 }
 
 
-//Better approach(without using Extra Space)
+//(without using Extra Space)
 import java.util.Scanner;
 public class Test 
 {
@@ -67,9 +68,49 @@ public class Test
         int n=arr.length;
         for (int i = 0; i < (n/ 2); i++)
         {
-              int temp = arr[i];
-              arr[i] = arr[n- 1 - i];
-              arr[n - 1 - i] = temp;
+            int temp = arr[i];
+            arr[i] = arr[n- 1 - i];
+            arr[n - 1 - i] = temp;
         } 
     } 
 }
+
+
+//Recurssive Approach
+
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter no. of elements you want in array:");
+        int n = sc.nextInt();
+        if(n>0)
+        {
+            int arr[] = new int[n];
+            System.out.println("Enter all the elements:");
+            for(int i = 0; i < n; i++)
+              arr[i] = sc.nextInt();
+              
+            reverse(arr,0,n-1);
+            System.out.println("Reversed Array is:");
+            for(int i = 0; i < n; i++)
+                System.out.println(arr[i]);
+        }
+        else
+           System.out.print("Invalid Choice");
+    }
+    
+    public static void reverse(int[] arr,int start,int end) 
+    {
+       if(start<end)
+       {
+         int temp = arr[start];
+         arr[start] = arr[end];
+         arr[end] = temp;
+         reverse(arr,start+1,end-1);
+       }
+    }
+} 
