@@ -7,13 +7,17 @@
 *********
 
 */
+
+
 //Figure Specific
 import java.util.Scanner;
-public class Main {
+public class Test {
 
     public static void main(String[] args) {
         pattern5();
     }
+    
+    
     public static void pattern5()
     {
        for(int i=1;i<=5;i++)
@@ -23,10 +27,13 @@ public class Main {
                System.out.print("*");
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
 }
+
+
 
 //Generalised Code
 import java.util.Scanner;
@@ -40,6 +47,8 @@ public class Test {
         int col=(2*row)-1;
         pattern5(row,col);
     }
+    
+    
     public static void pattern5(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -49,6 +58,7 @@ public class Test {
                System.out.print("*");
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
