@@ -11,30 +11,31 @@ A B C D E D C B A
 
 //Figure Specific
 import java.util.Scanner;
-public class Main
+public class Test
 {
 
   public static void main (String[]args)
   {
     pattern42();
   }
+  
   public static void pattern42()
   {
-    for (int i = 1; i <= 5; i++)
+      for (int i = 1; i <= 5; i++)
       {
 	    char  data='A';
 	    for (int j = 1; j <= 9; j++)
 	    {
-	         if(j<=(2*i)-1)
+	       if(j<=(2*i)-1)
                {
-                     System.out.print(data+" ");
-                     if(j<i)
-                       data++;
-                     else
-                       data--;
+                   System.out.print(data+" ");
+                   if(j<i)
+                     data++;
+                   else
+                     data--;
                }
-             else
-               System.out.print(" ");
+               else
+                 System.out.print(" ");
 	    }
 	    System.out.println ();
       }
@@ -54,24 +55,24 @@ public class Test
         int col=(2*row)-1;
         pattern42(row,col);
   }
-   public static void pattern42(int row,int col)
+  
+  public static void pattern42(int row,int col)
   {
-    for (int i = 1; i <= row; i++)
+      for (int i = 1; i <= row; i++)
       {
-	     char  data='A';
+	    char  data='A';
 	    for (int j = 1; j <= col; j++)
-	    { 
-	         if(j<=(2*i)-1)
+	       if(j<=(2*i)-1)
                {
-                     System.out.print(data+" ");
-                     if(j<i)
-                       data++;
-                     else
-                       data--;
+                  System.out.print(data+" ");
+                  if(j<i)
+                    data++;
+                  else
+                    data--;
                }
-             else
-               System.out.print(" ");
-	    }
+               else
+                 System.out.print(" ");
+		 
 	    System.out.println ();
       }
   }
