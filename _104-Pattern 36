@@ -16,6 +16,7 @@ public class Test {
     public static void main(String[] args) {
         pattern36();
     }
+    
     public static void pattern36()
     {
        for(int i=1;i<=6;i++)
@@ -25,10 +26,12 @@ public class Test {
                  System.out.print("*");
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
 }
+
 
 //Genralised Code
 import java.util.Scanner;
@@ -42,6 +45,7 @@ public class Test{
         int col=2*(row-1)-1;
         pattern36(row,col);
     }
+    
     public static void pattern36(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -51,6 +55,7 @@ public class Test{
                System.out.print("*");
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
