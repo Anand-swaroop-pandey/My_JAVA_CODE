@@ -20,7 +20,8 @@ public class Test
   {
       pattern87(4);
   }
-   public static void pattern87(int N)
+  
+  public static void pattern87(int N)
   {  
       int min=0;
       for(int i=1;i<=N;i++)
@@ -44,6 +45,7 @@ public class Test
              int temp=N-min+1;
              System.out.print(temp);
           }
+          
          System.out.println(); 
       }
       
@@ -66,12 +68,13 @@ public class Test
                 min=i;
               else
                 min=j;
+                
              int temp=N-min+1;
              System.out.print(temp);
           }
+          
          System.out.println(); 
-      }
-     
+      }  
   }
 }
 
@@ -88,7 +91,9 @@ public class Test
         int N = sc.nextInt();
         pattern87(N);
   }
-   public static void pattern87(int N)
+  
+  
+  public static void pattern87(int N)
   {  
       int min=0;
       for(int i=1;i<=N;i++)
@@ -112,6 +117,7 @@ public class Test
              int temp=N-min+1;
              System.out.print(temp);
           }
+          
          System.out.println(); 
       }
       
@@ -137,8 +143,8 @@ public class Test
              int temp=N-min+1;
              System.out.print(temp);
           }
-         System.out.println(); 
-      }
-     
+          
+          System.out.println(); 
+      } 
   }
 }
