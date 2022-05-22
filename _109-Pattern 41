@@ -17,24 +17,24 @@ public class Test
   {
     pattern41();
   }
+  
   public static void pattern41()
   {
-    for (int i = 1; i <= 5; i++)
+      for (int i = 1; i <= 5; i++)
       {
 	    int data=1;
 	    for (int j = 1; j <= 9; j++)
-	    {
-	         if(j<=(2*i)-1)
+	       if(j<=(2*i)-1)
                {
-                     System.out.print(data+" ");
-                     if(j<i)
-                       data++;
-                     else
-                       data--;
+                  System.out.print(data+" ");
+                  if(j<i)
+                    data++;
+                  else
+                    data--;
                }
-             else
-               System.out.print(" ");
-	    }
+               else
+                 System.out.print(" ");
+		 
 	    System.out.println ();
       }
   }
@@ -53,24 +53,24 @@ public class Test
         int col=(2*row)-1;
         pattern41(row,col);
   }
-   public static void pattern41(int row,int col)
+  
+  public static void pattern41(int row,int col)
   {
-    for (int i = 1; i <= row; i++)
+      for (int i = 1; i <= row; i++)
       {
-	     int data=1;
+	    int data=1;
 	    for (int j = 1; j <= col; j++)
-	    { 
-	         if(j<=(2*i)-1)
+	       if(j<=(2*i)-1)
                {
-                     System.out.print(data+" ");
-                     if(j<i)
-                       data++;
-                     else
-                       data--;
+                  System.out.print(data+" ");
+                  if(j<i)
+                    data++;
+                  else
+                    data--;
                }
-             else
-               System.out.print(" ");
-	    }
+               else
+                 System.out.print(" ");
+		 
 	    System.out.println ();
       }
   }
