@@ -49,9 +49,11 @@ public class Test {
         int col=row-1;
         pattern11(row,col);
     }
+    
+    
     public static void pattern11(int row,int col)
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=row;i++)
        {
            int m=(row+1)/2;
@@ -59,11 +61,13 @@ public class Test {
              k++;
            else if(i>(m+1))
              k--;
+             
            for(int j=1;j<=col;j++)
-            if(j>=(m+1-k) && j<=(m-1+k))
+             if(j>=(m+1-k) && j<=(m-1+k))
                 System.out.print("*");
              else
-                 System.out.print(" ");
+                System.out.print(" ");
+                
           System.out.println();   
        }
     }
