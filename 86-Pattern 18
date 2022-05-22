@@ -33,10 +33,12 @@ public class Test {
                 System.out.print("*");
             else
                  System.out.print(" ");
+                 
           System.out.println(); 
        }
     }
 }
+
 
 
 //Genralised Code
@@ -44,16 +46,16 @@ import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) {
-    System.out.println("Enter Rows");
-    Scanner sc=new Scanner(System.in);
-    int row=sc.nextInt();
-    int col=row;
-    pattern18(row,col);
+      System.out.println("Enter Rows");
+      Scanner sc=new Scanner(System.in);
+      int row=sc.nextInt();
+      int col=row;
+      pattern18(row,col);
     }
     
     public static void pattern18(int row,int col)
     {
-        int k=0;
+       int k=0;
        for(int i=1;i<=row;i++)
        {  
              int m=(row+1)/2;
