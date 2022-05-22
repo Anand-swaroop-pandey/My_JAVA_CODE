@@ -14,6 +14,8 @@ public class Test {
     public static void main(String[] args) {
         pattern9();
     }
+    
+    
     public static void pattern9()
     {
        for(int i=1;i<=4;i++)
@@ -28,12 +30,12 @@ public class Test {
                   else
                     data--;
             }
-             else
-             {
-                 System.out.print(" ");
-                 if(j==4)
-                   data--;
-             }
+            else
+            {
+               System.out.print(" ");
+               if(j==4)
+                 data--;
+            }
                
           System.out.println();   
        }
@@ -53,6 +55,8 @@ public class Test {
         int col=(2*row)-1;
         pattern9(row,col);
     }
+    
+    
     public static void pattern9(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -67,12 +71,12 @@ public class Test {
                   else
                     data--;
             }
-             else
-             {
-                 System.out.print(" ");
-                 if(j==row)
-                   data--;
-             }
+            else
+            {
+               System.out.print(" ");
+               if(j==row)
+                 data--;
+            }
                
           System.out.println();   
        }
