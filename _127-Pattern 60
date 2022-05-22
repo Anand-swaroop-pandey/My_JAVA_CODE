@@ -23,7 +23,8 @@ public class Test
   {
       pattern60();
   }
-   public static void pattern60()
+ 
+  public static void pattern60()
   {
       int k=0;
       for (int i = 1; i <=10; i++)
@@ -33,15 +34,17 @@ public class Test
           else if(i>6)
             k--;
             
-	       for (int j = 1; j <=5; j++)
-	         if(j<=(6-k))
-	           System.out.print("*");
+	  for (int j = 1; j <=5; j++)
+	     if(j<=(6-k))
+	       System.out.print("*");
              else
                System.out.print(" ");
+	       
 	    System.out.println ();
       }
   }
 }
+
 
 //Genralised code
 import java.util.Scanner;
@@ -56,21 +59,24 @@ public class Test
      int col=row/2;
      pattern60(row,col);
   }
-   public static void pattern60(int row,int col)
+  
+  
+  public static void pattern60(int row,int col)
   {
       int k=0;
-      for (int i = 1; i <=row; i++)
+      for (int i=1;i<=row;i++)
       {
           if(i<=col)
             k++;
           else if(i>(col+1))
             k--;
             
-	       for (int j = 1; j <=col; j++)
-	         if(j<=(col+1-k))
-	           System.out.print("*");
+	  for(int j = 1; j <=col; j++)
+	     if(j<=(col+1-k))
+	        System.out.print("*");
              else
                System.out.print(" ");
+	       
 	    System.out.println ();
       }
    }
