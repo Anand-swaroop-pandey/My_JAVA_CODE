@@ -136,7 +136,7 @@ public class Test
            if(swap==false)
              break;
       }
-      return arr[arr.length-k];//Kth element from Last i.e Kth largest element in the Array
+      return arr[n-k];//Kth element from Last i.e Kth largest element in the Array
    }
 }
 
