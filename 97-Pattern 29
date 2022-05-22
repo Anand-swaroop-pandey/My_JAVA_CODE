@@ -13,9 +13,10 @@ public class Test {
     public static void main(String[] args) {
         pattern29();
     }
+    
     public static void pattern29()
     {
-        int k=64;
+       int k=64;
        for(int i=1;i<=5;i++)
        {
            k=k+i;
@@ -25,10 +26,12 @@ public class Test {
                System.out.print((char)temp--);
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
 }
+
 
 // Genralised Code
 import java.util.Scanner;
@@ -41,9 +44,11 @@ public class Test {
         int col=row;
         pattern29(row,col);
     }
+    
+    
     public static void pattern29(int row,int col)
     {
-        int k=64;
+       int k=64;
        for(int i=1;i<=row;i++)
        {
            k=k+i;
@@ -53,6 +58,7 @@ public class Test {
                System.out.print((char)temp--);
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
