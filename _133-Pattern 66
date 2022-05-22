@@ -11,11 +11,12 @@
 
 //Figure Specific
 import java.util.Scanner;
-public class Main {
+public class Test {
 
     public static void main(String[] args) {
         pattern66();
     }
+    
     public static void pattern66()
     {
        for(int i=1;i<=6;i++)
@@ -32,6 +33,7 @@ public class Main {
              }
              else
                System.out.print(" ");
+               
           System.out.println();   
        }
     }
@@ -49,6 +51,8 @@ public class Test {
         int col=(2*row)-1;
         pattern66(row,col);
     }
+    
+    
     public static void pattern66(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -57,14 +61,15 @@ public class Test {
            for(int j=1;j<=col;j++)
              if(j>=(row+1-i) && j<=(row-1+i))
              {
-                   System.out.print(data%10);
-                   if(j<row)
-                     data--;
-                   else 
-                     data++;
+                 System.out.print(data%10);
+                 if(j<row)
+                   data--;
+                 else 
+                   data++;
              }
              else
-               System.out.print(" ");
+                System.out.print(" ");
+                
           System.out.println();   
        }
     }
