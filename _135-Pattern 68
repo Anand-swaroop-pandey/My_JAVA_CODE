@@ -14,11 +14,12 @@ public class Test {
     public static void main(String[] args) {
         pattern68();
     }
+    
     public static void pattern68()
     {
        for(int i=1;i<=4;i++)
        {
-            int data=1;
+           int data=1;
            for(int j=1;j<=8;j++)
              if(j<=(5-i) || j>=(4+i))
              {
@@ -30,6 +31,7 @@ public class Test {
              }
              else
                System.out.print("*");
+               
           System.out.println();   
        }
     }
@@ -47,11 +49,12 @@ public class Test {
         int col=2*row;
         pattern68(row,col);
     }
+    
     public static void pattern68(int row,int col)
     {
-      for(int i=1;i<=row;i++)
+       for(int i=1;i<=row;i++)
        {
-            int data=1;
+           int data=1;
            for(int j=1;j<=col;j++)
              if(j<=(row+1-i) || j>=(row+i))
              {
@@ -63,6 +66,7 @@ public class Test {
              }
              else
                System.out.print("*");
+               
           System.out.println();   
        }
     }
