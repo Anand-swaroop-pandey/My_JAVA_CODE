@@ -13,6 +13,8 @@ public class Test {
     public static void main(String[] args) {
         pattern8();
     }
+    
+    
     public static void pattern8()
     {
        for(int i=1;i<=4;i++)
@@ -29,6 +31,7 @@ public class Test {
             }
              else
                System.out.print(" ");
+               
           System.out.println();   
        }
     }
@@ -47,6 +50,7 @@ public class Test {
         int col=(2*row)-1;
         pattern8(row,col);
     }
+    
     public static void pattern8(int row,int col)
     {
        for(int i=1;i<=row;i++)
@@ -63,6 +67,7 @@ public class Test {
             }
              else
                System.out.print(" ");
+               
           System.out.println();   
        }
     }
