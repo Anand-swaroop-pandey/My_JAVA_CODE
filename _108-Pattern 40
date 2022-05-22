@@ -10,13 +10,14 @@
 
 //Figure Specific
 import java.util.Scanner;
-public class Main
+public class Test
 {
 
   public static void main (String[]args)
   {
     pattern40();
   }
+ 
   public static void pattern40()
   {
     for (int i = 1; i <= 5; i++)
@@ -24,15 +25,16 @@ public class Main
 	    int data=i;
 	    for (int j = 1; j <= 5; j++)
 	    {
-	         if(j==(6-i) || j==1 || i==1)
+	       if(j==(6-i) || j==1 || i==1)
                {
-                   if(i==1)
-                     System.out.print(data++);
-                   else
-                     System.out.print(data);
+                  if(i==1)
+                    System.out.print(data++);
+                  else
+                    System.out.print(data);
                }
-             else
-               System.out.print(" ");
+               else
+                  System.out.print(" ");
+	       
                if(i!=1)
                 data++;
 	    }
@@ -40,6 +42,7 @@ public class Main
       }
   }
 }
+
 
 //Generalized Code
 import java.util.Scanner;
@@ -54,25 +57,28 @@ public class Test
         int col=row;
         pattern40(row,col);
   }
-   public static void pattern40(int row,int col)
+  
+  public static void pattern40(int row,int col)
   {
-    for (int i = 1; i <= row; i++)
+      for (int i = 1; i <= row; i++)
       {
 	     int data=i;
 	    for (int j = 1; j <= col; j++)
 	    {
 	         if(j==(row+1-i) || j==1 || i==1)
-               {
+                 {
                    if(i==1)
                      System.out.print(data++);
                    else
                      System.out.print(data);
-               }
-             else
-               System.out.print(" ");
+                 }
+                 else
+                   System.out.print(" ");
+		   
                if(i!=1)
                 data++;
 	    }
+	    
 	    System.out.println ();
       }
   }
