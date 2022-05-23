@@ -1,7 +1,7 @@
 //Bruteforce Approach
 
 import java.util.*;
-public class Main
+public class Test
 {
    public static void main(String[] args)
    {
@@ -9,8 +9,8 @@ public class Main
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
@@ -21,12 +21,13 @@ public class Main
            int highVal=sc.nextInt();
            
             threeWayPartition(arr,lowVal,highVal);
-             System.out.println("Three Way Partitioned Array :");
-             for(int i=0;i<n;i++)
-                System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
+            
+            System.out.println("Three Way Partitioned Array :");
+            for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
+        }
+        else
+           System.out.println("Invalid Choice");
    }
 
     public static void threeWayPartition(int arr[], int lowVal, int highVal)
@@ -46,8 +47,8 @@ public class Test
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
@@ -57,34 +58,35 @@ public class Test
            System.out.println("Enter High Value:");
            int highVal=sc.nextInt();
            
-            threeWayPartition(arr,lowVal,highVal);
-             System.out.println("Three Way Partitioned Array :");
-             for(int i=0;i<n;i++)
-                System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
+           threeWayPartition(arr,lowVal,highVal);
+           System.out.println("Three Way Partitioned Array :");
+           for(int i=0;i<n;i++)
+             System.out.println(arr[i]);
+       }
+       else
+          System.out.println("Invalid Choice");
    }
 
     public static void threeWayPartition(int arr[], int lowVal, int highVal)
     {
-     int smaller=0,i=0,greater=(arr.length-1);
-      while(i<=greater)
-         if(arr[i]<lowVal)
-         {
+        int smaller=0,i=0,greater=(arr.length-1);
+        while(i<=greater)
+          if(arr[i]<lowVal)
+          {
             swap(arr,smaller,i);
             smaller++;
             i++; 
-         }
-         else if(arr[i]>highVal)
-         {
+          }
+          else if(arr[i]>highVal)
+          {
              swap(arr,i,greater);
              greater--;  
-         }
-         else 
-             i++;
+          }
+          else 
+            i++;
     }
-     public static void swap(int[]arr,int i,int j)
+    
+   public static void swap(int[]arr,int i,int j)
    {
        int temp=arr[i];
        arr[i]=arr[j];
