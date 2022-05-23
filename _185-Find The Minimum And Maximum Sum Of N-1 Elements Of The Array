@@ -1,0 +1,101 @@
+//Bruteforce Approach
+
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+           
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+             arr[i]=sc.nextInt();
+             
+           maxAndMinSum(arr,n);  
+       }
+       else
+         System.out.println("Invalid Choice");
+       
+   }
+   
+   public static void maxAndMinSum(int[]arr,int n)
+   {
+       if(n<2)
+       {
+          System.out.println("Invalid Choice");
+          return;
+       }
+       
+       Arrays.sort(arr);
+       int maxSum=0,minSum=0;
+       for(int i=0;i<n;i++)
+       {
+         if(i>0)
+           maxSum+=arr[i];
+           
+         if(i<(n-1))
+           minSum+=arr[i];  
+       }
+
+       System.out.println("Maximum Sum Obtained using (n-1) Elements of the Array are :"+maxSum);  
+       System.out.println("Minimum Sum Obtained using (n-1) Elements of the Array are :"+minSum); 
+   }
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+           
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+             arr[i]=sc.nextInt();
+             
+           maxAndMinSum(arr,n);  
+       }
+       else
+         System.out.println("Invalid Choice");
+       
+   }
+   
+   public static void maxAndMinSum(int[]arr,int n)
+   {
+       if(n<2)
+       {
+          System.out.println("Invalid Choice");
+          return;
+       }
+       
+       int maxEle=Integer.MIN_VALUE,minEle=Integer.MAX_VALUE,arrSum=0;
+       
+       for(int i=0;i<n;i++)
+       {
+         arrSum+=arr[i];
+         
+         if(arr[i]>maxEle)
+           maxEle=arr[i];
+           
+         if(arr[i]<minEle)
+           minEle=arr[i];  
+       }
+
+       int maxSum=arrSum-minEle,minSum=arrSum-maxEle;
+       
+       System.out.println("Maximum Sum Obtained using (n-1) Elements of the Array are :"+maxSum);  
+       System.out.println("Minimum Sum Obtained using (n-1) Elements of the Array are :"+minSum); 
+   }
+}
