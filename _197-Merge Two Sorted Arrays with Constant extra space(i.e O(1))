@@ -4,42 +4,40 @@ public class Test
 {
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+           System.out.println("Enter the Size of the Array1");
+           int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-       if(m>0 && n>0)
-         {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
-           System.out.printf("Enter %d Elements of Array1:\n",m);
-           for(int i=0;i<m;i++)
-              arr1[i]=sc.nextInt();
+           System.out.println("Enter the Size of the Array2");
+           int n=sc.nextInt();
+           if(m>0 && n>0)
+           {
+              int[] arr1=new int[m];
+              int[] arr2=new int[n];
+              System.out.printf("Enter %d Elements of Array1:\n",m);
+              for(int i=0;i<m;i++)
+                arr1[i]=sc.nextInt();
               
-           System.out.printf("Enter %d Elements of Array2:\n",n);
-           for(int i=0;i<n;i++)
-              arr2[i]=sc.nextInt();
+              System.out.printf("Enter %d Elements of Array2:\n",n);
+              for(int i=0;i<n;i++)
+                arr2[i]=sc.nextInt();
               
-            mergeTwoSortedArray(arr1,arr2); 
-         }
-         else
-           System.out.println("Invalid Choice");
+              mergeTwoSortedArray(arr1,arr2); 
+           }
+           else
+             System.out.println("Invalid Choice");
 	}
 	
 	public static void mergeTwoSortedArray(int[] arr1,int[] arr2)
 	{
-	    int m=arr1.length;
-	    int n=arr2.length;
-	    int i=m-1;
-	    int j=0;
+	    int m=arr1.length,n=arr2.length,i=m-1,j=0;
 
-           while(i>=0 && j<n)
+            while(i>=0 && j<n)
               if(arr1[i]>arr2[j])
               {
                  int temp=arr1[i];
                  arr1[i]=arr2[j];
                  arr2[j]=temp;
+		 
                  i--;
                  j++;
               }
@@ -78,16 +76,17 @@ import java.util.*;
 public class Test
 {
        public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array1");
+         int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-       if(m>0 && n>0)
+         System.out.println("Enter the Size of the Array2");
+         int n=sc.nextInt();
+         if(m>0 && n>0)
          {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
+	   
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -104,8 +103,7 @@ public class Test
 	
 	public static void mergeTwoSortedArray(int[] arr1,int[] arr2)
 	{
-	    int m=arr1.length;
-	    int n=arr2.length;
+	    int m=arr1.length,n=arr2.length;
             for(int i=0;i<m;i++)
               if(arr1[i]>arr2[0])
               {
@@ -145,8 +143,8 @@ public class Test
 {
     public static void main(String[] args)
     {
-	   Scanner sc=new Scanner(System.in);
-           System.out.println("Enter the Size of the Array1");
+	  Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
           int m=sc.nextInt();
        
           System.out.println("Enter the Size of the Array2");
@@ -170,14 +168,12 @@ public class Test
     }
 	
 	
-   public static void mergeTwoSortedArray(int[] arr1,int[] arr2)
-   {
-      int m=arr1.length;
-      int n=arr2.length;
-      int len=m+n;
-      int gap=(int) Math.ceil((double)len/ 2.0);
-      while(gap>0)
-      {
+    public static void mergeTwoSortedArray(int[] arr1,int[] arr2)
+    {
+        int m=arr1.length,n=arr2.length,len=m+n;
+        int gap=(int) Math.ceil((double)len/ 2.0);
+        while(gap>0)
+        {
     	   for(int i=0,j=gap;j<len;i++,j++)	 // comparing elements in the first array.
               if (j < m && (arr1[i] > arr1[j]))
               {
@@ -194,36 +190,35 @@ public class Test
               else if (j >= m && i >= m && (arr2[i - m] > arr2[j - m]))// comparing elements in the Second array..
               {
                    int temp=arr2[i-m];
- 	              arr2[i-m]=arr2[j-m];
- 	              arr2[j-m]=temp;
+ 	           arr2[i-m]=arr2[j-m];
+ 	           arr2[j-m]=temp;
               }
     	   
-    	   if(gap==1)
-    		   gap=(int) Math.ceil(gap/ 2);//gap=0
-    	   else
-    	      gap=(int) Math.ceil((double)gap/ 2.0);
-      }
+    	      if(gap==1)
+    		gap=(int) Math.ceil(gap/ 2);//gap=0
+    	      else
+    	        gap=(int) Math.ceil((double)gap/ 2.0);
+        }
          
       
-           System.out.println("Merged Sorted Array is:");
+        System.out.println("Merged Sorted Array is:");
      
-           System.out.print("arr1[]={");
-           for(int i=0;i<m;i++)
-           {
-              System.out.print(arr1[i]);
-              if(i<(m-1)) 
-                System.out.print(",");
-           }
-           System.out.println("}");
+        System.out.print("arr1[]={");
+        for(int i=0;i<m;i++)
+        {
+           System.out.print(arr1[i]);
+           if(i<(m-1)) 
+             System.out.print(",");
+        }
+        System.out.println("}");
     
-    
-          System.out.print("arr2[]={");
-          for(int i=0;i<n;i++)
-          {
-              System.out.print(arr2[i]);
-              if(i<(n-1))
-                System.out.print(",");
-          }
-          System.out.println("}");
+        System.out.print("arr2[]={");
+        for(int i=0;i<n;i++)
+        {
+           System.out.print(arr2[i]);
+           if(i<(n-1))
+             System.out.print(",");
+        }
+        System.out.println("}");
    }
 }
