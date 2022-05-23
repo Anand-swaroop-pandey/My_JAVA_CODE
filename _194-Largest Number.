@@ -6,7 +6,7 @@ public class Test
 	   Scanner sc=new Scanner(System.in);
            System.out.println("Enter the Size of the Array");
            int n=sc.nextInt();
-           if(n>1)
+           if(n>0)
            {
                int[] arr=new int[n];
                System.out.printf("Enter %d Elements:\n",n);
