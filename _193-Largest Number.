@@ -4,18 +4,19 @@ public class Test
 {
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
-       if(n>1)
-         {
-             int[] arr=new int[n];
-           System.out.printf("Enter %d Elements:\n",n);
-           for(int i=0;i<n;i++)
-              arr[i]=sc.nextInt();
-            System.out.println("Maximum Number Formed is:"+maxNumberFormedFromAnArray(arr));
-         }
-         else
-           	System.out.println("Invalid Choice");
+           System.out.println("Enter the Size of the Array");
+           int n=sc.nextInt();
+           if(n>1)
+           {
+               int[] arr=new int[n];
+               System.out.printf("Enter %d Elements:\n",n);
+               for(int i=0;i<n;i++)
+                 arr[i]=sc.nextInt();
+		 
+               System.out.println("Maximum Number Formed is:"+maxNumberFormedFromAnArray(arr));
+           }
+           else
+               System.out.println("Invalid Choice");
 	}
 	
 	public static String maxNumberFormedFromAnArray(int[] arr)
@@ -24,11 +25,14 @@ public class Test
 	      for(int j=i+1;j<arr.length;j++)
 	          if(concatenate(arr[i],arr[j])<concatenate(arr[j],arr[i]))
 	             swap(arr,i,j);
-	   	String res="";
+		     
+	   String res="";
 	   for(int i=0;i<arr.length;i++)
-	       res=res+arr[i];
-	    return res;    
+	      res=res+arr[i];
+	      
+	   return res;    
 	}
+	
 	public static int concatenate(int num1,int num2)
 	{
 	    String n1=Integer.toString(num1);
