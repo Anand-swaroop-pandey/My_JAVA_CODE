@@ -1,0 +1,281 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           
+           if(n>1)
+             segregatePosAndNeg(arr,n);
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
+       }
+       else
+         System.out.println("Invalid Choice");
+   }
+   
+   public static void segregatePosAndNeg(int[]arr,int n)
+   {
+       int k=0;
+       int temp[]=new int[n];
+             
+       for(int i=0;i<n;i++)
+          if(arr[i]<0)
+             temp[k++]=arr[i];
+       
+       for(int i=0;i<n;i++)
+          if(arr[i]>0)
+             temp[k++]=arr[i];
+             
+       for(int i=0;i<n;i++)
+         arr[i]=temp[i];
+   }
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+            int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+
+           if(n>1)
+             segregatePosAndNeg(arr,n);
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
+       }
+       else
+          System.out.println("Invalid Choice");
+   }
+
+   public static void segregatePosAndNeg(int[]arr,int n)
+   {
+      modifiedInsertionSort(arr,n);
+   }
+   
+   public static void modifiedInsertionSort(int[] arr,int n)
+   {
+      for(int i=1;i<n;i++)
+      {
+        int temp=arr[i];
+        //if current element is positive do nothing
+        if(temp>0)
+         continue;
+         
+       /* if current element is negative,
+          shift positive elements of arr[j],
+          to one position to their right */
+            
+         int j=i-1;   
+         while(j>=0 && arr[j]>0)
+         {
+            arr[j+1]=arr[j];
+            j--;
+         }
+         arr[j+1]=temp;  
+       }
+    }
+}
+
+
+
+//Best Approach
+/*
+Merge method of standard merge sort algorithm can be modified to solve this problem. While merging two sorted halves say left and right, 
+we need to merge in such a way that negative part of left and right sub-array is copied first followed by positive part of left and right sub-array.
+*/
+
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+
+           if(n>1)
+             segregatePosAndNeg(arr);
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+             System.out.println(arr[i]);
+       }
+       else
+          System.out.println("Invalid Choice");
+   }
+
+   public static void segregatePosAndNeg(int[]arr)
+   {
+       mergeSort(arr,0,arr.length-1);
+   } 
+   
+   public static void mergeSort(int[]arr,int lb,int ub)
+   {
+      if(lb<ub)
+      {
+          int mid=(lb+ub)/2;
+          mergeSort(arr,lb,mid);
+          mergeSort(arr,(mid+1),ub);
+          modifiedMerge(arr,lb,mid,ub);
+      }
+   }
+   
+   public static void modifiedMerge(int[] arr,int lb,int mid,int ub)
+   {
+        int m=(mid-lb+1),n=(ub-mid);
+        int[] Left=new int[m];
+        int[] Right=new int[n];  
+   
+        for(int i=0;i<m;i++)
+          Left[i]=arr[lb+i];
+        
+        for(int i=0;i<n;i++)
+          Right[i]=arr[mid+1+i];
+        
+        int i=0,j=0,k=lb;
+        // copy negative elements of left sublist  
+        while(i<m && Left[i]<0)
+          arr[k++]=Left[i++];
+          
+        // copy negative elements of Right sublist
+        while(j<n && Right[j]<0)
+          arr[k++]=Right[j++];
+          
+        // copy Positive elements of Left sublist  
+        while(i<m)
+          arr[k++]=Left[i++];
+          
+        // copy Positive elements of Right sublist  
+        while(j<n)
+          arr[k++]=Right[j++];  
+   } 
+}
+
+
+
+//Optimal Approach
+/*
+The time complexity of above solution is O(n log n).
+The problem with this approach is we are using auxiliary array for merging but we’re not allowed to use any data structure to solve this problem. 
+We can do merging in-place without using any data-structure.
+
+Let Ln and Lp denotes the negative part and positive part of left sub-array respectively. 
+Similarly, Rn and Rp denote the negative and positive part of right sub-array respectively. 
+
+Below are the steps to convert [Ln Lp Rn Rp] to [Ln Rn Lp Rp] without using extra space. 
+
+1. Reverse Lp and Rn. We get [Lp] -> [Lp'] and [Rn] -> [Rn'] 
+    [Ln Lp Rn Rp] -> [Ln Lp’ Rn’ Rp]
+
+2. Reverse [Lp’ Rn’]. We get [Rn Lp].
+    [Ln Lp’ Rn’ Rp] -> [Ln Rn Lp Rp]
+*/
+
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+
+           if(n>1)
+             segregatePosAndNeg(arr);
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+             System.out.println(arr[i]);
+       }
+       else
+          System.out.println("Invalid Choice");
+   }
+
+   public static void segregatePosAndNeg(int[]arr)
+   {
+       mergeSort(arr,0,arr.length-1);
+   } 
+   
+   public static void mergeSort(int[]arr,int lb,int ub)
+   {
+      if(lb<ub)
+      {
+          int mid=(lb+ub)/2;
+          mergeSort(arr,lb,mid);
+          mergeSort(arr,(mid+1),ub);
+          modifiedMerge(arr,lb,mid,ub);
+      }
+   }
+   
+   public static void modifiedMerge(int[] arr,int lb,int mid,int ub)
+   {
+        
+        int i=lb;       // Initial index of Left Sublist
+        int j=mid+1;  // Initial index of Right Sublist
+        
+        while(i<=mid && arr[i]<0) //Left Sublist : arr[lb...mid] 
+            i++;
+        //Now arr[i..mid] is positive and  arr[lb..i-1] is negative
+        
+        while(j<=ub && arr[j]<0) //Right Sublist : arr[mid+1...ub] 
+            j++;
+        //Now arr[j..ub] is positive and  arr[mid+1..j-1] is negative
+        
+        //reverse positive part of left Sub-List (i.e arr[i..mid])
+        reverse(arr,i,mid);
+          
+        //reverse Negative part right Sub-List (i.e arr[mid+1..j-1])
+        reverse(arr,mid+1,j-1);
+        
+        //reverse arr[i..j-1]
+        reverse(arr,i,j-1);
+   }
+   
+   
+   public static void reverse(int arr[], int i, int j)
+	{
+		if(i<j) 
+		{
+		   int temp=arr[i];
+		   arr[i]=arr[j];
+		   arr[j]=temp;
+			reverse(arr,i+1,j-1);
+		}
+	}
+}
