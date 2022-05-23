@@ -1,3 +1,4 @@
+//Method 1
 import java.util.Scanner;
 public class Test
 {
@@ -19,8 +20,7 @@ public class Test
 	
 	public static void countFrequecy(int[] arr)
 	{
-	   int n=arr.length;
-	   int count;   
+	   int n=arr.length,count;   
 	   int[] freqArr=new int[n];
            for(int i=0;i<n;i++)
            {
@@ -33,17 +33,17 @@ public class Test
                    freqArr[j]=-1;
                    count++;
                 }
-            freqArr[i]=count;       
+             freqArr[i]=count;       
            }
         
-        System.out.println("Frequency :");
-        for(int i=0;i<n;i++)
-           if(freqArr[i]!=-1)
-              System.out.println(arr[i]+"--->"+freqArr[i]+"  Times");    
+           System.out.println("Frequency :");
+           for(int i=0;i<n;i++)
+             if(freqArr[i]!=-1)
+                System.out.println(arr[i]+"--->"+freqArr[i]+"  Times");    
 	}
 }
 
-//Optimal
+//Method 2
 import java.util.*;
 public class Test
 {
@@ -57,16 +57,19 @@ public class Test
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
+	      
            countFrequecy(arr);  
          }
          else
            System.out.println("Invalid Choice");
-    }
+        }
+	
 	
 	public static void countFrequecy(int[] arr)
 	{
 	   System.out.println("Frequency :");
 	   int n =arr.length;
+	   
 	   HashMap<Integer,Integer>hm=new HashMap<>(n);
            for(int i=0;i<n;i++)
             if(hm.containsKey(arr[i]))
@@ -79,7 +82,8 @@ public class Test
 	}
 }
 
-//Optimal(Prints elements(Along with Their Frequency) in same order as they appear in input)
+
+//Method 3(Prints elements(Along with Their Frequency) in same order as they appear in input)
 import java.util.Scanner;
 public class Test
 {
@@ -93,17 +97,19 @@ public class Test
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
+	      
            countFrequecy(arr);  
          }
          else
            System.out.println("Invalid Choice");
-      }
+        }
 	
 	public static void countFrequecy(int[] arr)
 	{
 	   System.out.println("Frequency :");
 	   int n =arr.length;
 	   HashMap<Integer,Integer>hm=new HashMap<>(n);
+	   
            for(int i=0;i<n;i++)
              if(hm.containsKey(arr[i]))
                hm.put(arr[i],hm.get(arr[i])+1);
@@ -116,7 +122,7 @@ public class Test
 	        System.out.println(arr[i]+"==>"+hm.get(arr[i])); 
                 hm.remove(arr[i]);
              }
-	  }
+	}
 }
 
                    //ALITER
@@ -139,7 +145,8 @@ public class Test
          }
          else
            System.out.println("Invalid Choice");
-      }
+        }
+	
 	
 	public static void countFrequecy(int[] arr)
 	{
