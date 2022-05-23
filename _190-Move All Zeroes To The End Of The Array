@@ -8,31 +8,33 @@ public class Test
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
            
            if(n>1)
              moveZerosToEnd(arr);
+             
            System.out.println("Updated Array :");
            for(int i=0;i<n;i++)
               System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
+       }
+       else
+          System.out.println("Invalid Choice");
    }
    
    public static void  moveZerosToEnd(int[]arr)
    {
-       int n=arr.length;
-       int k=0;
+       int n=arr.length,k=0;
+       
        for(int i=0;i<n;i++)
           if(arr[i]!=0)
              arr[k++]=arr[i];
-        while(k<n)
-           arr[k++]=0;
+             
+       while(k<n)
+         arr[k++]=0;
    }
 }
 
@@ -47,27 +49,26 @@ public class Test
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
            
            if(n>1)
              moveZerosToEnd(arr);
-             System.out.println("Segregated Array :");
-             for(int i=0;i<n;i++)
-                System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+             System.out.println(arr[i]);
+       }
+       else
+         System.out.println("Invalid Choice");
    }
    
    public static void moveZerosToEnd(int[]arr)
    {
-      int n=arr.length;
-      int start=0;
-      int end=(n-1);
+      int n=arr.length,start=0,end=(n-1);
       
       while(start<end)
       {
@@ -78,15 +79,15 @@ public class Test
             end--;
             
            if(start<end)
-            {
-                //Swapping
-                int temp=arr[start];
-                arr[start]=arr[end];
-                arr[end]=temp;
+           {
+              //Swapping
+              int temp=arr[start];
+              arr[start]=arr[end];
+              arr[end]=temp;
                 
-                start++;
-                end--;
-            }
+              start++;
+              end--;
+           }
       }
    } 
 }
@@ -102,39 +103,38 @@ public class Test
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
            
            if(n>1)
              moveZerosToEnd(arr);
-             System.out.println("Segregated Array :");
-             for(int i=0;i<n;i++)
-                System.out.println(arr[i]);
-         }
-         else
-            System.out.println("Invalid Choice");
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
+       }
+       else
+         System.out.println("Invalid Choice");
    }
    
    public static void moveZerosToEnd(int[]arr)
    {
-       int n=arr.length;
-       int i=0;
-       int j=0;
+       int n=arr.length,i=0,j=0;
        while(i<n)
-       {
-          if(arr[i]!=0)
-          {
-              //Swapping
-             int temp=arr[i];
-             arr[i]=arr[j];
-             arr[j]=temp;
+         if(arr[i]!=0)
+         {
+            //Swapping
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
              
-             j++;
-          }
+            i++;
+            j++;
+         }
+         else
           i++;
-       }
    } 
 }
