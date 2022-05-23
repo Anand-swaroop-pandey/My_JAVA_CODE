@@ -14,7 +14,7 @@ public class Test
                for(int i=0;i<n;i++)
                  arr[i]=sc.nextInt();
 		 
-               System.out.println("Maximum Number Formed is:"+maxNumberFormedFromAnArray(arr));
+               System.out.println("Maximum Number Formed is: "+largestNumber(arr));
            }
            else
                System.out.println("Invalid Choice");
