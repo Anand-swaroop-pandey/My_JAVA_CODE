@@ -1,0 +1,162 @@
+//Bruteforce Approach;
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
+          int m=sc.nextInt();
+       
+          System.out.println("Enter the Size of the Array2");
+          int n=sc.nextInt();
+          if(m>0 && n>0)
+          {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+            System.out.printf("Enter %d Elements of Array1:\n",m);
+            for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+            System.out.printf("Enter %d Elements of Array2:\n",n);
+            for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+            mergeTwoSortedArrayIntoThirdSortedArray(arr1,arr2); 
+          }
+          else
+            System.out.println("Invalid Choice");
+	}
+	
+	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[] arr1,int[] arr2)
+	{
+	    int m=arr1.length,n=arr2.length;
+	    int[] temp=new int[m+n];
+	    
+	    for(int i=0;i<m;i++)
+	      temp[i]=arr1[i];
+	      
+	    for(int i=0;i<n;i++)
+	      temp[i+m]=arr2[i];
+	   
+	    Arrays.sort(temp);
+	    
+	    System.out.println("Merged Sorted Array is:");
+	    for(int val : temp)
+	      System.out.println(val);
+	}
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
+          int m=sc.nextInt();
+       
+          System.out.println("Enter the Size of the Array2");
+          int n=sc.nextInt();
+          if(m>0 && n>0)
+          {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+            System.out.printf("Enter %d Elements of Array1:\n",m);
+            for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+            System.out.printf("Enter %d Elements of Array2:\n",n);
+            for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+              
+            mergeTwoSortedArrayIntoThirdSortedArray(arr1,arr2); 
+          }
+          else
+            System.out.println("Invalid Choice");
+	}
+	
+	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[] arr1,int[] arr2)
+	{
+	    int m=arr1.length,n=arr2.length;
+	    int[] arr=new int[m+n];
+	    
+	    int k=0;
+            for(int i=0;i<m;i++)
+              arr[k++]=arr1[i];
+        
+            for(int i=0;i<n;i++)
+            {
+               arr[k]=arr2[i];
+               modifiedInsertionSort(arr,k);
+               k++;
+            }  
+	    System.out.println("Merged Sorted Array is:");
+	    for(int val : arr)
+	      System.out.println(val);
+	}
+	
+        public static void modifiedInsertionSort(int[]arr,int k)
+        {
+          int temp=arr[k],j=k-1;
+          while(j>=0 && arr[j]>temp)
+          {
+             arr[j+1]=arr[j];
+             j--;
+          }
+          arr[j+1]=temp;
+       }
+}
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the Size of the Array1");
+           int m=sc.nextInt();
+       
+           System.out.println("Enter the Size of the Array2");
+           int n=sc.nextInt();
+           if(m>0 && n>0)
+           {
+             int[] arr1=new int[m];
+             int[] arr2=new int[n];
+             System.out.printf("Enter %d Elements of Array1:\n",m);
+             for(int i=0;i<m;i++)
+                arr1[i]=sc.nextInt();
+              
+             System.out.printf("Enter %d Elements of Array2:\n",n);
+             for(int i=0;i<n;i++)
+                arr2[i]=sc.nextInt();
+              
+             mergeTwoSortedArrayIntoThirdSortedArray(arr1,arr2); 
+           }
+           else
+             System.out.println("Invalid Choice");
+	}
+	
+	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[] arr1,int arr2[])
+	{
+	     int m=arr1.length,n=arr2.length,i=0,j=0,k=0;;
+	     int[] arr=new int[m+n];
+	    
+	     while(i<m && j<n)
+	       if(arr1[i]<=arr2[j])
+	         arr[k++]=arr1[i++];
+	       else
+	         arr[k++]=arr2[j++];
+           
+	     while(i<m)
+	       arr[k++]=arr1[i++];
+	          
+	     while(j<n)
+	       arr[k++]=arr2[j++];
+	          
+	     System.out.println("Merged Sorted Array is:");
+	     for(int val :arr)
+	        System.out.println(val);
+	}
+}
