@@ -1,0 +1,277 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+       public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
+          int m=sc.nextInt();
+       
+          System.out.println("Enter the Size of the Array2");
+          int n=sc.nextInt();
+          if(m>0 && n>0)
+          {
+             int[] arr1=new int[m];
+             int[] arr2=new int[n];
+             System.out.printf("Enter %d Elements of Array1:\n",m);
+             for(int i=0;i<m;i++)
+               arr1[i]=sc.nextInt();
+              
+             System.out.printf("Enter %d Elements of Array2:\n",n);
+             for(int i=0;i<n;i++)
+               arr2[i]=sc.nextInt();
+             System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");   
+          }
+          else
+            System.out.println("Invalid Choice");
+        }
+	
+	public static String unionOfTwoSortedArray(int[] arr1,int[] arr2)
+	{
+	    int m=arr1.length,n=arr2.length,len=m+n,j=0;
+	    int[] arr=new int[len];
+	
+            for(int i=0;i<m;i++)
+              arr[j++]=arr1[i];
+        
+            for(int i=0;i<n;i++)
+              if(binarySearch(arr1,arr2[i])==false)
+                arr[j++]=arr2[i];
+              
+            Arrays.sort(arr,0,j);
+        
+            String temp="";
+            for(int i=0;i<j;i++)
+              temp=temp+arr[i]+",";
+            
+            String union="";
+	    int len=temp.length();
+            for(int i=0;i<(len-1);i++)
+               union+=temp.charAt(i);
+	     
+          return union;
+       }
+	
+	
+       public static boolean binarySearch(int[]arr,int key)
+       {
+         int low=0;
+         int high=arr.length-1;
+         while(low<=high)
+         {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+            return true;
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+         }
+        return false;//key doesnot exists
+       }
+}
+
+
+//Improved Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+            System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");  
+             
+         }
+         else
+            System.out.println("Invalid Choice");
+	}
+	
+	public static String unionOfTwoSortedArray(int[] arr1,int[] arr2)
+	{
+            int m=arr1.length,n=arr2.length;
+	   
+	    int[] arr=new int[m+n];
+	    
+            for(int i=0;i<m;i++)
+              arr[i]=arr1[i];
+             
+            for(int i=0;i<n;i++)
+              arr[i+m]=arr2[i];
+        
+            int[] freqArr=new int[m+n];
+
+            countFrequency(arr,freqArr);
+
+            int[] res=new int[m+n];
+            int k=0;
+	    
+            for(int i=0;i<(m+n);i++)
+             if(freqArr[i]!=-1)
+               res[k++]=arr[i];
+              
+            Arrays.sort(res,0,k);
+        
+            String temp=""; 
+            for(int i=0;i<k;i++)
+              temp+=res[i]+",";
+             
+            String union="";
+	    int len=temp.length();
+            for(int i=0;i<(len-1);i++)
+              union+=temp.charAt(i);
+	       
+            return union;  
+	} 
+	
+	
+	public static void countFrequency(int[] arr,int[] freqArr)
+	{
+	   int n=arr.length;
+           for(int i=0;i<n;i++)
+           {
+             if(freqArr[i]==-1)
+               continue;
+	       
+            int count=1;
+            for(int j=i+1;j<n;j++)
+               if(arr[i]==arr[j])
+               {
+                   freqArr[j]=-1;
+                   count++;
+               }
+	       
+            freqArr[i]=count;       
+           }
+	}
+}
+
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array1");
+       int m=sc.nextInt();
+       
+       System.out.println("Enter the Size of the Array2");
+       int n=sc.nextInt();
+       if(m>0 && n>0)
+       {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+            System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");  
+             
+       }
+       else
+          System.out.println("Invalid Choice");
+    }
+	
+	
+	public static String unionOfTwoSortedArray(int[] arr1,int[] arr2)
+	{
+	    TreeSet<Integer>ts=new TreeSet<>();
+            for(int val : arr1)
+              ts.add(val);
+	    
+            for(int val : arr2)
+              ts.add(val);
+        
+            String temp="";
+	    for(int val:ts)
+              temp+=val+",";
+	    
+	    String union="";
+	    int len=temp.length();
+	    for(int i=0;i<(len-1);i++)
+	      union+=temp.charAt(i);
+	    
+	    return union;
+	} 
+}
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
+          int m=sc.nextInt();
+       
+          System.out.println("Enter the Size of the Array2");
+          int n=sc.nextInt();
+          if(m>0 && n>0)
+          {
+             int[] arr1=new int[m];
+             int[] arr2=new int[n];
+             System.out.printf("Enter %d Elements of Array1:\n",m);
+             for(int i=0;i<m;i++)
+               arr1[i]=sc.nextInt();
+              
+             System.out.printf("Enter %d Elements of Array2:\n",n);
+             for(int i=0;i<n;i++)
+                arr2[i]=sc.nextInt();
+             System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");   
+          }
+          else
+             System.out.println("Invalid Choice");
+        }
+	
+	public static String unionOfTwoSortedArray(int[] arr1,int[] arr2)
+	{
+	    int i=0,j=0,m=arr1.length,n=arr2.length;
+	    String temp="";
+	    
+            while(i<m && j<n)
+             if(arr1[i]==arr2[j])
+             {
+               temp+=arr1[i++]+",";
+               j++;
+             }
+             else
+             {
+                int min=Math.min(arr1[i],arr2[j]);
+                if(min==arr1[i])
+                  temp+=arr1[i++]+",";
+                else // if(min==arr2[j])
+                  temp+=arr2[j++]+",";
+             }
+          
+             while(i<m)
+               temp+=arr1[i++]+",";
+          
+             while(j<n)
+               temp+=arr2[j++]+",";
+            
+             String union="";
+             int len=temp.length();
+             for(int k=0;k<(len-1);k++)
+               union+=temp.charAt(k);
+	       
+           return union;
+	}
+}
