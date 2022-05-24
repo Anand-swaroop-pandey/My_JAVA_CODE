@@ -322,44 +322,43 @@ public class Test
 
 //Method 9
 
-
-//Method 10
-
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-	 Scanner sc=new Scanner(System.in);
-	 System.out.println("Enter the Size of the Array");
-	 int n=sc.nextInt();
-	 if(n>0)
-	 {
-	    int[] arr=new int[n];
-	    System.out.printf("Enter %d Elements of the Array\n",n);
-	    for(int i=0;i<n;i++)
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the Size of the Array");
+	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
 	      arr[i]=sc.nextInt();
 	        
-	    System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
-	 }
-	 else
-	    System.out.println("Invalid Choice");
+	   System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+	}
+	else
+	   System.out.println("Invalid Choice");
     }
 	
     
     public static int findOnlyRepeated(int arr[])
     {
-       int n=arr.length,repeating=-1;
-       
-       for(int i=0;i<n;i++)
-       {
-          int element=arr[Math.abs(arr[i])]; 
-          if(element <0)
-          {
-            repeating=arr[i];
-            break;
-          }
-          arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])]; 
-        }
-        return Math.abs(repeating);
+      int n=arr.length,res=-1;
+      for(int i=0;i<n;i++)
+      {
+         int ele=Math.abs(arr[i]);
+         int idx=ele-1;
+	 
+         if(arr[idx]<0)
+         {
+           res=ele;
+           break;
+         }
+	 arr[idx]*=-1;
+      }
+      
+      return res;
     }
 }
