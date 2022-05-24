@@ -20,6 +20,7 @@ public class Test
              System.out.printf("Enter %d Elements of Array2:\n",n);
              for(int i=0;i<n;i++)
                arr2[i]=sc.nextInt();
+	       
              System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");   
           }
           else
@@ -42,7 +43,7 @@ public class Test
         
             String temp="";
             for(int i=0;i<j;i++)
-              temp=temp+arr[i]+",";
+              temp+=arr[i]+",";
             
             String union="";
 	    int len=temp.length();
@@ -76,13 +77,13 @@ public class Test
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+     public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array1");
+         int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
+         System.out.println("Enter the Size of the Array2");
+         int n=sc.nextInt();
          if(m>0 && n>0)
          {
             int[] arr1=new int[m];
@@ -94,8 +95,8 @@ public class Test
            System.out.printf("Enter %d Elements of Array2:\n",n);
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
-            System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");  
-             
+	      
+           System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");
          }
          else
             System.out.println("Invalid Choice");
@@ -183,8 +184,8 @@ public class Test
            System.out.printf("Enter %d Elements of Array2:\n",n);
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
+	      
             System.out.print("Union of both the Arrays is: {"+unionOfTwoSortedArray(arr1,arr2)+"}");  
-             
        }
        else
           System.out.println("Invalid Choice");
