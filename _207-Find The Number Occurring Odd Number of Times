@@ -25,7 +25,7 @@ public class Test
 	
 	public static int oddCountElement(int arr[])
 	{
-	    int n=arr.length;
+	    int n=arr.length,res=-1;
 	    for(int i=0;i<n;i++)
 	    {
 	        int count=0;
@@ -34,9 +34,12 @@ public class Test
 	              count++;
 		      
 	        if((count%2)!=0)
-	           return arr[i];
+		{
+		   res=arr[i];
+		   break;
+		}
 	    }
-	    return -1;
+	    return res;
 	}
 }
 
@@ -68,17 +71,20 @@ public class Test
 	
 	public static int oddCountElement(int arr[])
 	{
-	    int n=arr.length;
+	    int n=arr.length,res=-1;
 	    int[] freqArr=new int[n];
 	    countFrequency(arr,freqArr,n);
 	    for(int i=0;i<n;i++)
 	       if(freqArr[i]!=-1 && (freqArr[i]%2)!=0)
-	           return arr[i];
-		   
-	    return -1;
+	       {
+	          res=arr[i];
+		  break;
+	       }
+	       
+	    return res;
 	}
 	
-	public static void countFrequency(int[] arr,int[] freqArr)
+	public static void countFrequency(int[] arr,int[] freqArr,int n)
 	{
            for(int i=0;i<n;i++)
            {
@@ -123,7 +129,7 @@ public class Test
 	
 	public static int oddCountElement(int arr[])
 	{
-	   int n=arr.length;
+	   int n=arr.length,res=-1;
            HashMap<Integer,Integer>hm=new HashMap<>(n);
        
            for(int i=0;i<n;i++)
@@ -134,9 +140,12 @@ public class Test
            
            for(int key:hm.keySet())
              if((hm.get(key)%2)!=0)
-               return key;
-        
-          return -1;
+	     {
+	        res=key;
+		break;
+             }
+	     
+          return res;
 	}
 }
 
