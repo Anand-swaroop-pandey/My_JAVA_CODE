@@ -74,7 +74,7 @@ public class Test
 	           break;
 	       }
 	       
-	     return res;
+	    return res;
 	}
 	
 	public static void countFrequency(int[] arr,int[] freqArr)
