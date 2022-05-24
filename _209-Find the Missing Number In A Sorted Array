@@ -1,0 +1,154 @@
+//Method 1
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements in the Range 1 to %d in Sorted Order\n",n,n+1);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Missing Number is: "+missingNumberInSortedArray(arr)); 
+	    }
+	    else
+	      System.out.println("Invalid Choice");
+	}
+	
+        public static int missingNumberInSortedArray(int[] arr)
+	{
+            int n=arr.length,actualSum=0,expectedSum=(n+1)*((n+1)+1)/2;//Sum of First N Natural Numbers.
+        
+	    for(int i=0;i<n;i++)
+	       actualSum+=arr[i];
+	       
+	    int missingNum=expectedSum-actualSum;
+	    return missingNum;
+      
+            /* Aliter 
+	    int n=arr.length,expectedSum=(n+1)*((n+1)+1)/2;//Sum of First N Natural Numbers.
+	    for(int i=0;i<n;i++)
+	       actualSum-=arr[i];
+
+	    return actualSum;
+	    */     
+	}
+}
+
+
+//Method 2
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements in the Range 1 to %d in Sorted Order\n",n,n+1);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Missing Number is: "+missingNumberInSortedArray(arr)); 
+	    }
+	    else
+	      System.out.println("Invalid Choice");
+	}
+	
+        public static int missingNumberInSortedArray(int[] arr)
+	{
+            int n=arr.length;
+	    int XOR1=0;
+	    for(int i=1;i<=(n+1);i++)
+	       XOR1=XOR1^i;
+	       
+	    int XOR2=0;  
+	    for(int i=0;i<n;i++)
+	       XOR2=XOR2^arr[i];
+	        
+	    int missingNum=XOR1^XOR2;
+	    return missingNum;
+	}
+}
+
+
+//Method 3
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements in the Range 1 to %d in Sorted Order\n",n,n+1);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Missing Number is: "+missingNumberInSortedArray(arr)); 
+	    }
+	    else
+	      System.out.println("Invalid Choice");
+	}
+	
+	public static int missingNumberInSortedArray(int[] arr)
+	{
+	   int i;
+           for(i=0;i<n;i++)
+             if(arr[i]!=(i+1))
+               break;
+	       
+           return i+1;        
+	}
+}
+
+
+//Method 4 (Optimal Approach)
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    int[] arr=new int[n];
+	     System.out.printf("Enter %d Elements\n",n);
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	    System.out.println("Missing Number is: "+missingNumberInSortedArray(arr));
+	}
+	
+       public static int missingNumberInSortedArray(int[] arr)
+       {
+          return modifiedBinarySearch(arr);      
+       }
+	
+       public static int modifiedBinarySearch(int[]arr)
+       {
+         int low=0,high=arr.length-1,res=-1;
+         while(low<=high)
+         {
+           int mid=(low+high)/2;
+           if(arr[mid]!=(mid+1) && arr[mid-1]==mid)
+           {
+              res=(mid+1);
+              break;
+           }
+           else if(arr[mid]!=(mid+1) && arr[mid-1]!=mid)
+             high=mid-1;
+           else if(arr[mid]==(mid+1))
+             low=mid+1;
+         }
+         return res;
+       }
+}
+
