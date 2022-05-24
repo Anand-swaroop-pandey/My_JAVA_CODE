@@ -82,59 +82,6 @@ import java.util.*;
 public class Test
 {
     public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
-       
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-       if(m>0 && n>0)
-       {
-           int[] arr1=new int[m];
-           int[] arr2=new int[n];
-           System.out.printf("Enter %d Elements of Array1:\n",m);
-           for(int i=0;i<m;i++)
-              arr1[i]=sc.nextInt();
-              
-           System.out.printf("Enter %d Elements of Array2:\n",n);
-           for(int i=0;i<n;i++)
-              arr2[i]=sc.nextInt();
-	      
-           System.out.print("Intersection of both the Arrays is: {"+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2)+"}");     
-       }
-       else
-           System.out.println("Invalid Choice");
-     }
-	
-     public static String intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
-     {
-         int m=arr1.length,n=arr2.length;
-	 HashMap<Integer,Integer>hm=new HashMap<>(n);
-	 for(int i=0;i<n;i++)
-	    hm.put(arr2[i],i);
-	   
-	 String temp="";
-	 for(int i=0;i<m;i++)
-	    if(hm.containsKey(arr1[i]))
-	    {
-	       temp+=arr1[i]+",";
-	       hm.remove(arr1[i]);
-	    }
-	        
-	  String intersection="";
-	  for(int i=0;i<temp.length()-1;i++)
-	     intersection+=temp.charAt(i);
-	   
-	  return intersection; 
-     }
-}
-
-
-//Even Better Approach
-import java.util.*;
-public class Test
-{
-    public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the Array1");
         int m=sc.nextInt();
@@ -176,6 +123,7 @@ public class Test
 
 	    String intersection="";
 	    int len=temp.length();
+	    
 	    for(int i=0;i<(len-1);i++)
 	      intersection+=temp.charAt(i);
 	   
