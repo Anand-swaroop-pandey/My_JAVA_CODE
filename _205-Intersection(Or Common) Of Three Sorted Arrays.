@@ -12,11 +12,13 @@ public class Test
        
        System.out.println("Enter the Size of the Array3");
        int o=sc.nextInt();
+       
        if(m>0 && n>0 && o>0)
-         {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
-            int[] arr3=new int[o];
+       {
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
+           int[] arr3=new int[o];
+            
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -28,12 +30,12 @@ public class Test
            System.out.printf("Enter %d Elements of Array3:\n",o);
            for(int i=0;i<o;i++)
               arr3[i]=sc.nextInt();
-            System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
-             
-         }
-         else
-           	System.out.println("Invalid Choice");
-	}
+              
+           System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
+       }
+       else
+          System.out.println("Invalid Choice");
+    }
 	
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
@@ -42,13 +44,13 @@ public class Test
         int len=m<n?m:n;
         int[] common=new int[len];
         int k=intersectionOfTwoSortedArray1(arr1,arr2,common);
-        return intersectionOfTwoSortedArray2(common,k,arr3);
+        return intersectionOfTwoSortedArray2(common,k,arr3,arr3.length);
     }
 	
     public static int intersectionOfTwoSortedArray1(int[] arr1,int[] arr2,int arr[])
     {
-	int i=0,j=0,k=0;
-        while(i<arr1.length && j<arr2.length)
+    	int i=0,j=0,k=0,m=arr1.length,n=arr2.length;
+        while(i<m && j<n)
           if(arr1[i]==arr2[j])
           {
               arr[k++]=arr1[i];
@@ -57,44 +59,51 @@ public class Test
           }
 	  else
 	  {
-	      int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
-              if(min==arr1[i])
-                i++;
-              else if(min==arr2[j])
-                j++;
+	     int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+             if(min==arr1[i])
+               i++;
+             else //if(min==arr2[j])
+               j++;
 	  }
-          return k;
+	      
+        return k;
     }
 	
-	public static String intersectionOfTwoSortedArray2(int[] arr1,int m,int[] arr2)
-	{
-	    int i=0,j=0;
-	    String temp="";
-           while(i<m && j<arr2.length)
-             if(arr1[i]==arr2[j])
-             {
-              temp=temp+arr1[i]+",";
-              i++;
-              j++;
-             }
-             else
-             {
-              int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
-              if(min==arr1[i])
-                i++;
-              else if(min==arr2[j])
-                j++;
-             }
-            String intersection="";
-            for(int k=0;k<temp.length()-1;k++)
-              intersection=intersection+temp.charAt(k);
-            return intersection;
-	}
+    public static String intersectionOfTwoSortedArray2(int[] arr1,int m,int[] arr2,int n)
+    {
+	 int i=0,j=0;
+	 String temp="";
+	    
+         while(i<m && j<n)
+           if(arr1[i]==arr2[j])
+           {
+             temp=temp+arr1[i]+",";
+             i++;
+             j++;
+           }
+           else
+           {
+             int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+             if(min==arr1[i])
+               i++;
+             else //if(min==arr2[j])
+               j++;
+           }
+             
+         String intersection="";
+         int len=temp.length();
+           
+         for(int k=0;k<(len-1);k++)
+           intersection+=temp.charAt(k);
+             
+         return intersection;
+    }
 }
 
 
 //Better Approach
-import java.util.*;
+
+import java.util.Scanner;
 public class Test
 {
      public static void main(String[] args) {
@@ -108,10 +117,11 @@ public class Test
        System.out.println("Enter the Size of the Array3");
        int o=sc.nextInt();
        if(m>0 && n>0 && o>0)
-         {
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
             int[] arr3=new int[o];
+            
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -123,10 +133,11 @@ public class Test
            System.out.printf("Enter %d Elements of Array3:\n",o);
            for(int i=0;i<o;i++)
               arr3[i]=sc.nextInt();
-            System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
-         }
-         else
-            System.out.println("Invalid Choice");
+              
+           System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
+       }
+       else
+          System.out.println("Invalid Choice");
     }
 	
 	
@@ -135,6 +146,7 @@ public class Test
        int m=arr1.length,n=arr2.length,o=arr3.length;
        
        HashMap<Integer,Integer>hm=new HashMap<>();
+       
        for(int i=0;i<m;i++)
          if(hm.containsKey(arr1[i]))
             hm.put(arr1[i],hm.get(arr1[i])+1);
@@ -157,28 +169,29 @@ public class Test
        
        String str="";
        int minLen=minimum(m,n,o);
+       
        if(minLen==m)
        {
           for(int i=0;i<m;i++)
             if(hm.get(arr1[i])==3)
-	        str+=arr1[i]+","; 
+	          str+=arr1[i]+","; 
        }
        else if(minLen==n)
        {
-          for(int i=0;i<n;i++)
-            if(hm.get(arr2[i])==3)
-	        str+=arr2[i]+","; 
+         for(int i=0;i<n;i++)
+           if(hm.get(arr2[i])==3)
+	         str+=arr2[i]+","; 
        }
        else
        {
           for(int i=0;i<o;i++)
             if(hm.get(arr3[i])==3)
-	        str+=arr3[i]+","; 
+	         str+=arr3[i]+","; 
        }
        
        String intersection="";
-       for(int i=0;i<str.length()-1;i++)//To remove the Extra Semicolon
-          intersection=intersection+str.charAt(i);
+       for(int i=0;i<str.length()-1;i++) //To remove the Extra Semicolon
+          intersection+=str.charAt(i);
           
        return intersection;
     }
@@ -193,7 +206,7 @@ public class Test
 
 
 //Optimal Approach
-import java.util.Scanner
+import java.util.Scanner;
 public class Test
 {
     public static void main(String[] args) {
@@ -206,11 +219,13 @@ public class Test
        
        System.out.println("Enter the Size of the Array3");
        int o=sc.nextInt();
-         if(m>0 && n>0 && o>0)
-         {
+       
+       if(m>0 && n>0 && o>0)
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
             int[] arr3=new int[o];
+            
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -222,19 +237,19 @@ public class Test
            System.out.printf("Enter %d Elements of Array3:\n",o);
            for(int i=0;i<o;i++)
               arr3[i]=sc.nextInt();
-            System.out.print("Intersection of three Given Sorted Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
-             
-         }
-         else
-           System.out.println("Invalid Choice");
-	}
+              
+           System.out.print("Intersection of both the Arrays is: ["+intersectionOfThreeSortedArray(arr1,arr2,arr3)+"]");  
+       }
+       else
+          System.out.println("Invalid Choice");
+    }
 	
 	
     public static String intersectionOfThreeSortedArray(int[] arr1,int[] arr2,int[] arr3)
     {
-        int i=0,j=0,k=0;
+        int i=0,j=0,k=0,m=arr1.length,n=arr2.length,o=arr3.length;
         String temp="";
-        while(i<arr1.length && j<arr2.length && k<arr3.length)
+        while(i<m && j<n && k<o)
           if(arr1[i]==arr2[j] && arr2[j]==arr3[k])
           {
               temp=temp+arr1[i]+",";
@@ -252,9 +267,11 @@ public class Test
               else if(min==arr3[k])
                 k++;
           }
+          
           String intersection="";
-          for(int index=0;index<(temp.length()-1);index++)
-             intersection=intersection+temp.charAt(index);
+          int len=temp.length();
+          for(int index=0;index<(len-1);index++)
+             intersection+=temp.charAt(index);
 	     
         return intersection; 
     }
