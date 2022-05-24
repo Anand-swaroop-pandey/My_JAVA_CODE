@@ -7,38 +7,39 @@ public class Test
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
-          int index=removeDuplicatesFromUnsortedArray(arr);
+	      
+           int index=removeDuplicatesFromUnsortedArray(arr);
+	   
            System.out.println("Duplicate Free Array is :");
            for(int i=0;i<index;i++)
               System.out.printf(arr[i]+" ");
-         }
-         else
-           	System.out.println("Invalid Choice");
+       }
+       else
+          System.out.println("Invalid Choice");
       }
 	
-        public static int removeDuplicatesFromUnsortedArray(int[] arr)
-	{
-	   Arrays.sort(arr);
-	   return removeDuplicatesFromSortedArray(arr);
-	} 
+      public static int removeDuplicatesFromUnsortedArray(int[] arr)
+      {
+         Arrays.sort(arr);
+	 return removeDuplicatesFromSortedArray(arr);
+      } 
 	
-	public static int  removeDuplicatesFromSortedArray(int[] arr)
-	{
-           int n=arr.length;
-	   int j=0;
-	   for(int i=0;i<n;i++)
-	   {
-	       while(i<(n-1) && arr[i]==arr[i+1])
-	         i++;
-	       arr[j++]=arr[i];
-	   }
-	   return j;
-	}
+      public static int removeDuplicatesFromSortedArray(int[] arr)
+      {
+         int n=arr.length,j=0;
+	 for(int i=0;i<(n-1);i++)
+           if(arr[i]!=arr[i+1])
+             arr[j++]=arr[i];
+	       
+          arr[j++]=arr[n-1];
+	   
+	  return j;
+      }
 }
 
 
@@ -51,26 +52,28 @@ public class Test
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
-         {
-            int[] arr=new int[n];
-           System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
-              arr[i]=sc.nextInt();
+       {
+          int[] arr=new int[n];
+          System.out.printf("Enter %d Elements of Array:\n",n);
+          for(int i=0;i<n;i++)
+            arr[i]=sc.nextInt();
+	    
           int index=removeDuplicatesFromUnsortedArray(arr);
-           System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
-              System.out.printf(arr[i]+" ");
-         }
-         else
-           	System.out.println("Invalid Choice");
+	  
+          System.out.println("Duplicate Free Array is :");
+          for(int i=0;i<index;i++)
+            System.out.printf(arr[i]+" ");
+       }
+       else
+          System.out.println("Invalid Choice");
      }
 	
-        public static int removeDuplicatesFromUnsortedArray(int[] arr)
-	{
-          int n=arr.length;
-          int j,k=0;
+     public static int removeDuplicatesFromUnsortedArray(int[] arr)
+     {
+          int n=arr.length,k=0;
           for(int i=0;i<n;i++)
           {
+	    int j;
             for(j=i+1;j<n;j++)
               if(arr[i]==arr[j])
                 break;
@@ -78,8 +81,9 @@ public class Test
             if(j==n)
               arr[k++]=arr[i];
            }
-          return k; 
-	} 
+	   
+         return k; 
+      } 
 }
 
 
@@ -87,17 +91,19 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
+     public static void main(String[] args) {
        Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
        if(n>0)
        {
-            int[] arr=new int[n];
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
-          int index=removeDuplicatesFromUnsortedArray(arr);
+	      
+           int index=removeDuplicatesFromUnsortedArray(arr);
+	   
            System.out.println("Duplicate Free Array is :");
            for(int i=0;i<index;i++)
               System.out.printf(arr[i]+" ");
@@ -108,25 +114,26 @@ public class Test
 	
     public static int removeDuplicatesFromUnsortedArray(int[] arr)
     {
-        int n=arr.length;
+        int n=arr.length,j=0;
         int[] freqArr=new int[n];
         countFrequecy(arr,freqArr);
-        int j=0;
         for(int i=0;i<n;i++)
           if(freqArr[i]!=-1)
              arr[j++]=arr[i];
-          return j;
+	     
+        return j;
      } 
 	
      public static void countFrequecy(int[] arr,int[] freqArr)
      {
          int n=arr.length;
-         int count;
          for(int i=0;i<n;i++)
          {
             if(freqArr[i]==-1)
                continue;
-            count=1;
+	       
+            int count=1;
+	    
             for(int j=i+1;j<n;j++)
                if(arr[i]==arr[j])
                {
@@ -135,11 +142,11 @@ public class Test
                }
            freqArr[i]=count;       
           }
-       }
+      }
 }
 
 
-//Optimal Approach
+//Best Approach
 import java.util.*;
 public class Test
 {
@@ -150,7 +157,7 @@ public class Test
          int n=sc.nextInt();
          if(n>0)
          {
-            int[] arr=new int[n];
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
@@ -177,6 +184,47 @@ public class Test
               arr[j++]=arr[i];
               hs.remove(arr[i]);
             }
+           return j;
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+      public static void main(String[] args)
+      {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+	      
+           int index=removeDuplicatesFromUnsortedArray(arr);
+	   
+           System.out.println("Duplicate Free Array is :");
+           for(int i=0;i<index;i++)
+              System.out.printf(arr[i]+" ");
+          }
+          else
+            System.out.println("Invalid Choice");
+	}
+	
+        public static int removeDuplicatesFromUnsortedArray(int[] arr)
+	{
+           int n=arr.length,j=0;
+           LinkedHashSet<Integer>lhs=new LinkedHashSet<>(n);
+           for(int i=0;i<n;i++)
+             lhs.add(arr[i]);
+       
+           for(int key : lhs)
+             arr[j++]=key;
+              
            return j;
 	}
 }
