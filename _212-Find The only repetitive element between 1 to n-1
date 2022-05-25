@@ -55,8 +55,7 @@ public class Test
 	    else
 	      System.out.println("Invalid Choice");
 	}
-	
-    
+	  
 	public static int findOnlyRepeated(int arr[])
 	{
   	  int n=arr.length,res=-1;
@@ -74,6 +73,99 @@ public class Test
 
 
 //Method 3
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findOnlyRepeated(int arr[])
+    {
+      Arrays.sort(arr);
+      int n=arr.length,res=-1;
+      for(int i=0;i<n;i++)
+        if(areFirstAndLastIndexEqual(arr,arr[i])==false)
+        {
+            res=arr[i];
+            break;
+        }
+        
+      return res;
+    }
+    
+    public static boolean areFirstAndLastIndexEqual(int [] arr,int key)
+    {
+        int first=firstIndex(arr,key);
+        int last=lastIndex(arr,key);
+        if(first!=last)
+          return false;
+        else
+          return true;
+    }
+	
+	
+   public static int firstIndex(int[]arr,int key)
+   {
+      int low=0;
+      int high=arr.length-1;
+      int first=-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+          {
+             first=mid;
+             high=mid-1;
+          }
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return first;
+   }
+   
+   
+   public static int lastIndex(int[]arr,int key)
+   {
+      int low=0;
+      int high=arr.length-1;
+      int last=-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+          {
+             last=mid;
+             low=mid+1;
+          }
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return last;
+   }
+}
+
+
+//Method 4
 import java.util.Scanner;
 public class Test
 {
@@ -122,7 +214,7 @@ public class Test
 }
 
 
-//Method 4
+//Method 5
 import java.util.*;
 public class Test
 {
@@ -167,7 +259,7 @@ public class Test
 }
 
 
-//Method 5
+//Method 6
 import java.util.*;
 public class Test
 {
@@ -209,7 +301,7 @@ public class Test
 }
 
 
-//Method 6
+//Method 7
 import java.util.*;
 public class Test
 {
@@ -250,7 +342,7 @@ public class Test
 }
 
 
-//Method 7
+//Method 8
 
 import java.util.*;
 public class Test
@@ -292,7 +384,7 @@ public class Test
     }
 }
 
-//Method 8
+//Method 9
 
 import java.util.*;
 public class Test
@@ -334,7 +426,7 @@ public class Test
 }
 
 
-//Method 9
+//Method 10
 import java.util.*;
 public class Test
 {
@@ -375,7 +467,7 @@ public class Test
 }
 
 
-//Method 10
+//Method 11
 import java.util.*;
 public class Test
 {
@@ -409,7 +501,7 @@ public class Test
 }
 
 
-//Method 11
+//Method 12
 import java.util.*;
 public class Test
 {
@@ -446,7 +538,7 @@ public class Test
 }
 
 
-//Method 12 : (Cycle Sort)
+//Method 13 : (Cycle Sort)
 
 import java.util.*;
 public class Test
