@@ -1,0 +1,325 @@
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Elements occurring Twice are: ");
+	   findTwoRepeated(arr);
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+
+
+    public static void findTwoRepeated(int arr[])
+    {
+  	int n=arr.length,count=0;
+	for(int i=0;i<n;i++)
+	   for(int j=i+1;j<n;j++)
+	       if(arr[i]==arr[j])
+	       {
+	          count++;
+	          System.out.print(arr[i]+" ");
+	          if(count==2)
+	            return;
+	       }         
+    }
+}
+
+//Improved Bruteforce Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Elements occurring Twice are: ");
+	   findTwoRepeated(arr);
+    	}
+    	else
+	  System.out.println("Invalid Choice");
+    }
+
+
+    public static void findTwoRepeated(int arr[])
+    {
+      int n=arr.length,count=0;
+      Arrays.sort(arr);
+      for(int i=0;i<n-1;i++)
+	 if(arr[i]==arr[i+1])
+	 {
+	     count++;
+	     System.out.println(arr[i]+" ");
+	     i++;
+	            
+	     if(count==2)
+	       break;
+	}
+    }
+}
+
+
+//Improved Approach
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	    int[] arr=new int[n];
+	    System.out.printf("Enter %d Elements of the Array\n",n);
+	    for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	    System.out.println("Elements occurring Twice are: ");
+	    findTwoRepeated(arr);
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+
+
+    public static void findTwoRepeated(int arr[])
+    {
+	int n=arr.length,res=-1,count=0;
+	int[] freqArr=new int[n];
+	countFrequency(arr,freqArr);
+
+	for(int i=0;i<n;i++)
+	    if(freqArr[i]==2)
+	    {
+	        count++;
+	        System.out.print(arr[i]+" ");
+		
+	        if(count==2)
+	          break;
+	    } 
+    }
+	
+    public static void countFrequency(int[] arr,int[] freqArr)
+    {
+	int n=arr.length;
+        for(int i=0;i<n;i++)
+        {
+           if(freqArr[i]==-1)
+              continue;
+               
+           int count=1;
+           for(int j=i+1;j<n;j++)
+              if(arr[i]==arr[j])
+              {
+                freqArr[j]=-1;
+                count++;
+              }
+               
+           freqArr[i]=count; 
+        }
+    }
+}
+
+
+//Further Improved Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Elements occurring Twice are: ");
+	   findTwoRepeated(arr);
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+
+
+    public static void findTwoRepeated(int arr[])
+    {
+       int n=arr.length,cnt=0;
+       HashMap<Integer,Integer>hm=new HashMap<>(n);
+       for(int i=0;i<n;i++)
+         if(hm.containsKey(arr[i]))
+           hm.put(arr[i],hm.get(arr[i])+1);
+         else
+           hm.put(arr[i],1);
+       
+       for(int i=0;i<n;i++)
+         if(hm.get(arr[i])==2)
+         {
+           cnt++;
+	   System.out.println(arr[i]+" ");
+	   
+           if(cnt==2)
+             break;  
+         }
+    }
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+     public static void main(String[] args) {
+    	  Scanner sc=new Scanner(System.in);
+    	  System.out.println("Enter the Size of the Array");
+    	  int n=sc.nextInt();
+	  if(n>0)
+	  {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements of the Array\n",n);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Elements occurring Twice are: ");
+	      findTwoRepeated(arr);
+    	  }
+    	  else
+	     System.out.println("Invalid Choice");
+        }
+	
+        public static void findTwoRepeated(int arr[])
+	{
+	    int n=arr.length,sum,prod,arrSum,arrProd,sumOfTwoRepeating,prodOfTwoRepeating,differenceOfTwoRepeating,R1,R2;
+            sum=((n-2)*(n-2+1))/2;//Sum of First (n-2) Natural Numbers.
+            prod=factorial(n-2);//Product of First (n-2) Natural Numbers.
+            arrSum=0;
+	    arrProd=1;
+	    
+            for(int i=0;i<n;i++)
+            {
+             arrSum+=arr[i];
+             arrProd*=arr[i];
+            }
+	    
+            sumOfTwoRepeating=arrSum-sum;//R1+R2=sumOfTwoRepeating
+            prodOfTwoRepeating=arrProd/prod;//R1*R2=prodOfTwoRepeating
+            differenceOfTwoRepeating=(int)Math.sqrt((sumOfTwoRepeating*sumOfTwoRepeating)-(4*prodOfTwoRepeating));//R1-R2=differenceOfTwoRepeating //(X-Y)^2=((X+Y)^2 - 4*X*Y)
+            R1=(sumOfTwoRepeating+differenceOfTwoRepeating)/2;//(R1+R2)+(R1-R2)=2R1 => R1=((R1+R2)+(R1-R2))/2
+            R2=sumOfTwoRepeating-R1;//R2=(R1+R2)-R1
+            System.out.println(R1+" "+R2);
+	}
+	
+	public static int factorial(int num)
+	{
+	    if(num==0)
+	      return 1;
+	    return (num*factorial(num-1));
+	}
+}
+ 
+ 
+//Optimised Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Elements occurring Twice are: ");
+	   findTwoRepeated(arr);
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+
+
+    public static void findTwoRepeated(int arr[])
+    {
+       int n=arr.length,cnt=0;
+       int[] count=new int[n-1];//array size is (n+2) and array element are in the range of 1 to N(both inclusive)
+       for(int i=0;i<n;i++)
+          count[arr[i]]++;
+ 
+       for(int i=1;i<(n-1);i++)
+          if(count[i]==2)
+          {
+             cnt++;
+	     System.out.print(arr[i]+" ");    
+	     if(cnt==2)
+	       break;
+          }
+    }
+}
+
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Elements occurring Twice are: ");
+	   findTwoRepeated(arr);
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+
+
+    public static void findTwoRepeated(int arr[])
+    {
+        int n=arr.length,count=0;
+        for(int i=0;i<n;i++)
+        {
+            int ele=Math.abs(arr[i]); 
+            if(arr[ele]<0)
+            {
+               count++;
+               System.out.print(ele+" ");
+		
+               if(count==2)
+	         break;
+            }
+            arr[ele]*=-1; 
+        }
+    }
+}
