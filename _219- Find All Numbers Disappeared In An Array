@@ -1,4 +1,4 @@
-//Bruteforce Approach
+//Method 1
 import java.util.*;
 public class Test
 {
@@ -42,7 +42,7 @@ public class Test
 }
 
 
-//Improved Approach
+//Method 2
 import java.util.*;
 public class Test
 {
@@ -67,10 +67,11 @@ public class Test
 	public static List<Integer>findDisappearedNumbers(int[] arr)
 	{
           HashSet<Integer>hs=new HashSet<>();
+	  List<Integer>al=new ArrayList<>();
+	  
           for(int val:arr)
             hs.add(val);
-        
-          List<Integer>al=new ArrayList<>();
+       
           int n=arr.length;
           for(int i=1;i<=n;i++)
             if(hs.contains(i)==false)
@@ -81,7 +82,7 @@ public class Test
 }
 
 
-//Better Approach
+//Method 3
 import java.util.*;
 public class Test
 {
@@ -106,27 +107,22 @@ public class Test
 	public static List<Integer>findDisappearedNumbers(int[] arr)
 	{
            int n=arr.length;
-           int[] count=new int[n];
+           boolean[] visited=new boolean[n+1];
+           List<Integer>al=new ArrayList<>();
         
 	   for(int i=0;i<n;i++)
-	   {
-	     int ele=arr[i];
-	     int idx=ele-1;
-	     if(count[idx]==0)
-	       count[idx]=-1;
-	   }
+	     visited[arr[i]]=true;
 	   
-	   List<Integer>al=new ArrayList<>();
-	   for(int i=0;i<n;i++)
-	     if(count[i]==0)
-	       al.add(i+1);
+	   for(int i=1;i<(n+1);i++)
+	     if(visited[i]==false)
+	       al.add(i);
 	   
 	   return al;
 	}
 }
 
 
-//Optimal Approach
+//Method 4 (Optimal Approach)
 
 /*
 For each value in the array mark its presence by making the number negative at that place in array
@@ -136,6 +132,7 @@ for 4, (take abs value), i will go to index 3 and make its value negative ie. no
 for 1 take abs value), i will go to index 0 as it is already -ve do nothing. present array: [-3,1,-4,-1]
 At last I will have [-3,1,-4,-1]. now i will iterate over the array, whichever idx has positive value that number will not be in the array so as we have nums[1]>0 so 2 is not in the list.
 */
+
 import java.util.*;
 public class Test
 {
@@ -159,16 +156,17 @@ public class Test
 	
 	public static List<Integer>findDisappearedNumbers(int[] arr)
 	{
-	   int n=arr.length; 
+           int n=arr.length,orgVal,idx;
+           List<Integer>al=new ArrayList<>();
+       
 	   for(int i=0;i<n;i++)
 	   {
-	     int orgVal=Math.abs(arr[i]);
-	     int idx=orgVal-1;
+	     orgVal=Math.abs(arr[i]);
+	     idx=orgVal-1;
 	     if(arr[idx]>0)
 	       arr[idx]*=-1;
 	   }
 	   
-	   List<Integer>al=new ArrayList<>();
 	   for(int i=0;i<n;i++)
 	     if(arr[i]>0)
 	       al.add(i+1);
