@@ -24,26 +24,23 @@ public class Test
     public static int[] repeatingAndTheMissing(int arr[])
     {
        Arrays.sort(arr);
-       int repeat=0,missing=0,n=arr.length;
-        
+       int n=arr.length;
+       int[] res=new int[2];   
+	
        for(int i=0;i<n;i++)
          if(arr[i]==arr[i+1])
          {
-           repeat=arr[i];
+           res[0]=arr[i];
            break;
          }
         
        for(int i=1;i<=n;i++)
          if(binarySearch(arr,i)==false)
          {
-            missing=i;
+            res[1]=i;
             break;
          }
-        
-        int[] res=new int[2];
-        res[0]=repeat;
-        res[1]=missing;
-        
+             
         return res;
     }
     
@@ -91,26 +88,24 @@ public class Test
 	
     public static int[] repeatingAndTheMissing(int arr[])
     {
-       int n=arr.length,repeat=0,missing=0;;
+       int n=arr.length;
        int[]count=new int[n+1];
+       int[] res=new int[2];
+       
        for(int i=0;i<n;i++)
           count[arr[i]]++;
        
        for(int i=1;i<(n+1);i++)
        {
            if(count[i]==2)
-             repeat=i;
+             res[0]=i; //repeating
            else if(count[i]==0)
-             missing=i;
+             res[1]=i  //missing
            
-           if(repeat!=0 && missing!=0)
+           if(res[0]!=0 && res[1]!=0)
              break;
        }
-        
-       int[] res=new int[2];
-       res[0]=repeat;
-       res[1]=missing;
-        
+       
        return res;
     }
 }        
@@ -141,8 +136,10 @@ public class Test
 	
     public static int[] repeatingAndTheMissing(int arr[])
     {
-       int n=arr.length,repeating=0,missing=0;
+       int n=arr.length;
+       int[] res=new int[2];
        HashMap<Integer,Integer>hm=new HashMap<>();
+       
        for(int i=1;i<=n;i++)
           hm.put(i,0);
        
@@ -153,17 +150,13 @@ public class Test
        for(int key:hm.keySet())
        {
          if(hm.get(key)==2)
-           repeating=key;
+           res[0]=key; //repeating
          else if(hm.get(key)==0)
-           missing=key;
+           res[1]=key; //missing
            
-         if(repeating!=0 && missing!=0)
+         if(res[0]!=0 && res[1]!=0)
              break;
        }
-
-       int[] res=new int[2];
-       res[0]=repeating;
-       res[1]=missing;
         
       return res;
     }
@@ -195,32 +188,29 @@ public class Test
 	
     public static int[] repeatingAndTheMissing(int arr[])
     {
-          int n=arr.length,i=0,repeating=0,missing=0;
+          int n=arr.length,i=0;
+	  int[] res=new int[2];
           while(i<n)
           {
              int correctIndex=arr[i]-1;
              if(arr[correctIndex]==arr[i])
-	         i++;
+	        i++;
 	     else //if arr[i] is not at its correct index
              {
                int temp=arr[correctIndex];
                arr[correctIndex]=arr[i];
                arr[i]=temp;
              }      
-           }  
+          }  
         
            for (i=0; i<n; i++) 
              if(arr[i]!=i+1)
              {
-               repeating=arr[i];
-               missing=i+1;
+               res[0]=arr[i];//repeating
+               res[1]=i+1;// missing
                break;
              }
-           
-        int[] res=new int[2];
-        res[0]=repeating;
-        res[1]=missing;
-        
+	     
         return res;  
     }
 }  
