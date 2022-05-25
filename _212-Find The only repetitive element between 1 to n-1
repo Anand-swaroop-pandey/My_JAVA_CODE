@@ -36,6 +36,44 @@ public class Test
 
 
 //Method 2
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements of the Array\n",n);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+	    }
+	    else
+	      System.out.println("Invalid Choice");
+	}
+	
+    
+	public static int findOnlyRepeated(int arr[])
+	{
+  	  int n=arr.length,res=-1;
+	  Arrays.sort(arr);
+	  for(int i=0;i<n-1;i++)
+	     if(arr[i]==arr[i+1])
+	     {
+	        res=arr[i];
+	        break;
+	     }
+	      
+	   return res;
+	}
+}
+
+
+//Method 3
 import java.util.Scanner;
 public class Test
 {
@@ -50,12 +88,13 @@ public class Test
             System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
 	}
 	
+	
         public static int findOnlyRepeated(int arr[])
 	{
-	    int res=-1;
-	    int[] freqArr=new int[arr.length];
-	    countFrequency(arr,freqArr);
-	    for(int i=0;i<arr.length;i++)
+	    int res=-1,int n=arr.length;
+	    int[] freqArr=new int[n];
+	    countFrequency(arr,freqArr,n);
+	    for(int i=0;i<n;i++)
 	       if(freqArr[i]==2)
 	       {
 	           res=arr[i];
@@ -64,9 +103,8 @@ public class Test
 	     return res;
 	}
 
-	public static void countFrequency(int[] arr,int[] freqArr)
+	public static void countFrequency(int[] arr,int[] freqArr,int n)
 	{
-           int n=arr.length;
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
@@ -84,7 +122,7 @@ public class Test
 }
 
 
-//Method 3
+//Method 4
 import java.util.*;
 public class Test
 {
@@ -128,157 +166,8 @@ public class Test
     }
 }
 
-//Method 4
-import java.util.*;
-public class Test
-{
-	public static void main(String[] args) {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter the Size of the Array");
-	    int n=sc.nextInt();
-	    if(n>0)
-	    {
-	      int[] arr=new int[n];
-	      System.out.printf("Enter %d Elements of the Array\n",n);
-	      for(int i=0;i<n;i++)
-	        arr[i]=sc.nextInt();
-	        
-	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
-	    }
-	    else
-	      System.out.println("Invalid Choice");
-	}
-	
-    
-	public static int findOnlyRepeated(int arr[])
-	{
-  	  int n=arr.length,res=-1;
-	  Arrays.sort(arr);
-	  for(int i=0;i<n-1;i++)
-	     if(arr[i]==arr[i+1])
-	     {
-	        res=arr[i];
-	        break;
-	     }
-	      
-	   return res;
-	}
-}
-
 
 //Method 5
-import java.util.*;
-public class Test
-{
-	public static void main(String[] args) {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter the Size of the Array");
-	    int n=sc.nextInt();
-	    if(n>0)
-	    {
-	      int[] arr=new int[n];
-	      System.out.printf("Enter %d Elements of the Array\n",n);
-	      for(int i=0;i<n;i++)
-	        arr[i]=sc.nextInt();
-	        
-	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
-	    }
-	    else
-	      System.out.println("Invalid Choice");
-     }
-	
-    
-    public static int findOnlyRepeated(int arr[])
-    {
-       int n=arr.length,arrSum=0,UniqueSum=0;
-       HashSet<Integer>hs=new HashSet<>(n);
-       for(int i=0;i<n;i++)
-       {
-          hs.add(arr[i]);
-          arrSum+=arr[i];
-       }
-         
-       for(int val: hs)
-          UniqueSum+=val; 
-        
-       int repeated=arrSum-UniqueSum;
-       return repeated;
-    }
-}
-
-
-//Method 6
-import java.util.*;
-public class Test
-{
-	public static void main(String[] args) {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter the Size of the Array");
-	    int n=sc.nextInt();
-	    if(n>0)
-	    {
-	      int[] arr=new int[n];
-	      System.out.printf("Enter %d Elements of the Array\n",n);
-	      for(int i=0;i<n;i++)
-	        arr[i]=sc.nextInt();
-	        
-	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
-	    }
-	    else
-	      System.out.println("Invalid Choice");
-    }
-	
-    
-    public static int findOnlyRepeated(int arr[])
-    {
-       int n=arr.length,arrSum=0,sum=((n-1)*((n-1)+1))/2;//sum of first (n-1) Natural Numbers
-       for(int i=0;i<n;i++)
-          arrSum+=arr[i];
-          
-       int repeating=arrSum-sum;
-       return repeating;
-    }
-}
-
-
-//Method 7
-import java.util.*;
-public class Test
-{
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-	  System.out.println("Enter the Size of the Array");
-	  int n=sc.nextInt();
-	  if(n>0)
-	  {
-	      int[] arr=new int[n];
-	      System.out.printf("Enter %d Elements of the Array\n",n);
-	      for(int i=0;i<n;i++)
-	        arr[i]=sc.nextInt();
-	        
-	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
-	  }
-	  else
-	    System.out.println("Invalid Choice");
-    }
-	
-    
-    public static int findOnlyRepeated(int arr[])
-    {
-        int n=arr.length,XOR1=0,XOR2=0;
-        for(int i=1;i<=(n-1);i++)
-           XOR1=XOR1^i;
-           
-        for(int i=0;i<n;i++)
-           XOR2=XOR2^arr[i];
-           
-        int repeating=XOR1^XOR2;
-        return repeating;
-    }
-}
-
-
-//Method 8
 import java.util.*;
 public class Test
 {
@@ -320,7 +209,7 @@ public class Test
 }
 
 
-//Method 9
+//Method 6
 import java.util.*;
 public class Test
 {
@@ -361,7 +250,7 @@ public class Test
 }
 
 
-//Method 10
+//Method 7
 
 import java.util.*;
 public class Test
@@ -403,9 +292,161 @@ public class Test
     }
 }
 
+//Method 8
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+    	}
+    	else
+	  System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findOnlyRepeated(int arr[])
+    {
+      HashSet<Integer>hs=new HashSet<>();
+      int n=arr.length,res=-1;
+        
+      for(int i=0;i<n;i++)
+       if(hs.contains(arr[i]))
+       {
+          res=arr[i];
+          break;
+       }
+       else
+         hs.add(arr[i]);
+        
+       return res;
+    }
+}
 
 
-//Method 11 : (Cycle Sort)
+//Method 9
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the Size of the Array");
+	    int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements of the Array\n",n);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+	    }
+	    else
+	      System.out.println("Invalid Choice");
+     }
+	
+    
+    public static int findOnlyRepeated(int arr[])
+    {
+       int n=arr.length,arrSum=0,UniqueSum=0;
+       HashSet<Integer>hs=new HashSet<>(n);
+       for(int i=0;i<n;i++)
+       {
+          hs.add(arr[i]);
+          arrSum+=arr[i];
+       }
+         
+       for(int val: hs)
+          UniqueSum+=val; 
+        
+       int repeated=arrSum-UniqueSum;
+       return repeated;
+    }
+}
+
+
+//Method 10
+import java.util.*;
+public class Test
+{
+       public static void main(String[] args) {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter the Size of the Array");
+	 int n=sc.nextInt();
+	 if(n>0)
+	 {
+	    int[] arr=new int[n];
+	    System.out.printf("Enter %d Elements of the Array\n",n);
+	    for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	    System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+	 }
+	 else
+	   System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findOnlyRepeated(int arr[])
+    {
+       int n=arr.length,arrSum=0,sum=((n-1)*((n-1)+1))/2;//sum of first (n-1) Natural Numbers
+       for(int i=0;i<n;i++)
+          arrSum+=arr[i];
+          
+       int repeating=arrSum-sum;
+       return repeating;
+    }
+}
+
+
+//Method 11
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array");
+	  int n=sc.nextInt();
+	  if(n>0)
+	  {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements of the Array\n",n);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Element occurring Twice is: "+findOnlyRepeated(arr));
+	  }
+	  else
+	    System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findOnlyRepeated(int arr[])
+    {
+        int n=arr.length,XOR1=0,XOR2=0;
+        for(int i=1;i<=(n-1);i++)
+           XOR1=XOR1^i;
+           
+        for(int i=0;i<n;i++)
+           XOR2=XOR2^arr[i];
+           
+        int repeating=XOR1^XOR2;
+        return repeating;
+    }
+}
+
+
+//Method 12 : (Cycle Sort)
 
 import java.util.*;
 public class Test
