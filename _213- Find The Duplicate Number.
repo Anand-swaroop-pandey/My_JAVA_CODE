@@ -1,25 +1,25 @@
-//Method 1 (T.C = O(n^2) , S.C = O(1) and Doesnot Modifies the Array)
+//Method 1
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Size of the Array :");
-       	int n=sc.nextInt();
-	if(n<1)
-  	{
- 	 System.out.println("Invalid Choice");
-         return;
-	}
-	int[] arr=new int[n];
-	System.out.printf("Enter %d Elements Of The Array :\n",n);
-	for(int i=0;i<n;i++)
-   	  arr[i]=sc.nextInt();
-	
-	System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
     }
-	
-    public static int findDuplicate(int[]arr)
+    
+    public static int findDuplicate(int arr[])
     {
       int n=arr.length,res=-1;
       for(int i=0;i<n;i++)
@@ -34,28 +34,213 @@ public class Test
     }
 }
 
-//Method 2 (T.C = O(n) , S.C = O(n) and Doesnot Modifies the Array)
+
+//Method 2
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements of the Array\n",n);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	      System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findDuplicate(int arr[])
+    {
+      Arrays.sort(arr);
+      int n=arr.length,res=-1;
+      for(int i=0;i<n-1;i++)
+         if(arr[i]==arr[i+1])
+         {
+            res=arr[i];
+            break;
+         }   
+         
+      return res;
+    }
+}
+
+
+//Method 3
 
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Size of the Array :");
-       	int n=sc.nextInt();
-	if(n<1)
-  	{
- 	   System.out.println("Invalid Choice");
- 	   return;
-	}
-	int[] arr=new int[n];
-	System.out.printf("Enter %d Elements Of The Array :\n",n);
-	for(int i=0;i<n;i++)
-   	  arr[i]=sc.nextInt();
-	
-        System.out.println("Repeating Element is :"+findDuplicate(arr));
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	    if(n>0)
+	    {
+	      int[] arr=new int[n];
+	      System.out.printf("Enter %d Elements of the Array\n",n);
+	      for(int i=0;i<n;i++)
+	        arr[i]=sc.nextInt();
+	        
+	      System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	      System.out.println("Invalid Choice");
     }
 	
+    
+    public static int findDuplicate(int[]arr)
+    {
+      Arrays.sort(arr);
+      int n=arr.length,res=-1;
+      for(int i=0;i<n;i++)
+        if(areFirstAndLastIndexEqual(arr,arr[i])==false)
+        {
+            res=arr[i];
+            break;
+        }
+        
+      return res;
+    }
+    
+    public static boolean areFirstAndLastIndexEqual(int [] arr,int key)
+    {
+        if(firstIndex(arr,key)!= lastIndex(arr,key))
+          return false;
+        else
+          return true;
+    }
+	
+	
+   public static int firstIndex(int[]arr,int key)
+   {
+      int low=0,high=arr.length-1,first=-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+          {
+             first=mid;
+             high=mid-1;
+          }
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return first;
+   }
+   
+   
+   public static int lastIndex(int[]arr,int key)
+   {
+      int low=0,high=arr.length-1,last=-1;
+      while(low<=high)
+      {
+          int mid=(low+high)/2;
+          if(arr[mid]==key)
+          {
+             last=mid;
+             low=mid+1;
+          }
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      return last;
+   }
+}
+
+
+//Method 4
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	  System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findDuplicate(int[]arr)
+    {
+       int res=-1,n=arr.length;
+       int[] freqArr=new int[n];
+       countFrequency(arr,freqArr,n);
+       for(int i=0;i<n;i++)
+	  if(freqArr[i]>=2)
+	  {
+	     res=arr[i];
+	     break;
+	  } 
+       return res;   
+    }
+    
+    public static void countFrequency(int[] arr,int[] freqArr,int n)
+    {
+        for(int i=0;i<n;i++)
+        {
+            if(freqArr[i]==-1)
+              continue;
+              
+            int count=1;
+            for(int j=i+1;j<n;j++)
+               if(arr[i]==arr[j])
+               {
+                   freqArr[j]=-1;
+                   count++;
+               }
+               
+           freqArr[i]=count; 
+        }
+    }
+}
+
+
+//Method 5 
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+	
+    
     public static int findDuplicate(int[]arr)
     {
       HashMap<Integer,Integer>hm=new HashMap<>();
@@ -78,71 +263,159 @@ public class Test
     }
 }
 
-//Method 3 (T.C = O(n) , S.C = O(n) and Doesnot Modifies the Array)
+
+//Method 6 
 
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Size of the Array :");
-       	int n=sc.nextInt();
-	if(n<1)
-  	{
- 	  System.out.println("Invalid Choice");
-          return;
-	}
-       int[] arr=new int[n];
-       System.out.printf("Enter %d Elements Of The Array :\n",n);
-       for(int i=0;i<n;i++)
-   	 arr[i]=sc.nextInt();
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	       
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
 	
-      System.out.println("Repeating Element is :"+findDuplicate(arr));
-  }
-	
-  public static int findDuplicate(int[]arr)
-  {
-      int n=arr.length,res=-1;
+    
+    public static int findDuplicate(int[]arr)
+    {
+      int n=arr.length,repeating=-1;
       int[] count=new int[n];
-      
+	  
       for(int i=0;i<n;i++)
-         count[arr[i]-1]++;
-      
-      for(int i=0;i<n;i++)
-        if(count[i]>=2)
-        {
-           res=i+1;
+         count[arr[i]]++;
+	    
+      for(int i=1;i<n;i++)
+         if(count[i]>=2)
+         {
+           repeating=i;
            break;
-        }
-             
-       return res;
-  }
+         }
+         
+      return repeating;
+    }
 }
 
-//Method 4 (T.C = O(n) , S.C = O(n) and Doesnot Modifies the Array)
+//Method 7 
 
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array :");
-       int n=sc.nextInt();
-       if(n<1)
-       {
-         System.out.println("Invalid Choice");
-         return;
-       }
-      int[] arr=new int[n];
-      System.out.printf("Enter %d Elements Of The Array :\n",n);
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
+	
+    
+    public static int findDuplicate(int[]arr)
+    {
+      int n=arr.length,repeating=-1;
+      boolean[] visited=new boolean[n];
+	  
       for(int i=0;i<n;i++)
-        arr[i]=sc.nextInt();
+         if(visited[arr[i]]==true)
+         {
+            repeating=arr[i];
+            break;
+         }
+         else
+           visited[arr[i]]=true;
+      
+      return repeating;
+    }
+}
+
+//Method 8
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
 	
-     System.out.println("Repeating Element is :"+findDuplicate(arr));
-  }
+    
+    public static int findDuplicate(int[]arr)
+    {
+      int n=arr.length,res=-1;
+      for(int i=0;i<n;i++)
+      {
+         int ele=Math.abs(arr[i]);
+	 
+         if(arr[ele]<0)
+         {
+           res=ele;
+           break;
+         }
+         
+	arr[ele]*=-1;
+      }
+      
+      return res;
+    }
+}
+
+
+//Method 9
+
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
+    }
 	
-  public static int findDuplicate(int[]arr)
-  {
+    
+    public static int findDuplicate(int[]arr)
+    {
       HashSet<Integer>hs=new HashSet<>();
       int n=arr.length,res=-1;
         
@@ -156,545 +429,103 @@ public class Test
          hs.add(arr[i]);
         
        return res;
-  }
+    }
 }
 
-//Method 5 (T.C = O(n) , S.C = O(n) and Doesnot Modifies the Array)
+
+//Method 10 (Cyclic Sort)
 
 import java.util.*;
 public class Test
 {
-   public static void main(String[] args) {
-     Scanner sc=new Scanner(System.in);
-     System.out.println("Enter the Size of the Array :");
-     int n=sc.nextInt();
-     if(n<1)
-     {
-       System.out.println("Invalid Choice");
-       return;
-     }
-     int[] arr=new int[n];
-     System.out.printf("Enter %d Elements Of The Array :\n",n);
-     for(int i=0;i<n;i++)
-   	arr[i]=sc.nextInt();
-	
-     System.out.println("Repeating Element is :"+findDuplicate(arr));
-  }
-	
-  public static int findDuplicate(int[]arr)
-  {
-      int n=arr.length,res=-1;
-      int[] count=new int[n];
-      
-      for(int i=0;i<n;i++)
-      {
-        if(count[arr[i]-1]==1)
-        {
-           res=arr[i];
-           break;
-        }
-        count[arr[i]-1]++;  
-      }
-        
-      return res;
-  }
-}
-
-//Method 6 (T.C = O(n log n) , S.C = O(1) and  Modifies the Array)
-
-import java.util.*;
-public class Test
-{
-   	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-	  System.out.println("Enter the Size of the Array :");
-       	  int n=sc.nextInt();
-	  if(n<1)
-  	  {
- 	     System.out.println("Invalid Choice");
- 	     return;
-	  }
-	  int[] arr=new int[n];
-	  System.out.printf("Enter %d Elements Of The Array :\n",n);
-	  for(int i=0;i<n;i++)
-   	    arr[i]=sc.nextInt();
-	
-	  System.out.println("Repeating Element is :"+findDuplicate(arr));
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
     }
 	
-  public static int findDuplicate(int[]arr)
-  {
-      Arrays.sort(arr);
-      int n=arr.length,res=-1;
-      for(int i=0;i<n-1;i++)
-         if(arr[i]==arr[i+1])
-         {
-            res=arr[i];
-            break;
-         }         
-      return res;
-  }
-}
-
-//Method 7 (T.C = O(n^2) , S.C = O(1) and  Modifies the Array)
-
-import java.util.*;
-public class Test
-{
-    	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-	  System.out.println("Enter the Size of the Array :");
-       	  int n=sc.nextInt();
-	  if(n<1)
-  	  {
- 	     System.out.println("Invalid Choice");
- 	     return;
-	  }
-	  int[] arr=new int[n];
-	  System.out.printf("Enter %d Elements Of The Array :\n",n);
-	  for(int i=0;i<n;i++)
-   	    arr[i]=sc.nextInt();
-	
-	  System.out.println("Repeating Element is :"+findDuplicate(arr));
-    }
-	
-    public static int findDuplicate(int[]arr)
-    {
-      Arrays.sort(arr);
-      int n=arr.length,res=-1;
-      for(int i=0;i<n;i++)
-        if(areFirstAndLastIndexEqual(arr,arr[i])==false)
-        {
-            res=arr[i];
-            break;
-        }
-        
-      return res;
-    }
     
-    public static boolean areFirstAndLastIndexEqual(int [] arr,int key)
-    {
-        int first=firstIndex(arr,key);
-        int last=lastIndex(arr,key);
-        if(first!=last)
-          return false;
-        else
-          return true;
-    }
-	
-	
-   public static int firstIndex(int[]arr,int key)
-   {
-      int low=0;
-      int high=arr.length-1;
-      int first=-1;
-      while(low<=high)
-      {
-          int mid=(low+high)/2;
-          if(arr[mid]==key)
-          {
-             first=mid;
-             high=mid-1;
-          }
-          else if(key<arr[mid])
-            high=mid-1;
-          else if(key>arr[mid])
-            low=mid+1;
-      }
-      return first;
-   }
-   
-   
-   public static int lastIndex(int[]arr,int key)
-   {
-      int low=0;
-      int high=arr.length-1;
-      int last=-1;
-      while(low<=high)
-      {
-          int mid=(low+high)/2;
-          if(arr[mid]==key)
-          {
-             last=mid;
-             low=mid+1;
-          }
-          else if(key<arr[mid])
-            high=mid-1;
-          else if(key>arr[mid])
-            low=mid+1;
-      }
-      return last;
-   }
-}
-
-//Method 8 (T.C = O(n) , S.C = O(n) and  Doesnot Modifies the Array)
-
-import java.util.*;
-public class Test
-{
-   	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-	  System.out.println("Enter the Size of the Array :");
-       	  int n=sc.nextInt();
-	  if(n<1)
-  	  {
- 	     System.out.println("Invalid Choice");
- 	     return;
-	  }
-	  int[] arr=new int[n];
-	  System.out.printf("Enter %d Elements Of The Array :\n",n);
-	  for(int i=0;i<n;i++)
-   	    arr[i]=sc.nextInt();
-	
-	  System.out.println("Repeating Element is :"+findDuplicate(arr));
-    }
-	
-    public static int findDuplicate(int[]arr)
-    {
-      int n=arr.length,res=-1;
-      boolean[] visited=new boolean[n];
-      for(int i=0;i<n;i++)
-      {
-         int ele=arr[i];
-         int idx=ele-1;
-         if(visited[idx]==true)
-         {
-           res=ele;
-           break;
-         }
-         visited[idx]=true;
-      }
-      return res; 
-    }
-}
-
-//Method 9 (T.C = O(n) , S.C = O(1) and  Modifies the Array)
-
-import java.util.*;
-public class Test
-{
-    public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Size of the Array :");
-	int n=sc.nextInt();
-	if(n<1)
-	{
-	   System.out.println("Invalid Choice");
-	   return;
-	}
-	int[] arr=new int[n];
-	System.out.printf("Enter %d Elements Of The Array :\n",n);
-        for(int i=0;i<n;i++)
-	  arr[i]=sc.nextInt();
-		  
-	System.out.println("Repeating Element is :"+findDuplicate(arr));
-  }
-	
-  public static int findDuplicate(int[]arr)
-  {
-      int n=arr.length,res=-1;
-      for(int i=0;i<n;i++)
-      {
-         int ele=Math.abs(arr[i]);
-         int idx=ele-1;
-	 
-         if(arr[idx]<0)
-         {
-           res=ele;
-           break;
-         }
-	 arr[idx]*=-1;
-      }
-      return res;
-  }
-}
-
-//Method 10 (T.C = O(n) , S.C = O(1) and  Modifies the Array)
-//Cyclic Sort
-
-import java.util.*;
-public class Test
-{
-    public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Size of the Array :");
-	int n=sc.nextInt();
-	if(n<1)
-	{
-	   System.out.println("Invalid Choice");
-	   return;
-	}
-	
-	int[] arr=new int[n];
-	System.out.printf("Enter %d Elements Of The Array :\n",n);
-        for(int i=0;i<n;i++)
-	  arr[i]=sc.nextInt();
-		  
-	System.out.println("Repeating Element is :"+findDuplicate(arr));
-    }
-	
     public static int findDuplicate(int[]arr)
     {
         int n=arr.length,i=0;
         while(i<n)
-        {
-           int correctIndex=arr[i]-1;
-           if (arr[correctIndex]==arr[i])
-	      i++;
-	   else// if arr[i] is not at its correct index
-           {
-             int temp=arr[correctIndex];
-             arr[correctIndex]=arr[i];
-             arr[i]=temp;
-           }      
-        }  
-        
-	return arr[n-1];
-        /* 
-	OR
-	int res=-1;
-        for (i=0; i<n; i++) 
-           if(arr[i]!=i+1)
-           {
-              res=arr[i];
+          if(arr[i]==(i+1))
+	     i++;
+	  else// if arr[i] is not at its correct index then put arr[i] at its correct index
+          {
+            int correctIndex=arr[i]-1;
+            if(arr[correctIndex]==arr[i])
               break;
-           }
-	   
-	 return res;
-	*/  
-    }
-    
-    /*
-    //Aliter
-    
-     public static int findDuplicate(int[]arr)
-     {
-        int n=arr.length,i=0;
-        while(i<n)
-        {
-          
-           if (arr[i]==(i+1))
-	      i++;
-	   else// if arr[i] is not at its correct index then put arr[i] at its correct index
-           {
-             int correctIndex=arr[i]-1;
-             if(arr[correctIndex]==arr[i])
-                break;
              
-             //Swap
-             int temp=arr[correctIndex];
-             arr[correctIndex]=arr[i];
-             arr[i]=temp;
-               
-           }      
-        }  
-        
+            //Swap
+            int temp=arr[correctIndex];
+            arr[correctIndex]=arr[i];
+            arr[i]=temp;
+          }      
+	  
 	return arr[i];
-     }
-    */
+    }
 }
 
 
-/*
- Ex-1:
- 
- int[] arr={1,3,4,2,2};
- 
- Iteration 1 :(i==0)
- arr[0]=1;
- correctIndexOf 1 in a sorted Array =0;
- clearly 1 is at its Correct index i.e 0
- so i++;
- 
- Iteration 2 :(i==1)
- arr[1]=3;
- correctIndexOf 3 in a sorted Array =2;
- clearly 3 is not at its Correct index
- so Swap(arr[1],arr[2]);
- 
- Resultant Array :
- arr={1,4,3,2,2};
- 
- Now 3 is at its Correct Index.i.e 2
- 
- 
- Iteration 3 :(i==1)
- arr[1]=4;
- correctIndexOf 4 in a sorted Array =3;
- clearly 4 is not at its Correct index
- so Swap(arr[1],arr[3]);
- 
- Resultant Array :
- arr={1,2,3,4,2};
- 
- Now 4 is at its Correct Index.i.e 3
- 
- 
- Iteration 4 :(i==1)
- arr[1]=2;
- correctIndexOf 2 in a sorted Array = 1;
- clearly 2 is at its Correct index i.e 1
- so i++;
- 
- 
- Iteration 5 :(i==2)
- arr[2]=3;
- correctIndexOf 3 in a sorted Array = 2;
- clearly 3 is at its Correct index i.e 2
- so i++;
- 
- 
- Iteration 6 :(i==3)
- arr[3]=4;
- correctIndexOf 4 in a sorted Array = 3;
- clearly 4 is at its Correct index i.e 3
- so i++;
- 
- Iteration 7 :(i==4)
- arr[4]=2;
- correctIndexOf 2 in a sorted Array = 1;
- clearly 4 is at its Correct index i.e 1
- so i++;
- 
- //Loop terminates
- 
- final Arrray:
- int[] arr={1,2,3,4,2};
- 
- now print the element which is not at its correct index i.e arr[i]!=i+1
- Thus the Duplicate number is 2(at index 4).
- 
+//Method 11
 
- Ex-2
-  
- int[] arr={1,3,2,4,2,2};
- 
- Iteration 1 :(i==0)
- arr[0]=1;
- correctIndexOf 1 in a sorted Array =0;
- clearly 1 is at its Correct index i.e 0
- so i++;
- 
- Iteration 2 :(i==1)
- arr[1]=3;
- correctIndexOf 3 in a sorted Array =2;
- clearly 3 is not at its Correct index
- so Swap(arr[1],arr[2]);
- 
- Resultant Array :
- arr={1,2,3,4,2,2};
- 
- Now 3 is at its Correct Index.i.e 2
- 
- 
- Iteration 3 :(i==1)
- arr[1]=2;
- correctIndexOf 2 in a sorted Array =1;
- clearly 2 is at its Correct index i.e 1
- so i++
- 
- 
- Iteration 4 :(i==2)
- arr[2]=3;
- correctIndexOf 3 in a sorted Array = 2;
- clearly 3 is at its Correct index i.e 2
- so i++;
- 
- 
- Iteration 5 :(i==3)
- arr[3]=4;
- correctIndexOf 4 in a sorted Array = 3;
- clearly 4 is at its Correct index i.e 3
- so i++;
- 
- 
- Iteration 6 :(i==4)
- arr[4]=2;
- correctIndexOf 2 in a sorted Array = 1;
- clearly 2 is at its Correct index
- so i++;
-
-
- Iteration 7 :(i==5)
- arr[5]=2;
- correctIndexOf 2 in a sorted Array = 1;
- clearly 2 is at its Correct index.
- so i++;
- 
- //Loop terminates
- 
- final Arrray:
- int[] arr=arr={1,2,3,4,2,2};
- 
- now print the element which is not at its correct index i.e arr[i]!=i+1
- Thus the Duplicate number is 2(at index 4 or 5).
-  
-  
- /*Optimisation
- In other words all the distinct elements will occupy their correct index while remaining duplicate instances will occupy the remaining indexes,
- so this gurantees that last index will always carry duplicate number.
- */
-   
-*/
-
-//Method 11 (T.C = O(nlog n) , S.C = O(1) and Doesnot Modifies the Array)
-/*
-This solution is based on binary search.
-
-At first the search space is numbers between 1 to n. Each time I select a number mid (which is the one in the middle)
-and count all the numbers equal to or less than mid. Then if the count is more than mid, the search space will be [1 mid] 
-otherwise [mid+1 n]. I do this until search space is only one number.
-
-Let's say n=10 and I select mid=5. Then I count all the numbers in the array which are less than equal mid. 
-If the there are more than 5 numbers that are less than 5, 
-then by Pigeonhole Principle (https://en.wikipedia.org/wiki/Pigeonhole_principle) one of them has occurred more than once.
-So I shrink the search space from [1 10] to [1 5]. Otherwise the duplicate number is in the second half so for the next step the search space would be [6 10].
-
-*/
 import java.util.*;
 public class Test
 {
-  public static void main (String[]args)
-  {
-    Scanner sc = new Scanner (System.in);
-    System.out.println ("Enter the Size of the Array :");
-    int n = sc.nextInt ();
-    if (n < 1)
-    {
-       System.out.println ("Invalid Choice");
-       return;
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
+	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	     arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
+	   System.out.println("Invalid Choice");
     }
-    int[] arr = new int[n];
-    System.out.printf ("Enter %d Elements Of The Array :\n", n);
-    for (int i = 0; i < n; i++)
-      arr[i] = sc.nextInt ();
-
-    System.out.println ("Repeating Element is :" + findDuplicate (arr));
-  }
-
-  public static int findDuplicate (int[]arr)
-  {
+	
+    
+    public static int findDuplicate (int[]arr)
+    {
       int low = 1;
       int high = arr.length - 1;	//coz array consists of Elements in range [1,n] while size of array is n+1
 
       while (low < high)
       {
-	int mid = (low + high) / 2;
-    	int count = 0;
-        for (int val:arr)
-	  if (val <= mid)
-            count++;
+	  int mid = (low + high) / 2;
+    	  int count = 0;
+          for(int val:arr)
+	    if (val <= mid)
+               count++;
 
-	if (count > mid)//Duplicate would be present in the range [low ,mid](both inclusive) so search space [low,mid]
-          high=mid;
-        else//if(count<=mid) //Duplicate is not present in the range [low ,mid](both inclusive) so search space [mid+1,high]
-	  low=mid + 1;
+	  if (count > mid)//Duplicate would be present in the range [low ,mid](both inclusive) so search space [low,mid]
+             high=mid;
+          else //if(count<=mid) //Duplicate is not present in the range [low ,mid](both inclusive) so search space [mid+1,high]
+	     low=mid + 1;
       }
 
-    return low;
-    // or return high;
-  }
+      return low;
+      // or return high;
+    }
 }
+
 
 /*
   int[] arr={1,3,4,2,2};
@@ -739,26 +570,26 @@ public class Test
 */
 
 
-//Method 12 (T.C = O(n) , S.C = O(1) and Doesnot Modifies the Array)
-//Floyd Cycle Detection Algorithm
+//Method 12 (Floyd Cycle Detection Algorithm) (T.C = O(n) , S.C = O(1) and Doesnot Modifies the Array)
+
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter the Size of the Array :");
-	int n=sc.nextInt();
-	if(n<1)
+     public static void main(String[] args) {
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter the Size of the Array");
+    	int n=sc.nextInt();
+	if(n>0)
 	{
+	   int[] arr=new int[n];
+	   System.out.printf("Enter %d Elements of the Array\n",n);
+	   for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	        
+	   System.out.println("Repeating Element is :"+findDuplicate(arr));
+    	}
+    	else
 	   System.out.println("Invalid Choice");
-	   return;
-	}
-	int[] arr=new int[n];
-	System.out.printf("Enter %d Elements Of The Array :\n",n);
-        for(int i=0;i<n;i++)
-	   arr[i]=sc.nextInt();
-		
-	System.out.println("Repeating Element is :"+findDuplicate(arr));
     }
 	
     public static int findDuplicate(int[]arr)
