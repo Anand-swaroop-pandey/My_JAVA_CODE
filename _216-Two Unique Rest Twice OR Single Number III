@@ -2,19 +2,26 @@
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args)
-    {
-	   System.out.println("Enter the Size of the Array:");
-	   Scanner sc=new Scanner(System.in);
-	   int n=sc.nextInt();
-	   int[] arr=new int[n];
-           System.out.printf("Enter %d of the Array:\n",n);
-	   for(int i=0;i<n;i++)
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   int[]res=twoUniqueRestTwice(arr);
-	   System.out.printf("[ "+res[0]+" , "+res[1]+" ]");
-    }
+	     
+	  int[]res=twoUniqueRestTwice(arr);   
 		
+	  System.out.printf("[ "+res[0]+" , "+res[1]+" ]");
+    }
+	
+	
     public static int[] twoUniqueRestTwice(int arr[])
     {
       int k=0,n=arr.length;
@@ -29,6 +36,7 @@ public class Test
           if(j==n)
           {
              res[k++]=arr[i];
+             
              if(k==2)
               break;
           }
@@ -38,23 +46,32 @@ public class Test
     }
 }
 
+
 //Better Approach
+
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args)
-    {
-	   System.out.println("Enter the Size of the Array:");
-	   Scanner sc=new Scanner(System.in);
-	   int n=sc.nextInt();
-	   int[] arr=new int[n];
-           System.out.printf("Enter %d of the Array:\n",n);
-	   for(int i=0;i<n;i++)
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   int[]res=twoUniqueRestTwice(arr);
-	   System.out.printf("[ "+res[0]+" , "+res[1]+" ]");
-    }
+	     
+	  int[]res=twoUniqueRestTwice(arr);   
 		
+	  System.out.printf("[ "+res[0]+" , "+res[1]+" ]");
+    }
+	
+	
     public static int[] twoUniqueRestTwice(int arr[])
     {
       int k=0,n=arr.length;
@@ -65,9 +82,9 @@ public class Test
       for(int i=0;i<n;i++)
          if(freqArr[i]==1)
          {
-            res[k++]=arr[i];        
-            if(k==2)
-              break;
+           res[k++]=arr[i];        
+           if(k==2)
+             break;
 	 }       
       
       return res;
@@ -75,41 +92,50 @@ public class Test
     
    public static void countFrequency(int[] arr,int n,int[] freqArr)
    {
-	 for(int i=0;i<n;i++)
-         {
-	    if(freqArr[i]==-1)
-	      continue;
+     for(int i=0;i<n;i++)
+     {
+	 if(freqArr[i]==-1)
+	   continue;
 	      
-	    int count=1;
-	    for(int j=i+1;j<n;j++)
-	       if(arr[i]==arr[j])
-	       {
-	         freqArr[j]=-1;
-	         count++;
-               }
+	 int count=1;
+	 for(int j=i+1;j<n;j++)
+	    if(arr[i]==arr[j])
+	    {
+	      freqArr[j]=-1;
+	      count++;
+            }
            
-	    freqArr[i]=count; 
-	 }
+	freqArr[i]=count; 
+     }
    }
 }
 
+
 //Best Approach
+
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args)
-    {
-	   System.out.println("Enter the Size of the Array:");
-	   Scanner sc=new Scanner(System.in);
-	   int n=sc.nextInt();
-	   int[] arr=new int[n];
-           System.out.printf("Enter %d of the Array:\n",n);
-	   for(int i=0;i<n;i++)
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of the Array :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+  	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements Of The Array :\n",n);
+	  for(int i=0;i<n;i++)
 	     arr[i]=sc.nextInt();
-	   int[]res=twoUniqueRestTwice(arr);
-	   System.out.printf("[ "+res[0]+" , "+res[1]+" ]");
-    }
+	     
+	  int[]res=twoUniqueRestTwice(arr);   
 		
+	  System.out.printf("[ "+res[0]+" , "+res[1]+" ]");
+    }
+	
+	
     public static int[] twoUniqueRestTwice(int arr[])
     {
       int k=0,n=arr.length;
@@ -129,9 +155,9 @@ public class Test
 	     break;  
          }
          
-        return res;
+      return res;
     }
-}
+}    
 
 
 //Optimal Approach
