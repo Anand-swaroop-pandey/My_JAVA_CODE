@@ -30,7 +30,7 @@ public class Test
             countFrequecy(arr,freqArr);
          
             for(int i=0;i<n;i++)
-              if(freqArr[i]>=2)
+              if(freqArr[i]>1)
               {
                  System.out.println(arr[i]);
                  flag=true;
@@ -93,7 +93,7 @@ public class Test
               freqArr[arr[i]]++;
 	      
             for(int i=0;i<n;i++)
-              if(freqArr[i]>=2)
+              if(freqArr[i]>1)
               {
                 System.out.println(i);
                 flag=true;
