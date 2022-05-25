@@ -68,11 +68,11 @@ public class Test
 	{
           HashSet<Integer>hs=new HashSet<>();
 	  List<Integer>al=new ArrayList<>();
+	  int n=arr.length;
 	  
           for(int val:arr)
             hs.add(val);
        
-          int n=arr.length;
           for(int i=1;i<=n;i++)
             if(hs.contains(i)==false)
               al.add(i);
