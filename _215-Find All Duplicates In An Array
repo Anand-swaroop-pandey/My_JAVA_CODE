@@ -184,11 +184,11 @@ public class Test
           {
              if(count[arr[i]-1]==1)
                al.add(arr[i]);
-           
-             count[arr[i]-1]++;  
+             else
+               count[arr[i]-1]++;  
           }
         
-          return res;
+          return al;
         }
 }
 
@@ -359,8 +359,8 @@ public class Test
              int idx=ele-1;
              if(visited[idx]==true)
                al.add(ele);
-           
-             visited[idx]=true;
+             else
+               visited[idx]=true;
           }
       
          return al;
@@ -400,16 +400,15 @@ public class Test
 	 
                if(arr[idx]<0)
                  al.add(ele);
-           
-	      arr[idx]*=-1;
+	       else
+                 arr[idx]*=-1;
            }
       
           return al;
         }
 }
 
-//Method 10
-//Cycle Sort
+//Method 10(Cycle Sort)
 import java.util.*;
 public class Test
 {
