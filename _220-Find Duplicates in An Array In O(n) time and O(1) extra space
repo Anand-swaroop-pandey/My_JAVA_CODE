@@ -13,7 +13,7 @@ public class Test
 	     for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
 	       
-	     System.out.println("Duplicates Elements are:");
+	     System.out.println("Duplicate Elements are:");
 	     printDuplicate(arr);
 	   }
 	   else
@@ -62,49 +62,7 @@ public class Test
 }
 
 //Improved Approach
-import java.util.Scanner;
-public class Test
-{
-	public static void main(String[] args) {
-	   Scanner sc=new Scanner(System.in);
-	   System.out.println("Enter the size of the array");
-	   int n=sc.nextInt();
-	   if(n>1)
-	   {
-	     int[] arr=new int[n];
-	     System.out.printf("Enter %d elements of the array\n",n);
-	     for(int i=0;i<n;i++)
-	       arr[i]=sc.nextInt();
-	       
-	     System.out.println("Duplicate Elements are:");
-	     printDuplicate(arr);
-	   }
-	   else
-	     System.out.println("Invalid Choice/No Duplicate");
-	}
-	
-        public static void printDuplicate(int [] arr)
-	{
-	    int n=arr.length;
-	    boolean flag=false;
-            int[] freqArr=new int[n];
-	    
-            for(int i=0;i<n;i++)
-              freqArr[arr[i]]++;
-	      
-            for(int i=0;i<n;i++)
-              if(freqArr[i]>1)
-              {
-                System.out.println(i);
-                flag=true;
-              }
-	      
-            if(flag==false)
-              System.out.println("No Duplicate Element Exists:");
-	}
-}
 
-//Better Approach
 import java.util.*;
 public class Test
 {
@@ -150,6 +108,51 @@ public class Test
           System.out.println("No Duplicates Elements Exists");
     }
 }
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     System.out.println("Duplicate Elements are:");
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");
+	}
+	
+        public static void printDuplicate(int [] arr)
+	{
+	    int n=arr.length;
+	    boolean flag=false;
+            int[] freqArr=new int[n];
+	    
+            for(int i=0;i<n;i++)
+              freqArr[arr[i]]++;
+	      
+            for(int i=0;i<n;i++)
+              if(freqArr[i]>1)
+              {
+                System.out.println(i);
+                flag=true;
+              }
+	      
+            if(flag==false)
+              System.out.println("No Duplicate Element Exists:");
+	}
+}
+
+
 
 //Optimal Approach
 
