@@ -504,8 +504,7 @@ public class Test
     
     public static int findDuplicate (int[]arr)
     {
-      int low = 1;
-      int high = arr.length - 1;	//coz array consists of Elements in range [1,n] while size of array is n+1
+      int low = 1,high = arr.length - 1; //coz array consists of Elements in range [1,n] while size of array is n+1
 
       while (low < high)
       {
