@@ -1,0 +1,26 @@
+
+import java.util.Scanner;
+public class Test
+{
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number:");
+        int num=sc.nextInt();
+        System.out.printf("Number Obtained on Swapping Adjacent Bits of %d is : %d",num,swapAdjacentBits(num));
+     }
+    
+    public static int swapAdjacentBits(int num)
+    {
+       int odd_Mask,even_Mask,preservedOddBits,preservedEvenBits,res;
+       
+       odd_Mask=0x55555555;
+       even_Mask=0xAAAAAAAA;
+       preservedOddBits=num&odd_Mask;
+       preservedEvenBits=num&even_Mask;
+       preservedOddBits=preservedOddBits<<1;
+       preservedEvenBits=preservedEvenBits>>1;
+       res=preservedOddBits | preservedEvenBits;
+       return res;
+    }
+}
