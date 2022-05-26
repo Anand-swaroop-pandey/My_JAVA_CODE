@@ -12,7 +12,7 @@ public class Test
 	    else
 	       System.out.printf("%d is Not a Power OF 4\n",num);
          
-        if(isPowerOf4_Recursive(num))
+            if(isPowerOf4_Recursive(num))
 	       System.out.printf("%d is A Power OF 4",num);
 	    else
 	       System.out.printf("%d is Not a Power OF 4",num);
