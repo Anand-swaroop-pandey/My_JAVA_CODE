@@ -2,15 +2,15 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1:");
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1:");
         int num1=sc.nextInt();
         System.out.println("Enter Number2:");
         int num2=sc.nextInt();
         System.out.printf("Number of bits to be flipped to convert %d to %d is : %d",num1,num2,flippedBitsCount(num1,num2));
-	}
+    }
     
     public static int flippedBitsCount(int num1,int num2)
     {
