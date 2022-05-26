@@ -1,132 +1,6 @@
 //Method 1
-import java.util.Scanner;
-public class Test
-{
-      public static void main(String[] args)
-      {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter Number1:");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2:");
-        int num2=sc.nextInt();
-        
-        System.out.printf("%d x %d =%d\n",num1,num2,muntiply1(num1,num2));
-        System.out.printf("%d x %d =%d",num1,num2,muntiply2(num1,num2));
-     }
-     
-    /*
-    The idea is that for given two numbers a and b, we can get a×b by adding an integer a exactly b times to the result. 
-    */
-    
-    public static long muntiply1(int num1,int num2)
-    {
-       int sign1=1,sign2=1;
-       if(num1<0)
-       {
-         sign1=-1;
-         num1=Math.abs(num1);
-       }
-       if(num2<0)
-       {
-          sign2=-1;
-          num2=Math.abs(num2);
-       }
-       
-       long prod=0;
-       for(int i=1;i<=num2;i++)
-         prod+=num1;
-         
-       if((sign1*sign2)<0)
-         return (prod*-1); 
-         
-       return prod;
-    }
-    
-    /*
-    The idea is that for given two numbers a and b, we can get a×b by adding an integer b exactly a times to the result. 
-    */
-    
-    public static long muntiply2(int num1,int num2)
-    {
-       int sign1=1,sign2=1;
-       if(num1<0)
-       {
-         sign1=-1;
-         num1=Math.abs(num1);
-       }
-       if(num2<0)
-       {
-          sign2=-1;
-          num2=Math.abs(num2);
-       } 
-       
-       long prod=0;
-       for(int i=1;i<=num1;i++)
-         prod+=num2;
-       
-       if((sign1*sign2)<0)
-         return (prod*-1); 
-         
-       return prod;
-    }
-}
 
-//Method 2
-import java.util.Scanner;
-class Test
-{
-    public static void main(String[] args)
-    {
-      Scanner sc=new Scanner(System.in);
-      System.out.println("Enter Number1:");
-      int num1=sc.nextInt();
-      System.out.println("Enter Number2:");
-      int num2=sc.nextInt();
-      System.out.printf("%d x %d = %d\n",num1,num2,multiply(num1,num2));
-    }
-	
-    public static long multiply(int num1,int num2)
-    {
-       int sign1=1,sign2=1;
-       if(num1<0)
-       {
-         sign1=-1;
-         num1=Math.abs(num1);
-       }
-       
-       if(num2<0)
-       {
-          sign2=-1;
-          num2=Math.abs(num2);
-       }
-       
-       long prod= 0;
-       int powerOf2=0;
-       while(num2!=0)
-       {
-	   if((num2 & 1)!=0)			
-   	     prod+=(num1<<powerOf2);   //(num1<<powerOf2)=num1*(2^powerOf2)
-		    
-	   num2=num2>>1;    //(num2>>1)=(num2/2);
-	   powerOf2++;
-       }
-       
-       if((sign1*sign2)<0)
-         return (prod*-1);
-        
-       return prod;
-    }
-}
-
-/*
- The idea is based on the fact that every number can be represented in binary form. 
- And multiplication with a number is equivalent to multiplication with powers of 2.
- Powers of 2 can be obtained using left shift operator.
- Check for every set bit in the binary representation of num2 and for every set bit left shift num1, "count" times where count is place value of the set bit of num2 and add that value to answer.
-*/
-
-
-//Method 3
+//Implementation 1 (The idea is that for given two numbers a and b, we can get a×b by adding an integer a exactly b times to the result.) 
 
 import java.util.Scanner;
 public class Test
@@ -134,47 +8,125 @@ public class Test
      public static void main(String[] args)
      {
 	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter Number1");
+	System.out.println("Enter Number1:");
         int num1=sc.nextInt();
-        System.out.println("Enter Number2");
+        System.out.println("Enter Number2:");
         int num2=sc.nextInt();
-        System.out.printf("%d x %d =%d\n",num1,num2,muntiplyUsingBitwise(num1,num2));
-     }
-	
-    public static long muntiplyUsingBitwise(int num1,int num2) //Russian Peasant Algorithm 
-    {
-       int signNum1=1,signNum2=1;//1= positive
+        System.out.printf("%d x %d =%d\n",num1,num2,driver(num1,num2));
+    }
     
-       if(num1<0)
-       {
-           signNum1=-1;//-1= negative
-           num1=Math.abs(num1);
-       }
-       if(num2<0)
-       {
-           signNum2=-1;
-           num2=Math.abs(num2);
-       }
-       
+    public static long driver(int num1,int num2)
+    {
+       if(num1==0 || num2==0)
+         return 0;
+       else if(num1==1)
+         return num2;
+       else if(num2==1)
+         return num1;
+         
+       if((num1<0 && num2>0) || (num1>0 && num2<0))  // if opposite sign then product will be negative
+          return -1*multiply(Math.abs(num1),Math.abs(num2));
+       else //if same sign(i.e Both +ve or Both -ve )  then product will Positive   
+          return multiply(Math.abs(num1),Math.abs(num2));
+    }
+
+    public static long multiply(int num1,int num2)
+    {
+       long prod=0;
+       for(int i=1;i<=num2;i++)
+         prod+=num1;
+         
+       return prod;
+    }
+}
+  
+  
+//Implementation 2 (The idea is that for given two numbers a and b, we can get a×b by adding an integer b exactly a times to the result.) 
+
+import java.util.Scanner;
+public class Test
+{
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf("%d x %d =%d\n",num1,num2,driver(num1,num2));
+    }
+    
+    public static long driver(int num1,int num2)
+    {
+       if(num1==0 || num2==0)
+         return 0;
+       else if(num1==1)
+         return num2;
+       else if(num2==1)
+         return num1;
+         
+       if((num1<0 && num2>0) || (num1>0 && num2<0))  // if opposite sign then product will be negative
+          return -1*multiply(Math.abs(num1),Math.abs(num2));
+       else //if same sign(i.e Both +ve or Both -ve )  then product will Positive   
+          return multiply(Math.abs(num1),Math.abs(num2));
+    }
+
+    public static long multiply(int num1,int num2)
+    {
+       long prod=0;
+       for(int i=1;i<=num1;i++)
+         prod+=num2;
+         
+       return prod;
+    }
+}
+
+
+//Method 2
+import java.util.Scanner;
+public class Test
+{
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1:");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2:");
+        int num2=sc.nextInt();
+        System.out.printf("%d x %d =%d\n",num1,num2,driver(num1,num2));
+    }
+    
+    public static long driver(int num1,int num2)
+    {
+       if(num1==0 || num2==0)
+         return 0;
+       else if(num1==1)
+         return num2;
+       else if(num2==1)
+         return num1;
+         
+       if((num1<0 && num2>0) || (num1>0 && num2<0))  // if opposite sign then product will be negative
+          return -1*multiply(Math.abs(num1),Math.abs(num2));
+       else //if same sign(i.e Both +ve or Both -ve )  then product will Positive   
+          return multiply(Math.abs(num1),Math.abs(num2));
+    }
+
+    public static long multiply(int num1,int num2) //Russian Peasant Algorithm
+    {
         long prod = 0; 
         // While second number doesn't become 0
         while (num2!=0)
         {
-             // If second number becomes odd,
-             // add the first number to result
-             if ((num2%2)!= 0)   //if ((num2 & 1) != 0) (If the last bit of a number is set then the number is odd, otherwise even.) 
-                 prod+=num1;
+             // If second number becomes odd,add the first number to result
+            if ((num2%2)!= 0)   //if ((num2 & 1) != 0) (If the last bit of a number is set then the number is odd, otherwise even.) 
+               prod+=num1;
   
-            // Double the first number
-            // and halve the second number
-            num1 = num1 << 1;// x<<y = x*(2^y)
-            num2 = num2 >> 1;// x>>y = x*/(2^y)
+           //Double the first number
+          // and halve the second number
+           num1 = num1 << 1;// x<<y = x*(2^y)
+           num2 = num2 >> 1;// x>>y = x*/(2^y)
         }
-	
-        if((signNum1*signNum2)<0)//if opposite sign product is negative
-           return (prod*-1);
- 
-        return prod;  
+       return prod; 	
     }
 }
 
