@@ -9,12 +9,15 @@ public class Test
         int num1=sc.nextInt();
         System.out.println("Enter Number2:");
         int num2=sc.nextInt();
+        
         System.out.printf("%d x %d =%d\n",num1,num2,muntiply1(num1,num2));
         System.out.printf("%d x %d =%d",num1,num2,muntiply2(num1,num2));
      }
+     
     /*
     The idea is that for given two numbers a and b, we can get a×b by adding an integer a exactly b times to the result. 
     */
+    
     public static long muntiply1(int num1,int num2)
     {
        int sign1=1,sign2=1;
@@ -31,16 +34,18 @@ public class Test
        
        long prod=0;
        for(int i=1;i<=num2;i++)
-         prod=prod+num1;
+         prod+=num1;
          
        if((sign1*sign2)<0)
          return (prod*-1); 
          
        return prod;
     }
+    
     /*
     The idea is that for given two numbers a and b, we can get a×b by adding an integer b exactly a times to the result. 
     */
+    
     public static long muntiply2(int num1,int num2)
     {
        int sign1=1,sign2=1;
@@ -57,7 +62,7 @@ public class Test
        
        long prod=0;
        for(int i=1;i<=num1;i++)
-         prod=prod+num2;
+         prod+=num2;
        
        if((sign1*sign2)<0)
          return (prod*-1); 
@@ -65,7 +70,6 @@ public class Test
        return prod;
     }
 }
-
 
 //Method 2
 import java.util.Scanner;
@@ -89,6 +93,7 @@ class Test
          sign1=-1;
          num1=Math.abs(num1);
        }
+       
        if(num2<0)
        {
           sign2=-1;
@@ -96,12 +101,14 @@ class Test
        }
        
        long prod= 0;
-       for(int count=0;num2!=0;count++)
+       int powerOf2=0;
+       while(num2!=0)
        {
-	    if((num2 & 1)!=0)			
-   	       prod=prod+(num1<<count);   //(num1<<count)=num1*(2^count)
+	   if((num2 & 1)!=0)			
+   	     prod+=(num1<<powerOf2);   //(num1<<powerOf2)=num1*(2^powerOf2)
 		    
-	    num2=num2>>1;    //(num2>>1)=(num2/2);
+	   num2=num2>>1;    //(num2>>1)=(num2/2);
+	   powerOf2++;
        }
        
        if((sign1*sign2)<0)
@@ -124,21 +131,20 @@ class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1");
-            int num1=sc.nextInt();
-            System.out.println("Enter Number2");
-            int num2=sc.nextInt();
-            System.out.printf("%d x %d =%d\n",num1,num2,muntiplyUsingBitwise(num1,num2));
-	}
-	
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1");
+        int num1=sc.nextInt();
+        System.out.println("Enter Number2");
+        int num2=sc.nextInt();
+        System.out.printf("%d x %d =%d\n",num1,num2,muntiplyUsingBitwise(num1,num2));
+     }
 	
     public static long muntiplyUsingBitwise(int num1,int num2) //Russian Peasant Algorithm 
     {
-       int signNum1=1;//1= positive
-       int signNum2=1;
+       int signNum1=1,signNum2=1;//1= positive
+    
        if(num1<0)
        {
            signNum1=-1;//-1= negative
@@ -157,7 +163,7 @@ public class Test
              // If second number becomes odd,
              // add the first number to result
              if ((num2%2)!= 0)   //if ((num2 & 1) != 0) (If the last bit of a number is set then the number is odd, otherwise even.) 
-                 prod=prod+num1;
+                 prod+=num1;
   
             // Double the first number
             // and halve the second number
@@ -177,5 +183,5 @@ How does this work?
 The value of a*b is same as (a*2)*(b/2) if b is even, otherwise the value is same as ((a*2)*(b/2) + a). 
 In the while loop, we keep multiplying ‘a’ with 2 and keep dividing ‘b’ by 2.
 If ‘b’ becomes odd in loop, we add ‘a’ to ‘res’. When value of ‘b’ becomes 1, the value of ‘res’ + ‘a’, gives us the result. 
-Note that when ‘b’ is a power of 2, the ‘res’ would remain 0 and ‘a’ would have the multiplication. See the reference for more information.
+Note that when ‘b’ is a power of 2, the ‘res’ would remain 0 and ‘a’ would have the multiplication.
 */
