@@ -127,7 +127,7 @@ public class Test
 
         public static boolean isPowerOfTwo(int num)
         {
-           if(num==0)
+           if(num<=0)
              return false;
            else
            {
