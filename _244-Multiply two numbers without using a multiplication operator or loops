@@ -1,5 +1,4 @@
- //Method 1   
-//The idea is that for given two numbers a and b, we can get a×b by adding an integer a exactly b times to the result. 
+ //Method 1 (The idea is that for given two numbers a and b, we can get a×b by adding an integer a exactly b times to the result.) 
 
 import java.util.Scanner;
 public class Test
