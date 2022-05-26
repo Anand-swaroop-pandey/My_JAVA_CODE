@@ -2,18 +2,16 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number:");
-	    int num=sc.nextInt();
-	    if(posOfOnlySetBit(num)!=-1)
-	       System.out.printf("Position of Only Set Bit in %d is %d(from Right)\n",num,posOfOnlySetBit(num));
-	    else
-	       System.out.println("Invalid Input");
-        
-	}
-    
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number:");
+	int num=sc.nextInt();
+	if(posOfOnlySetBit(num)!=-1)
+	   System.out.printf("Position of Only Set Bit in %d is %d(from Right)\n",num,posOfOnlySetBit(num));
+	else
+	   System.out.println("Invalid Input");
+    }
     
     public static int posOfOnlySetBit(int num)
     {
@@ -25,7 +23,7 @@ public class Test
     
     public static boolean isPowerOfTwo(int num)
     {
-        if(num==0)
+        if(num<=0)
           return false;
         else
         {
@@ -40,17 +38,17 @@ public class Test
     {
        int position=0;
        for(int i=0;i<32;i++)
-         {
-             int mask=1<<i;
-             if((num&mask)!=0)
-             {
-                 position++;// counting the position of the Only set bit
-                 break;
-             }
-             else
-               position++;
-         }
-         return position;
+       {
+          int mask=1<<i;
+          if((num&mask)!=0)
+          {
+            position++;// counting the position of the Only set bit
+            break;
+          }
+          else
+           position++;
+       }
+       return position;
     }
 }
 
@@ -64,35 +62,34 @@ Count how many times we shifted to make ‘n’ zero. The final count is the pos
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number:");
-	    int num=sc.nextInt();
-	    if(posOfOnlySetBit(num)!=-1)
-	       System.out.printf("Position of Only Set Bit in %d is %d(from Right)\n",num,posOfOnlySetBit(num));
-	    else
-	       System.out.println("Invalid Input");
-        
-	}
+    public static void main(String[] args)
+    {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Number:");
+       int num=sc.nextInt();
+       if(posOfOnlySetBit(num)!=-1)
+	  System.out.printf("Position of Only Set Bit in %d is %d(from Right)\n",num,posOfOnlySetBit(num));
+       else
+	  System.out.println("Invalid Input");
+    }
     
     public static int posOfOnlySetBit(int num)
     {
        if(isPowerOfTwo(num)==false)
          return -1;
        
-       int count=0;
+       int position=0;
        while(num!=0)
        {
-           count++;
+           position++;
            num=num>>1;
        }
-       return count;
+       return position;
     }
     
     public static boolean isPowerOfTwo(int num)
     {
-        if(num==0)
+        if(num<=0)
           return false;
         else
         {
