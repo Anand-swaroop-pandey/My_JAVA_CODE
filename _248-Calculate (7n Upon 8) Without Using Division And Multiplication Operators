@@ -19,7 +19,7 @@ public class Test
  /*
       we know:
       x<<y = x*2^y
-      if(and y==3)
+      if(y==3)
        x<<3 =x*(2^3)=x*8=8*x
        
       we know:
