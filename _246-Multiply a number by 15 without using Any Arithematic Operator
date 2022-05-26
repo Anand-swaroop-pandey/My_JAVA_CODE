@@ -5,15 +5,18 @@ public class Test
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number");
-        int num=sc.nextInt();
-        System.out.printf("%d x 15 =%d\n",num,muntiplyBy15(num));
+            int num=sc.nextInt();
+            System.out.printf("%d x 15 =%d\n",num,muntiplyBy15(num));
 	}
-    public static int muntiplyBy15(int num)  
-    {
-       int sum=((num<<4) -(num<<0));
-       return sum;
-    }
-    /*
+	
+        public static int muntiplyBy15(int num)  
+        {
+          int sum=((num<<4) -(num<<0));
+          return sum;
+        }
+}
+
+/*
       x<<y = x*2^y
       if(y==4)
        x<<4 =x*2^4=16x
@@ -21,5 +24,4 @@ public class Test
       if(y==0)
       x<<0=x*2^0=x  
       x*15=x*(16-1)=16x-x=(x<<4) -(x<<0)
-    */
-}
+*/
