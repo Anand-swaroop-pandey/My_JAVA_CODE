@@ -43,7 +43,7 @@ public class Test
 	
 	public static void countFrequecy(int[] arr,int[] freqArr)
 	{
-	   int n=arr.length,ount;   
+	   int n=arr.length,count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
