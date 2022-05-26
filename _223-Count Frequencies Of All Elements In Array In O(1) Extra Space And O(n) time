@@ -1,0 +1,189 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>0)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     printFrequency(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	public static void printFrequency(int [] arr)
+	{
+	    int n=arr.length;
+            int[] freqArr=new int[n];
+            for(int i=0;i<n;i++)
+              freqArr[arr[i]-1]++;
+           
+            System.out.println("Frequency Of Elements are:");  
+            for(int i=0;i<n;i++)
+              System.out.println(i+1+"=>"+freqArr[i]);  
+	}
+}
+
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {	
+       Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");   
+    }
+		
+    public static void printDuplicate(int arr[])
+    {
+       int n=arr.length;
+       TreeMap<Integer,Integer>tm=new TreeMap<>();
+ 
+       for(int i=1;i<=n;i++)
+         tm.put(i,0);
+         
+       for(int i=0;i<n;i++)
+         tm.put(arr[i],tm.get(arr[i])+1);
+       
+       System.out.println("Frequency Of Elements are:");
+       for(int key:tm.keySet())
+         System.out.println(key+"=>"+tm.get(key)); 
+    }
+}
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>0)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     printFrequency(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	public static void printFrequency(int [] arr)
+	{
+	    int n=arr.length,countOf_i,OrgValAt_ithIndex;
+	    
+	    for(int i=0;i<n;i++)
+	      arr[i]=arr[i]-1;
+	      
+	    for(int i=0;i<n;i++)
+	    {
+	        OrgValAt_ithIndex=arr[i]%n;
+	        arr[OrgValAt_ithIndex]+=n;
+	    }
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	       countOf_i=(arr[i]/n);
+	       System.out.println(i+1+"=>"+countOf_i);
+	    }
+	}
+}
+
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>0)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     printFrequency(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	public static void printFrequency(int [] arr)
+        {
+            int n=arr.length,i = 0,elementIndex;
+        
+            for(int j=0;j<n;j++)
+	      arr[j]=arr[j]-1;
+	    //Traverse all array elements
+            
+            while (i < n)
+            {
+                // If this element is already processed, then nothing to do
+                if (arr[i] <= 0)
+                {
+                  i++;
+                  continue;
+                }
+ 
+                // Find index corresponding to this element
+                // For example, index for 4 is 4
+                elementIndex = arr[i];
+ 
+                // If the elementIndex has an element that is not
+                // processed yet, then first store that element
+                // to arr[i] so that we don't lose anything.
+                if (arr[elementIndex] > 0)
+                {
+                   arr[i] = arr[elementIndex];
+ 
+                   // After storing arr[elementIndex], change it
+                   // to store initial count of 'arr[i]'
+                   arr[elementIndex] = -1;
+                 }
+                 else
+                 {
+                    // If this is NOT first occurrence of arr[i],
+                    // then decrement its count.
+                    arr[elementIndex]--;
+ 
+                    // And initialize arr[i] as 0 means the element
+                    // 'i' is not seen so far
+                    arr[i] = 0;
+                    i++;
+                 }
+            }
+ 
+            System.out.println("Below are counts of all elements");
+            for(int j = 0; j < n; j++)
+               System.out.println(j+1 + "=>" + Math.abs(arr[j]));
+	}
+}
