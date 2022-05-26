@@ -15,13 +15,15 @@ public class Test
 	    System.out.printf("Number Formed After Copying Set bits of %d from position %d(From Right) to position %d into %d is %d",n,low,high,m,copySetBits(m,n,low,high));
 	}
     
-    public static int copySetBits(int num1,int num2,int start,int end)
-    {
-       int mask1=1<<(end-start+1);
-       mask1=mask1-1;
-       mask1=mask1<<(start-1);
-       int mask2=num2 & mask1;
-       int res=num1|mask2;
-       return res;
-    }
+        public static int copySetBits(int num1,int num2,int start,int end)
+        {
+          int mask1,mask2,res;
+       
+          mask1=1<<(end-start+1);
+          mask1=mask1-1;
+          mask1=mask1<<(start-1);
+          mask2=num2 & mask1;
+	  
+         return res;
+       }
 }
