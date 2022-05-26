@@ -8,7 +8,7 @@ public class Test
 	    int num=sc.nextInt();
 	     System.out.println("Enter the Vaue of K:");
 	    int k=sc.nextInt();
-        System.out.printf("Resultant Number after Unsetting The %d th Bit is: %d",k,unsetTheKthBit(num,k));
+            System.out.printf("Resultant Number after Unsetting The %d th Bit is: %d",k,unsetTheKthBit(num,k));
 	}
 	
    	public static int unsetTheKthBit(int num,int k)
