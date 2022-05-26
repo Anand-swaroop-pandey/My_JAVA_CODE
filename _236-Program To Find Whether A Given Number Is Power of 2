@@ -3,22 +3,22 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number:");
-	    int num=sc.nextInt();
+      public static void main(String[] args)
+      {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter Number:");
+	  int num=sc.nextInt();
       
-	    if(isPowerOfTwo_Iterative(num))
-	       System.out.printf("%d is A Power OF Two\n",num);
-	    else
-	       System.out.printf("%d is Not a Power OF Two\n",num);
+	  if(isPowerOfTwo_Iterative(num))
+	     System.out.printf("%d is A Power OF Two\n",num);
+	  else
+	     System.out.printf("%d is Not a Power OF Two\n",num);
          
-            if(isPowerOfTwo_Recursive(num))
-	       System.out.printf("%d is A Power OF Two",num);
-	    else
-	       System.out.printf("%d is Not a Power OF Two",num);
-	}
+          if(isPowerOfTwo_Recursive(num))
+	     System.out.printf("%d is A Power OF Two",num);
+	  else
+	     System.out.printf("%d is Not a Power OF Two",num);
+     }
 
     public static boolean isPowerOfTwo_Iterative(int num)
     {
@@ -46,6 +46,8 @@ public class Test
     }
 }
 
+
+
 //Better Approach
 //All power of two numbers has only a one-bit set. So count the no. of set bits and if you get 1 then the number is a power of 2. 
 
@@ -68,36 +70,39 @@ public class Test
     {
        if(countSetBits(num)==1)
          return true;
+	 
        return false;
     }
     
     public static int countSetBits(int num) //Kernighan's Algorithm
     {
-	    int count=0;
-	    while(num!=0)
-	    {
-	       int rmsbm=rMSBM(num);
-               num=num-rmsbm;
-               count++;  
-	    }
-            return count;
+	int count=0;
+	while(num!=0)
+	{
+	   int rmsbm=rMSBM(num);
+           num=num-rmsbm;
+           count++;  
+	}
+	
+        return count;
     }
 	
-	public static int rMSBM(int num)
-	{
-	   int rmsbm=num & twosCompliment(num);
-	   return rmsbm;
-	}
+    public static int rMSBM(int num)
+    {
+       int rmsbm=num & twosCompliment(num);
+       return rmsbm;
+    }
 	
-        public static int twosCompliment(int num)
-	{
-           return -num;//return (~num+1);
-	}
-  
+    public static int twosCompliment(int num)
+    {
+       return -num;//return (~num+1);
+    }
+    
+}  
   
 //Optimal Approach
 /*
-If we subtract 1 from ,power of 2 numbers by then all unset bits after the only set bit become set; and the set bit becomes unset.
+If we subtract 1 from ,power of 2 numbers then all unset bits after the only set bit become set; and the set bit becomes unset.
 For example for 4 ( 100) and 16(10000), we get the following after subtracting 1 
 3 –> 011 
 15 –> 01111
@@ -120,16 +125,16 @@ public class Test
 	       System.out.printf("%d is Not a Power OF Two",num);
 	}
 
-    public static boolean isPowerOfTwo(int num)
-    {
-        if(num==0)
-          return false;
-        else
+        public static boolean isPowerOfTwo(int num)
         {
-           if((num & (num-1))==0)
-             return true;
-           else
+           if(num==0)
              return false;
+           else
+           {
+              if((num & (num-1))==0)
+                return true;
+              else
+                return false;
+           }
         }
-    }
 }
