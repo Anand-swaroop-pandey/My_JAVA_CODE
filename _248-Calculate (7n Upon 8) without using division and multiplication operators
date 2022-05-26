@@ -5,16 +5,18 @@ public class Test
 	  {
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number");
-        int num=sc.nextInt();
-        System.out.printf("%d x (7/8) =%d\n",num,muntiplyBy7_upon_8(num));
+            int num=sc.nextInt();
+            System.out.printf("%d x (7/8) =%d\n",num,muntiplyBy7_upon_8(num));
 	  }
-    public static int muntiplyBy7_upon_8(int num)  
-    {
-       int res=(num<<0)-(num>>3);
-       return res;
-    }
+	  
+          public static int muntiplyBy7_upon_8(int num)  
+          {
+            int res=(num<<0)-(num>>3);
+            return res;
+          }
+}
     
-    /*
+ /*
       we know:
       x<<y = x*2^y
       if(y==0)
@@ -27,5 +29,5 @@ public class Test
       x>>3= x/(2^3)= x/8
       
       (7x/8)=x*(7/8)=x*(1-(1/8))=x-(x/8)=(x<<0)-(x>>3)
-    */
-}
+*/
+
