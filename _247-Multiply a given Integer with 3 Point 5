@@ -5,15 +5,18 @@ public class Test
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number");
-        int num=sc.nextInt();
-        System.out.printf("%d x 3.5 =%d\n",num,muntiplyBy3Point5(num));
+            int num=sc.nextInt();
+            System.out.printf("%d x 3.5 =%d\n",num,muntiplyBy3Point5(num));
 	}
-    public static int muntiplyBy3Point5(int num)  
-    {
-       int sum=((num<<0)+(num<<1)+(num>>1));
-       return sum;
-    }
-    /*
+	
+        public static int muntiplyBy3Point5(int num)  
+        {
+          int sum=((num<<0)+(num<<1)+(num>>1));
+          return sum;
+        }
+}
+
+/*
       we know:
       x<<y = x*2^y
       if(y==1)
@@ -30,4 +33,3 @@ public class Test
       
       x*3.5=x*(3+(1/2))=x*(1+2+(1/2))=x+2x+(x/2)=(x<<0)+(x<<1)+(x>>1)
     */
-}
