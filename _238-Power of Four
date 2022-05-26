@@ -1,38 +1,56 @@
 //Bruteforce Approach
+
+//Iterative Version :
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args){
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number:");
-	    int num=sc.nextInt();
-      
-	    if(isPowerOf4_Iterative(num))
-	       System.out.printf("%d is A Power OF 4\n",num);
-	    else
-	       System.out.printf("%d is Not a Power OF 4\n",num);
-         
-            if(isPowerOf4_Recursive(num))
-	       System.out.printf("%d is A Power OF 4",num);
-	    else
-	       System.out.printf("%d is Not a Power OF 4",num);
-    }
-
-    public static boolean isPowerOf4_Iterative(int num)
-    {
-      if(num<=0)
-        return false;
-        
-      while(num!=1)
+      public static void main(String[] args)
       {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter Number:");
+	  int num=sc.nextInt();
+      
+	  if(isPowerOf4(num))
+	     System.out.printf("%d is A Power OF Four\n",num);
+	  else
+	     System.out.printf("%d is Not a Power OF Four\n",num);
+     }
+
+     public static boolean isPowerOf4(int num)
+     {
+       if(num<=0)
+         return false;
+        
+        while(num!=1)
+        {
           if((num%4)!=0)
              return false;
+             
           num=num/4;//num=num>>2
-      }
-      return true;
-    }
-    
-    public static boolean isPowerOf4_Recursive(int num)
+        }
+	
+       return true;
+     }
+}
+
+
+//Recurssive Version :
+import java.util.Scanner;
+public class Test
+{
+      public static void main(String[] args)
+      {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter Number:");
+	  int num=sc.nextInt();
+      
+	  if(isPowerOf4(num))
+	     System.out.printf("%d is A Power OF Four\n",num);
+	  else
+	     System.out.printf("%d is Not a Power OF Four\n",num);
+     }
+
+    public static boolean isPowerOf4(int num)
     {
         if(num==1)
           return true;
@@ -40,12 +58,16 @@ public class Test
         if((num%4)!=0 || num<=0)
            return false;
            
-        return isPowerOf4_Recursive(num/4); //return isPowerOf4_Recursive(num>>2);
+        return isPowerOf4(num/4); //return isPowerOf4(num>>2);
     }
 }
 
 
+
 //Better Approach
+/*The basic idea is from power of 2, We can use "n&(n-1) == 0" to determine if n is power of 2.
+For power of 4, the additional restriction is that in binary form, the only "1" should always located at the odd position*/
+
 import java.util.Scanner;
 public class Test
 {
@@ -55,20 +77,21 @@ public class Test
          System.out.println("Enter Number:");
          int num=sc.nextInt();
       
-         if(isPowerOf4_Iterative(num))
+         if(isPowerOf4(num))
            System.out.printf("%d is A Power OF 4\n",num);
 	 else
            System.out.printf("%d is Not a Power OF 4\n",num);
     }
 
-    public static boolean isPowerOf4_Iterative(int num)
+    public static boolean isPowerOf4(int num)
     {
-       if(isPowerOfTwo(num)==true && atOddBitPosition(num)==true)
+       if(isPowerOf2(num) && isSetBitAtOddPosition(num))
          return true;
+	 
        return false;
     }
     
-    public static boolean isPowerOfTwo(int num)
+    public static boolean isPowerOf2(int num)
     {
         if(num<=0)
           return false;
@@ -81,16 +104,17 @@ public class Test
         }
      }
 	
-      public static boolean atOddBitPosition(int num)
-      {
-           for(int i=2;i<=32;i+=2)
-           {
-             int mask=1<<(i-1);
-             if((num & mask)!=0)
-               return false;
-           }
-           return true;
-       }
+     public static boolean isSetBitAtOddPosition(int num)
+     {
+        int mask; 
+        for(int i=2;i<=32;i+=2)
+        {
+           mask=1<<(i-1);
+           if((num & mask)!=0)
+             return false;
+        }
+        return true;
+     }
 }
 
 
@@ -99,6 +123,7 @@ public class Test
 The basic idea is from power of 2, We can use "n&(n-1) == 0" to determine if n is power of 2. For power of 4, the additional restriction is that in binary form, the only "1" should always located at the odd position.
 For example, 4^0 = 1, 4^1 = 100, 4^2 = 10000. So we can use "num & 0x55555555==num" to check if "1" is located at the odd position.
 */
+
 import java.util.Scanner;
 public class Test
 {
@@ -116,12 +141,13 @@ public class Test
 
     public static boolean isPowerOf4(int num)
     {
-       if(isPowerOfTwo(num)==true && atOddBitPosition(num)==true)
+       if(isPowerOf2(num)==true && isSetBitAtOddPosition(num)==true)
          return true;
+	 
        return false;
     }
     
-    public static boolean isPowerOfTwo(int num)
+    public static boolean isPowerOf2(int num)
     {
         if(num<=0)
           return false;
@@ -134,7 +160,7 @@ public class Test
         }
     }
     
-    public static boolean atOddBitPosition(int num)
+    public static boolean isSetBitAtOddPosition(int num)
     {
        int oddMask=0x55555555;
        if((num & oddMask) == num)
