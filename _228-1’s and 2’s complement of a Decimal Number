@@ -10,8 +10,9 @@ public class Test
 	
    	public static void onesAndTwosComplement(int num)
 	{
-	   int onesComplement=~num;
-	   int twosComplement=~num+1;//int twosComplement=-num;
+	   int onesComplement,twosComplement;
+	   onesComplement=~num;
+	   twosComplement=~num+1;//twosComplement=-num;
            System.out.printf("1s Complement of "+num+" is = "+onesComplement+"    2s Complement of "+num+" is = "+twosComplement);
 	}
 }
