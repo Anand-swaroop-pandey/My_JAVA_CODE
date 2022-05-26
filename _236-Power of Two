@@ -1,5 +1,6 @@
 //Bruteforce Approach
 
+//Iterative Version
 import java.util.Scanner;
 public class Test
 {
@@ -9,22 +10,14 @@ public class Test
 	  System.out.println("Enter Number:");
 	  int num=sc.nextInt();
       
-	  if(isPowerOfTwo_Iterative(num))
+	  if(isPowerOfTwo(num))
 	     System.out.printf("%d is A Power OF Two\n",num);
 	  else
 	     System.out.printf("%d is Not a Power OF Two\n",num);
-         
-          if(isPowerOfTwo_Recursive(num))
-	     System.out.printf("%d is A Power OF Two",num);
-	  else
-	     System.out.printf("%d is Not a Power OF Two",num);
      }
 
-    public static boolean isPowerOfTwo_Iterative(int num)
+    public static boolean isPowerOfTwo(int num)
     {
-      if(num<=0)
-        return false;
-        
       while(num!=1)
       {
           if((num%2)!=0)
@@ -33,16 +26,35 @@ public class Test
       }
       return true;
     }
-    
-    public static boolean isPowerOfTwo_Recursive(int num)
+}
+
+
+//Recurssive Version 
+
+import java.util.Scanner;
+public class Test
+{
+      public static void main(String[] args)
+      {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter Number:");
+	  int num=sc.nextInt();
+      
+	  if(isPowerOfTwo(num))
+	     System.out.printf("%d is A Power OF Two\n",num);
+	  else
+	     System.out.printf("%d is Not a Power OF Two\n",num);
+     }
+
+    public static boolean isPowerOfTwo(int num)
     {
-        if(num==1)
-          return true;
+       if(num==1) //2^0=1
+         return true;
           
-        if((num%2)!=0 || num<=0)
-           return false;
+       if((num%2)!=0)
+          return false;
            
-        return isPowerOfTwo_Recursive(num/2); //return isPowerOfTwo_Recursive(num>>1);
+        return isPowerOfTwo(num/2); //return isPowerOfTwo_Recursive(num>>1);
     }
 }
 
@@ -127,14 +139,9 @@ public class Test
 
         public static boolean isPowerOfTwo(int num)
         {
-           if(num<=0)
-             return false;
+           if((num & (num-1))==0)
+             return true;
            else
-           {
-              if((num & (num-1))==0)
-                return true;
-              else
-                return false;
-           }
+             return false;
         }
 }
