@@ -12,6 +12,8 @@ public class Test
 	     System.out.printf("Enter %d elements of the array\n",n);
 	     for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
+	       
+	     System.out.println("Duplicate Elements are:");
 	     printDuplicate(arr);
 	   }
 	   else
@@ -21,46 +23,97 @@ public class Test
 	
 	public static void printDuplicate(int [] arr)
 	{
-	     System.out.println("Duplicates Elements are:");
-	     boolean flag=false;
-	     
-            int[] freqArr=new int[arr.length];
+	    int n=arr.length;
+	    int[] freqArr=new int[n];
+	    boolean flag=false;
+	    
             countFrequecy(arr,freqArr);
          
-            for(int i=0;i<arr.length;i++)
-              if(freqArr[i]>=2)
-              {
-                 System.out.println(arr[i]);
-                 flag=true;
-              }
+           for(int i=0;i<n;i++)
+             if(freqArr[i]>1)
+             {
+               System.out.println(arr[i]);
+               flag=true;
+             }
            
-            if(flag==false) 
-               System.out.println("No Duplicates Elements Exists");
+           if(flag==false) 
+             System.out.println("No Duplicates Elements Exists");
 	}
 	
 	
 	public static void countFrequecy(int[] arr,int[] freqArr)
 	{
-	       int n=arr.length;
-	       int count;   
+	   int n=arr.length,count;   
            for(int i=0;i<n;i++)
            {
              if(freqArr[i]==-1)
                continue;
-               count=1;
+	       
+             count=1;
              for(int j=i+1;j<n;j++)
-                if(arr[i]==arr[j])
-                {
-                   freqArr[j]=-1;
-                   count++;
-                }
-            freqArr[i]=count;       
+               if(arr[i]==arr[j])
+               {
+                 freqArr[j]=-1;
+                 count++;
+               }
+              
+             freqArr[i]=count;       
            }
 	}
 }
 
 
+//Improved Approach
+
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args)
+    {	
+           Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the size of the array");
+	   int n=sc.nextInt();
+	   if(n>1)
+	   {
+	     int[] arr=new int[n];
+	     System.out.printf("Enter %d elements of the array\n",n);
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	     
+	     System.out.println("Duplicates Elements are:");
+	     printDuplicate(arr);
+	   }
+	   else
+	     System.out.println("Invalid Choice/No Duplicate");   
+    }
+		
+    public static void printDuplicate(int arr[])
+    {
+       int n=arr.length;
+       boolean flag=false;
+       TreeMap<Integer,Integer>tm=new TreeMap<>();
+ 
+       for(int val :arr)
+         if(tm.containsKey(val))
+           tm.put(val,tm.get(val)+1);
+         else
+           tm.put(val,1);
+       
+       for(int key : tm.keySet())
+         if(tm.get(key)>1)
+         {
+           System.out.println(key);
+           flag=true;
+         }
+           
+       if(flag==false)
+          System.out.println("No Duplicates Elements Exists");
+    }
+}
+
+
 //Better Approach
+
 import java.util.Scanner;
 public class Test
 {
@@ -74,6 +127,8 @@ public class Test
 	     System.out.printf("Enter %d elements of the array\n",n);
 	     for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
+	       
+	     System.out.println("Duplicate Elements are:");
 	     printDuplicate(arr);
 	   }
 	   else
@@ -82,68 +137,23 @@ public class Test
 	
         public static void printDuplicate(int [] arr)
 	{
-            boolean flag=false;
-            int size=arr.length+1;
-            int[] freqArr=new int[size];
-            for(int i=0;i<arr.length;i++)
-              freqArr[arr[i]]++;
+	    int n=arr.length;
+	    boolean flag=false;
+            int[] freqArr=new int[n];
+	    
+            for(int i=0;i<n;i++)
+              freqArr[arr[i]-1]++;
 	      
-            System.out.println("Duplicate Elements are:");
-            for(int i=1;i<size;i++)
-              if(freqArr[i]>=2)
+            for(int i=0;i<n;i++)
+              if(freqArr[i]>1)
               {
-                System.out.println(i);
+                System.out.println(i+1);
                 flag=true;
               }
-           if(flag==false)
-             System.out.println("No Duplicate Element Exists:");
+	      
+            if(flag==false)
+              System.out.println("No Duplicate Element Exists:");
 	}
-}
-
-//Good Approach
-import java.util.*;
-public class Test
-{
-    public static void main(String[] args)
-    {	
-       Scanner sc=new Scanner(System.in);
-	   System.out.println("Enter the size of the array");
-	   int n=sc.nextInt();
-	   if(n>1)
-	   {
-	     int[] arr=new int[n];
-	     System.out.printf("Enter %d elements of the array\n",n);
-	     for(int i=0;i<n;i++)
-	       arr[i]=sc.nextInt();
-	     printDuplicate(arr);
-	   }
-	   else
-	     System.out.println("Invalid Choice/No Duplicate");   
-    }
-		
-    public static void printDuplicate(int arr[])
-    {
-       int n=arr.length;
-       HashMap<Integer,Integer>hm=new HashMap<>();
- 
-       for(int i=0;i<n;i++)
-         if(hm.containsKey(arr[i]))
-           hm.put(arr[i],hm.get(arr[i])+1);
-         else
-           hm.put(arr[i],1);
-       
-       boolean flag=false;
-       System.out.println("Duplicates Elements are:");
-       for(int i=1;i<=n;i++)
-         if(hm.containsKey(i) && hm.get(i)>1)
-         {
-           System.out.println(i);
-           flag=true;
-         }
-           
-       if(flag==false)
-          System.out.println("No Duplicates Elements Exists");
-    }
 }
 
 
@@ -161,6 +171,8 @@ public class Test
 	     System.out.printf("Enter %d elements of the array\n",n);
 	     for(int i=0;i<n;i++)
 	       arr[i]=sc.nextInt();
+	       
+	     System.out.println("Duplicate Elements are:");
 	     printDuplicate(arr);
 	   }
 	   else
@@ -170,27 +182,26 @@ public class Test
         public static void printDuplicate(int [] arr)
 	{
      	    boolean flag=false;
-	    int n=arr.length;
+	    int n=arr.length,OrgValAt_ithIndex,countOf_i;
 	    
 	    for(int i=0;i<n;i++)
 	      arr[i]=arr[i]-1;
-	      
+	    
 	    for(int i=0;i<n;i++)
 	    {
-	        int OrgValAt_ithIndex=arr[i]%n;
+	        OrgValAt_ithIndex=arr[i]%n;
 	        arr[OrgValAt_ithIndex]+=n;
 	    }
 	    
-	    System.out.println("Duplicates Elements are:");
 	    for(int i=0;i<n;i++)
 	    {
-	       int countOf_i=(arr[i]/n);
+	       countOf_i=(arr[i]/n);
 	       
 	       if(countOf_i>=2)
-	        {
-	             System.out.println(i+1);
-	             flag=true;
-	        }
+	       {
+	         System.out.println(i+1);
+	         flag=true;
+	       }
 	    }
 	        
 	    if(flag==false)
