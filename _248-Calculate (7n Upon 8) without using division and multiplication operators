@@ -9,9 +9,9 @@ public class Test
             System.out.printf("%d x (7/8) =%d\n",num,muntiplyBy7_upon_8(num));
 	  }
 	  
-          public static int muntiplyBy7_upon_8(int num)  
+          public static int muntiplyBy7_upon_8(int n)  
           {
-            int res=(num<<0)-(num>>3);
+            int res=((n<<3)-n) >> 3;
             return res;
           }
 }
@@ -19,15 +19,15 @@ public class Test
  /*
       we know:
       x<<y = x*2^y
-      if(y==0)
-       x<<0 =x*(2^0)=x
+      if(and y==3)
+       x<<3 =x*(2^3)=x*8=8*x
        
-      also 
-      
+      we know:
       x>>y=x/2^y
       if(y==3)
-      x>>3= x/(2^3)= x/8
+      x>>3= x/(2^3)= x/8 (here x= ((n<<3)-n))
+       
+      (7*n/8) = ( 8*n -n)/8 = ((n<<3)-n)/8 = ((n<<3)-n) >> 3
       
-      (7x/8)=x*(7/8)=x*(1-(1/8))=x-(x/8)=(x<<0)-(x>>3)
 */
 
