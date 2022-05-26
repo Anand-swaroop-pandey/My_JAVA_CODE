@@ -1,15 +1,15 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Num1:");
-	    int m=sc.nextInt();
-	    System.out.println("Enter Num2:");
-	    int n=sc.nextInt();
-	    System.out.println("Position of RightMost Set Bit is :"+posOfRightMostDifferentBit(m,n));
-	}
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Num1:");
+	int m=sc.nextInt();
+	System.out.println("Enter Num2:");
+	int n=sc.nextInt();
+	System.out.println("Position of RightMost Set Bit is :"+posOfRightMostDifferentBit(m,n));
+    }
 	
     public static int posOfRightMostDifferentBit(int num1,int num2)
     {
@@ -17,10 +17,10 @@ public class Test
        return posOfRightMostSetBit(xor);
     }
     
-     public static int posOfRightMostSetBit(int num)
+    public static int posOfRightMostSetBit(int num)
     {
-       if(num==0)
-         return -1; 
+         if(num==0)
+           return -1; 
          
          int position=0;
          while(num!=0)
@@ -34,6 +34,7 @@ public class Test
                  position++;
                  num=num>>1;
             }
+	    
         return position;
     }
 }
