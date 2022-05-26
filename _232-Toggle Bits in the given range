@@ -1,0 +1,68 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+     public static void main(String[] args)
+     {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter the Number:");
+	 int n=sc.nextInt();
+	 System.out.println("Enter lower range:");
+	 int low=sc.nextInt();
+	 System.out.println("Enter upper Range:");
+	 int high=sc.nextInt();
+	 System.out.printf("Number Formed After Toggling bits of %d from position %d(From Right) to position %d is %d",n,low,high,toggleBitsInRange(n,low,high));
+     }
+    
+    public static int toggleBitsInRange(int n,int low,int high)
+    {
+        for(int k=low;k<=high;k++)
+           n=toggleKthBit(n,k);
+	   
+        return n;  
+    }
+    public static int toggleKthBit(int num,int k)
+    {
+       int mask,res;
+       mask=1<<(k-1);
+       res=num^ mask;
+       return res;
+    }
+}
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args)
+    {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter the Number:");
+	 int n=sc.nextInt();
+	 System.out.println("Enter lower range:");
+	 int low=sc.nextInt();
+	 System.out.println("Enter upper Range:");
+	 int high=sc.nextInt();
+	 System.out.printf("Number Formed After Toggling bits of %d from position %d(From Right) to position %d is %d",n,low,high,toggleBitsInRange(n,low,high));
+    }
+    
+    public static int toggleBitsInRange(int n,int start,int end)
+    {
+        int mask,res;
+        mask=(1<<(end-start+1));
+        mask=mask-1;
+        mask=mask<<(start-1);
+        res=n ^ mask;
+	
+        return res;  
+    }
+    
+    public static int toggleKthBit(int num,int k)
+    {
+        int mask,res;
+        mask=1<<(k-1);
+	res=num^ mask;
+	return res;
+    }
+}
