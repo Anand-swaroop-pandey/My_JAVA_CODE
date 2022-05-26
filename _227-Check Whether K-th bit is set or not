@@ -6,12 +6,12 @@ public class Test
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the Number:");
 	    int num=sc.nextInt();
-	     System.out.println("Enter the Vaue of K:");
+	    System.out.println("Enter the Vaue of K:");
 	    int k=sc.nextInt();
 	    int res=checkKthBit(num,k);
 	    if(res==0)
               System.out.printf("The %d th Bit  is OFF/Unset",k);
-            else
+            else //if(res!=0)
               System.out.printf("The %d th Bit  is ON/Set",k);
 	}
 	
