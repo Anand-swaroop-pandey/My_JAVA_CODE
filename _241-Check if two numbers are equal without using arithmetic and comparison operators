@@ -2,15 +2,15 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1:");
+    public static void main(String[] args)
+    {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1:");
         int num1=sc.nextInt();
         System.out.println("Enter Number2:");
         int num2=sc.nextInt();
         System.out.printf(areSame(num1,num2));
-	}
+    }
     
     public static String areSame(int num1,int num2)
     {
@@ -26,15 +26,15 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1:");
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1:");
         int num1=sc.nextInt();
         System.out.println("Enter Number2:");
         int num2=sc.nextInt();
         System.out.printf(areSame(num1,num2));
-	}
+    }
     
     public static String areSame(int num1,int num2)
     {
