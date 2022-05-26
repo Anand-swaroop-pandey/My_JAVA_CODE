@@ -1,24 +1,25 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter N:");
-	    int n=sc.nextInt();
-	    System.out.printf("Number Formed After Reversing Bits of %d is %d",n,reverseBits(n));
-	}
+    public static void main(String[] args)
+    {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter N:");
+       int n=sc.nextInt();
+       System.out.printf("Number Formed After Reversing Bits of %d is %d",n,reverseBits(n));
+    }
     
     public static int reverseBits(int n)
     {
-        int ans=0;
+        int ans=0,mask1,mask2,temp;
         for(int i=0;i<32;i++)
         {
-            int mask1=1<<i;
-            int temp=n & mask1;
+            mask1=1<<i;
+            temp=n & mask1;
+	    
             if(temp!=0)
             {
-              int mask2=1<<(31-i);
+               mask2=1<<(31-i);
                ans=ans | mask2;
             }
         }
@@ -26,7 +27,7 @@ public class Test
     }
 }
 
-//Further Optimised
+//Compressed Code
 
 import java.util.Scanner;
 public class Test
@@ -39,12 +40,12 @@ public class Test
 	    System.out.printf("Number Formed After Reversing Bits of %d is %d",n,reverseBits(n));
 	}
     
-    public static int reverseBits(int n)
-    {
-        int ans=0;
-        for(int i=0;i<32;i++)
+        public static int reverseBits(int n)
+        {
+          int ans=0;
+          for(int i=0;i<32;i++)
             if((n & (1<<i))!=0)
                ans=ans |1<<(31-i);
-        return ans;  
-    }
+          return ans;  
+        }
 }
