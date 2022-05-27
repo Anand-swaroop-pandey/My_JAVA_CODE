@@ -40,10 +40,11 @@ public class Test
                  quotient++;
                 }
 		
-		int remainder=dividend;
                 if(signOfQuotient==-1)
                  quotient=-quotient;
 		 
+		int remainder=dividend; 
+		
                 if(signOfRemainder==-1)
                  remainder=-dividend;
 		 
