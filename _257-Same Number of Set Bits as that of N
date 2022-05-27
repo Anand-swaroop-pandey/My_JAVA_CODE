@@ -50,37 +50,37 @@ public class Test
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args) {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter N");
-	    int n=sc.nextInt();
-	    System.out.printf("count of positive integers strictly less than %d, having same number of set bits as that of %d is : %d",n,n,driver(n));
-	}
+          public static void main(String[] args) {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Enter N");
+            int n=sc.nextInt();
+            System.out.printf("count of positive integers strictly less than %d, having same number of set bits as that of %d is : %d",n,n,driver(n));
+       }
     
-  public static int driver(int N) 
-  {
-    
-     int count1Bit = countSetBits (N);
-     return count (N, count1Bit, 31);
-  }
+       public static int driver(int N) 
+       {
+         int count1Bit = countSetBits (N);
+         return count (N, count1Bit, 31);
+       }
   
-  public static int count (int N, int csb, int index) 
-  {
-      if (index ==0)
-        return 0;
+       public static int count (int N, int csb, int index) 
+       {
+          if (index ==0)
+            return 0;
       
-      int res=0;
-      int mask = 1 << index;
-      if ((N & mask) == 0)
-         return count (N, csb, index - 1);
-      else
-      {
-          int res1 =count (N, csb - 1, index - 1);
-          int res0 = nCr(index, csb);
-          res = res0 + res1;
-      }
-      return res;
-   }
+          int res=0;
+          int mask = 1 << index;
+          if ((N & mask) == 0)
+             return count (N, csb, index - 1);
+          else
+          {
+             int res1 =count (N, csb - 1, index - 1);
+             int res0 = nCr(index, csb);
+             res = res0 + res1;
+          }
+	  
+        return res;
+       }
    
 	public static int countSetBits(int num)
 	{
