@@ -21,10 +21,13 @@ public class Test
                 System.out.printf("%d / %d => ",dividend,divisor); 
                 int signOfQuotient=1,signOfRemainder=1,quotient=0;
              
-                if((dividend*divisor)<0) //Quotiient will be negative
-                  signOfQuotient=-1;
-                if((dividend*divisor)<0 && dividend<0) //remainder will be negative
-                  signOfRemainder=-1;
+                if((dividend*divisor)<0)
+		{
+		  signOfQuotient=-1; //Quotiient will be negative
+		  
+		  if(dividend<0) //remainder will be negative
+                    signOfRemainder=-1;
+		}
               
                 divisor=Math.abs(divisor);
                 dividend=Math.abs(dividend);
