@@ -22,6 +22,32 @@ public class Test
 }
 
 
+
+//Better Solution
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter lower range:");
+	    int low=sc.nextInt();
+	    System.out.println("Enter upper Range:");
+	    int high=sc.nextInt();
+	    System.out.printf("Bitwise AND from  %d to %d is %d",low,high,rangeBitwiseAnd(low,high));
+	}
+    
+        public static int rangeBitwiseAnd(int low,int high)
+        {
+            while(low < high)
+              high=high & (high-1);
+	      
+            return high;  
+        }
+}
+
+
+
 //Optimal Solution
 import java.util.Scanner;
 public class Test
@@ -49,6 +75,3 @@ public class Test
          return res;
        }
 }
-
-
-//Other Approaches to be discussed soon
