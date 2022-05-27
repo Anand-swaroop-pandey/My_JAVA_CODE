@@ -20,6 +20,9 @@ public class Test
              {
                 System.out.printf("%d / %d => ",dividend,divisor); 
 		
+		if(divisor==1)
+		   return dividend;
+		   
                 int signOfQuotient=1,signOfRemainder=1;
              
                 if((dividend<0 && divisor>0) || (dividend>0 && divisor<0))
