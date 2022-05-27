@@ -6,6 +6,11 @@ public class Test
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter N");
 	    int n=sc.nextInt();
+	    if(n<1)
+	    {
+	      System.out.println("Invalid Choice");
+	      return;
+	    }
 	    int[] arr=new int[n];
 	    System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
@@ -13,22 +18,23 @@ public class Test
 	    System.out.println("Sum of bit differences among all pairs is "+sumBitDifferences(arr));
 	}
     
-     public static int sumBitDifferences(int[] arr)
-    {
-       int count=0;
-       for(int i=0;i<arr.length;i++)
-          for(int j=0;j<arr.length;j++ )
-            if(j!=i)
-            {
-               int xor=arr[i]^arr[j];
-               int cntDiffBit=countSetBits(xor);
-               count+=cntDiffBit;
-            }
-       return count;    
-    }
     
-    public static int countSetBits(int num)//Kernighan's Algorithm
-    {
+        public static int sumBitDifferences(int[] arr)
+        {
+          int count=0,n=arr.length,xor,cntDiffBit;
+          for(int i=0;i<n;i++)
+            for(int j=0;j<n;j++ )
+             if(j!=i)
+             {
+               xor=arr[i]^arr[j];
+               cntDiffBit=countSetBits(xor);
+               count+=cntDiffBit;
+             }
+          return count;    
+        }
+    
+        public static int countSetBits(int num)//Kernighan's Algorithm
+        {
 	    int count=0;
 	    while(num!=0)
 	    {
@@ -36,7 +42,7 @@ public class Test
                num=num-rmsbm;
                count++;  
 	    }
-        return count;
+          return count;
 	}
 	
 	public static int rMSBM(int num)
@@ -61,29 +67,34 @@ public class Test
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter N");
 	    int n=sc.nextInt();
+	    if(n<1)
+	    {
+	      System.out.println("Invalid Choice");
+	      return;
+	    }
 	    int[] arr=new int[n];
 	    System.out.printf("Enter %d Elements\n",n);
 	    for(int i=0;i<n;i++)
 	      arr[i]=sc.nextInt();
+	      
 	    System.out.println("Sum of bit differences among all pairs is "+sumBitDifferences(arr));
-	}
+     }
     
      public static int sumBitDifferences(int[] arr)
-    {
-        int n=arr.length;
-        int res=0;
-       for(int i=0;i<32;i++)
-       {
-           int mask=1<<i;
-           int count1Bit=0;
+     {
+        int n=arr.length,res=0,mask,count1Bit,count0Bit,countOfDiffBitAmongEachPairAt_ithBit;
+        for(int i=0;i<32;i++)
+        {
+           mask=1<<i;
+           count1Bit=0;
            for(int j=0;j<n;j++)
               if((arr[j]&mask)!=0)
                 count1Bit++;
                 
-           int count0Bit=n-count1Bit;
-           int countOfDiffBitAmongEachPairAt_ithBit=2*(count0Bit*count1Bit);
+           count0Bit=n-count1Bit;
+           countOfDiffBitAmongEachPairAt_ithBit=2*(count0Bit*count1Bit);
            res+=countOfDiffBitAmongEachPairAt_ithBit;
-       }
+        }
        return res;
     }
 }
