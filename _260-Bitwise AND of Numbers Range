@@ -12,13 +12,13 @@ public class Test
 	    System.out.printf("Bitwise AND from  %d to %d is %d",low,high,rangeBitwiseAnd(low,high));
 	}
     
-    public static int rangeBitwiseAnd(int low,int high)
-    {
-      int res=low;
-      for(int i=low+1;i<=high;i++)
-         res=res & i;
-      return res;
-    }
+        public static int rangeBitwiseAnd(int low,int high)
+        {
+          int res=low;
+          for(int i=low+1;i<=high;i++)
+            res=res & i;
+          return res;
+        }
 }
 
 
@@ -36,16 +36,19 @@ public class Test
 	    System.out.printf("Bitwise AND from  %d to %d is %d",low,high,rangeBitwiseAnd(low,high));
 	}
     
-    public static int rangeBitwiseAnd(int low,int high)
-    {
-        int count=0;
-        while(low!=high)
+        public static int rangeBitwiseAnd(int low,int high)
         {
+          int count=0,res;
+          while(low!=high)
+          {
             low=low>>1;
             high=high>>1;
             count++;
-        }
-        int res=low<<count;//or res=high<<count
-        return res;
-    }
+          }
+          res=low<<count;//or res=high<<count
+         return res;
+       }
 }
+
+
+//Other Approaches to be discussed soon
