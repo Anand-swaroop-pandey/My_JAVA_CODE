@@ -2,15 +2,15 @@
 import java.util.Scanner;
 public class Main
 {
-	   public static void main(String[] args)
-	   {
-	        Scanner sc=new Scanner(System.in);
-	        System.out.println("Enter Dividend");
-          int num1=sc.nextInt();
-          System.out.println("Enter Divisor");
-          int num2=sc.nextInt();
-          System.out.println(division(num1,num2));
-	   }
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Dividend");
+        int num1=sc.nextInt();
+        System.out.println("Enter Divisor");
+        int num2=sc.nextInt();
+        System.out.println(division(num1,num2));
+     }
 	 
      public static int division(int Dividend,int Divisor) //find (num1/num2)?
      {
@@ -19,7 +19,7 @@ public class Main
            if(divisor==1)
              return (int)dividend;
        
-           if(dividend==Integer.MIN_VALUE && divisor==-1)
+           if(dividend==Integer.MIN_VALUE && divisor==-1) //Corner Case
              return Integer.MAX_VALUE;
        
             int signOfQuotient=1;
