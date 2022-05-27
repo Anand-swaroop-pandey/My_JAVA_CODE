@@ -1,6 +1,6 @@
 //(via Repeated Substraction)
 import java.util.Scanner;
-public class Main
+public class Test
 {
      public static void main(String[] args)
      {
@@ -25,7 +25,7 @@ public class Main
             int signOfQuotient=1;
              
             if((dividend<0 && divisor>0) || (dividend>0 && divisor<0))
-	           signOfQuotient=-1; //Quotiient will be negative
+	       signOfQuotient=-1; //Quotiient will be negative
 		 
               
             divisor=Math.abs(divisor);
@@ -41,6 +41,6 @@ public class Main
             if(signOfQuotient==-1)
               quotient=-quotient;
 		 
-	    	return quotient;  
+	  return quotient;  
      }
 }
