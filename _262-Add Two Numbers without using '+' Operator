@@ -6,27 +6,29 @@ public class Test
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number1");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2");
-        int num2=sc.nextInt();
-        System.out.printf("%d + %d = %d",num1,num2,sum(num1,num2));
+            int num1=sc.nextInt();
+            System.out.println("Enter Number2");
+            int num2=sc.nextInt();
+            System.out.printf("%d + %d = %d",num1,num2,sum(num1,num2));
 	}
-    public static int sum(int num1,int num2)
-    {
-       if(num1>0)
-           while(num1!=0)
-           {
+	
+        public static int sum(int num1,int num2)
+        {
+           if(num1>0)
+             while(num1!=0)
+             {
                num2++;
                num1--;
-           }
-       else if(num1<0)
-           while(num1!=0)
-           {
+             }
+           else if(num1<0)
+             while(num1!=0)
+             {
                num2--;
                num1++;
-           } 
-       return num2;
-    }
+             }
+	     
+         return num2;
+       }
 }
 
 
@@ -38,16 +40,17 @@ public class Test
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number1");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2");
-        int num2=sc.nextInt();
-        System.out.printf("%d + %d = %d",num1,num2,sum(num1,num2));
+            int num1=sc.nextInt();
+            System.out.println("Enter Number2");
+            int num2=sc.nextInt();
+            System.out.printf("%d + %d = %d",num1,num2,sum(num1,num2));
 	}
-    public static int sum(int num1,int num2)
-    {
-       int sum=num1-(-num2);
-       return sum;
-    }
+	
+        public static int sum(int num1,int num2)
+        {
+           int sum=num1-(-num2);
+           return sum;
+        }
 }
 
 
@@ -59,20 +62,22 @@ public class Test
 	{
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Number1");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2");
-        int num2=sc.nextInt();
-        System.out.printf("%d + %d = %d",num1,num2,sum(num1,num2));
+            int num1=sc.nextInt();
+            System.out.println("Enter Number2");
+            int num2=sc.nextInt();
+            System.out.printf("%d + %d = %d",num1,num2,sum(num1,num2));
 	}
-    public static int sum(int num1,int num2)
-    {
-       while(num2!=0)
-       {
-         int sum = num1 ^ num2;
-         int carry =(num1 & num2)<< 1;
-         num1=sum;
-         num2=carry;
-       }
-       return num1;
-    }
+	
+        public static int sum(int num1,int num2)
+        {
+	   int sum,carry;
+           while(num2!=0)
+           {
+             sum = num1 ^ num2;
+             carry =(num1 & num2)<< 1;
+             num1=sum;
+             num2=carry;
+           }
+           return num1;
+        }
 }
