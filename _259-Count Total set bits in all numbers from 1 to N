@@ -10,23 +10,24 @@ public class Test
 	    System.out.printf("Total Number of Set Bits from 1 to %d is %d",n,countSetBitstillN(n));
 	}
     
-    public static int countSetBitstillN(int n)
-    {
+        public static int countSetBitstillN(int n)
+        {
 	   int count=0;
 	   for(int num=1;num<=n;num++)
 	      for(int k=0;k<32;k++)
-            if(checkKthBit(num,k)!=0)
-                  count++;
-       return count;
-	   }
+                 if(checkKthBit(num,k)!=0)
+                    count++;
+          return count;
+        }
 	
-    public static int checkKthBit(int num,int k)
+        public static int checkKthBit(int num,int k)
 	{
 	   int mask=1<<(k);
 	   int res=num & mask;
 	   return res;
 	}
 }
+
 
 //Better Approach
 import java.util.Scanner;
@@ -40,37 +41,38 @@ public class Test
 	    System.out.printf("Total Number of Set Bits from 1 to %d is %d",n,countSetBitstillN(n));
 	}
     
-    public static int countSetBitstillN(int n)
-    {
+        public static int countSetBitstillN(int n)
+        {
 	   int count=0;
 	   for(int i=1;i<=n;i++)
               count+= countSetBits(i);  
+	      
            return count;
-    }
+        }
 	
-    public static int countSetBits(int num)//Kernighan's Algorithm
-    {
+        public static int countSetBits(int num)//Kernighan's Algorithm
+        {
 	   int count=0;
-       while(num!=0)
-       {
+           while(num!=0)
+           {
 	     int rmsbm=rMSBM(num);
-         num=num-rmsbm; 
-         count++;  
+             num=num-rmsbm; 
+             count++;  
+           }
+         return count;
        }
-      return count;
-    }
 	   
-    public static int rMSBM(int num)
-	  {
-	   int rmsbm=num & twosCompliment(num);
-	   return rmsbm;
-    }
+       public static int rMSBM(int num)
+       {
+	 int rmsbm=num & twosCompliment(num);
+	 return rmsbm;
+       }
 	 
-    public static int twosCompliment(int num)
-    {
-       return -num;//return (~num+1);
-    }
-}
+       public static int twosCompliment(int num)
+       {
+         return -num;//return (~num+1);
+       }
+} 
 
 
 //Optimal Approach
@@ -86,8 +88,8 @@ public class Test
 	    System.out.printf("Total Number of Set Bits from 1 to %d is %d",n,countSetBitstillN(n));
 	}
     
-    public static int countSetBitstillN(int n)
-    {
+        public static int countSetBitstillN(int n)
+        {
 	   if(n==0)
 	    return 0;
 	   
@@ -98,18 +100,19 @@ public class Test
 	   int part3=countSetBitstillN(rest);
 	   int count1=part1+part2+part3;
 	   return count1;
-	}
+       }
 	
        public static int largestPowerOf2InRange(int num)
-	{
-	    int power=0;
-	    while(true)
-	        if((int)Math.pow(2,power)<=num)
-	          power++;
-	        else
-	          break;
+       {
+	  int power=0;
+	  while(true)
+	    if((int)Math.pow(2,power)<=num)
+	       power++;
+	    else
+	       break;
+	       
 	   return (power-1);
-	}
+       }
 }
 
 
@@ -126,8 +129,8 @@ public class Test
 	    System.out.printf("Total Number of Set Bits from 1 to %d is %d",n,countSetBitstillN(n));
 	}
     
-    public static int countSetBitstillN(int n)
-    {
+        public static int countSetBitstillN(int n)
+        {
 	   if(n==0)//No Set Bits In 0 so return 0
 	    return 0;
 	   
@@ -138,15 +141,16 @@ public class Test
 	   int part3=countSetBitstillN(rest);
 	   int count1=part1+part2+part3;
 	   return count1;
-	}
+       }
 	
-    public static int largestPowerOf2InRange(int num)
-	{
-	    int power=0;
-	    while((1<<power)<=num)    //(1<<power)<=num => (2^power)<=num
-	        power++;
-	   return (power-1);
-	}
+       public static int largestPowerOf2InRange(int num)
+       {
+	  int power=0;
+	  while((1<<power)<=num)    //(1<<power)<=num => (2^power)<=num
+	     power++;
+	     
+	  return (power-1);
+       }
 }
 
 //Note: x<<y = x*2^y
