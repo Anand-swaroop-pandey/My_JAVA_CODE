@@ -10,7 +10,7 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter The Size Of The Array :");
 	  int n=sc.nextInt();
-	  if(n<=0)
+	  if(n<1)
 	  {
 	      System.out.println("Invalid Choice");
 	      return;
@@ -47,7 +47,7 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter The Size Of The Array :");
 	  int n=sc.nextInt();
-	  if(n<=0)
+	  if(n<1)
 	  {
 	      System.out.println("Invalid Choice");
 	      return;
@@ -63,7 +63,7 @@ public class Test
 	
 	public static void countEvenOddXor(int[] arr,int n)
 	{
-	  int cntOdd=0,cntEven=0;
+	  int cntOdd=0,cntEven=0,cntEvenXorPairs,cntOddXorPairs;
 	  
           for(int i=0;i<n;i++)
            if((arr[i]%2)==0)
@@ -71,8 +71,8 @@ public class Test
            else
             cntOdd++;
         
-          int cntEvenXorPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
-          int cntOddXorPairs=(cntEven*cntOdd);
+          cntEvenXorPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
+          cntOddXorPairs=(cntEven*cntOdd);
         
 	  System.out.println("Count Of Pairs with Even Sum :"+cntEvenXorPairs+"\nand Count Of Pairs with Odd sum :"+cntOddXorPairs);
 	}
