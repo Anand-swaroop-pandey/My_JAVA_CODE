@@ -4,15 +4,15 @@
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1:");
+    public static void main(String[] args)
+    {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Number1:");
         int num1=sc.nextInt();
         System.out.println("Enter Number2:");
         int num2=sc.nextInt();
         System.out.printf(areSame(num1,num2));
-	}
+    }
     
     public static String areSame(int num1,int num2)
     {
@@ -39,23 +39,24 @@ The XOR of x and y will have the sign bit as 1 iff they have opposite sign.*/
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1:");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2:");
-        int num2=sc.nextInt();
-        System.out.printf(areSame(num1,num2));
-	}
+    public static void main(String[] args)
+    {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Number1:");
+       int num1=sc.nextInt();
+       System.out.println("Enter Number2:");
+       int num2=sc.nextInt();
+       System.out.printf(areSame(num1,num2));
+    }
     
     public static String areSame(int num1,int num2)
     {
         int xor=num1 ^ num2;
         int mask=1<<31;
+	
         if((xor & mask)!=0)
           return "opposite Signs";
-        else
+        else //(xor & mask)==0
           return "Same Sign";
     }
 }
@@ -66,18 +67,19 @@ public class Test
   The XOR of x and y will have the sign bit as 1 iff they have opposite sign.
   In other words, XOR of x and y will be negative number number iff x and y have opposite signs. 
 */
+
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number1:");
-        int num1=sc.nextInt();
-        System.out.println("Enter Number2:");
-        int num2=sc.nextInt();
-        System.out.printf(areSame(num1,num2));
-	}
+    public static void main(String[] args)
+    {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Number1:");
+       int num1=sc.nextInt();
+       System.out.println("Enter Number2:");
+       int num2=sc.nextInt();
+       System.out.printf(areSame(num1,num2));
+    }
     
     public static String areSame(int num1,int num2)
     {
