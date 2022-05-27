@@ -54,15 +54,15 @@ public class Test
 	
 	public static void countPairs(int[] arr)
 	{
-	   int n=arr.length,cntOdd=0,cntEven=0;
+	   int n=arr.length,cntOdd=0,cntEven=0,cntEvenSumPairs,cntOddSumPairs;
            for(int i=0;i<n;i++)
              if((arr[i]%2)==0)
               cntEven++;
              else
               cntOdd++;
         
-          int cntEvenSumPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
-          int cntOddSumPairs=(cntEven*cntOdd);
+          cntEvenSumPairs=(cntEven*(cntEven-1))/2 + (cntOdd*(cntOdd-1))/2;
+          cntOddSumPairs=(cntEven*cntOdd);
         
           System.out.println("Count of Pairs With Even Sum ="+cntEvenSumPairs);
           System.out.println("Count of Pairs With Even Sum ="+cntOddSumPairs);
