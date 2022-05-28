@@ -6,20 +6,27 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-          rearrange(arr);
+	    
+          rearrange(arr,n);
+	  
           System.out.println("Rearranged Array is:");
-          for(int i=0;i<arr.length;i++)
+	  for(int i=0;i<n;i++)
             System.out.printf(arr[i]+" ");
  	}
 	
 	
-	public static void rearrange(int[] arr)
+	public static void rearrange(int[] arr,int n)
 	{
-	    int countOdd=segregate(arr);
+	    int countOdd=segregate(arr,n);// arr[0.......countOdd-1] =>Odd Elements  and arr[countOdd.......n-1] =>Even Elements
 	    Arrays.sort(arr,0,countOdd);//First Sort The Array in Ascending Order from index=0 to index=(countOdd-1)
 	    for(int i=0;i<(countOdd/2);i++)//Now reverse the array so as to obtain the array sorted in descending order from index=0 to index=(countOdd-1)
 	    {
@@ -27,13 +34,13 @@ public class Test
 	        arr[i]=arr[countOdd-1-i];
 	        arr[countOdd-1-i]=temp;
 	    }
-	    Arrays.sort(arr,countOdd,arr.length);
+	    Arrays.sort(arr,countOdd,n);
 	}
 	
-	public static int segregate(int[] arr)
+	public static int segregate(int[] arr,int n)
 	{
 	   int i=0,j=0;
-	   while(i<arr.length)
+	   while(i<n)
 	   {
 	     if((arr[i]%2)==1)
 	     {
@@ -60,27 +67,34 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-          rearrange(arr);
-         System.out.println("Rearranged Array is:");
-         for(int i=0;i<arr.length;i++)
-            System.out.printf(arr[i]+" ");
+	    
+          rearrange(arr,n);
+	  
+          System.out.println("Rearranged Array is:");
+          for(int i=0;i<n;i++)
+             System.out.printf(arr[i]+" ");
  	}
 	
 	
-	public static void rearrange(int[] arr)
+	public static void rearrange(int[] arr,int n)
 	{
 	  int mask=1;
-          for(int i=0;i<arr.length;i++)
+          for(int i=0;i<n;i++)
            if((arr[i] & mask)==1)//Checking For Odd Number
              arr[i]*=-1;
 	     
           Arrays.sort(arr);
 	  
-          for(int i=0;i<arr.length;i++)
+          for(int i=0;i<n;i++)
             if(arr[i]<0)
               arr[i]*=-1;
 	}
