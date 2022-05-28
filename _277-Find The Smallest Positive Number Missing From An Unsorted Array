@@ -23,12 +23,14 @@ public class Test
 	       for(i=0;i<n;i++)
 	         if(arr[i]==pos)
 	           break;
+		   
 	       if(i==n)
 	         break;
 	   }
 	   return pos;
 	}
 }
+
 
 //Improved Approach
 import java.util.*;
@@ -108,13 +110,13 @@ public class Test
 	       arr[j]=temp;
 	       j++;
 	     }
-	    return j; 
+	     
+	   return j; 
 	}
 	
 	public static int findMissing(int[]arr,int start)
 	{
-           int n=arr.length;
-           int size=n-start;
+           int n=arr.length,size=n-start;
            boolean[]count=new boolean[size+1];
            for(int i=start;i<n;i++)
            {
@@ -123,10 +125,11 @@ public class Test
                count[x] =true;
            }
         
-           for (int i=1; i <(size+1); i++)
-             if (count[i]==false)
-                return i;       
-        return size+1;
+           for(int i=1; i <(size+1); i++)
+              if(count[i]==false)
+                 return i;
+		 
+          return size+1;
 	}
 }
 
@@ -269,15 +272,15 @@ public class Test
 	
 	public static int findMissing(int[]arr,int start)
 	{
-            int newSize=(arr.length-start);
-            for(int i=start;i<arr.length;i++)
+            int n=arr.length,newSize=(n-start);
+            for(int i=start;i<n;i++)
             {
                int x = Math.abs(arr[i]);
                if ((x - 1)<newSize && arr[start+(x-1)] > 0)
                   arr[start+(x-1)] = -arr[start+(x-1)];
             }
         
-            for (int i = start; i <arr.length; i++)
+            for (int i = start; i <n; i++)
               if (arr[i]>0)
                 return ((i+1)-start); 
 		
