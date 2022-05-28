@@ -1,13 +1,13 @@
 import java.util.Scanner;
 public class Test
-{
-	  public static void main(String[] args)
-	  {
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number");
-      int num=sc.nextInt();
-      System.out.printf("%d x (7/8) =%d\n",num,muntiplyBy7_upon_8(num));
-	  }
+{ 
+    public static void main(String[] args)
+    {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Number");
+       int num=sc.nextInt();
+       System.out.printf("%d x (7/8) =%d\n",num,muntiplyBy7_upon_8(num)); 
+    }
 	  
     public static int muntiplyBy7_upon_8(int n)  
     {
