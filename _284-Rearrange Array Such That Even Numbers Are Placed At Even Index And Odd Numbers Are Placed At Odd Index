@@ -1,4 +1,4 @@
-//Bruteforce Approach
+//Bruteforce Approach (Order Of Appearence is Maintained)
 import java.util.Scanner;
 public class Test
 {
@@ -44,9 +44,13 @@ public class Test
 	       arr[i]=odd[o++];
 	}
 }
+/*
+Input : arr[] = {10, 9, 7, 18, 13, 19, 4, 20, 21, 14}
+Output : Rearranged Array is: 10 9 18 7 4 13 20 19 14 21 
+*/
 
 
-//Optimal Approach
+//Better Approach (Order Of Appearence is Not Maintained)
 import java.util.Scanner;
 public class Test
 {
@@ -92,3 +96,68 @@ public class Test
             }
 	}
 }
+/*
+Input : arr[] = {10, 9, 7, 18, 13, 19, 4, 20, 21, 14}
+Output : Rearranged Array is: 10 9 18 7 20 19 4 13 14 21 
+*/
+
+//Optimal Approach (Order Of Appearence is Maintained)
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the Size of The Aray");
+	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  int[] arr=new int[n];
+	  System.out.printf("Enter %d Elements",n);
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+	    
+          arrangeOddAndEven(arr);
+	  
+          System.out.println(" Rearranged Array is:");
+          for(int i=0;i<n;i++)
+            System.out.printf(arr[i]+" ");
+ 	}
+	
+	public static void arrangeOddAndEven(int[] arr)
+	{
+	    int n=arr.length,wrongIndex = -1;//No Wrong Index
+            for (int i=0;i<n;i++)
+            {
+               if(wrongIndex>=0)
+                 if((arr[wrongIndex]%2==0 && arr[i]%2!=0) || (arr[wrongIndex]%2!= 0 && arr[i]%2==0))
+                 {
+                   rightRotate(arr,wrongIndex,i);
+                   if((i - wrongIndex)==1)
+                      wrongIndex = -1;
+                   else if ((i - wrongIndex)>= 2)
+                      wrongIndex+=2; 
+                 }
+ 
+               if(wrongIndex==-1)
+                  if(((i%2)==0 && arr[i]%2!=0)|| ((i%2)!=0 && arr[i]%2==0))
+                     wrongIndex = i;
+             }
+	}
+	
+	
+	public static void rightRotate(int[]arr, int wrongIndex, int index)
+	{
+            int temp=arr[index];
+            for(int i=index;i>wrongIndex;i--)
+              arr[i]=arr[i-1];
+	      
+            arr[wrongIndex]=temp;
+        }
+}
+/*
+Input : arr[] = {10, 9, 7, 18, 13, 19, 4, 20, 21, 14}
+Output : Rearranged Array is: 10 9 18 7 4 13 20 19 14 21 
+*/
