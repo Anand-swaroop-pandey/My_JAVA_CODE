@@ -24,14 +24,14 @@ public class Test
 	
 	public static int equilibrium(int[] arr)
 	{
-	   int n=arr.length;
+	   int n=arr.length,leftSum,rightSum;
            for(int i=0;i<n;i++)
            {
-              int leftSum=0;
+              leftSum=0;
               for(int j=0;j<i;j++)
                 leftSum+=arr[j];
         
-              int rightSum=0;
+              rightSum=0;
               for(int k=(i+1);k<n;k++)
                 rightSum+=arr[k];
         
