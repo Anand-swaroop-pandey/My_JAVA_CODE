@@ -102,3 +102,109 @@ public class Test
         return reverse.toString();
     }
 }
+
+//Unconventional Way :
+
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args)
+    {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter a Binary Number(in the form of a String) :");
+	String str1=sc.nextLine();
+	System.out.println("Enter Second Binary Number(in the form of a String) :");
+	String str2=sc.nextLine();
+	System.out.println(str1+" + "+str2+" = "+addBinary(str1,str2));
+    }
+	
+    public static String addBinary(String str1, String str2)
+    {
+        int i=str1.length()-1,j=str2.length()-1,carryBit=0,sum;
+        StringBuilder ans=new StringBuilder("");
+        
+        while(i>=0 && j>=0)
+        {
+            sum=str1.charAt(i)-'0'+str2.charAt(j)-'0'+carryBit;
+            
+            if(sum==0)
+            {
+                carryBit=0;
+                ans.append(0);
+            }
+            else if(sum==1)
+            {
+                carryBit=0;
+                ans.append(1);
+            }
+            else if(sum==2)
+            {
+                carryBit=1;
+                ans.append(0);
+            }
+            else if(sum==3)
+            {
+                carryBit=1;
+                ans.append(1);
+            }
+            
+            i--;
+            j--;
+        }
+        
+        
+        while(i>=0)
+        { 
+            sum=str1.charAt(i)-'0'+carryBit;
+            
+            if(sum==0)
+            {
+                carryBit=0;
+                ans.append(0);
+            }
+            else if(sum==1)
+            {
+                carryBit=0;
+                ans.append(1);
+            }
+            else if(sum==2)
+            {
+                carryBit=1;
+                ans.append(0);
+            }
+            
+            i--;
+        }
+        
+        
+        while(j>=0)
+        {
+            sum=str2.charAt(j)-'0' + carryBit;
+            
+            if(sum==0)
+            {
+                carryBit=0;
+                ans.append(0);
+            }
+            else if(sum==1)
+            {
+                carryBit=0;
+                ans.append(1);
+            }
+            else if(sum==2)
+            {
+                carryBit=1;
+                ans.append(0);
+            }
+
+            j--;
+        }
+        
+        if(carryBit!=0)
+         ans.append(carryBit);
+        
+        StringBuilder reverse=ans.reverse();
+        
+        return reverse.toString();
+    }
+}
