@@ -5,6 +5,11 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	    System.out.println("Invlaid Choice");
+	    return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
