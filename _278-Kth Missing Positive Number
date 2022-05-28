@@ -42,8 +42,7 @@ public class Test
     
    public static boolean binarySearch(int[]arr,int key)
    {
-      int low=0;
-      int high=arr.length-1;
+      int low=0,high=arr.length-1;
       while(low<=high)
       {
           int mid=(low+high)/2;
@@ -136,8 +135,7 @@ public class Test
     
    public static boolean binarySearch(int[]arr,int key)
    {
-      int low=0;
-      int high=arr.length-1;
+      int low=0,high=arr.length-1;
       while(low<=high)
       {
           int mid=(low+high)/2;
@@ -189,7 +187,7 @@ public class Test
       for(int val:arr)
         hs.add(val);
    
-   //Range : 1<=kth Misisng +ve Number<=(n+k)
+     //Range : 1<=kth Misisng +ve Number<=(n+k)
 		
       while(num<=(n+k))
       {
@@ -233,7 +231,7 @@ public class Test
 	
    public static int findKthPositive(int[] arr,int n, int k)
    {
-       int res= k;
+        int res= k;
         for(int val: arr)
         {
           if(val>res)
@@ -281,14 +279,13 @@ public class Test
    
    public static int binarySearch(int[]arr,int n,int k)
    { 
-      int low=0;
-      int high=n-1;
+      int low=0,high=n-1,mid,expValAt_arrMid,valPresentAt_Mid,cntOfMissingNumsBefore_arrMid;
       while(low<=high)
       {
-        int mid=(low+high)/2;
-        int expValAt_arrMid=(mid+1);
-        int valPresentAt_Mid=arr[mid];
-        int cntOfMissingNumsBefore_arrMid = valPresentAt_Mid - expValAt_arrMid;
+        mid=(low+high)/2;
+        expValAt_arrMid=(mid+1);
+        valPresentAt_Mid=arr[mid];
+        cntOfMissingNumsBefore_arrMid = valPresentAt_Mid - expValAt_arrMid;
           
         if(cntOfMissingNumsBefore_arrMid< k)
            low=mid+1;
@@ -299,4 +296,27 @@ public class Test
    }
 }
 
+/*
+For example:
+arr[] = {2,3,4,7,11}
 
+index 0:
+
+no. should be present here/Expected Number => index+1 => 1
+no which is actually present here => 2
+discrepency 2-1=1
+therefore there is 1 missing numbers before the number 2 which is 1.
+
+
+Taking Another example:
+arr[] = {2,3,4,7,11}
+
+for index 3:
+
+no. should be present here/Expected Number => index+1 => 4
+no which is actually present here => 7
+discrepency 7-4=3
+therefore there are 3 missing numbers before the number 7 which are [1, 5, 6]
+
+Also we want to push mid to the closest of k, thus, the resultant low + k would be the kth missing no.
+*/
