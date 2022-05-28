@@ -6,13 +6,20 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
+	    
           arrangeOddAndEven(arr);
+	  
           System.out.println("Rearranged Array is:");
-          for(int i=0;i<arr.length;i++)
+          for(int i=0;i<n;i++)
             System.out.printf(arr[i]+" ");
  	}
 	
@@ -47,13 +54,20 @@ public class Test
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the Size of The Aray");
 	  int n=sc.nextInt();
+	  if(n<1)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 	  int[] arr=new int[n];
 	  System.out.printf("Enter %d Elements",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-          arrangeOddAndEven(arr);  
+	    
+          arrangeOddAndEven(arr);
+	  
           System.out.println(" Rearranged Array is:");
-          for(int i=0;i<arr.length;i++)
+          for(int i=0;i<n;i++)
             System.out.printf(arr[i]+" ");
  	}
 	
