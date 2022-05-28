@@ -18,8 +18,8 @@ public class Test
   
 	public static void rearrange(int[] arr)
 	{
-	    int cntPos=0,cntNeg=0;
-	   for(int i=0;i<arr.length;i++)
+	   int n=arr.length,cntPos=0,cntNeg=0,i=0,j=0,k=0;
+	   for(i=0;i<n;i++)
 	      if(arr[i]>=0)
 	        cntPos++;
 	      else
@@ -28,29 +28,29 @@ public class Test
 	   if(cntNeg==0 || cntPos==0)
 	      return;
 	      
-       int[] pos=new int[cntPos];
-       int[] neg=new int[cntNeg];
-       int p=0,n=0;
-       for(int i=0;i<arr.length;i++)
-         if(arr[i]>=0)
-           pos[p++]=arr[i];
-         else
-           neg[n++]=arr[i];
+           int[] pos=new int[cntPos];
+           int[] neg=new int[cntNeg];
+           
+           for(i=0;i<n;i++)
+             if(arr[i]>=0)
+               pos[j++]=arr[i];
+             else
+               neg[k++]=arr[i];
     
-       int i=0;p=0;n=0;
-       while(p<cntPos && n<cntNeg)
-          if((i%2)==0)
-            arr[i++]=neg[n++];
-          else
-            arr[i++]=pos[p++];
+           i=0;
+	   j=0;
+	   k=0;
+           while(j<cntPos && j<cntNeg)
+             if((i%2)==0)
+               arr[i++]=neg[j++];
+             else
+               arr[i++]=pos[k++];
+         
+           while(j<cntPos)
+             arr[i++]=pos[j++];
        
-       if(n==cntNeg)
-         while(p<cntPos)
-           arr[i++]=pos[p++];
-       
-       if(p==cntPos)
-         while(n<cntNeg)
-           arr[i++]=neg[n++];
+           while(j<cntNeg)
+             arr[i++]=neg[k++];
 	}
 }
 
@@ -67,22 +67,25 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
+	    
           rearrange(arr);
-         System.out.println("Rearranged Array is:");
-         for(int i=0;i<arr.length;i++)
-           System.out.println(arr[i]);
+	  
+          System.out.println("Rearranged Array is:");
+          for(int i=0;i<arr.length;i++)
+            System.out.println(arr[i]);
  	}
 	
 	
 	public static void rearrange(int[] arr)
 	{
-           int j=segregate(arr);
-           int i=0;
-           while(i<j && j<arr.length)
+           int n=arr.length,i=0,j=segregate(arr);
+           while(i<j && j<n)
            {
+	     //Swap
              int temp=arr[i];
              arr[i]=arr[j];
              arr[j]=temp;
+	     
              i+=2;
              j++;
            }
@@ -91,21 +94,22 @@ public class Test
 	
        public static int segregate(int[] arr)
        {
-          int i=0,j=0;
-          while(i<(arr.length))
-         {
-           if(arr[i]>=0)
-           {
+          int i=0,j=0,n=arr.length;
+          while(i<n)
+          {
+            if(arr[i]>=0)
+            {
+	       //Swap
                int temp=arr[i];
                arr[i]=arr[j];
                arr[j]=temp;
                
                i++;
                j++;
-           }
-           else
-             i++;
-         }
+            }
+            else
+              i++;
+          }
          return j;
        }
 }
@@ -138,22 +142,22 @@ public class Test
 	
 	public static void rearrange(int[] arr)
 	{
-	    int wrongIndex = -1;//No Wrong Index
-            for (int i=0;i<arr.length;i++)
+	    int n=arr.length,wrongIndex = -1;//No Wrong Index
+            for (int i=0;i<n;i++)
             {
-               if (wrongIndex>=0)
-               if ((arr[wrongIndex]<0 && arr[i] >= 0) || (arr[wrongIndex]>= 0 && arr[i] < 0))
-               {
-                  rightRotate(arr,wrongIndex,i);
-                  if((i - wrongIndex)==1)
-                     wrongIndex = -1;
-                  else((i - wrongIndex)>= 2)
-                    wrongIndex+=2; 
-               }
+               if(wrongIndex>=0)
+                 if((arr[wrongIndex]<0 && arr[i] >= 0) || (arr[wrongIndex]>= 0 && arr[i] < 0))
+                 {
+                   rightRotate(arr,wrongIndex,i);
+                   if((i - wrongIndex)==1)
+                      wrongIndex = -1;
+                   else((i - wrongIndex)>= 2)
+                      wrongIndex+=2; 
+                 }
  
-               if (wrongIndex==-1)
-                 if(((i%2)==0 && arr[i]>= 0)|| ((i%2)==1 && arr[i]<0))
-                    wrongIndex = i;
+                 if(wrongIndex==-1)
+                   if(((i%2)==0 && arr[i]>= 0)|| ((i%2)==1 && arr[i]<0))
+                      wrongIndex = i;
              }
 	}
 	
@@ -163,6 +167,7 @@ public class Test
             int temp=arr[index];
             for(int i=index;i>wrongIndex;i--)
               arr[i]=arr[i-1];
-             arr[wrongIndex]=temp;
+	      
+            arr[wrongIndex]=temp;
          }
 }
