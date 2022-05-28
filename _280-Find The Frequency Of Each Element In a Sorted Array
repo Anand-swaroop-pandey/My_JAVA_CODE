@@ -11,6 +11,7 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
+	    
 	  printFreq(arr);   
     }
 		
@@ -46,6 +47,7 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
+	    
           printFreq(arr);   
     }
 		
@@ -77,13 +79,14 @@ public class Test
 	  System.out.printf("Enter %d Elements in Sorted Order",n);
 	  for(int i=0;i<n;i++)
 	    arr[i]=sc.nextInt();
-            printFreq(arr);
+	    
+          printFreq(arr);
  	}
 	
 	public static void printFreq(int[] arr)
 	{
-	    int i,freq=1;
-	    for(i=0;i<(arr.length-1);i++)
+	    int i,freq=1,n=arr.length;
+	    for(i=0;i<(n-1);i++)
 	       if(arr[i]==arr[i+1])
 	         freq++;
 	       else
@@ -92,7 +95,7 @@ public class Test
 	          freq=1;
 	       }
 	       
-	    if(i==(arr.length-1))
+	    if(i==(n-1))
 	        System.out.println(arr[i]+"=>"+freq);
 	}
 }
