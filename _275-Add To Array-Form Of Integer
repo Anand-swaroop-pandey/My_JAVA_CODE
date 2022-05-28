@@ -26,14 +26,16 @@ public class Test
     public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
           int n=arr.length;
+	  ArrayList<Integer>al=new ArrayList<>();
           String num1="";
           for(int i=0;i<n;i++)
             num1+=arr[i];
         
           String num2=String.valueOf(k);
           String res=addTwoNumbers(num1,num2);
-          ArrayList<Integer>al=new ArrayList<>();
-          for(int i=0;i<res.length();i++)
+	  int len=res.length();
+          
+          for(int i=0;i<len;i++)
           {
             char ch=res.charAt(i);
             al.add(ch-'0');
@@ -44,14 +46,14 @@ public class Test
     
     public static String addTwoNumbers(String num1, String num2) 
     {
-        int i=num1.length()-1,j=num2.length()-1,carry=0;
+        int i=num1.length()-1,j=num2.length()-1,carry=0,d1,d2,base;
         StringBuilder num=new StringBuilder("");
         while(i>=0 && j>=0)
         {
-            int d1=num1.charAt(i)-'0';
-            int d2=num2.charAt(j)-'0';
+            d1=num1.charAt(i)-'0';
+            d2=num2.charAt(j)-'0';
             
-            int base=((d1+d2)+carry)%10;
+            base=((d1+d2)+carry)%10;
             carry=((d1+d2)+carry)/10;
 	    
             num.append(base);
@@ -61,9 +63,9 @@ public class Test
         
         while(i>=0)
         {
-          int d1=num1.charAt(i)-'0';
+          d1=num1.charAt(i)-'0';
 	  
-          int base=(d1+carry)%10;
+          base=(d1+carry)%10;
 	  carry=(d1+carry)/10;
 	  
           num.append(base);
@@ -72,9 +74,9 @@ public class Test
         
         while(j>=0)
         {
-          int d2=num2.charAt(j)-'0';
+          d2=num2.charAt(j)-'0';
 	  
-          int base=(d2+carry)%10;
+          base=(d2+carry)%10;
 	  carry=(d2+carry)/10;
  
           num.append(base);
@@ -118,25 +120,26 @@ public class Test
     public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
        int n=arr.length;
+       ArrayList<Integer>al=new ArrayList<>();
        String num1="";
        for(int i=0;i<n;i++)
          num1+=arr[i];
         
        String num2=String.valueOf(k);
-       ArrayList<Integer>al=new ArrayList<>();
+       
        return addTwoNumbers(num1,num2,al);
     }
     
     public static ArrayList<Integer> addTwoNumbers(String num1, String num2,ArrayList<Integer>al) 
     {
-        int i=num1.length()-1,j=num2.length()-1,carry=0;
+        int i=num1.length()-1,j=num2.length()-1,carry=0,d1,d2,base;
  
         while(i>=0 && j>=0)
         {
-            int d1=num1.charAt(i)-'0';
-            int d2=num2.charAt(j)-'0';
+            d1=num1.charAt(i)-'0';
+            d2=num2.charAt(j)-'0';
 	    
-            int base=((d1+d2)+carry)%10;
+            base=((d1+d2)+carry)%10;
             carry=((d1+d2)+carry)/10;
 	    
             al.add(base);
@@ -146,9 +149,9 @@ public class Test
         
         while(i>=0)
         {
-          int d1=num1.charAt(i)-'0';
+           d1=num1.charAt(i)-'0';
           
-	   int base=(d1+carry)%10;
+	   base=(d1+carry)%10;
 	   carry=(d1+carry)/10;
 	   
            al.add(base);
@@ -157,9 +160,9 @@ public class Test
         
         while(j>=0)
         {
-          int d2=num2.charAt(j)-'0';
+          d2=num2.charAt(j)-'0';
           
-	  int base=(d2+carry)%10;
+	  base=(d2+carry)%10;
 	  carry=(d2+carry)/10;
 	  
 	  al.add(base);
@@ -174,6 +177,7 @@ public class Test
         return al; 
     }
 }
+
 
 //Optimal Approach
 
@@ -198,7 +202,7 @@ public class Test
 	  int k=sc.nextInt();  
 	    
 	  System.out.println("Output: "+addToArrayForm(arr,k)); 
-     }
+    }
 	
     public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
@@ -208,14 +212,14 @@ public class Test
     
     public static ArrayList<Integer> addTwoNumbers(int[] num1,int num2,ArrayList<Integer>al) 
     {
-        int i=num1.length-1,carry=0;
+        int i=num1.length-1,carry=0,d1,d2,base;
  
         while(i>=0 && num2!=0)
         {
-            int d1=num1[i];
-            int d2=num2%10;
+            d1=num1[i];
+            d2=num2%10;
             
-            int base=((d1+d2)+carry)%10;
+            base=((d1+d2)+carry)%10;
             carry=((d1+d2)+carry)/10;
             
             al.add(base);
@@ -225,9 +229,9 @@ public class Test
         
         while(i>=0)
         {
-          int d1=num1[i];
+          d1=num1[i];
 	  
-          int base=(d1+carry)%10; 
+          base=(d1+carry)%10; 
 	  carry=(d1+carry)/10;
 	  
           al.add(base);
@@ -236,9 +240,9 @@ public class Test
         
         while(num2!=0)
         {
-          int d2=num2%10;
+          d2=num2%10;
 	  
-          int base=(d2+carry)%10; 
+          base=(d2+carry)%10; 
           carry=(d2+carry)/10;
 	  
           al.add(base);
