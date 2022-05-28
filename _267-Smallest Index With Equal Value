@@ -71,7 +71,7 @@ public class Test
          idx++;
          
         if (idx==10)
-         idx=0;
+         idx=0; //Equivalent to (index%10)
       }
       return -1;
    }
