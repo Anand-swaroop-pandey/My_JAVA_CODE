@@ -5,8 +5,11 @@ public class Test
          Scanner sc=new Scanner(System.in);
          System.out.println("Enter the Number");
          long num=sc.nextLong();
-         sumOfThree(num);
-	}
+	 if(n>=0)
+           sumOfThree(num);
+	 else
+	   System.out.println("Invalid Choice");
+    }
     
     public static void sumOfThree(long num)
     {
@@ -35,6 +38,7 @@ public class Test
     }
 }
 
+/*
 If you add more examples to the ones in the description, you may start to see a pattern.
 
 num = 0 -> []
