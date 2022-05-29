@@ -1,18 +1,18 @@
-//Naive Approach
+//Naive Approach (Using HashMap)
 import java.util.*;
 public class Test
 {
     public static void main(String[] args){
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array1");
+         int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
+         System.out.println("Enter the Size of the Array2");
+         int n=sc.nextInt();
          if(m>0 && n>0)
          {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -32,18 +32,17 @@ public class Test
 	
 	public static void relativeSortArray(int[] arr1,int[] arr2)
 	{
-           int m=arr1.length,n=arr2.length;
+           int m=arr1.length,n=arr2.length,idx=0,freq,sortPoint;
            HashMap<Integer,Integer>hm=new HashMap<>();
            for(int i=0;i<m;i++)
              if(hm.containsKey(arr1[i]))
                 hm.put(arr1[i],hm.get(arr1[i])+1);
              else
                 hm.put(arr1[i],1);
-        
-           int idx=0;
+      
            for(int i=0;i<n;i++) 
            {
-             int freq=hm.get(arr2[i]);
+             freq=hm.get(arr2[i]);
              while(freq!=0)
              {
                 arr1[idx++]=arr2[i];
@@ -52,10 +51,10 @@ public class Test
              hm.remove(arr2[i]);
            }
         
-           int sortPoint=idx;
+           sortPoint=idx;
            for(int key:hm.keySet())
            {
-             int freq=hm.get(key);
+             freq=hm.get(key);
              while(freq!=0)
              {
                 arr1[idx++]=key;
@@ -66,21 +65,22 @@ public class Test
 	}
 }
 
-//Optimal Approach
+
+//Optimal Approach (Using TreeMap)
 import java.util.*;
 public class Test
 {
     public static void main(String[] args){
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array1");
+        int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-         if(m>0 && n>0)
-         {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+        System.out.println("Enter the Size of the Array2");
+        int n=sc.nextInt();
+        if(m>0 && n>0)
+        {
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -89,18 +89,18 @@ public class Test
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
               
-            relativeSortArray(arr1,arr2); 
-            System.out.println("Realatively Sorted Array is:");
-            for(int ele:arr1)
-              System.out.println(ele+" ");
-         }
-         else
+           relativeSortArray(arr1,arr2); 
+           System.out.println("Realatively Sorted Array is:");
+           for(int ele:arr1)
+             System.out.println(ele+" ");
+        }
+        else
            System.out.println("Invalid Choice");
         }
 	
 	public static void relativeSortArray(int[] arr1,int[] arr2)
 	{
-	   int m=arr1.length,n=arr2.length;
+	   int m=arr1.length,n=arr2.length,idx=0,freq;
            TreeMap<Integer,Integer>tm=new TreeMap<>();
         
            for(int i=0;i<m;i++)
@@ -108,11 +108,10 @@ public class Test
                 tm.put(arr1[i],tm.get(arr1[i])+1);
              else
                 tm.put(arr1[i],1);
-        
-           int idx=0;
+
            for(int i=0;i<n;i++) 
            {
-              int freq=tm.get(arr2[i]);
+              freq=tm.get(arr2[i]);
               while(freq!=0)
               {
                 arr1[idx++]=arr2[i];
@@ -123,12 +122,12 @@ public class Test
         
            for(int key : tm.keySet())
            {
-              int freq=tm.get(key);
+              freq=tm.get(key);
               while(freq!=0)
               {
                 arr1[idx++]=key;
                 freq--;
-               }
+              }
             }
 	 }
 }
