@@ -270,7 +270,7 @@ public class Test
      {
        int rem=dividend%divisor;
        if(rem==0)
-	     return divisor;
+	 return divisor;
 	      
        return gcd(rem,divisor);      
      }
