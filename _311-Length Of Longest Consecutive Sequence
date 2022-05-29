@@ -12,6 +12,7 @@ public class Test
 	       System.out.printf("Enter %d Elements Of The Array:\n",n); 
 	       for(int i=0;i<n;i++)
 	         arr[i]=sc.nextInt();
+		 
 	       System.out.println("Length of  Longest Consecutive Sequence is :"+longestConsecutive(arr));
 	   }
 	   else
@@ -20,13 +21,12 @@ public class Test
 	
 	public static int longestConsecutive(int[] arr)
 	{
-           int n=arr.length;
-           int max_len=0;
+           int n=arr.length,max_len=0,curr_len,prev,next;
            for (int i = 0; i <n; i++)
            {
-              int curr_len=1;
+              curr_len=1;
               //look left
-              int prev=arr[i]-1;
+              prev=arr[i]-1;
               while(linearSearch(arr,prev))
               {
                 curr_len++;
@@ -34,11 +34,11 @@ public class Test
               }
             
               //look right    
-              int next=arr[i]+1;
-              while(linearSearch(arr,prev))
+              next=arr[i]+1;
+              while(linearSearch(arr,next))
               {
-               curr_len++;
-               next++;
+                curr_len++;
+                next++;
               }
               
              max_len=Math.max(curr_len,max_len);
@@ -71,6 +71,7 @@ public class Test
 	       System.out.printf("Enter %d Elements Of The Array:\n",n); 
 	       for(int i=0;i<n;i++)
 	         arr[i]=sc.nextInt();
+		 
 	       System.out.println("Length of  Longest Consecutive Sequence is :"+longestConsecutive(arr));
 	   }
 	   else
@@ -79,7 +80,7 @@ public class Test
 	
 	public static int longestConsecutive(int[] arr)
 	{
-	    int n=arr.length;
+	    int n=arr.length,prev,max_len,curr_len,next;
 	    HashMap<Integer,Boolean>hm=new HashMap<>(n);
 	    
 	    for(int i=0;i<n;i++)
@@ -87,17 +88,17 @@ public class Test
 	      
 	    for(int key:hm.keySet())
 	    {
-	       int prev=key-1;
+	       prev=key-1;
 	       if(hm.containsKey(prev))
 	         hm.put(key,false);
 	    }
 	    
-	     int max_len=0;
+	     max_len=0;
              for(int key:hm.keySet())
 	       if(hm.get(key)==true)
 	       {
-	          int curr_len=1;
-	          int next=key+1; 
+	          curr_len=1;
+	          next=key+1; 
 	          while(hm.containsKey(next))
 	          {
 	             curr_len++;
@@ -134,20 +135,19 @@ public class Test
 	
 	public static int longestConsecutive(int[] arr)
 	{
-           int n=arr.length;
+           int n=arr.length,max_len=0,curr_len,prev,next;
            HashSet<Integer>hs=new HashSet<>();
         
            for (int i = 0; i <n; i++)
              hs.add(arr[i]);
        
-           int max_len=0;
            for (int i = 0; i <n; i++)
            {
-              int curr_len= 1;
+              curr_len= 1;
     
               // look left
-              int prev=arr[i]-1;
-              while (hs.contains(prev))
+              prev=arr[i]-1;
+              while(hs.contains(prev))
               {
                 curr_len++;
                 hs.remove(prev);
@@ -155,8 +155,8 @@ public class Test
               }
     
               // look right
-              int next=arr[i]+1;
-              while (hs.contains(next)) 
+              next=arr[i]+1;
+              while(hs.contains(next)) 
               {
                  curr_len++;
                  hs.remove(next);
