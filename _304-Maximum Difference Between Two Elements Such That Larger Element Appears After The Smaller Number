@@ -3,9 +3,9 @@ import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -36,6 +36,8 @@ public class Test
 
 
 //Optimal Approach
+
+//Implementation 1
 import java.util.*;
 public class Test
 {
@@ -53,8 +55,8 @@ public class Test
          }
          else
             System.out.println("Invalid Choice");
-     }
-    
+       }
+     
     /* The function returns 0 if the array is sorted in decreasing order.
        Returns 0 if elements are equal
        Returns 0 if array has less than 2 Elements */
@@ -73,14 +75,14 @@ public class Test
 }
 
 
-//ALITER
+//Implementation 2
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -101,12 +103,11 @@ public class Test
 	{
            int max_diff =0,min_so_far=Integer.MAX_VALUE;
            for (int i = 0; i < n; i++)
-           {
-            if (arr[i]<min_so_far)
+              if(arr[i]<min_so_far)
                 min_so_far=arr[i];
-            else if((arr[i]>min_so_far) && (arr[i]-min_so_far)> max_diff)
+              else if((arr[i]>min_so_far) && (arr[i]-min_so_far)> max_diff)
                 max_diff =(arr[i]-min_so_far);
-           }
+      
            return max_diff;
 	}
 }
