@@ -49,6 +49,7 @@ public class Test
 	}
 }
 
+
 //Method 2
 import java.util.*;
 public class Test
@@ -109,6 +110,7 @@ public class Test
       return false;//key doesnot exists
    }
 }
+
 
 //Optimal Approach
 import java.util.*;
