@@ -27,9 +27,9 @@ public class Test
 		if(n>1 && k>0)
 		  leftRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Left is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	       System.out.printf("Array Formed After %d Rotations To the Left is :",k);
+	       for(int i=0;i<n;i++)
+	         System.out.printf(arr[i]+" ");
 	}
 	
 	public static void leftRotateByK(int[] arr,int n,int k)
@@ -77,9 +77,9 @@ public class Test
 		if(n>1 && k>0)
 		  leftRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Left is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	       System.out.printf("Array Formed After %d Rotations To the Left is :",k);
+	       for(int i=0;i<n;i++)
+	         System.out.printf(arr[i]+" ");
 	}
 	
         public static void leftRotateByK(int[] arr,int n,int k)
@@ -126,14 +126,13 @@ public class Test
 		if(n>1 && k>0)
 		  rightRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	        for(int i=0;i<n;i++)
+	           System.out.printf(arr[i]+" ");
 	}
 	
         public static void leftRotateByK(int[] arr,int n,int k)
 	{
-       
 	    k=k%n;
 	    int[] twice=new int[2*n];
 	    for(int i=0;i<n;i++)
@@ -175,37 +174,36 @@ public class Test
 		if(n>1 && k>0)
 		  leftRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Left is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        System.out.printf("Array Formed After %d Rotations To the Left is :",k);
+	        for(int i=0;i<n;i++)
+	           System.out.printf(arr[i]+" ");
 	}
 	
 	public static void leftRotateByK(int[] arr,int n,int k)
 	{
              k=k%n;
-             // in case the rotating factor is
-            // greater than array length
+             // in case the rotating factor is greater than array length
             reverseArray(arr, 0, k-1);
             reverseArray(arr, k, n-1);
             reverseArray(arr, 0,n-1);
 	}
 	
-	 public static void reverseArray(int[]arr, int start, int end)
-         {
+	public static void reverseArray(int[]arr, int start, int end)
+        {
             while (start < end)
             {
               swap(arr,start,end);
               start++;
               end--;
             }
-         }
+        }
     
-       public static void swap(int[]arr,int i,int j)
-       {
-         int temp = arr[i];
-         arr[i] = arr[j];
-         arr[j] = temp;
-       }
+        public static void swap(int[]arr,int i,int j)
+        {
+          int temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
 }
 
 
@@ -214,7 +212,7 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	 	System.out.println("Enter the Size of the Array: ");
+	        System.out.println("Enter the Size of the Array: ");
 		Scanner sc=new Scanner(System.in);
 		int n=sc.nextInt();
 		if(n<1)
@@ -237,17 +235,15 @@ public class Test
 		if(n>1 && k>0)
 		  leftRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Left is :",k);
-	    for(int i=0;i<n;i++)
-	        System.out.printf(arr[i]+" ");
+	        System.out.printf("Array Formed After %d Rotations To the Left is :",k);
+	        for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
 	
      public static void leftRotateByK(int[] arr,int n,int k)
      {
-        k=k%n;
-        // in case the rotating factor is
-        // greater than array length
+         k=k%n; // in case the rotating factor is greater than array length
         int numSets=gcd(n,k);
         for(int i=0;i<numSets;i++)
         {
@@ -270,13 +266,12 @@ public class Test
         }
       }
 	
-    public static int gcd(int num1,int num2)
-    {
-        int minNum=num1<num2?num1:num2;
-        int i=Integer.MAX_VALUE;
-        for(i=minNum;i>0;i--)
-            if((num1%i)==0 && (num2%i)==0)
-               break;
-         return i;
-    }
+     public static int gcd(int divisor,int dividend)
+     {
+       int rem=dividend%divisor;
+       if(rem==0)
+	     return divisor;
+	      
+       return gcd(rem,divisor);      
+     }
 }
