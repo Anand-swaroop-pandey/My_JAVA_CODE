@@ -3,13 +3,13 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-	        Scanner sc=new Scanner(System.in);
-        	System.out.println("Enter the String");
-		String str=sc.nextLine();
-		if(str.length()<=0)
-		  System.out.println("Invalid Choice");
-		else
-		  getMaxOccurringChar(str);
+	    Scanner sc=new Scanner(System.in);
+            System.out.println("Enter the String");
+	    String str=sc.nextLine();
+	    if(str.length()<=0)
+	       System.out.println("Invalid Choice");
+	    else
+	       getMaxOccurringChar(str);
 	}
 	
 	public static void getMaxOccurringChar(String str)
@@ -32,12 +32,13 @@ public class Test
 	
 	public static void countFrequency(String str,int n,int[]freqArr)
 	{
+	   int count;
 	   for(int i=0;i<n;i++)
 	   {
 	       if(freqArr[i]==-1)
 	         continue;
 	         
-	       int count=1;
+	       count=1;
 	       for(int j=i+1;j<n;j++)
 	       if(str.charAt(i)==str.charAt(j))
 	       {
@@ -56,17 +57,17 @@ public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the String");
-		String str=sc.nextLine();
-		if(str.length()<=0)
-		  System.out.println("Invalid Choice");
-		else
-		  getMaxOccurringChar(str);
+	    System.out.println("Enter the String");
+	    String str=sc.nextLine();
+	    if(str.length()<=0)
+	       System.out.println("Invalid Choice");
+	    else
+	       getMaxOccurringChar(str);
 	}
 	
 	public static void getMaxOccurringChar(String str)
 	{
-	   int[] freqArr=new int[255+1];
+	   int[] freqArr=new int[255+1]; //https://stackoverflow.com/questions/65116506/how-to-print-ascii-table-as-a-table
 	   int n=str.length();
 	   for(int i=0;i<n;i++)
              freqArr[str.charAt(i)]++;
@@ -85,18 +86,19 @@ public class Test
 	}
 }
 
+
 //Optimal Approach
 import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the String");
-		String str=sc.nextLine();
-		if(str.length()<=0)
-		  System.out.println("Invalid Choice");
-		else
-		  getMaxOccurringChar(str);
+	    System.out.println("Enter the String");
+	    String str=sc.nextLine();
+	    if(str.length()<=0)
+	       System.out.println("Invalid Choice");
+	    else
+	       getMaxOccurringChar(str);
 	}
 	
 	public static void getMaxOccurringChar(String str)
@@ -123,6 +125,6 @@ public class Test
                   maxFreqChar=ch;
               }
 	     
-              System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
+            System.out.println("Maximum Occuring Character is '"+maxFreqChar+"' and its Frequency is "+maxFreq); 
 	}
 }
