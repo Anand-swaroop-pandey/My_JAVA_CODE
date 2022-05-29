@@ -1,0 +1,153 @@
+//Method 1
+import java.util.*;
+public class Test
+{
+    public static void main (String[]args)
+    {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter Lower Bound Of Range");
+      int low= sc.nextInt();
+      System.out.println("Enter Upper Bound Of Range");
+      int high= sc.nextInt();
+      
+      if(low>0 && high>0 && low<=high )
+        System.out.printf("Count of numbers in the inclusive range [%d,%d] having a prime number of set bits in their binary representation are %d",low,high,countPrimeSetBits(low,high));
+      else
+        System.out.println("Invalid Choice");
+    }
+  
+    public static int countPrimeSetBits(int left, int right)
+    {
+        int cnt=0;
+        for(int i=left;i<=right;i++)
+           if(PrimeSetBits(i))
+              cnt++;
+        return cnt;
+    }
+    
+    public static boolean PrimeSetBits(int num)
+    {
+        int cntSetBits=countSetBits(num);
+        return isPrime(cntSetBits);
+    }
+    
+    public static int countSetBits(int num)//Kernighan's Algorithm
+    {
+       int count=0;
+       while(num!=0)
+       {
+          int rmsbm=rMSBM(num);
+          num=num-rmsbm;
+          count++;  
+       }
+       return count;
+    }
+	
+    public static int rMSBM(int num)
+    {
+	int rmsbm=num & twosCompliment(num);
+	return rmsbm;
+    }
+	
+    public static int twosCompliment(int num)
+    {
+        return -num;//return (~num+1);
+    }
+    
+    public static boolean isPrime(int num)
+    {
+        if(num<=1)
+	    return false;
+        
+        for(int i=2;(i*i)<=num;i++)
+          if((num%i)==0)
+            return false; 
+	    
+        return true; 
+    }
+}
+
+//Method 2
+
+import java.util.*;
+public class Test
+{
+    public static void main (String[]args)
+    {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter Lower Bound Of Range");
+      int low= sc.nextInt();
+      System.out.println("Enter Upper Bound Of Range");
+      int high= sc.nextInt();
+    
+      if(low>0 && high>0 && low<=high )
+        System.out.printf("Count of numbers in the inclusive range [%d,%d] having a prime number of set bits in their binary representation are %d",low,high,countPrimeSetBits(low,high));
+      else
+       System.out.println("Invalid Choice");
+    }
+  
+    public static int countPrimeSetBits(int left, int right)
+    {
+       int cnt=0;
+       for(int i=left;i<=right;i++)
+         if(isPrime(Integer.bitCount(i)))
+           cnt++;
+       return cnt;
+    }
+    
+    public static boolean isPrime(int num)
+    {
+        if(num<=1)
+	  return false;
+        
+        for(int i=2;(i*i)<=num;i++)
+          if((num%i)==0)
+            return false;  
+	    
+        return true; 
+    }
+}
+
+
+//Method 3
+
+import java.util.*;
+public class Test
+{
+   public static void main (String[]args)
+   {
+     Scanner sc=new Scanner(System.in);
+     System.out.println("Enter Lower Bound Of Range");
+     int low= sc.nextInt();
+     System.out.println("Enter Upper Bound Of Range");
+     int high= sc.nextInt();
+    
+     if(low>0 && high>0 && low<=high )
+        System.out.printf("Count of numbers in the inclusive range [%d,%d] having a prime number of set bits in their binary representation are %d",low,high,countPrimeSetBits(low,high));
+     else
+        System.out.println("Invalid Choice");
+    }
+  
+    public static int countPrimeSetBits(int left, int right)
+    {
+        HashSet<Integer>isPrime=new HashSet<>();
+        isPrime.add(2);
+        isPrime.add(3);
+        isPrime.add(5);
+        isPrime.add(7);
+        isPrime.add(11);
+        isPrime.add(13);
+        isPrime.add(17);
+        isPrime.add(19);
+        isPrime.add(23);
+        isPrime.add(29);
+        isPrime.add(31);
+        
+        int cnt=0;
+        for(int i=left;i<=right;i++)
+          if(isPrime.contains(Integer.bitCount(i)))
+             cnt++;
+        
+        return cnt;
+    }
+}
