@@ -3,16 +3,16 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array1");
+         int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
+         System.out.println("Enter the Size of the Array2");
+         int n=sc.nextInt();
          if(m>0 && n>0)
          {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -36,6 +36,7 @@ public class Test
            for(int i=0;i<m;i++) 
              if(linearSearch(arr1[i],arr2,n))
                return false;
+	       
            return true;
 	}
 	
@@ -60,7 +61,7 @@ public class Test
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
        if(m>0 && n>0)
-         {
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
@@ -76,9 +77,9 @@ public class Test
               System.out.print("Not Disjoint");  
            else
               System.out.print("Yes, Disjoint"); 
-        }
-        else
-            System.out.println("Invalid Choice");
+       }
+       else
+          System.out.println("Invalid Choice");
      }
 	
    public static boolean areDisjoint(int[] arr1,int m,int[] arr2,int n)
@@ -92,8 +93,7 @@ public class Test
 	
    public static boolean binarySearch(int key,int[]arr,int n)
    {
-      int low=0;
-      int high=n-1;
+      int low=0,high=n-1;
       while(low<=high)
       {
           int mid=(low+high)/2;
@@ -108,6 +108,7 @@ public class Test
    }
 }
 
+
 //Better Approach
 import java.util.*;
 public class Test
@@ -120,8 +121,8 @@ public class Test
        
        System.out.println("Enter the Size of the Array2");
        int n=sc.nextInt();
-         if(m>0 && n>0)
-         {
+       if(m>0 && n>0)
+       {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
@@ -137,9 +138,9 @@ public class Test
               System.out.print("Not Disjoint");  
            else
               System.out.print("Yes, Disjoint"); 
-         }
-         else
-            System.out.println("Invalid Choice");
+       }
+       else
+         System.out.println("Invalid Choice");
     }
 		
     public static boolean areDisjoint(int[] arr1,int m,int[] arr2,int n)
