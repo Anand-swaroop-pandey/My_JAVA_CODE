@@ -8,7 +8,7 @@ public class Test
        int n=sc.nextInt();
        if(n>=2)
        {
-            int[] arr=new int[n];
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
@@ -24,13 +24,13 @@ public class Test
        
   public static void twoSumClosest(int[] arr,int n,int target)
   {
-      int minTillNow=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1];
+      int minTillNow=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],currSum,diff;
   
       for(int i=0;i<n;i++)
         for(int j=i+1;j<n;j++)
         {
-           int currSum=(arr[i]+arr[j]);
-           int diff=Math.abs(target-currSum);
+           currSum=(arr[i]+arr[j]);
+           diff=Math.abs(target-currSum);
     
            if(diff<minTillNow)
            {
@@ -55,7 +55,6 @@ public class Test
 
 
 //Optimal Approach
-
 import java.util.*;
 public class Test
 {
@@ -82,22 +81,22 @@ public class Test
   public static void twoSumClosest(int[] arr,int n,int target)
   {
       Arrays.sort(arr);
-      int minTillNow=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],i=0,j=n-1;
+      int minTillNow=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],i=0,j=n-1,currSum,diff;
       
       while(i<j)
       {
-         int currSum=(arr[i]+arr[j]);
-         int diff=Math.abs(target-currSum);
+         currSum=(arr[i]+arr[j]);
+         diff=Math.abs(target-currSum);
     
          if(diff<minTillNow)
          {
-          minTillNow=diff;
-          closestSum=currSum;
-          num1=arr[i];
-          num2=arr[j];
+           minTillNow=diff;
+           closestSum=currSum;
+           num1=arr[i];
+           num2=arr[j];
          }
          
-         if (currSum == target)
+         if(currSum == target)
 	 {
 	   closestSum=target;
 	   num1=arr[i];
