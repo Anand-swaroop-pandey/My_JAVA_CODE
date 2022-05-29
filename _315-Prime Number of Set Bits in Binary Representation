@@ -109,7 +109,7 @@ public class Test
 }
 
 
-//Method 3
+//Method 3 (Optimal)
 
 import java.util.*;
 public class Test
@@ -130,24 +130,29 @@ public class Test
   
     public static int countPrimeSetBits(int left, int right)
     {
-        HashSet<Integer>isPrime=new HashSet<>();
-        isPrime.add(2);
-        isPrime.add(3);
-        isPrime.add(5);
-        isPrime.add(7);
-        isPrime.add(11);
-        isPrime.add(13);
-        isPrime.add(17);
-        isPrime.add(19);
-        isPrime.add(23);
-        isPrime.add(29);
-        isPrime.add(31);
+        HashSet<Integer>prime=new HashSet<>();
+        prime.add(2);
+        prime.add(3);
+        prime.add(5);
+        prime.add(7);
+        prime.add(11);
+        prime.add(13);
+        prime.add(17);
+        prime.add(19);
+	prime.add(23);
+        prime.add(29);
+        prime.add(31);
         
         int cnt=0;
         for(int i=left;i<=right;i++)
-          if(isPrime.contains(Integer.bitCount(i)))
+          if(prime.contains(Integer.bitCount(i)))
              cnt++;
         
-        return cnt;
+        return cnt;        
     }
 }
+/*
+As no.of primes are limited we can use Hashset to check no.of set bits is prime or not.
+An Integer is Represented using 32 bits so total bits =32 out of these 32 bits some will be Set/On while Other will be Unset/Off 
+so all we need to Do is find all the prime Numbers in the the Range [1,32](both Inclusive) 
+*/
