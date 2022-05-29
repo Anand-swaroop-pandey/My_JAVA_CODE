@@ -3,9 +3,9 @@ import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -16,35 +16,38 @@ public class Test
            System.out.println("Enter Target Value:");
            int target=sc.nextInt();
            
-           twoSum(arr,n,target);
+           int[] res=twoSum(arr,n,target);
+           System.out.println("Indexes are :"+res[0]+" , "+res[1]); 
          }
          else
             System.out.println("Invalid Choice");
 	}
        
-        public static void twoSum(int[] arr,int n,int target)
+        public static int[] twoSum(int[] arr,int n,int target)
 	{
-           int idx1=-1,idx2=-1;
-           for(int i=0;i<n;i++)
-             for(int j=i+1;j<n;j++)
-                if((arr[i]+arr[j])==target)
-                {
-                  idx1=i;
-                  idx2=j;
-                  break;
-                }
-           System.out.println("Indexes are :"+idx1+" , "+idx2);    
+          int[]res=new int[2];
+          for(int i=0;i<n;i++)
+            for(int j=i+1;j<n;j++)
+              if((arr[i]+arr[j])==target)
+              {
+                res[0]=i;
+                res[1]=j;
+                break;
+              }
+
+          return res; 
 	}
 }
+
 
 //Better Approach
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -55,28 +58,27 @@ public class Test
            System.out.println("Enter Target Value:");
            int target=sc.nextInt();
            
-           twoSum(arr,n,target);
+           int[] res=twoSum(arr,n,target);
+           System.out.println("Indexes are :"+res[0]+" , "+res[1]); 
          }
          else
             System.out.println("Invalid Choice");
 	}
        
-        public static void twoSum(int[] arr,int n,int target)
+        public static int[] twoSum(int[] arr,int n,int target)
 	{
-      
+           int[]res=new int[2];
            int[] temp=new int[n];
            for(int i=0;i<n;i++)
              temp[i]=arr[i];
         
            Arrays.sort(arr);
-           int i=0,j=(n-1),idx1=-1,idx2=-1,num1=Integer.MAX_VALUE,num2=Integer.MAX_VALUE;
+           int i=0,j=(n-1),num1=Integer.MAX_VALUE,num2=Integer.MAX_VALUE;
            while(i<j)
              if((arr[i]+arr[j])==target)
              {
                 num1=arr[i];
                 num2=arr[j];
-                i++;
-                j++;
                 break;
              }
              else if((arr[i]+arr[j])<target)
@@ -84,33 +86,34 @@ public class Test
              else
                j--;
         
-            int inValidIndex=-1;
+        
             for(int k=0;k<n;k++)
               if(num1==temp[k])
               {
-                idx1=k;
-                inValidIndex=k;  
+                res[0]=k;
                 break;
               }
          
             for(int k=0;k<n;k++)
-              if(inValidIndex!=k && num2==temp[k])
+              if(k!=res[0] && num2==temp[k])
               {
-                idx2=k;
+                res[1]=k;
                 break;
               }
-            System.out.println("Indexes are :"+idx1+" , "+idx2);    
+
+          return res; 
 	}
 }
+
 
 //Optimal Approach
 import java.util.*;
 public class Test
 {
      public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -121,26 +124,28 @@ public class Test
            System.out.println("Enter Target Value:");
            int target=sc.nextInt();
            
-           twoSum(arr,n,target);
+	   int[] res=twoSum(arr,n,target);
+           System.out.println("Indexes are :"+res[0]+" , "+res[1]); 
          }
          else
             System.out.println("Invalid Choice");
      }
        
-    public static void twoSum(int[] arr,int n,int target)
-    {
+    public static int[] twoSum(int[] arr,int n,int target)
+    {  
+       int[]res=new int[2];
        HashMap<Integer,Integer>hm=new HashMap<>(n);
-       int idx1=-1,idx2=-1;  
        for(int i=0;i<n;i++)
        {
          if(hm.containsKey(target-arr[i]))
          {
-            idx1=hm.get(target-arr[i]);
-            idx2=i;
+            res[0]=hm.get(target-arr[i]);
+            res[1]=i;
             break;
          }
          hm.put(arr[i],i);
        }
-       System.out.println("Indexes are :"+idx1+" , "+idx2);
+       
+       return res;
     }
 }
