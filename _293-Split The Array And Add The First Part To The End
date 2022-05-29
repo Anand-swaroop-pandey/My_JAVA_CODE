@@ -24,10 +24,10 @@ public class Test
 		    return;
 		}
     
-	  splitArray(arr,n,k);
-	  System.out.println("Resultant Array:");
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	       splitArray(arr,n,k);
+	       System.out.println("Resultant Array:");
+	       for(int i=0;i<n;i++)
+	         System.out.printf(arr[i]+" ");
 	}
 	
 	
@@ -47,6 +47,7 @@ public class Test
 	     int temp=arr[0];
 	     for(int j=0;j<(n-1);j++)
 	       arr[j]=arr[j+1];
+	       
 	     arr[n-1]=temp;
 	}
 }
@@ -77,10 +78,10 @@ public class Test
 		    System.out.println("Invalid Choice");
 		    return;
 		}
-	  splitArray(arr,n,k);
-	  System.out.println("Resultant Array:");
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        splitArray(arr,n,k);
+	        System.out.println("Resultant Array:");
+	        for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
 	
@@ -129,10 +130,10 @@ public class Test
 		    System.out.println("Invalid Choice");
 		    return;
 		}
-	  splitArray(arr,n,k);
-	  System.out.println("Resultant Array:");
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        splitArray(arr,n,k);
+	        System.out.println("Resultant Array:");
+	        for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
 	
@@ -180,10 +181,10 @@ public class Test
 		    System.out.println("Invalid Choice");
 		    return;
 		}
-	  splitArray(arr,n,k);
-	  System.out.println("Resultant Array:");
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	       splitArray(arr,n,k);
+	       System.out.println("Resultant Array:");
+	       for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
 	
@@ -243,10 +244,10 @@ public class Test
 		    System.out.println("Invalid Choice");
 		    return;
 		}
-	  splitArray(arr,n,k);
-	  System.out.println("Resultant Array:");
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	       splitArray(arr,n,k);
+	       System.out.println("Resultant Array:");
+	       for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
 	
@@ -280,13 +281,12 @@ public class Test
         }
     }
 	
-    public static int gcd(int num1,int num2)
+    public static int gcd(int divisor,int dividend)
     {
-        int minNum=num1<num2?num1:num2;
-        int i=Integer.MAX_VALUE;
-        for(i=minNum;i>0;i--)
-            if((num1%i)==0 && (num2%i)==0)
-               break;
-         return i;
+       int rem=dividend%divisor;
+       if(rem==0)
+	  return divisor;
+	      
+       return gcd(rem,divisor);      
     }
 }
