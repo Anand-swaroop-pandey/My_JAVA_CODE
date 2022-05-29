@@ -20,12 +20,12 @@ public class Test
     {
         int cnt=0;
         for(int i=left;i<=right;i++)
-           if(PrimeSetBits(i))
+           if(primeSetBits(i))
               cnt++;
         return cnt;
     }
     
-    public static boolean PrimeSetBits(int num)
+    public static boolean primeSetBits(int num)
     {
         int cntSetBits=countSetBits(num);
         return isPrime(cntSetBits);
@@ -152,7 +152,7 @@ public class Test
     }
 }
 /*
-As no.of primes are limited we can use Hashset to check no.of set bits is prime or not.
 An Integer is Represented using 32 bits so total bits =32 out of these 32 bits some will be Set/On while Other will be Unset/Off 
-so all we need to Do is find all the prime Numbers in the the Range [1,32](both Inclusive) 
+so all we need to Do is Precompute all the Prime Numbers in the the Range [1,32](both Inclusive).
+As no.of primes are limited we can use Hashset to check no.of set bits is prime or not.
 */
