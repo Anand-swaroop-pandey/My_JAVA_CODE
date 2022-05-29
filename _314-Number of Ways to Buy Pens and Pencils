@@ -12,17 +12,101 @@ public class Test
 	    System.out.println("Enter Cost of Pencil:");
 	    int costPencil=sc.nextInt();
 	    
+	    if(totalMoney < 1 || costPen<1 || costPencil<1)
+	    {
+	       System.out.println("Invalid Choice);
+	       return;
+	    }
+
 	    System.out.println("Number of Ways to Buy Pens and Pencils are :"+waysToBuyPensPencils(totalMoney,costPen,costPencil));
 	}
 	
 	public static long waysToBuyPensPencils(int totalMoney,int costPen,int costPencil)
 	{
-	   long ways = 0;
+	   long ways = 0,remMoney;
            for (int cntPen = 0; (cntPen*costPen)<= totalMoney; cntPen++)
            {
-             int remMoney=(totalMoney- (cntPen*costPen));
-             ways+=(remMoney/costPencil) + 1;  
+             remMoney=(totalMoney- (cntPen*costPen));
+             ways+=(remMoney/costPencil) + 1; // We do plus one as we can also buy zero pencils.
            }  
            return ways;
 	}
 }
+
+/*
+
+Example 1:
+
+Input: totalMoney = Rs20, costPen = Rs 10, costPencil = Rs5
+Output: 9
+Explanation: The price of each pen is Rs10 and the price of each pencil is Rs5.
+
+- If you buy 0 pens,=>Remaining Money: Rs 20,now you can Either buy 0 Pencil or 1 Pencil or 2 Pencil or 3 Pencil or 4 pencil. i.e total 5 ways : (0,0) and (0,1) and (0,2) and (0,3) and (0,4)
+- If you buy 1 pen,=>Remaining Money: Rs 10, now you can Either buy 0 Pencil or 1 Pencil or 2 Pencil . i.e 3 ways : (1,0) and (1,1) and (1,2)
+- If you buy 2 pens,=>Remaining Money: Rs 0, you cannot buy any pencils i.e 0 pencil. i.e 1 way : (2,0)
+  (You can not buy 3 pens or more coz of Insufficient Money)
+  The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
+
+Example 2:
+
+Input: totalMoney = Rs20, costPen = Rs 5, costPencil = Rs 10
+Output: 9
+Explanation: The price of each pen is Rs 5 and the price of each pencil is Rs 10.
+
+- If you buy 0 pens,=>Remaining Money: Rs 20,now you can Either buy 0 Pencil or 1 Pencil or 2 Pencil. i.e total 3 ways : (0,0) and (0,1) and (0,2).
+- If you buy 1 pen,=>Remaining Money: Rs 15, now you can Either buy 0 Pencil or 1 Pencil . i.e 2 ways : (1,0) and (1,1)
+- If you buy 2 pens,=>Remaining Money: Rs 10, now you can Either buy 0 Pencil or 1 Pencil. i.e 2 ways : (2,0) and (2,1)
+- If you buy 3 pens,=>Remaining Money: Rs 5, you cannot buy any pencil i.e 0 pencil. i.e 1 way : (3,0)
+- If you buy 4 pens,=>Remaining Money: Rs 0, you cannot buy any pencil i.e 0 pencil. i.e 1 way : (4,0)
+(You can not buy 5 pens or more coz of Insufficient Money)
+  The total number of ways to buy pens and pencils is 3+2+2+1+1=9.
+
+
+Example 3:
+
+Input: totalMoney = Rs20, costPen =Rs 10, costPencil = Rs 10
+Output: 6
+Explanation: The price of each pen is Rs 5 and the price of each pencil is Rs 10.
+
+- If you buy 0 pens,=>Remaining Money: Rs 20,now you can Either buy 0 Pencil or 1 Pencil or 2 Pencil. i.e total 3 ways : (0,0) and (0,1) and (0,2).
+- If you buy 1 pen,=>Remaining Money: Rs 10, now you can Either buy 0 Pencil or 1 Pencil . i.e 2 ways : (1,0) and (1,1)
+- If you buy 2 pens,=>Remaining Money: Rs 0, now you cannot buy any pencil i.e 0 pencil. i.e 1 way : (2,0)
+(You can not buy 3 pens or more coz of Insufficient Money)
+
+  The total number of ways to buy pens and pencils is 3+2+1=6.
+ 
+ 
+ Example 4:
+
+Input: totalMoney =Rs 5, costPen =Rs 10, costPencil = Rs 10
+Output: 1
+Explanation: The price of both pens and pencils are Rs10 Each, which cost more than total, so you cannot buy any writing utensils. 
+Therefore, there is only 1 way: buy 0 pens and 0 pencils.
+
+
+Example 5:
+
+Input: totalMoney = Rs16, costPen = Rs 10, costPencil = Rs5
+Output: 6
+Explanation: The price of each pen is Rs10 and the price of each pencil is Rs5.
+
+- If you buy 0 pens,=>Remaining Money: Rs 16,now you can Either buy 0 Pencil or 1 Pencil or 2 Pencil or 3 Pencil.i.e total 4 ways : (0,0) and (0,1) and (0,2) and (0,3)
+- If you buy 1 pen,=>Remaining Money: Rs 6, now you can Either buy 0 Pencil or 1 Pencil. i.e 2 ways : (1,0) and (1,1)
+(You can not buy 2 pens or more coz of Insufficient Money)
+ The total number of ways to buy pens and pencils is 4 + 2 = 6.
+ 
+ 
+Example 6:
+
+Input: totalMoney = Rs16, costPen = Rs 5, costPencil = Rs 10
+Output: 6
+Explanation: The price of each pen is Rs 5  and the price of each pencil is Rs 10.
+
+- If you buy 0 pens,=>Remaining Money: Rs 16,now you can Either buy 0 Pencil or 1 Pencil.i.e total 2 ways : (0,0) and (0,1)
+- If you buy 1 pen,=>Remaining Money: Rs 11, now you can Either buy 0 Pencil or 1 Pencil. i.e 2 ways : (1,0) and (1,1)
+- If you buy 2 pen,=>Remaining Money: Rs 6, now you cannot buy any pencil i.e 0 pencil. i.e 1 way : (2,0)
+- If you buy 3 pen,=>Remaining Money: Rs 1, now you cannot buy any pencil i.e 0 pencil. i.e 1 way : (3,0)
+(You can not buy 4 pens or more coz of Insufficient Money)
+
+ The total number of ways to buy pens and pencils is 2+2+1+1 = 6.
+*/
