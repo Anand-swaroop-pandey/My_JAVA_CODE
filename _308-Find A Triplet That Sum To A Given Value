@@ -23,18 +23,63 @@ public class Test
        
         public static void findTriplet(int[] arr,int n,int target)
 	{
-	  boolean flag=false;
 	   for(int i=0;i<n-2;i++)
 	     for(int j=i+1;j<n-1;j++)
 	       for(int k=j+1;k<n;k++)
 	          if((arr[i]+arr[j]+arr[k])==target)
 	          {
 	             System.out.println(arr[i]+","+arr[j]+","+arr[k]);
-	             flag=true;
+		     return;
 	          }
-           if(flag==false)
-             System.out.println("No Such Triplet Exists");
+		  
+           System.out.println("No Such Triplet Exists");
 	}
+}
+
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+     public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>=3)
+       {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           System.out.println("Enter Target Value:");
+           int target=sc.nextInt();
+           
+           findTriplet(arr,n,target);
+       }
+       else
+          System.out.println("Invalid Choice");
+  }
+       
+  public static void findTriplet(int[] arr,int n,int target)
+  {
+       HashSet<Integer>hs=new HashSet<>();
+       for(int k=2;k<n;k++)
+         hs.add(arr[k]);
+       
+       int remSum;
+       for(int i=0;i<n-2;i++)
+	  for(int j=i+1;j<n-1;j++)
+	  {
+	     remSum=target-(arr[i]+arr[j]);
+	     if(hs.contains(remSum))
+	     {
+	        System.out.println(arr[i]+","+arr[j]+","+remSum);
+	        return;
+	     }  
+	  }
+		  
+       System.out.println("No Such Triplet Exists");    
+  }
 }
 
 
@@ -46,9 +91,9 @@ public class Test
        Scanner sc=new Scanner(System.in);
        System.out.println("Enter the Size of the Array");
        int n=sc.nextInt();
-         if(n>=3)
-         {
-            int[] arr=new int[n];
+       if(n>=3)
+       {
+           int[] arr=new int[n];
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
@@ -56,38 +101,34 @@ public class Test
            int target=sc.nextInt();
            
            findTriplet(arr,n,target);
-         }
-         else
-            System.out.println("Invalid Choice");
+       }
+       else
+          System.out.println("Invalid Choice");
   }
        
   public static void findTriplet(int[] arr,int n,int target)
   {
-           Arrays.sort(arr);
-	   boolean flag=false;
-	   for(int i=0;i<n-2;i++)
+      Arrays.sort(arr);
+      int j,k,currSum;
+      for(int i=0;i<n-2;i++)
+      {
+	   j=i+1;
+	   k=n-1;  
+	   while(j<k)
 	   {
-	     int j=i+1;
-	     int k=n-1;
-	     
-	     while(j<k)
-	     {
-	        int currSum=(arr[i]+arr[j]+arr[k]);
-	        if(currSum==target)
-	        {
-	           System.out.println(arr[i]+","+arr[j]+","+arr[k]);
-		   j++;
-		   k--;
-	           flag=true; 
-	        }
-	        else if(currSum<target)
-	          j++;
-	        else
-	          k--;
-	     }
+	       currSum=(arr[i]+arr[j]+arr[k]);
+	       if(currSum==target)
+	       {
+	         System.out.println(arr[i]+","+arr[j]+","+arr[k]);
+                 return;
+	       }
+	       else if(currSum<target)
+	         j++;
+	       else // (currSum>target)
+	         k--;
 	   }
+       }
 	   
-      if(flag==false)
-         System.out.println("No Such Triplet Exists");
+       System.out.println("No Such Triplet Exists");
    }
 }
