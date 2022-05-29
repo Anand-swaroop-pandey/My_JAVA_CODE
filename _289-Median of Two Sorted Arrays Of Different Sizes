@@ -3,29 +3,29 @@ import java.util.Scanner;
 public class Test
 {
        public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the Size of the Array1");
+           int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-       if(m>0 && n>0)
-       {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
-           System.out.printf("Enter %d Elements of Array1:\n",m);
-           for(int i=0;i<m;i++)
-              arr1[i]=sc.nextInt();
+           System.out.println("Enter the Size of the Array2");
+           int n=sc.nextInt();
+           if(m>0 && n>0)
+           {
+             int[] arr1=new int[m];
+             int[] arr2=new int[n];
+             System.out.printf("Enter %d Elements of Array1:\n",m);
+             for(int i=0;i<m;i++)
+               arr1[i]=sc.nextInt();
               
-           System.out.printf("Enter %d Elements of Array2:\n",n);
-           for(int i=0;i<n;i++)
-              arr2[i]=sc.nextInt();
+             System.out.printf("Enter %d Elements of Array2:\n",n);
+             for(int i=0;i<n;i++)
+               arr2[i]=sc.nextInt();
               
-            System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
-       }
-       else
-          System.out.println("Invalid Choice");
-     }
+             System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
+           }
+           else
+             System.out.println("Invalid Choice");
+        }
 	
 	
 	public static float medianOfTwoSortedArray(int[]arr1,int m,int[]arr2,int n)
@@ -41,20 +41,18 @@ public class Test
 	
 	public static void mergeTwoSortedArrayIntoThirdSortedArray(int[]arr1,int m,int[]arr2,int n,int[] arr)
 	{
-	    int i=0,j=0,k=0;
+	     int i=0,j=0,k=0;
 	     while(i<m && j<n)
 	       if(arr1[i]<=arr2[j])
 	         arr[k++]=arr1[i++];
 	       else
 	         arr[k++]=arr2[j++];
            
-	     if(i<m)
-	       while(i<m)
-	          arr[k++]=arr1[i++];
-	          
-	      if(j<n)
-	       while(j<n)
-	          arr[k++]=arr2[j++];
+	     while(i<m)
+	       arr[k++]=arr1[i++];
+	        
+	     while(j<n)
+	       arr[k++]=arr2[j++];
 	}
 }
 
@@ -63,151 +61,130 @@ import java.util.Scanner;
 public class Test
 {
        public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
+          int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-       if(m>0 && n>0)
-       {
+          System.out.println("Enter the Size of the Array2");
+          int n=sc.nextInt();
+          if(m>0 && n>0)
+          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
-           System.out.printf("Enter %d Elements of Array1:\n",m);
-           for(int i=0;i<m;i++)
-              arr1[i]=sc.nextInt();
+            System.out.printf("Enter %d Elements of Array1:\n",m);
+            for(int i=0;i<m;i++)
+               arr1[i]=sc.nextInt();
               
-           System.out.printf("Enter %d Elements of Array2:\n",n);
-           for(int i=0;i<n;i++)
-              arr2[i]=sc.nextInt();
+            System.out.printf("Enter %d Elements of Array2:\n",n);
+            for(int i=0;i<n;i++)
+               arr2[i]=sc.nextInt();
               
             System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
-       }
-       else
-           System.out.println("Invalid Choice");
-     }
+          }
+          else
+            System.out.println("Invalid Choice");
+        }
 	
 	
 	public static float medianOfTwoSortedArray(int[]arr1,int m,int[]arr2,int n)
 	{
-	    int i=0,j=0,k=0;
-	    int len=m+n;
+	    int i=0,j=0,k=0,len=m+n;
 	    int[] arr=new int[len];
-	    if((len%2)!=0)
-            {
-                while(k<=(len/2))
-                {
-                   if(i<m && j<n)
-                   {
-                      if(arr1[i]<=arr2[j])
-	                arr[k++]=arr1[i++];
-	              else
-	                arr[k++]=arr2[j++];  
-                   }
-                   else if(j<n)
-	              arr[k++]=arr2[j++];
-                   else if(i<m)
-	              arr[k++]=arr1[i++];
-             }
-             return (float)arr[k-1];
-             // return (float)arr[len/2];
-        }
-        else
-        {
-           while(k<=(len/2))
-           {
+	   
+            while(k<=(len/2))
               if(i<m && j<n)
               {
                 if(arr1[i]<=arr2[j])
-	                arr[k++]=arr1[i++];
-	              else
-	                arr[k++]=arr2[j++];  
+	           arr[k++]=arr1[i++];
+	        else
+	           arr[k++]=arr2[j++];  
               }
               else if(j<n)
 	              arr[k++]=arr2[j++];
               else if(i<m)
 	              arr[k++]=arr1[i++];
-           }
-           return (float)(arr[k-1]+arr[k-2])/(float)2;
-          // return (float)(arr[len/2]+arr[(len-1)/2])/(float)2;
-        }
+	
+	    if(len%2!=0)
+	      return (float)arr[k-1]; // return (float)arr[len/2];
+	    else	      
+              return (float)(arr[k-1]+arr[k-2])/2; // return (float)(arr[len/2]+arr[(len-1)/2])/2;
 	}
 }
+
 
 //Better Approach
 import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array1");
-       int m=sc.nextInt();
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array1");
+          int m=sc.nextInt();
        
-       System.out.println("Enter the Size of the Array2");
-       int n=sc.nextInt();
-       if(m>0 && n>0)
-         {
+          System.out.println("Enter the Size of the Array2");
+          int n=sc.nextInt();
+          if(m>0 && n>0)
+          {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
-           System.out.printf("Enter %d Elements of Array1:\n",m);
-           for(int i=0;i<m;i++)
+            System.out.printf("Enter %d Elements of Array1:\n",m);
+            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
               
-           System.out.printf("Enter %d Elements of Array2:\n",n);
-           for(int i=0;i<n;i++)
+            System.out.printf("Enter %d Elements of Array2:\n",n);
+            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
               
             System.out.println("Median Of Two Sorted Array is :"+medianOfTwoSortedArray(arr1,m,arr2,n));
-         }
-         else
-           System.out.println("Invalid Choice");
+          }
+          else
+            System.out.println("Invalid Choice");
 	}
 	
 	
 	public static float medianOfTwoSortedArray(int[]arr1,int m,int[]arr2,int n)
 	{
-	    int i=0,j=0;
-	    int len=m+n;
+	    int i=0,j=0,len=m+n;
 	    if((len%2)!=0)
             {
                int currVal=-1;
-               for(int count=0;count<=(len/2);count++)
-               {
-                   if(i<m && j<n)
-                   {
+               for(int k=0;k<=(len/2);k++)
+                  if(i<m && j<n)
+                  {
                        if(arr1[i]<=arr2[j])
 	                 currVal=arr1[i++];
 	               else
 	                 currVal=arr2[j++];  
-                   }
-                   else if(i<m)
-	              currVal=arr1[i++];
-	           else if(j<n)
-	              currVal=arr2[j++];
-              }
+                  }
+                  else if(i<m)
+	            currVal=arr1[i++];
+	          else if(j<n)
+	            currVal=arr2[j++];
+        
                return (float)currVal; 
             }
             else
             {
                int currVal=-1,prevVal=-1;
-               for(int count=0;count<=(len/2);count++)
-               {
-                   prevVal=currVal;
+               for(int k=0;k<=(len/2);k++)
+	       {
+	          prevVal=currVal;
                   if(i<m && j<n)
                   {
-                      if(arr1[i]<=arr2[j])
-	                currVal=arr1[i++];
-	              else
-	                currVal=arr2[j++];  
+                     if(arr1[i]<=arr2[j])
+	               currVal=arr1[i++];
+	             else
+	               currVal=arr2[j++];  
                   }
-                   else if(i<m)
-	              currVal=arr1[i++];
-	           else if(j<n)
-	              currVal=arr2[j++];
-               }
+                  else if(i<m)
+	             currVal=arr1[i++];
+	          else if(j<n)
+	             currVal=arr2[j++];
+	       }
+            
               return (float)(currVal+prevVal)/(float)2;
-             }
-	  }
+	    }
+	}
 }
 
 //Optimal Approach
