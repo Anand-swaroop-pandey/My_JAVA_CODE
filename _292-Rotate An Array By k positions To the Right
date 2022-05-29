@@ -127,9 +127,9 @@ public class Test
 		if(n>1 && k>0)
 		  rightRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	        for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
         public static void rightRotateByK(int[] arr,int n,int k)
@@ -143,7 +143,7 @@ public class Test
 	       twice[n+i]=arr[i];
 	    }
 	    for(int i=0;i<n;i++)
-	        arr[i]=twice[len-n-k+i];
+	      arr[i]=twice[len-n-k+i];
 	}
 }
 
@@ -177,9 +177,9 @@ public class Test
 		if(n>1 && k>0)
 		  rightRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	        for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
     public static void rightRotateByK(int[] arr,int n,int k)
@@ -238,16 +238,14 @@ public class Test
 		if(n>1 && k>0)
 		  rightRotateByK(arr,n,k);
     
-	  System.out.printf("Array Formed After %d Rotations To the Right is :",k);
-	    for(int i=0;i<n;i++)
-	       System.out.printf(arr[i]+" ");
+	        System.out.printf("Array Formed After %d Rotations To the Right is :",k);
+	        for(int i=0;i<n;i++)
+	          System.out.printf(arr[i]+" ");
 	}
 	
     public static void rightRotateByK(int[] arr,int n,int k)
     {
-        k=k%n;
-        // in case the rotating factor is
-        // greater than array length
+        k=k%n;// in case the rotating factor is greater than array length
         int numSets=gcd(n,k);
         for(int i=0;i<numSets;i++)
         {
@@ -273,13 +271,12 @@ public class Test
         }
      }
 	
-    public static int gcd(int num1,int num2)
+    public static int gcd(int divisor,int dividend)
     {
-        int minNum=num1<num2?num1:num2;
-        int i=Integer.MAX_VALUE;
-        for(i=minNum;i>0;i--)
-            if((num1%i)==0 && (num2%i)==0)
-               break;
-         return i;
+       int rem=dividend%divisor;
+       if(rem==0)
+	  return divisor;
+	      
+       return gcd(rem,divisor);      
     }
 }
