@@ -2,37 +2,38 @@
 import java.util.*;
 public class Test
 {
-     public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
-         if(n>0)
-         {
-            int[] arr=new int[n];
-            System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
-              arr[i]=sc.nextInt();
+          public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+            System.out.println("Enter the Size of the Array");
+            int n=sc.nextInt();
+            if(n>0)
+            {
+               int[] arr=new int[n];
+               System.out.printf("Enter %d Elements of Array:\n",n);
+               for(int i=0;i<n;i++)
+                 arr[i]=sc.nextInt();
               
-            arrayRankTransform(arr); 
-            System.out.println("Resultant Array is:");
-            for(int ele:arr)
-              System.out.println(ele+" ");
-         }
-         else
-           System.out.println("Invalid Choice");
-    }
+               arrayRankTransform(arr); 
+	       
+               System.out.println("Resultant Array is:");
+               for(int ele:arr)
+                 System.out.println(ele+" ");
+            }
+            else
+              System.out.println("Invalid Choice");
+        }
 	
 	public static void arrayRankTransform(int[] arr)
 	{
+	    int n=arr.length,rank=1;
 	    HashMap<Integer,Integer>hm=new HashMap<>();
-            int n=arr.length;
-        
-            int[] temp=new int[n];//int[] temp = arr.clone();
-            for(int i=0;i<n;i++)
+            int[] temp=new int[n]; 
+	    
+            for(int i=0;i<n;i++) //int[] temp = arr.clone();
               temp[i]=arr[i];
     
             Arrays.sort(temp); 
-            int rank=1;
+            
             for(int val:temp)
              if(!hm.containsKey(val))
                 hm.put(val,rank++);
@@ -42,39 +43,41 @@ public class Test
 	}
 }
 
+
 //Better Approach
 import java.util.*;
 public class Test
 {
     public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
-         if(n>0)
-         {
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array");
+          int n=sc.nextInt();
+          if(n>0)
+          {
             int[] arr=new int[n];
             System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
+            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
               
             arrayRankTransform(arr); 
+	    
             System.out.println("Resultant Array is:");
             for(int ele:arr)
               System.out.println(ele+" ");
-         }
-         else
-           System.out.println("Invalid Choice");
-      }
+          }
+          else
+            System.out.println("Invalid Choice");
+        }
 	
 	public static void arrayRankTransform(int[] arr)
 	{
-          int n=arr.length;
           TreeSet<Integer>ts=new TreeSet<>();
           for(int val:arr)
             ts.add(val);
       
           HashMap<Integer,Integer>hm=new HashMap<>();
-          int rank=1;
+          int rank=1,n=arr.length;
+	  
           for(int key :ts)
             hm.put(key,rank++);  
         
@@ -87,38 +90,38 @@ public class Test
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter the Size of the Array");
-       int n=sc.nextInt();
-         if(n>0)
-         {
-            int[] arr=new int[n];
-            System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
-              arr[i]=sc.nextInt();
+      public static void main(String[] args) {
+           Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the Size of the Array");
+           int n=sc.nextInt();
+           if(n>0)
+           {
+             int[] arr=new int[n];
+             System.out.printf("Enter %d Elements of Array:\n",n);
+             for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
               
-            arrayRankTransform(arr); 
-            System.out.println("Resultant Array is:");
-            for(int ele:arr)
+             arrayRankTransform(arr); 
+	     
+             System.out.println("Resultant Array is:");
+             for(int ele:arr)
               System.out.println(ele+" ");
-         }
-         else
-           System.out.println("Invalid Choice");
-     }
+           }
+           else
+            System.out.println("Invalid Choice");
+        }
 	
 	public static void arrayRankTransform(int[] arr)
 	{
-          int n=arr.length;
+          int n=arr.length,rank=1;
           TreeMap<Integer,Integer>tm=new TreeMap<>();
           for(int i=0;i<n;i++)
             tm.put(arr[i],0);
       
-          int rank=1;
           for(int key:tm.keySet())
             tm.put(key,rank++);
 
           for(int i=0;i<n;i++)
             arr[i]=tm.get(arr[i]);
-	}
+       }
 }
