@@ -15,16 +15,11 @@ public class Test
 	
 	public static int findSmallest(int n)
 	{
-	   int p=1; 
-	   while(p<=Integer.MAX_VALUE)
-	   {
-	     if(prodDigits(p)==n)
-	       break;
-	     if(p==Integer.MAX_VALUE)
-	       return -1;
-	      p++;
-	   }
-	   return p;
+	   for(int s=1;s<Integer.MAX_VALUE;s++)
+	     if(prodDigits(s)==n)
+	       return s;
+	       
+	   return -1;
 	}
 	
 	public static int prodDigits(long num)
