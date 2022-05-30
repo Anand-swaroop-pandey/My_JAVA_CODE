@@ -25,13 +25,12 @@ public class Test
 	     return -1;
 	   else
 	   {
-	       int num=0,sum=0;
-	       int digit=9;
+	       int num=0,sum=0,digit=9;
 	       while(sum<n)
 	       {
                  num=(num*10)+digit;
                  sum+=digit;
-                digit--;
+                 digit--;
              
                 if((sum+digit)>=n)
                   break;
@@ -51,8 +50,8 @@ public class Test
              rev=rev*10+last; 
              num=num/10;
            }
-         return rev;
-       }
+          return rev;
+        }
 }
 
 /*
