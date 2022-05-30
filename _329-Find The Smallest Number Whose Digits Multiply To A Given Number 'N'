@@ -52,9 +52,6 @@ public class Test
 	
        	public static int findSmallest(int n)
 	{
-           if(n<=9)
-             return n;
-          
 	   int res=0;
 	   for(int i=9; i>=2; i--)
              while((n%i)==0)
@@ -75,7 +72,7 @@ public class Test
            int rev=0,last;
            while(num!=0)
            {
-             last=(int)(num%10);
+             last=(num%10);
              rev=rev*10+last; 
              num=num/10;
            }
