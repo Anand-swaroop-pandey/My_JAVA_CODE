@@ -85,3 +85,47 @@ public class Test
           return rev;
         }
 }
+
+/* WORKING PRINCIPLE/Intuition 
+ 
+The smallest value of ‘M’ must satisfy the following two conditions:
+
+1 :The number of digits in ‘M’ must be minimum. To achieve this, assign the maximum possible number of 9’s to ‘M’ 
+(keep dividing ‘N’ by ‘9’ until it is no longer divisible). After that, do the same for 8’s and so on until ‘2’.
+This way, we assign the largest digit first, keeping the number of digits in ‘M’ to a minimum.
+(Ex- n=80 Numbers with Product of Digits as 80  are : 258(2*5*8=80) also 852(8*5*2=80) also 52222(5*2*2*2*2),However the Minimum is 258)
+
+2 : Once the above condition is satisfied, the digits of ‘M’ must be in non-decreasing order for ‘M’ to be the smallest. 
+We can do this by assigning the digits obtained above from right to left. Keep all the 9’s are at the rightmost, all the 8’s to their left, and so on. 
+This way, the smallest digit becomes the most significant digit.
+ 
+
+Example: ‘N’ = 64800
+
+Initially ‘M = 0’, start to assign digits to ‘M’ from ‘9’ to ‘2’:
+
+Assign ‘9’ to ‘M’ until ‘N’ is divisible by ‘9’:
+‘M = 9’, update ‘N’,‘N = N/9 = 64800/9 = 7200’.
+‘M = 99’, ‘N = 7200/9 = 800’.
+
+Assign ‘8’ to ‘M’ until ‘N’ is divisible by ‘8’:
+‘M = 899’,‘N = N/8 = 800/8 = 100’.
+
+‘N = 100’ is not divisible by ‘7’, so move to the next digit.
+
+‘N = 100’ is not divisible by ‘6’, so move to the next digit.
+
+Assign ‘5’ to ‘M’ until ‘N’ is divisible by ‘5’:
+‘M = 5899’,‘N = N/5 = 100/5 = 20’.
+‘M = 55899’, ‘N = 20/5 = 4’.
+
+Assign ‘4’ to ‘M’ until ‘N’ is divisible by ‘4’:
+‘M = 455899’,‘N = N/4 = 4/4 = 1’.
+
+‘N = 1’ is not divisible by ‘3’, so move to the next digit.
+
+‘N = 1’ is not divisible by ‘2’.
+ 
+After assigning the digits, we have ‘N = 1’, which means ‘N’ is equal to the multiplication of the digits in ‘M’. Thus, you should return ‘M = 455899’ as the answer.
+
+*/
