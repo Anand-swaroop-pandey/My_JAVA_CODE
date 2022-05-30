@@ -1,12 +1,12 @@
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
-         if(n>0)
-         {
+      public static void main(String[] args) {
+    	  Scanner sc=new Scanner(System.in);
+          System.out.println("Enter the Size of the Array");
+          int n=sc.nextInt();
+          if(n>0)
+          {
             int[] arr=new int[n];
             System.out.printf("Enter %d Elements of Array:\n",n);
             for(int i=0;i<n;i++)
@@ -14,33 +14,34 @@ public class Test
             
             System.out.println("Avg. Rank Of Each Element Of The Array is:");  
             rankify(arr); 
-         }
-         else
-           System.out.println("Invalid Choice");
-     }
+          }
+          else
+            System.out.println("Invalid Choice");
+        }
 	
   
 	public static void rankify(int[] arr)
 	{
-	   int n=arr.length;
+	   int rank=1,freq,sum;
+	   float avgRank;
 	   TreeMap<Integer,Integer>tm=new TreeMap<>();
+	   
 	   for(int val : arr)
 	     if(tm.containsKey(val))
 	       tm.put(val,tm.get(val)+1);
 	     else
 	       tm.put(val,1);
 	   
-	   int rank=1;
 	   for(int key:tm.keySet())
 	   {
-	       int freq=tm.get(key);
-	       int sum=0;
+	       freq=tm.get(key);
+	       sum=0;
 	       for(int cnt=1;cnt<=freq;cnt++)
 	       {
 	           sum+=rank;
 	           rank++;
 	       }
-	       float avgRank=(float)sum/freq; 
+	       avgRank=(float)sum/freq; 
 	       System.out.println(key+"=>"+avgRank);
 	   }
 	}
