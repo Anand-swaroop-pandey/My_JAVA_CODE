@@ -55,13 +55,7 @@ public class Test
      
     public static int countDigits(int num)
     {
-         int count=0;
-         while(num!=0)
-         {
-             count++;
-             num=num/10;
-         }
-         return count;
+       return (int)Math.ceil(Math.log10(num));
     }
 }
 
