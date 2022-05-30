@@ -2,8 +2,8 @@
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	       Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+	 Scanner sc=new Scanner(System.in);
          System.out.println("Enter the Size of the Array");
          int n=sc.nextInt();
          if(n>0) 
@@ -25,20 +25,20 @@ public class Test
 	public static void replace(int[] arr)
 	{
 	   int n=arr.length;
-     if(n<=1)
-        return;
+           if(n<2)
+             return;
        
-     int[] temp=new int[n];
+           int[] temp=new int[n];
        
-     temp[0]=arr[0]+arr[1];
+           temp[0]=arr[0]+arr[1];
        
-     for(int i=1;i<(n-1);i++)
-        temp[i]=arr[i-1]+arr[i+1];
+           for(int i=1;i<(n-1);i++)
+             temp[i]=arr[i-1]+arr[i+1];
          
-     temp[n-1]=arr[n-1]+arr[n-2];
+           temp[n-1]=arr[n-1]+arr[n-2];
        
-     for(int i=0;i<n;i++)
-        arr[i]=temp[i];
+           for(int i=0;i<n;i++)
+             arr[i]=temp[i];
 	}
 }
 
@@ -48,7 +48,7 @@ import java.util.*;
 public class Test
 {
     public static void main(String[] args) {
-	       Scanner sc=new Scanner(System.in);
+	 Scanner sc=new Scanner(System.in);
          System.out.println("Enter the Size of the Array");
          int n=sc.nextInt();
          if(n>0)
@@ -70,17 +70,18 @@ public class Test
 	public static void replace(int[] arr)
 	{
 	    int n=arr.length,prev,temp;
-      if(n<=1)
-        return;
+            if(n<2)
+              return;
          
-      prev=arr[0];
-      arr[0]=arr[0]+arr[1];
-      for(int i=1;i<(n-1);i++)
-      {
-        temp=arr[i];
-        arr[i]=prev+arr[i+1]; 
-        prev=temp;
-      }
-      arr[n-1]=arr[n-1]+prev;
+            prev=arr[0];
+            arr[0]=arr[0]+arr[1];
+	    
+            for(int i=1;i<(n-1);i++)
+            {
+              temp=arr[i];
+              arr[i]=prev+arr[i+1]; 
+              prev=temp;
+            }
+            arr[n-1]=arr[n-1]+prev;
 	}
 }
