@@ -7,24 +7,24 @@ public class Test
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter a Postive Number");
-       	  long n=sc.nextLong();
+       	  int n=sc.nextInt();
    	  System.out.println(singleDigit(n));
 	}
 
-	public static long singleDigit(long num)
+	public static int singleDigit(int num)
 	{
 	   while(num>9)
 	      num=sumOfDigits(num); 
            return num;
 	}
 	
-	public static long sumOfDigits(long num)
+	public static int sumOfDigits(long num)
 	{
-	    long sum=0;
+	    int sum=0;
 	    while(num!=0)
 	    {
-	        sum+=num%10;
-	        num=num/10;
+	       sum+=num%10;
+	       num=num/10;
 	    }
 	    return sum;
 	}
@@ -38,11 +38,11 @@ public class Test
 	public static void main(String[] args) {
 	   Scanner sc=new Scanner(System.in);
 	   System.out.println("Enter a Postive Number");
-	   long n=sc.nextLong();
+	   int n=sc.nextInt();
            System.out.println(singleDigit(n));
 	}
 
-	public static long singleDigit(long num)
+	public static int singleDigit(int num)
 	{
            if(num<=9)
              return num;
@@ -50,7 +50,7 @@ public class Test
            return singleDigit(sumOfDigits(num)); 
 	}
 	
-	public static long sumOfDigits(long num)
+	public static int sumOfDigits(int num)
 	{
            if(num==0)
              return 0;
