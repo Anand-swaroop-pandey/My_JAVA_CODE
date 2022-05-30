@@ -25,7 +25,7 @@ public class Test
 	public static void replace(int[] arr)
 	{
 	   int n=arr.length;
-           if(n<=1)
+           if(n<2)
              return;
        
            int[] temp=new int[n];
@@ -70,11 +70,12 @@ public class Test
 	public static void replace(int[] arr)
 	{
 	    int n=arr.length,prev,temp;
-            if(n<=1)
+            if(n<2)
               return;
          
             prev=arr[0];
             arr[0]=arr[0]*arr[1];
+	    
             for(int i=1;i<(n-1);i++)
             {
               temp=arr[i];
