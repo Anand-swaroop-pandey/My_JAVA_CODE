@@ -3,10 +3,10 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
-         if(n>0)
+	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0) 
          {
             int[] arr=new int[n];
             System.out.printf("Enter %d Elements of Array:\n",n);
@@ -48,9 +48,9 @@ import java.util.*;
 public class Test
 {
     public static void main(String[] args) {
-	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
+	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -69,15 +69,15 @@ public class Test
 	
 	public static void replace(int[] arr)
 	{
-	    int n=arr.length;
+	    int n=arr.length,prev,temp;
             if(n<=1)
               return;
          
-            int prev=arr[0];
+            prev=arr[0];
             arr[0]=arr[0]*arr[1];
             for(int i=1;i<(n-1);i++)
             {
-              int temp=arr[i];
+              temp=arr[i];
               arr[i]=prev*arr[i+1]; 
               prev=temp;
             }
