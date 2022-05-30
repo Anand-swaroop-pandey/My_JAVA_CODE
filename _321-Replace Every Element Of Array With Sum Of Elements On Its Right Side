@@ -2,7 +2,7 @@
 import java.util.*;
 public class Test
 {
-	    public static void main(String[] args) {
+     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          System.out.println("Enter the Size of the Array");
          int n=sc.nextInt();
@@ -26,19 +26,19 @@ public class Test
 	public static void replaceElement(int[] arr)
 	{
 	    int n=arr.length;
-      for(int i=0;i<(n-1);i++)
-        arr[i]=sumOnRight(arr,n,i);
+            for(int i=0;i<(n-1);i++)
+              arr[i]=sumOnRight(arr,n,i);
 	     
-      arr[n-1]=0;
+            arr[n-1]=0;
 	}
 	
 	public static int sumOnRight(int[] arr,int n,int idx)
 	{
 	    int sum=0;
-      for(int i=idx+1;i<n;i++)
-        sum+=arr[i];
+            for(int i=idx+1;i<n;i++)
+              sum+=arr[i];
 		
-      return sum;
+            return sum;
 	}
 }
 
@@ -47,7 +47,7 @@ public class Test
 import java.util.*;
 public class Test
 {
-    	public static void main(String[] args) {
+     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          System.out.println("Enter the Size of the Array");
          int n=sc.nextInt();
@@ -75,8 +75,8 @@ public class Test
 	   for(int i=n-2;i>=0;i--)
 	     postFixSum[i]=postFixSum[i+1]+arr[i+1];
 	      
-     for(int i=0;i<n;i++)
-       arr[i]=postFixSum[i];
+           for(int i=0;i<n;i++)
+             arr[i]=postFixSum[i];
 	}
 }
 
@@ -85,7 +85,7 @@ public class Test
 import java.util.*;
 public class Test
 {
-	   public static void main(String[] args) {
+     public static void main(String[] args) {
          Scanner sc=new Scanner(System.in);
          System.out.println("Enter the Size of the Array");
          int n=sc.nextInt();
