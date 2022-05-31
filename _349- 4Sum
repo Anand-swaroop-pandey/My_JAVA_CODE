@@ -49,12 +49,12 @@ public class Test
              
    public static void threeSum(int[]arr,int lb,int target,Set<List<Integer>>hs)
    {
-     int n=arr.length;
+     int n=arr.length,remTarget,j,k;
      for(int i=lb;i<n-2;i++)
      {         
-        int remTarget=(target-arr[i]);
-        int j=i+1;
-        int k=n-1;
+        remTarget=(target-arr[i]);
+        j=i+1;
+        k=n-1;
         
         while(j<k) 
         {
@@ -134,15 +134,15 @@ public class Test
              
    public static void threeSum(int[]arr,int lb,int target,List<List<Integer>>ll)
    {
-     int n=arr.length;
+     int n=arr.length,remTarget,j,k;
      for(int i=lb;i<n-2;i++)
      { 
         if(i>lb && (arr[i]==arr[i-1]))//To Avoid Duplicates
           continue;
          
-        int remTarget=(target-arr[i]);
-        int j=i+1;
-        int k=n-1;
+        remTarget=(target-arr[i]);
+        j=i+1;
+        k=n-1;
         
         while(j<k) 
         {
