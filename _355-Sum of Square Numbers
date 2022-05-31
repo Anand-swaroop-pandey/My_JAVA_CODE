@@ -4,7 +4,7 @@
    a^2 + b^2 =c;
    
      (possible values of a =0,1,2,3,4,5,6......)(Even if you take -ve values of 'a' the a^2 will remain the same)
-i.e(possible values of a^2 =0,1,4,9,16,25,36......)
+  i.e(possible values of a^2 =0,1,4,9,16,25,36......)
                             
         Similarly;
       (possible values of b =0,1,2,3,4,5,6......)(Even if you take -ve values of 'b' the b^2 will remain the same)
@@ -127,7 +127,7 @@ public class Test
     {
       int sqrt_c=(int)Math.sqrt(c);
       for(int a=0;a<=sqrt_c;a++)
-        if(isPerfectSquare(c-a*a))  //b^2=(c-a^2);check if b^2 is perfect square or not
+        if(isPerfectSquare(c-a*a))  //b^2=(c-a^2),check if b^2 is perfect square or not
           return true;
         
        return false;
@@ -141,9 +141,10 @@ public class Test
     public static boolean mySqrt(int x)
     {
       int low =0,high=x;
+      long mid;
       while(low<=high)
       {
-        long mid=low+(high-low)/2;
+        mid=low+(high-low)/2;
 
         if(x==(mid*mid))
            return true;//x is a perfect square
@@ -183,12 +184,12 @@ public class Test
         */
         
         int sqrt_c=(int)Math.sqrt(c);
-        long a=0;//long is used to Avoid Integer Overflow
+        long sumOfSqr,a=0;//long is used to Avoid Integer Overflow
         int b=sqrt_c;
         
         while(a<=sqrt_c && b>=0)
         { 
-            long sumOfSqr=b*b+(a*a); 
+            sumOfSqr=b*b+(a*a); 
             
             if(sumOfSqr==c) 
               return true;
