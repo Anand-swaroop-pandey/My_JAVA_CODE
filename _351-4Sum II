@@ -91,6 +91,7 @@ public class Test
    public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
    {
       HashMap<Integer,Integer>hm=new HashMap<>();
+      int tripletSum,remSum,fourSumCount=0;
       
       for(int l=0;l<n;l++)
         if(hm.containsKey(arr4[l]))
@@ -99,13 +100,12 @@ public class Test
            hm.put(arr4[l],1);
       
       
-      int fourSumCount=0;
       for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
           for(int k=0;k<n;k++)
           {
-            int tripletSum=arr1[i]+arr2[j]+arr3[k];
-            int remSum=(0-tripletSum);
+            tripletSum=arr1[i]+arr2[j]+arr3[k];
+            remSum=(0-tripletSum);
             
             if(hm.containsKey(remSum))
               fourSumCount+=hm.get(remSum);
@@ -156,11 +156,12 @@ public class Test
     public static int fourSumCount(int[] arr1, int[] arr2, int[] arr3, int[] arr4,int n) 
     {
       HashMap<Integer,Integer>hm=new HashMap<>();
-    
+      int pairSum,remPairSum,fourSumCount=0;
+      
       for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
         {
-          int pairSum=arr1[i]+arr2[j];
+          pairSum=arr1[i]+arr2[j];
             
           if(hm.containsKey(pairSum))
             hm.put(pairSum,hm.get(pairSum)+1);
@@ -168,13 +169,12 @@ public class Test
             hm.put(pairSum,1);
         }
           
-    
-      int fourSumCount=0;
+ 
       for(int k=0;k<n;k++)
         for(int l=0;l<n;l++)
         {
-          int pairSum=arr3[k]+arr4[l];
-          int remPairSum=(0-(arr3[k]+arr4[l]));
+          pairSum=arr3[k]+arr4[l];
+          remPairSum=(0-(arr3[k]+arr4[l]));
             
           if(hm.containsKey(remPairSum))
              fourSumCount+=hm.get(remPairSum);
