@@ -121,9 +121,11 @@ public class Test
           public static boolean BinarySearch(int x)
           {
               int low =1,high=x-1;
+	      long mid;
+	      
               while(low<=high)
               {
-                long mid=low+(high-low)/2;
+                mid=low+(high-low)/2;
                 if(x==(mid*mid))
                   return true; //x is a perfect Square Number
                 else if(x>(mid*mid))
