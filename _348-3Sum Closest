@@ -22,7 +22,7 @@ public class Test
     int targetSum=sc.nextInt();
       
     System.out.println("Triplet Sum which is Closest to "+targetSum+" is :"+threeSumClosest(arr,targetSum));
- }
+  }
  
  
   public static int threeSumClosest(int[]arr,int target)
@@ -75,18 +75,19 @@ public class Test
     int targetSum=sc.nextInt();
       
     System.out.println("Triplet Sum which is Closest to "+targetSum+" is :"+threeSumClosest(arr,targetSum));
- }
+  }
 	
 	
   public static int threeSumClosest(int[]arr,int target)
   {
-     int minTillNow=Integer.MAX_VALUE,closestSum=arr[0]+arr[1]+arr[2],n=arr.length;
+     int minTillNow=Integer.MAX_VALUE,closestSum=arr[0]+arr[1]+arr[2],n=arr.length,j,k;
         
      Arrays.sort(arr);
 
      for(int i=0;i<n-2;i++)
      {
-	 int j=i+1,k=n-1;
+	 j=i+1;
+	 k=n-1;
 	     
 	 while(j<k)
          {
@@ -103,7 +104,7 @@ public class Test
              return currSum;
 	   else if(currSum<target)
               j++;
-	   else//(currSum>target)
+	   else  //(currSum>target)
               k--;
          }   
       }
