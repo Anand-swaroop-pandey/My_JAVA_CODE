@@ -7,7 +7,7 @@
        =(a1*a2)+(a1*b2*i)+(a2*b1*i)+((b1*b2)*i^2)
        =(a1*a2)+(a1*b2*i)+(a2*b1*i)-(b1*b2)
        =(a1*a2)-(b1*b2)+(a1*b2*i)+(a2*b1*i)
-       =(a1*a2)-(b1*b2)+((a1*b2)+(a2*b1))i
+       =(a1*a2)-(b1*b2)+((a1*b2)+(a2*b1))*i
        
        i.e real part=(a1*a2)-(b1*b2);
        imaginary part=(a1*b2)+(a2*b1);
@@ -27,15 +27,15 @@ public class Test
        System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
        String num2=sc.nextLine();
        System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
-     }
+    }
 	
     public static String complexNumberMultiply(String num1, String num2)
     {
         String[] str1=num1.split("\\+");
         String[] str2=num2.split("\\+");
         
-        int a1=Integer. parseInt(str1[0]); 
-        int a2=Integer. parseInt(str2[0]);
+        int a1=Integer.parseInt(str1[0]); 
+        int a2=Integer.parseInt(str2[0]);
         
         int idx=str1[1].indexOf("i");
         String subStr1=str1[1].substring(0,idx);
@@ -87,19 +87,20 @@ public class Test
     }
 }
 
+
 //Without .split() Method
 
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
+     public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter a Complex Number in the form (a+bi) (a and b are integer) :");
 	  String num1=sc.nextLine();
 	  System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
 	  String num2=sc.nextLine();
 	  System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
-	}
+    }
 	
     public static String complexNumberMultiply(String num1, String num2)
     {
@@ -136,14 +137,14 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
+      public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter a Complex Number in the form (a+bi) (a and b are integer) :");
 	  String num1=sc.nextLine();
 	  System.out.println("Enter Second Complex Number in the form (a+bi) (a and b are integer) :");
 	  String num2=sc.nextLine();
 	  System.out.println(num1+" * "+num2+"= "+complexNumberMultiply(num1,num2));
-	}
+    }
 	
     public static String complexNumberMultiply(String num1, String num2)
     {
