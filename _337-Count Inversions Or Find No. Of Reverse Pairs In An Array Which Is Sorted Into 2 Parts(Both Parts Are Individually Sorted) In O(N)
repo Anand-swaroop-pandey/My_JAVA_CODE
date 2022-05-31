@@ -6,16 +6,16 @@ public class Test
 	Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the Array");
         int n=sc.nextInt();
-         if(n>0)
-         {
-            int[] arr=new int[n];
-            System.out.printf("Enter %d Elements of Array:\n",n);
-            for(int i=0;i<n;i++)
-               arr[i]=sc.nextInt();
+        if(n>0)
+        {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+             arr[i]=sc.nextInt();
             
-            System.out.println("Given array has "+count_Inversion_Sorted(arr,n)+" inversions");   
-         }
-         else
+           System.out.println("Given array has "+count_Inversion_Sorted(arr,n)+" inversions");   
+        }
+        else
            System.out.println("Invalid Choice"); 
     }
     
