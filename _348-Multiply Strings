@@ -41,14 +41,15 @@ public class Test
       if(dgt==0)
         return "0";
       
-      int carry=0;
+      int carry=0,base,prod;
       StringBuilder ans=new StringBuilder("");
+      
       for(int pad=1;pad<=padding;pad++)
         ans.append(0);
       
       for(int i=num1.length()-1;i>=0;i--)
       { 
-         int base,prod=(num1.charAt(i)-'0')*dgt;
+         prod=(num1.charAt(i)-'0')*dgt;
   
          if((prod+carry)<=9)
          {
@@ -136,14 +137,13 @@ public class Test
     {
       if(num1.equals("0") || num2.equals("0"))
         return "0";
-	
-      int len1=num1.length(),len2=num2.length();
+
+      int len1=num1.length(),len2=num2.length(),padding=0;
       
       if(len1<len2)
         return multiply(num2,num1);
       
-      String res="0";
-      int padding=0;
+      String res="";
 
       for(int i=len2-1;i>=0;i--)
       {
@@ -160,7 +160,7 @@ public class Test
       if(dgt==0)
         return "0";
       
-      int carry=0;
+      int carry=0,prod,base;
     
       StringBuilder ans=new StringBuilder("");
     
@@ -169,8 +169,8 @@ public class Test
       
       for(int i=num1.length()-1;i>=0;i--)
       { 
-         int prod=(num1.charAt(i)-'0')*dgt;
-         int base=(prod+carry)%10;
+         prod=(num1.charAt(i)-'0')*dgt;
+         base=(prod+carry)%10;
          carry=(prod+carry)/10;
          ans.append(base);
       }
@@ -186,16 +186,16 @@ public class Test
 
     public static String addTwoNumbers(String num1, String num2) 
     {
-        int i=num1.length()-1,j=num2.length()-1,carry=0;
+        int i=num1.length()-1,j=num2.length()-1,carry=0,d1,d2,sum;
         StringBuilder num=new StringBuilder("");
         
         while(i>=0 && j>=0)
         {
-           int d1=num1.charAt(i)-'0';
-           int d2=num2.charAt(j)-'0';
+           d1=num1.charAt(i)-'0';
+           d2=num2.charAt(j)-'0';
             
-           int sum=((d1+d2)+carry)%10;
-             carry=((d1+d2)+carry)/10;   
+           sum=((d1+d2)+carry)%10;
+           carry=((d1+d2)+carry)/10;   
         
            num.append(sum);
            i--;
@@ -204,8 +204,8 @@ public class Test
         
         while(i>=0)
         {
-          int d1=num1.charAt(i)-'0';
-          int sum=(d1+carry)%10;
+          d1=num1.charAt(i)-'0';
+          sum=(d1+carry)%10;
           carry=(d1+carry)/10;
           num.append(sum);
           i--;
@@ -213,8 +213,8 @@ public class Test
         
         while(j>=0)
         {
-          int d2=num2.charAt(j)-'0';
-          int sum=(d2+carry)%10;
+          d2=num2.charAt(j)-'0';
+          sum=(d2+carry)%10;
           carry=(d2+carry)/10; 
           num.append(sum);
           j--;
