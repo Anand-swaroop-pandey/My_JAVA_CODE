@@ -11,8 +11,8 @@ public class Test
        int n=sc.nextInt();
        if(m>0 && n>0)
        {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -85,8 +85,8 @@ public class Test
 	
    public static int sumOfNonOverlapping(int[] arr1,int[] arr2)
    {
-      int m=arr1.length,n=arr2.length,sum=0;
-      HashMap<Integer,Integer>hm=new HashMap<>();
+     int m=arr1.length,n=arr2.length,sum=0;
+     HashMap<Integer,Integer>hm=new HashMap<>();
 
      for(int i=0;i<m;i++)
        if(hm.containsKey(arr1[i]))
