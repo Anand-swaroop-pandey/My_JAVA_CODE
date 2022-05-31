@@ -5,17 +5,17 @@ public class Test
 	Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of the Array");
         int n=sc.nextInt();
-         if(n>0)
-         {
-            int[] arr=new int[n];
-            System.out.printf("Enter %d Elements of Array:\n",n);
-            for(int i=0;i<n;i++)
-               arr[i]=sc.nextInt();
+        if(n>0)
+        {
+          int[] arr=new int[n];
+          System.out.printf("Enter %d Elements of Array:\n",n);
+          for(int i=0;i<n;i++)
+             arr[i]=sc.nextInt();
             
-            System.out.println("Minimum Number Of Swaps Needed To Sort The Array In Ascending Order When Only Adjacent Swapping Allowed Are :"+countSwaps(arr,n));   
-         }
-         else
-           System.out.println("Invalid Choice"); 
+          System.out.println("Minimum Number Of Swaps Needed To Sort The Array In Ascending Order When Only Adjacent Swapping Allowed Are :"+countSwaps(arr,n));   
+        }
+        else
+          System.out.println("Invalid Choice"); 
     }
     
     public static int countSwaps(int arr[], int n)
