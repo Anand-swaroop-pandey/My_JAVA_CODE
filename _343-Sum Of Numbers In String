@@ -15,13 +15,13 @@ public class Test
 	  for(int i=0;i<n;i++)
 	  {
 	     char ch=str.charAt(i);
-	      if(ch>='0' && ch<='9')
-	        num=num*10+(ch-'0');
-	      else
-	      {
+	     if(ch>='0' && ch<='9')
+	       num=num*10+(ch-'0');
+	     else
+	     {
 	        sum+=num;
 	        num=0;
-	      }
+	     }
 	  }
 	  return (sum+num);
 	}
