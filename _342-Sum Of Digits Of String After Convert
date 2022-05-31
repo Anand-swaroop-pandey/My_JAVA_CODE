@@ -14,19 +14,17 @@ public class Test
     public static int getLucky(String str, int k) 
     {
       HashMap<Character,Integer>hm= new HashMap<>();
-      int pos=1;
+      int pos=1,n=str.length(),sum=0,num;
       for(char ch='a';ch<='z';ch++)
         hm.put(ch,pos++);
      
-      int n=str.length();
-      int sum=0;
       for(int i=0;i<n;i++)
         sum+=sumOfDigits(hm.get(str.charAt(i)));
      
       if(k==1)
         return sum;
      
-      int num=sum;
+      num=sum;
       sum=0;
       for(int i=2;i<=k;i++)
       {
@@ -42,12 +40,12 @@ public class Test
         if(num==0)
           return 1;
         
-         int sum=0;
-         while(num!=0)
-         {
-             sum+=(num%10);
-             num=num/10;
-         }
+        int sum=0;
+        while(num!=0)
+        {
+           sum+=(num%10);
+           num=num/10;
+        }
          
         return sum;
     }
@@ -70,15 +68,14 @@ public class Test
 	
     public static int getLucky(String str, int k) 
     {
-      int n=str.length();
-      int sum=0;
+      int n=str.length(),sum=0,num;
       for(int i=0;i<n;i++)
         sum+=sumOfDigits(str.charAt(i)-96);//Transformation 1
      
       if(k==1)
         return sum;
                                           //Transformation 2 and onwards depending on the value of k
-      int num=sum;
+      num=sum;
       sum=0;
       for(int i=2;i<=k;i++)
       {
