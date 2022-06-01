@@ -14,10 +14,10 @@ public class Test
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
 	      
-           int index=removeDuplicatesFromSortedArray(arr);
+           int newLen=removeDuplicatesFromSortedArray(arr);
 	   
            System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
+           for(int i=0;i<newLen;i++)
               System.out.printf(arr[i]+" ");
          }
          else
@@ -58,9 +58,9 @@ public class Test
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
-           int index=removeDuplicatesFromSortedArray(arr);
+           int newLen=removeDuplicatesFromSortedArray(arr);
            System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
+           for(int i=0;i<newLen;i++)
               System.out.printf(arr[i]+" ");
           }
           else
@@ -70,7 +70,7 @@ public class Test
         public static int  removeDuplicatesFromSortedArray(int[] arr)
 	{
           int j=0;
-          HashSet<Integer>hs=new HashSet<>(n);
+          HashSet<Integer>hs=new HashSet<>();
 	  
           for(int val:arr)
             hs.add(val);
@@ -81,6 +81,7 @@ public class Test
               arr[j++]=val;
               hs.remove(val);
             }
+	    
           return j;
 	}
 }
@@ -101,10 +102,10 @@ public class Test
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
 	      
-           int index=removeDuplicatesFromSortedArray(arr);
+           int newLen=removeDuplicatesFromSortedArray(arr);
 	   
            System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
+           for(int i=0;i<newLen;i++)
               System.out.printf(arr[i]+" ");
           }
           else
@@ -114,7 +115,7 @@ public class Test
       public static int  removeDuplicatesFromSortedArray(int[] arr)
       {
           int j=0;
-          LinkedHashSet<Integer>lhs=new LinkedHashSet<>(n);
+          LinkedHashSet<Integer>lhs=new LinkedHashSet<>();
 	  
           for(int val:arr)
             lhs.add(val);
@@ -143,10 +144,10 @@ public class Test
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
 	      
-           int index=removeDuplicatesFromSortedArray(arr);
+           int newLen=removeDuplicatesFromSortedArray(arr);
 	   
            System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
+           for(int i=0;i<newLen;i++)
               System.out.printf(arr[i]+" ");
           }
           else
@@ -189,9 +190,9 @@ public class Test
            System.out.printf("Enter %d Elements of Array:\n",n);
            for(int i=0;i<n;i++)
               arr[i]=sc.nextInt();
-           int index=removeDuplicatesFromSortedArray(arr);
+           int newLen=removeDuplicatesFromSortedArray(arr);
            System.out.println("Duplicate Free Array is :");
-           for(int i=0;i<index;i++)
+           for(int i=0;i<newLen;i++)
               System.out.printf(arr[i]+" ");
           }
           else
