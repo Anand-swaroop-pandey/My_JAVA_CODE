@@ -17,7 +17,7 @@ public class Test
     {
       long p=n;
       
-      if(p==0)
+      if(p==0 || x==1) // x^0 ==1 also 1 ^ n ==1
         return 1D;
         
       if(p > 0)
@@ -29,7 +29,7 @@ public class Test
     public static double result(double base, long power)
     {
        double res=1D;
-       for(int exp=1;exp<=power;exp++)
+       for(long exp=1;exp<=power;exp++)
          res=res*base;
          
        return res;
@@ -79,8 +79,8 @@ public class Test
     {
         long p=n;
         
-        if(p==0)
-          return 1D;
+        if(p==0 || x==1) // x^0 ==1 also 1 ^ n ==1
+           return 1D;
          
         if(p > 0)
           return result(x,p);
@@ -125,7 +125,7 @@ public class Test
     {
         long p=n;
 	
-        if(p==0)
+        if(p==0 || x==1) // x^0 ==1 also 1 ^ n ==1
           return 1D;
          
         if(p > 0)
@@ -169,9 +169,9 @@ public class Test
     public static double myPow(double x, int n) 
     {
         long p=n;
-
-        if(p==0)
-          return 1d;
+      
+        if(p==0 || x==1) // x^0 ==1 also 1 ^ n ==1
+          return 1D;
          
         if(p > 0)
           return result(x,p);
