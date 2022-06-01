@@ -21,151 +21,141 @@ public class Test
            for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
 	      
-            System.out.print("Intersection of both the Arrays is: {"+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2)+"}");      
+            System.out.print("Intersection of both the Arrays is: "+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2));      
          }
          else
            System.out.println("Invalid Choice");
         }
 	
-	public static String intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
+	public static List<Integer> intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
 	{
-	    int index1=removeDuplicatesFromSortedArray(arr1);
-	    int index2=removeDuplicatesFromSortedArray(arr2);
-	    return intersectionOfTwoSortedArray(arr1,index1,arr2,index2);
+	    int newLen1=removeDuplicatesFromSortedArray(arr1);
+	    int newLen2=removeDuplicatesFromSortedArray(arr2);
+	    return intersectionOfTwoSortedArray(arr1,newLen1,arr2,newLen2);
 	}
 	
         public static int removeDuplicatesFromSortedArray(int[] arr)
 	{
-           int n=arr.length,j=0;
+           int j=0,n=arr.length;
 	   for(int i=0;i<(n-1);i++)
-             if(arr[i]!=arr[i+1])
-               arr[j++]=arr[i];
+            if(arr[i]!=arr[i+1])
+              arr[j++]=arr[i];
 	       
            arr[j++]=arr[n-1];
 	   
 	   return j;
 	}
 	
-	public static String intersectionOfTwoSortedArray(int[] arr1,int m,int[] arr2,int n)
+	public static List<Integer> intersectionOfTwoSortedArray(int[] arr1,int m,int[] arr2,int n)
 	{    
-	    int i=0,j=0,m=arr1.length,n=arr2.length;
-	    String temp="";
+	    int i=0,j=0,min;
+	    List<Integer>intersection=new ArrayList<>();
+	    
             while(i<m && j<n)
-               if(arr1[i]==arr2[j])
-               {
-                  temp=temp+arr1[i]+",";
+             if(arr1[i]==arr2[j])
+             {
+               intersection.add(arr1[i]);
+               i++;
+               j++;
+             }
+             else
+             {
+                min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
+                if(min==arr1[i])
                   i++;
+                else if(min==arr2[j])
                   j++;
-               }
-               else
-               {
-                  int min=arr1[i]<arr2[j]?arr1[i]:arr2[j];
-                  if(min==arr1[i])
-                    i++;
-                  else if(min==arr2[j])
-                    j++;
-               }
+             }
 	       
-               String intersection="";
-	       int len=temp.length();
-	       
-               for(int k=0;k<(len-1);k++)
-                  intersection+=temp.charAt(k);
-		  
-             return intersection;
-	 }
+           return intersection;
+	}
 }
 
 
 //Better Approach
+
 import java.util.*;
 public class Test
 {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array1");
-        int m=sc.nextInt();
+       public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array1");
+         int m=sc.nextInt();
        
-        System.out.println("Enter the Size of the Array2");
-        int n=sc.nextInt();
-        if(m>0 && n>0)
-        {
-          int[] arr1=new int[m];
-          int[] arr2=new int[n];
-          System.out.printf("Enter %d Elements of Array1:\n",m);
-          for(int i=0;i<m;i++)
-             arr1[i]=sc.nextInt();
+         System.out.println("Enter the Size of the Array2");
+         int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
+            int[] arr1=new int[m];
+            int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
+              arr1[i]=sc.nextInt();
               
-          System.out.printf("Enter %d Elements of Array2:\n",n);
-          for(int i=0;i<n;i++)
-             arr2[i]=sc.nextInt();
-	     
-          System.out.print("Intersection of both the Arrays is: {"+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2)+"}");  
-        }
-        else
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+	      
+            System.out.print("Intersection of both the Arrays is: "+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2));      
+         }
+         else
            System.out.println("Invalid Choice");
-       }
+        }
 	
-	public static String intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
+	public static List<Integer> intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
 	{
-	    int m=arr1.length,n=arr2.length;
-	    HashSet<Integer>hs=new HashSet<>(n);
-	     for(int i=0;i<n;i++)
-	       hs.add(arr2[i]);
-	   
-	    String temp="";
-	    for(int i=0;i<m;i++)
-	      if(hs.contains(arr1[i]))
-	      {
-	         temp+=arr1[i]+","; 
-	         hs.remove(arr1[i]);
-	      }
-
-	    String intersection="";
-	    int len=temp.length();
+	    HashSet<Integer>hs=new HashSet<>();
+	    List<Integer>intersection=new ArrayList<>();
 	    
-	    for(int i=0;i<(len-1);i++)
-	      intersection+=temp.charAt(i);
+	     for(int val :arr2)
+	       hs.add(val);
 	   
-	   return intersection;
+	    for(int val :arr1)
+	      if(hs.contains(val))
+	      {
+	         intersection.add(val);
+	         hs.remove(val);
+	      }
+	   
+	    return intersection;
 	}
 }
 
 
 //Optimal Approach
 
-import java.util.Scanner;
+import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-          Scanner sc=new Scanner(System.in);
-          System.out.println("Enter the Size of the Array1");
-          int m=sc.nextInt();
+       public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array1");
+         int m=sc.nextInt();
        
-          System.out.println("Enter the Size of the Array2");
-          int n=sc.nextInt();
-          if(m>0 && n>0)
-          {
+         System.out.println("Enter the Size of the Array2");
+         int n=sc.nextInt();
+         if(m>0 && n>0)
+         {
             int[] arr1=new int[m];
             int[] arr2=new int[n];
-            System.out.printf("Enter %d Elements of Array1:\n",m);
-            for(int i=0;i<m;i++)
+           System.out.printf("Enter %d Elements of Array1:\n",m);
+           for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
               
-            System.out.printf("Enter %d Elements of Array2:\n",n);
-            for(int i=0;i<n;i++)
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
               arr2[i]=sc.nextInt();
 	      
-            System.out.print("Intersection of both the Arrays is: {"+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2)+"}");  
-          }
-          else
-            System.out.println("Invalid Choice");
+            System.out.print("Intersection of both the Arrays is: "+intersectionOfTwoSortedArrayContainingDuplicates(arr1,arr2));      
+         }
+         else
+           System.out.println("Invalid Choice");
         }
 	
-	public static String intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
+	public static List<Integer> intersectionOfTwoSortedArrayContainingDuplicates(int[] arr1,int[] arr2)
 	{
-           int i=0,j=0,m=arr1.length,n=arr2.length,prev1=Integer.MIN_VALUE,prev2=Integer.MIN_VALUE;
-	   String temp="";
+	   int i=0,j=0,m=arr1.length,n=arr2.length,prev1=Integer.MIN_VALUE,prev2=Integer.MIN_VALUE;
+	   List<Integer>intersection=new ArrayList<>();
 	    
            while(i<m && j<n)
            {
@@ -180,7 +170,7 @@ public class Test
              {
                  if(arr1[i]==arr2[j])
                  {
-                   temp+=arr1[i]+",";
+                   intersection.add(arr1[i]);
                    prev1=arr1[i++];
                    prev2=arr2[j++];
                  
@@ -195,12 +185,7 @@ public class Test
                  }   
              }
            }
-            
-          String intersection="";
-          int len=temp.length();
-          for(int k=0;k<(len-1);k++)
-             intersection+=temp.charAt(k);
-               
-         return intersection;
+	   
+	   return intersection;
 	}
 }
