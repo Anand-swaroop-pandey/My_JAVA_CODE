@@ -1,4 +1,4 @@
-// Using Extra Space
+// Method 1 (Using Extra Space)
 import java.util.Scanner;
 public class Test
 {
@@ -42,7 +42,8 @@ public class Test
 	}
 }
 
-// Using Extra Space
+
+// Method 2 (Using Extra Space)
 import java.util.*;
 public class Test
 {
@@ -68,25 +69,23 @@ public class Test
 	
         public static int  removeDuplicatesFromSortedArray(int[] arr)
 	{
-          int n=arr.length;
+          int j=0;
           HashSet<Integer>hs=new HashSet<>(n);
 	  
-          for(int i=0;i<n;i++)
-            hs.add(arr[i]);
+          for(int val:arr)
+            hs.add(val);
       
-          int j=0;
-          for(int i=0;i<n;i++)
-            if(hs.contains(arr[i]))
+          for(int val :arr)
+            if(hs.contains(val))
             {
-              arr[j++]=arr[i];
-              hs.remove(arr[i]);
+              arr[j++]=val;
+              hs.remove(val);
             }
-           return j;
+          return j;
 	}
 }
 
-
-// Using Extra Space
+// Method 3 (Using Extra Space)
 import java.util.*;
 public class Test
 {
@@ -114,13 +113,12 @@ public class Test
 	
       public static int  removeDuplicatesFromSortedArray(int[] arr)
       {
-          int n=arr.length;
+          int j=0;
           LinkedHashSet<Integer>lhs=new LinkedHashSet<>(n);
 	  
-          for(int i=0;i<n;i++)
-            lhs.add(arr[i]);
+          for(int val:arr)
+            lhs.add(val);
       
-          int j=0;
           for(int key :lhs)
             arr[j++]=key;
     
@@ -129,7 +127,54 @@ public class Test
 }
 
 
-//Without Using Extra Space
+// Method 4 (Using Extra Space)
+import java.util.*;
+public class Test
+{
+      public static void main(String[] args)
+      {
+         Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
+         {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+	      
+           int index=removeDuplicatesFromSortedArray(arr);
+	   
+           System.out.println("Duplicate Free Array is :");
+           for(int i=0;i<index;i++)
+              System.out.printf(arr[i]+" ");
+          }
+          else
+            System.out.println("Invalid Choice");
+      }
+	
+      public static int  removeDuplicatesFromSortedArray(int[] arr)
+      {
+          int j=0;
+          TreeSet<Integer>ts=new TreeSet<>();
+	  
+          for(int val:arr)
+            ts.add(val);
+      
+         
+          for(int val :arr)
+            if(ts.contains(val))
+            {
+              arr[j++]=val;
+              ts.remove(val);
+            }
+           return j;
+      }
+}
+
+
+
+//Method 5 (Without Using Extra Space)
 import java.util.Scanner;
 public class Test
 {
