@@ -49,7 +49,7 @@ public class Test
 	
     	public static List<Integer> unionOfTwoSortedArray(int[] arr1,int m,int[] arr2,int n)
 	{
-            int i=0,j=0;
+            int i=0,j=0,min;
             List<Integer>union=new ArrayList<>();
 	    
             while(i<m && j<n)
@@ -61,7 +61,7 @@ public class Test
               }
               else
               {
-                int min=Math.min(arr1[i],arr2[j]);
+                min=Math.min(arr1[i],arr2[j]);
                 if(min==arr1[i])
                   union.add(arr1[i++]);
                 else // if(min==arr2[j])
@@ -93,8 +93,9 @@ public class Test
 	 
          if(m>0 && n>0)
          {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
+	   
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
               arr1[i]=sc.nextInt();
@@ -119,7 +120,6 @@ public class Test
 	    
             for(int val :arr2)
               ts.add(val);
-        
             
 	    for(int key:ts)
               union.add(key);
@@ -144,8 +144,8 @@ public class Test
 	 
          if(m>0 && n>0)
          {
-            int[] arr1=new int[m];
-            int[] arr2=new int[n];
+           int[] arr1=new int[m];
+           int[] arr2=new int[n];
 	    
            System.out.printf("Enter %d Elements of Array1:\n",m);
            for(int i=0;i<m;i++)
