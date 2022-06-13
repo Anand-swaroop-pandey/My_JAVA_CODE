@@ -14,22 +14,33 @@ public class Test
             for(int i=0;i<n;i++)
                arr[i]=sc.nextInt();
             
-            countSmaller(arr,n);
+            int[] res=countSmaller(arr,n);
+            
+            System.out.print("{ ");
+              for(int i=0;i<n;i++)
+                System.out.print(res[i]+" ");
+            System.out.print("}");
          }
          else
            System.out.println("Invalid Choice");
     }
     
-    public static void countSmaller(int arr[], int n)
+    public static int[] countSmaller(int arr[], int n)
     {
+      int cnt;
+      int[] count=new int[n];
+       
       for(int i=0;i<n;i++)
       {
-         int cnt=0;
+         cnt=0;
          for(int j=i+1;j<n;j++)
           if(arr[j]<arr[i])
             cnt++;
-        System.out.printf("To The Right Of %d There Are %d Smaller Elements\n",arr[i],cnt);
+        
+        count[i]=cnt;    
       }
+      
+      return count;
     }
 }
 
@@ -40,9 +51,9 @@ public class Test
 {
     public static void main(String[] args)
     {
-     	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
+      	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
          if(n>0)
          {
             int[] arr=new int[n];
@@ -50,14 +61,18 @@ public class Test
             for(int i=0;i<n;i++)
                arr[i]=sc.nextInt();
             
-            countSmaller(arr,n);
+            int[] res=countSmaller(arr,n);
+            
+            System.out.print("{ ");
+              for(int i=0;i<n;i++)
+                System.out.print(res[i]+" ");
+            System.out.print("}");
          }
          else
            System.out.println("Invalid Choice");
     }
     
-    
-    public static void countSmaller(int arr[], int n)
+    public static int[] countSmaller(int arr[], int n)
     {
         ArrayList<Integer>sorted=new ArrayList();
         
@@ -67,18 +82,16 @@ public class Test
         Collections.sort(sorted);
         
         int[] count=new int[n];
+        int index;
           
         for(int i = 0; i<n; i++)
         {
-            int index=firstIndex(sorted,arr[i]);
+            index=firstIndex(sorted,arr[i]);
             count[i]=index;
             sorted.remove(index);
         }
-
-        System.out.printf("{");
-        for(int i=0;i<n;i++)
-          System.out.printf(count[i]+" ");
-        System.out.printf("}");
+        
+        return count;
     }
     
 
@@ -110,24 +123,28 @@ public class Test
 {
     public static void main(String[] args)
     {
-     	Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the Size of the Array");
-        int n=sc.nextInt();
-        if(n>0)
-        {
-           int[] arr=new int[n];
-           System.out.printf("Enter %d Elements of Array:\n",n);
-           for(int i=0;i<n;i++)
-             arr[i]=sc.nextInt();
+      	 Scanner sc=new Scanner(System.in);
+         System.out.println("Enter the Size of the Array");
+         int n=sc.nextInt();
+         if(n>0)
+         {
+            int[] arr=new int[n];
+            System.out.printf("Enter %d Elements of Array:\n",n);
+            for(int i=0;i<n;i++)
+               arr[i]=sc.nextInt();
             
-           countSmaller(arr,n);
-        }
-        else
-          System.out.println("Invalid Choice");
+            int[] res=countSmaller(arr,n);
+            
+            System.out.print("{ ");
+              for(int i=0;i<n;i++)
+                System.out.print(res[i]+" ");
+            System.out.print("}");
+         }
+         else
+           System.out.println("Invalid Choice");
     }
     
-    
-    public static void countSmaller(int arr[], int n)
+    public static int[] countSmaller(int arr[], int n)
     {
         int[] count=new int[n];
         int[] originalIndex = new int[n];
@@ -137,10 +154,7 @@ public class Test
 
         mergeSort(arr,0,n-1,count,originalIndex);
         
-        System.out.printf("{");
-        for(int i=0;i<n;i++)
-          System.out.printf(count[i]+" ");
-        System.out.printf("}");
+        return count;
     }
     
     
