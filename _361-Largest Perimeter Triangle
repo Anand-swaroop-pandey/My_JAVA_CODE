@@ -1,4 +1,6 @@
-//Logic : sum of two sides of a triangle is always greater than the third side.
+/*Logic : Sum of any two sides of a triangle is always greater than the third side.
+ i.e a>(b+c) && b>(a+c) && c>(a+b)
+*/
 
 //Bruteforce Approach
 import java.util.*;
