@@ -1,0 +1,77 @@
+//Logic : sum of two sides of a triangle is always greater than the third side.
+
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<3)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Element's\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		int res=largestPerimeter(arr);
+		if(res==0)
+		  System.out.println("It is Impossible to Form Any Triangle Of A Non-zero Area");
+		else
+		  System.out.println("Largest Perimeter of a Triangle is "+res);
+	}
+	
+	public static int largestPerimeter(int[] arr)
+	{
+	  int n=arr.length,max=0; 
+	  for(int i=0;i<n-2;i++)
+	     for(int j=i+1;j<n-1;j++)
+	        for(int k=j+1;k<n;k++)
+	           if(arr[i]<(arr[j]+arr[k]) && arr[j]<(arr[i]+arr[k]) && arr[k]<(arr[i]+arr[j]))
+	              if((arr[i]+arr[j]+arr[k])>max)
+	                 max=arr[i]+arr[j]+arr[k];
+	    return max;
+	}
+}
+
+
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Size of the Array :");
+		int n=sc.nextInt();
+		if(n<3)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.printf("Enter %d Element's\n",n);
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+		int res=largestPerimeter(arr);
+		if(res==0)
+		  System.out.println("It is Impossible to Form Any Triangle Of A Non-zero Area");
+		else
+		  System.out.println("Largest Perimeter of a Triangle is "+res);
+	}
+	
+	public static int largestPerimeter(int[] arr)
+	{
+	    Arrays.sort(arr);
+	    for(int i=arr.length-1;i>=2;i--)
+	      if((arr[i-1]+arr[i-2])>arr[i])
+	         return arr[i]+arr[i-1]+arr[i-2];
+	    return 0;
+	}
+}
