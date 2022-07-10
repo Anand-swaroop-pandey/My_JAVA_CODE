@@ -1,6 +1,17 @@
 //Using String
-class Solution {
-    public String digitSum(String s, int k) 
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a String Consisting of Digits [0-9]  :");
+		String str=sc.nextLine();
+		System.out.println("Enter Value of 'K' :");
+		int k=sc.nextInt();
+		System.out.println("Resultant String :"+digitSum(str,k));
+	}
+	
+    public static String digitSum(String s, int k) 
     {
         int sum,n;
         while(s.length()>k)
@@ -20,10 +31,22 @@ class Solution {
     }
 }
 
+
 //Using String Builder
 
-class Solution {
-    public String digitSum(String s, int k) 
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a String Consisting of Digits [0-9]  :");
+		String str=sc.nextLine();
+		System.out.println("Enter Value of 'K' :");
+		int k=sc.nextInt();
+		System.out.println("Resultant String :"+digitSum(str,k));
+	}
+	
+    public static String digitSum(String s, int k) 
     {
         int sum,n;
         while(s.length()>k)
