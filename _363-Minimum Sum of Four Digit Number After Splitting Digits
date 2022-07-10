@@ -1,0 +1,27 @@
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a Positive Integer :");
+		int num=sc.nextInt();
+		System.out.println("minimum possible sum :"+minimumSum(num));
+	}
+	
+	public static int minimumSum(int num)
+	{
+      int[] arr=new int[4];
+      int idx=0;
+      while(num!=0)
+      {
+        arr[idx++]=num%10;
+        num=num/10;
+      }
+    
+      Arrays.sort(arr);
+      int num1=arr[0]*10+arr[2];
+      int num2=arr[1]*10+arr[3];
+    
+      return (num1+num2);
+    }
+}
