@@ -24,7 +24,7 @@ public class Test
 	   for(int i=1;i<=n;i++)
 	   {
                c=a+b;
-               System.out.printf(c+" ");
+               System.out.print(c+" ");
 	       a=b;
 	       b=c;
 	   }
