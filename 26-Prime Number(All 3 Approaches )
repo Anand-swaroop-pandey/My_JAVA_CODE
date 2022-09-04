@@ -76,12 +76,11 @@ public class Test
 	{
             if(num<=1)
 	      return "is Not Prime";
-	   
-	    int sqrt=(int)Math.sqrt(num); 
-            for(int i=2;i<=sqrt;i++)
-              if((num%i)==0)
-                 return "is Not Prime";  
+	  
+           for(int i=2;i<=(int)Math.sqrt(num);i++)
+             if((num%i)==0)
+                return "is Not Prime";  
                  
-            return "is Prime";
+           return "is Prime";
 	}
 }
