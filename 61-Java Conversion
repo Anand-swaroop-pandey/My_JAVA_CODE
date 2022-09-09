@@ -173,8 +173,8 @@ public class Test
 	public static void IntToChar()
 	{
 	   int a=65;  
-           char c=(char)a;  
-           System.out.println(a);  
+           char ch=(char)a;  
+           System.out.println(ch);  
 	}
 	
 	public static void CharToInt()
