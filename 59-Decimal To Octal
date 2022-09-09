@@ -12,13 +12,10 @@ public class Test
  
   public static String decToOct(int dec)
   {
-      String res="";
       if(dec==0)
-      {
-         res=res+dec;
-         return res;
-      }
-       
+        return "0";
+         
+      String res="";    
       while(dec!=0)
       {
         res=res+dec%8;
