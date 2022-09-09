@@ -26,7 +26,7 @@ public class Test {
                 System.out.print(data);
                 if(j<4)
                   data++;
-                  else
+                else
                   data--;
             }
              else
@@ -62,7 +62,7 @@ public class Test {
                 System.out.print(data);
                 if(j<row)
                   data++;
-                  else
+                else
                   data--;
             }
              else
