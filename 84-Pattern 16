@@ -37,7 +37,8 @@ public class Test {
             if(j>=(6-k))
                System.out.print(data++); 
             else
-                 System.out.print(" ");
+               System.out.print(" ");
+               
           System.out.println(); 
        }
     }
@@ -74,7 +75,8 @@ public class Test {
             if(j>=(m+1-k))
                System.out.print(data++); 
             else
-                 System.out.print(" ");
+               System.out.print(" ");
+               
           System.out.println(); 
        }
     }
