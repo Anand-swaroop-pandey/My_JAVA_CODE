@@ -28,8 +28,7 @@ public class Test
 
 
 //Method 2 (Using BITWISE XOR)
-/*
-The idea is to check whether the last bit of the number is set or not. If the last bit is set then the number is odd, otherwise even. 
+/* 
 As we know bitwise XOR Operation of the Number by 1 increment the value of the number by 1 if the number is even
 otherwise it decrements the value of the number by 1 if the value is odd.
 */
@@ -59,7 +58,6 @@ public class Test
 
 //Method 3 (Using BITWISE OR)
 /*
-The idea is to check whether the last bit of the number is set or not. If the last bit is set then the number is odd, otherwise even. 
 As we know bitwise OR Operation of the Number by 1 increment the value of the number by 1 if the number is even
 otherwise the value of the number remains the same/Unchanged, if the value is odd.
 */
@@ -79,9 +77,9 @@ public class Test
 
   public static boolean isEven(int num)
   {
-    if((num^1)==(num+1))
+    if((num|1)==(num+1))
       return true;
-    else //if((num^1)==num)
+    else //if((num|1)==num)
       return false; //Number is ODD
   }
 }
