@@ -27,9 +27,9 @@ public class Test {
             if(j==i || j==(8-i))
             {
                 if(j==i)
-                System.out.print("\\");
+                 System.out.print("\\");
                 else
-                System.out.print("/");
+                 System.out.print("/");
             }
             else
                  System.out.print("*");
@@ -61,9 +61,9 @@ public class Test {
             if(j==i || j==(row+1-i))
             {
                 if(j==i)
-                System.out.print("\\");
+                 System.out.print("\\");
                 else
-                System.out.print("/");
+                 System.out.print("/");
             }
             else
                  System.out.print("*");
