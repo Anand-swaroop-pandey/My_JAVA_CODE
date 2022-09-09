@@ -1,7 +1,7 @@
 // Method 1
 
 import java.util.Scanner;
-public class Test
+public class Main
 {
   public static void main (String[]args)
   {
@@ -16,13 +16,12 @@ public class Test
         if(dec==0)
           return "0";
           
-        String res="";
-        char[] hexArray={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+        String res="",hex="0123456789ABCDEF";
         
         while(dec!=0)
         {
           int rem=dec%16;
-          res=res+hexArray[rem];
+          res=res+hex.charAt(rem);
           dec=dec/16;
         }
         
