@@ -22,16 +22,15 @@ public class Test {
            int num=1;
            for(int j=1;j<=8;j++)
              if(j>=(5-i) && j<=(4+i))
-             {
-                 
+             { 
                  if(j<=4)
                    System.out.print(ch++);
                  else
                    System.out.print(num++);
-             }
-               
+             }  
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
@@ -60,16 +59,15 @@ public class Test {
            int num=1;
            for(int j=1;j<=col;j++)
              if(j>=(row+1-i) && j<=(row+i))
-             {
-                 
+             {   
                  if(j<=row)
                    System.out.print(ch++);
                  else
                    System.out.print(num++);
-             }
-               
+             } 
              else
                System.out.print(" ");
+               
             System.out.println();   
        }
     }
