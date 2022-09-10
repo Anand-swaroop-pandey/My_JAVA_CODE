@@ -30,7 +30,8 @@ public class Test {
                    System.out.print("1");
                  else
                    System.out.print("0");
-                   flag=1-flag;
+                   
+                 flag=1-flag;
              }
              else
                System.out.print(" ");
@@ -66,7 +67,8 @@ public class Test {
                    System.out.print("1");
                  else
                    System.out.print("0");
-                   flag=1-flag;
+                   
+                flag=1-flag;
              }
              else
                System.out.print(" ");
