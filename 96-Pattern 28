@@ -26,8 +26,7 @@ public class Test {
            else
               k=k+2*(i-1);
            
-           int temp=k;
-           int flag=1;
+           int temp=k,flag=1;
            for(int j=1;j<=9;j++)
              if(j<=(2*i)-1)
              {
@@ -41,6 +40,7 @@ public class Test {
                 }
                 else
                   System.out.print("*");
+                  
                 flag=1-flag;
              }
              else
@@ -73,8 +73,7 @@ public class Test {
            else
               k=k+2*(i-1);
            
-           int temp=k;
-           int flag=1;
+           int temp=k,flag=1;
            for(int j=1;j<=col;j++)
              if(j<=(2*i)-1)
              {
@@ -88,6 +87,7 @@ public class Test {
                 }
                 else
                   System.out.print("*");
+                  
                 flag=1-flag;
              }
              else
