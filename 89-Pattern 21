@@ -1,11 +1,10 @@
 /*
-
-   A   
-  ABA  
- ABCBA 
-ABCDCBA
-
+   A1   
+  AB12  
+ ABC123 
+ABCD1234
 */
+
 //Figure Specific Code
 import java.util.Scanner;
 public class Test {
