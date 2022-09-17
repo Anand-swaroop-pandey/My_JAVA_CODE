@@ -16,16 +16,11 @@ public class Test
   
   public static void pattern54()
   {
-      for (int i = 1; i <=4; i++)
+      for (int i = 1; i<=4; i++)
       {
-	  for(int j = 1; j <=6; j++)
-	      if(i==1 || i==4|| j==(4-i) || j==(7-i))
-	      {
-	          if(j<(4-i) || j>(7-i))
-	            System.out.print(" ");
-	          else
-	            System.out.print("*");
-	      }
+	    for(int j = 1; j<=6; j++)
+	      if(i==1 && j>(4-i)  || i==4 && j<(7-i) || j==(4-i) || j==(7-i))
+	         System.out.print("*");
               else
                  System.out.print(" ");
 		 
@@ -35,6 +30,7 @@ public class Test
 }
 
 //Generalised Code
+
 import java.util.Scanner;
 public class Test
 {
@@ -52,18 +48,13 @@ public class Test
   {
       for (int i = 1; i <=row; i++)
       {
-	   for (int j = 1; j <=col; j++)
-	       if(i==1 || i==row|| j==(row-i) || j==((2*row)-1-i))
-	       {
-	           if(j<(row-i) || j>((2*row)-1-i))
-	              System.out.print(" ");
-	           else
-	              System.out.print("*");
-	       }
-               else
-                 System.out.print(" ");
+	  for(int j = 1; j <=col; j++)
+	     if(i==1 && j>(row-i)  || i==row && j<((2*row)-1-i) || j==(row-i) || j==((2*row)-1-i))
+	       System.out.print("*");
+             else
+               System.out.print(" ");
 		 
-	    System.out.println ();
+	   System.out.println ();
       }
   }
 }
