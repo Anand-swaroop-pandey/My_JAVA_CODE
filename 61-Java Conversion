@@ -88,7 +88,7 @@ public class Test
            //The parseFloat() is the static method of Float class. The signature of parseFloat() method is given below:
           //public static int parseFloat(String s)  
           String s="23.6";  
-          float f=Float.parseFloat("23.6");  
+          float f=Float.parseFloat(s);  
           System.out.println(f);
  	}
  	
@@ -113,7 +113,7 @@ public class Test
           //The parseDouble() is the static method of Double class. The signature of parseDouble() method is given below:
           //public static double parseDouble(String s)  
           String s="23.6";  
-          double d=Double.parseDouble("23.6");  
+          double d=Double.parseDouble(s);  
           System.out.println(d);  
  	}
  	
