@@ -69,6 +69,7 @@ public class Test
         System.out.print("Enter Even Rows:");
         int row = sc.nextInt();
         int col=row-1;
+        pattern47(row,col);
    }
    
   public static void pattern47(int row,int col)
@@ -84,7 +85,7 @@ public class Test
 	    else if(i>(m+1))
 	    {
 	      k--; 
-	      data=data-(9-i);
+	      data=data-(row+1-i);
 	    }
 	    
 	    int flag=1,temp=data;
