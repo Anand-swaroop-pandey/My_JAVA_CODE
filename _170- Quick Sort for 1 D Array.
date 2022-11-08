@@ -50,13 +50,14 @@ public class Test
         while(i<n && arr[i]<=pivot )
           i++;
           
-        while(j>=0 && arr[j]>=pivot)
+        while(j>=0 && arr[j]>pivot)
           j--;
           
-        if(i<j)
-         swap(arr,i,j);
+        if(i<j) //Swap arr[i] and arr[j]
+          swap(arr,i,j);
      }
-     swap(arr,i,j);
+     //if i>j => Swap Pivot(arr[lb]) and arr[j]
+     swap(arr,lb,j);
        
      return j;  //index of pivot element    
    }
