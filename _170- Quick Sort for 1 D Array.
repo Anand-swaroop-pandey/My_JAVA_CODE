@@ -70,3 +70,82 @@ public class Test
        arr[j]=temp;
    }
 }
+
+
+//Aliter (Another Implementation Of QuickSort)
+
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+           for(int i=0;i<n;i++)
+               System.out.println(arr[i]);
+            
+           if(n>1)
+             quickSort(arr,0,(n-1));
+            
+           System.out.println("Sorted Array:");
+           for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
+        }
+        else
+          System.out.println("Invalid Choice");
+   }
+
+
+   public static void quickSort(int[]arr,int lb,int ub)
+   {
+      if(lb<ub)
+      {
+          int index=partition(arr,lb,ub);
+          quickSort(arr,lb,index-1);
+          quickSort(arr,index+1,ub);
+      }
+   }
+   
+   
+   public static int partition(int[] arr,int lb,int ub)
+   {
+     int i=lb,j=ub,pivot=arr[lb],n=arr.length;
+     
+     while(true)
+     {
+        while(i<n && arr[i]<=pivot )
+          i++;
+          
+        while(j>=0 && arr[j]>pivot)
+          j--;
+          
+        if(i<j) //Swap arr[i] and arr[j]
+          swap(arr,i,j);
+        else //if i>j => Swap Pivot(arr[lb]) and arr[j]
+        {
+          swap(arr,lb,j);
+          break;
+        }
+     }
+     
+     return j;  //index of pivot element    
+   }
+   
+    
+   public static void swap(int[]arr,int i,int j)
+   {
+       int temp=arr[i];
+       arr[i]=arr[j];
+       arr[j]=temp;
+   }
+}
