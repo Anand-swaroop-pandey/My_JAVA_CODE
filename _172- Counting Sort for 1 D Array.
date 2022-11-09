@@ -18,11 +18,8 @@ public class Test
             for(int i=0;i<n;i++)
                   System.out.println(arr[i]);
                   
-            System.out.println("Enter Upper Range:");
-            int range=sc.nextInt();
-            
             if(n>1)
-              countingSort(arr,range);
+              countingSort(arr);
             
             System.out.println("Sorted Array:");
             for(int i=0;i<n;i++)
@@ -32,16 +29,17 @@ public class Test
           System.out.println("Invalid Choice");    
    }
 
-   public static void countingSort(int[]arr,int range)//will only work for +ve integers
+   public static void countingSort(int[]arr)//will only work for +ve integers
    {
-        int[] count=new int[range+1];
+        int maxEle=getMax(arr);
+        int[] count=new int[maxEle+1];
         int n=arr.length;
         int[] temp=new  int[n];
        
         for(int i=0;i<n;i++)
            count[arr[i]]++;
           
-        for(int i=1;i<(range+1);i++)
+        for(int i=1;i<(maxEle+1);i++)
            count[i]+=count[i-1];
            
         for(int i=(n-1);i>=0;i--)
@@ -50,7 +48,18 @@ public class Test
         for(int i=0;i<n;i++)
            arr[i]=temp[i];
    }
+   
+   public static int getMax(int[] arr)
+   {
+      int n=arr.length,max=arr[0];
+      for(int i=1;i<n;i++)
+        if(arr[i]>max)
+          max=arr[i];
+      
+      return max;
+   }
 }
+
 
 /*
  Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be sorted. 
@@ -79,7 +88,7 @@ public class Test
                System.out.println(arr[i]);
             
             if(n>1)
-              countingSort(arr,255);   //https://www.commfront.com/pages/ascii-chart
+              countingSort(arr);   
             
             System.out.println("Sorted Array:");
             for(int i=0;i<n;i++)
@@ -89,16 +98,16 @@ public class Test
            System.out.println("Invalid Choice");
    }
 
-   public static void countingSort(char[] arr,int range)
+   public static void countingSort(char[] arr)
    {
-       int[] count=new int[range+1];
+       int[] count=new int[255+1];  // https://www.commfront.com/pages/ascii-chart
        int n=arr.length;
        char[] temp=new char[n];
        
        for(int i=0;i<n;i++)
           count[arr[i]]++;
           
-       for(int i=1;i<(range+1);i++)
+       for(int i=1;i<(255+1);i++)
           count[i]+=count[i-1];
            
        for(int i=(n-1);i>=0;i--)
