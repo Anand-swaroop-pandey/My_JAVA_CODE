@@ -141,3 +141,6 @@ public class Test
 }
 
 //****(Other Approaches to be Discussed Soon)
+>Using Max-Heap
+>Using Min-Heap
+>Using Quick Select
