@@ -92,7 +92,7 @@ public class Test
 }
 
 
-//Better Approach
+//Good Approach
 import java.util.Scanner;
 public class Test
 {
@@ -146,4 +146,87 @@ public class Test
 } 
 
 
+//Better Approach
+
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+             
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+                arr[i]=sc.nextInt();
+                
+           System.out.println("Entered Elements are:");
+            for(int i=0;i<n;i++)
+                  System.out.println(arr[i]);
+                 
+            System.out.println("Enter K:");
+            int k=sc.nextInt();
+            if(k>0 && k<=n)
+               System.out.printf("%d rd/th Smallest Element is %d",k,quickSelect(arr,0,n-1,n,k));
+       }
+       else
+          System.out.println("Invalid Choice");
+   }
+
+    public static int quickSelect(int[]arr,int lb,int ub,int n,int k)
+   {
+      if(lb<ub)
+      {
+          int index=partition(arr,lb,ub);
+          if((k-1)==index)
+            return arr[n-k];
+          else if((k-1)<index)
+            return quickSelect(arr,lb,index-1,n,k);
+          else
+            return quickSelect(arr,index+1,ub,n,k);
+      }
+      //if(lb==ub)
+      return arr[lb]; //return arr[ub];
+   }
+   
+   
+   public static int partition(int[] arr,int lb,int ub)
+   {
+     int i=lb,j=ub,pivot=arr[lb],n=arr.length;
+     
+     while(true)
+     {
+        while(i<n && arr[i]<=pivot )
+          i++;
+          
+        while(j>=0 && arr[j]>pivot)
+          j--;
+          
+        if(i<j) //Swap arr[i] and arr[j]
+          swap(arr,i,j);
+        else //if i>j => Swap Pivot(arr[lb]) and arr[j]
+        {
+          swap(arr,lb,j);
+          break;
+        }
+     }
+     
+     return j;  //index of pivot element    
+   }
+   
+    
+   public static void swap(int[]arr,int i,int j)
+   {
+       int temp=arr[i];
+       arr[i]=arr[j];
+       arr[j]=temp;
+   }
+}
+
 //***(Other  Approaches to Solve this Problem will be  provided soon)
+>Using Max-Heap
+>Using Min-Heap
