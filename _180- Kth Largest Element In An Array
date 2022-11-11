@@ -35,7 +35,7 @@ public class Test
 }
 
 
-//Bruteforce Approach(Sort in Descending Order till (k-1)th Index and return arr[k-1])
+//Bruteforce Approach(Sort in Descending Order till (k-1)th Index and return arr[k-1]) (Idea : https://youtu.be/x3HDo6H90Y0)
 import java.util.Scanner;
 public class Test
 {
@@ -87,7 +87,7 @@ public class Test
 }
 
 
-//Good Approach
+//Good Approach (Idea : https://youtu.be/o4bAoo_gFBU)
 import java.util.Scanner;
 public class Test
 {
