@@ -43,6 +43,58 @@ public class Test
    }
 }
 
+//Good Approach
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr=new int[n];
+           System.out.printf("Enter %d Elements:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextInt();
+           
+           if(n>1)
+             segregatePosAndNeg(arr);
+             
+           System.out.println("Segregated Array :");
+           for(int i=0;i<n;i++)
+              System.out.println(arr[i]);
+       }
+       else
+         System.out.println("Invalid Choice");
+   }
+  
+  
+   public static void segregatePosAndNeg(int[]arr)
+   {
+       int i=0,j=0, n=arr.length;
+       while(i < n) //'j' is tracking the +ve Elemnent while 'i' is used for iterating over the array 
+           if(arr[i]<0)
+           {
+               for (int k = i; k > j; k--) //This loop maintains the order of appearence
+                  swap(arr,k,k-1);
+
+               j++;
+               i++;
+           }
+           else
+             i++;
+   }
+   
+   public static void swap(int[] arr,int i,int j)
+   {
+        int temp = arr[i];
+        arr[i] = arr[i-1];
+        arr[i-1] = temp;
+   }
+}
+
 
 //Better Approach
 import java.util.Scanner;
