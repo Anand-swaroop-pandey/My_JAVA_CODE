@@ -326,16 +326,16 @@ public class Test
     public static int findOnlyRepeated(int arr[])
     {
       int n=arr.length,repeating=-1;
-      boolean[] count=new boolean[n];
+      boolean[] isPresent=new boolean[n];
 	  
       for(int i=0;i<n;i++)
-         if(count[arr[i]]==true)
+         if(isPresent[arr[i]]==true)
          {
             repeating=arr[i];
             break;
          }
          else
-           count[arr[i]]=true;
+           isPresent[arr[i]]=true;
       
       return repeating;
     }
