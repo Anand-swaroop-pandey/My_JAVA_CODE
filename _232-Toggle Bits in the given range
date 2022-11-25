@@ -30,6 +30,54 @@ public class Test
     }
 }
 
+//Better Approach
+
+import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args)
+    {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter the Number:");
+	 int n=sc.nextInt();
+	 System.out.println("Enter lower range:");
+	 int low=sc.nextInt();
+	 System.out.println("Enter upper Range:");
+	 int high=sc.nextInt();
+	 System.out.printf("Number Formed After Toggling bits of %d from position %d(From Right) to position %d is %d",n,low,high,toggleBitsInRange(n,low,high));
+    }
+    
+    public static int toggleBitsInRange(int n,int start,int end)
+    {
+      int ans=0;
+      start--;
+      end--;
+      for(int i=0,pwr=0;i<32;i++,pwr++)
+      {
+        int mask=1<<i;
+        int temp=mask&n;
+        
+        if(i<start)
+        {
+          if(temp!=0)
+            ans+=(int)Math.pow(2,pwr);
+        }
+        else if(i>=start && i<=end)
+        {
+          if(temp==0)
+            ans+=(int)Math.pow(2,pwr);
+        }
+        else//if(i>end && i<32)
+        {
+          if(temp!=0)
+            ans+=(int)Math.pow(2,pwr);
+        }
+      }
+      
+      return ans;
+    }
+}
+
 //Optimal Approach
 
 import java.util.Scanner;
