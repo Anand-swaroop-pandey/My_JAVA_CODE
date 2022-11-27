@@ -1,4 +1,6 @@
 
+//Scenario : counting from right -> left
+
 import java.util.Scanner;
 public class Test
 {
@@ -20,6 +22,34 @@ public class Test
        preservedEvenBits=num&even_Mask;
        preservedOddBits=preservedOddBits<<1;
        preservedEvenBits=preservedEvenBits>>1;
+       res=preservedOddBits | preservedEvenBits;
+       return res;
+    }
+}
+
+//Aliter (Scenario  : counting from left -> right)
+
+import java.util.Scanner;
+public class Test
+{
+     public static void main(String[] args)
+     {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Number:");
+        int num=sc.nextInt();
+        System.out.printf("Number Obtained on Swapping Adjacent Bits of %d is : %d",num,swapAdjacentBits(num));
+     }
+    
+    public static int swapAdjacentBits(int num)
+    {
+       int odd_Mask,even_Mask,preservedOddBits,preservedEvenBits,res;
+       
+       odd_Mask=0xAAAAAAAA;
+       even_Mask=0x55555555;
+       preservedOddBits=num&odd_Mask;
+       preservedEvenBits=num&even_Mask;
+       preservedOddBits=preservedOddBits>>1;
+       preservedEvenBits=preservedEvenBits<<1;
        res=preservedOddBits | preservedEvenBits;
        return res;
     }
@@ -58,7 +88,7 @@ prserved odd bit >> 1 => (0 b1 0  b3 0  b5 0  b7 )
 
 prserved even bit << 1=> (b2 0 b4  0 b6  0 b8  0)
 
-preserved odd bit | preserved even bit
+result = preserved odd bit | preserved even bit
 
 result = (b2 b1 b4 b3 b6 b5 b8 b7)	
 */
@@ -97,7 +127,7 @@ prserved odd bit << 1 => (b7 0  b5 0  b3 0  b1 0)
 
 prserved even bit >> 1=> (0  b8 0  b6  0 b4  0 b2)
 
-preserved odd bit | preserved even bit
+result = preserved odd bit | preserved even bit
 
 result = (b7 b8 b5 b6 b3 b4 b1 b2)
 */
