@@ -24,3 +24,80 @@ public class Test
        return res;
     }
 }
+
+/* 
+    Scenario 1 : counting from left -> right
+     
+    in Hexadecimal (1 0 1 0) = A
+    in Hexadecimal (0 1 0 1) = 5
+    
+    Given :
+    
+    num= (b1 b2 b3 b4 b5 b6 b7 b8)
+    
+    Aim :(b2 b1 b4 b3 b6 b5 b8 b7)
+    
+    
+          o  e  o  e  o  e  o  e
+     num=(b1 b2 b3 b4 b5 b6 b7 b8)
+     &
+Odd mask= 1  0  1  0  1  0  1  0         => (This mask will preserve all the odd bit's) (i.e Odd mask =0xAAAAAAAA )
+--------------------------------------	
+         (b1 0  b3 0  b5 0  b7 0) => preserved odd bit      (All odd bit's are preserved)
+       
+
+          o  e  o  e  o  e  o  e
+     num=(b1 b2 b3 b4 b5 b6 b7 b8)
+     &
+Even mask=0  1  0  1  0  1  0  1         => (This mask will preserve all the Even bit's) (i.e Even Mask = 0x55555555)
+--------------------------------------	
+         (0 b2  0  b4 0 b6  0 b8) => preserved even bit       (All Even bit's are preserved) 
+	 
+	                  o e  o  e  o  e  o  e
+prserved odd bit >> 1 => (0 b1 0  b3 0  b5 0  b7 )
+
+prserved even bit << 1=> (b2 0 b4  0 b6  0 b8  0)
+
+preserved odd bit | preserved even bit
+
+result = (b2 b1 b4 b3 b6 b5 b8 b7)	
+*/
+
+
+/*
+
+    Scenario 2 : counting from right -> left
+     
+    in Hexadecimal (1 0 1 0) = A
+    in Hexadecimal (0 1 0 1) = 5
+    
+    Given :
+    
+    num= (b8 b7 b6 b5 b4 b3 b2 b1)
+    
+    Aim :(b7 b8 b5 b6 b3 b4 b1 b2)
+    
+    
+          e  o  e  o  e  o  e  o
+     num=(b8 b7 b6 b5 b4 b3 b2 b1)
+     &
+Odd mask= 0  1  0  1  0  1  0  1         => (This mask will preserve all the odd bit's) (i.e Odd mask =0x55555555 )
+--------------------------------------	
+         (0  b7 0  b5 0  b3 0  b1) => preserved odd bit      (All odd bit's are preserved)
+       
+          e  o  e  o  e  o  e  o
+     num=(b8 b7 b6 b5 b4 b3 b2 b1)
+     &
+Even mask=1  0  1  0  1  0  1  0         => (This mask will preserve all the Even bit's) (i.e Even Mask = 0xAAAAAAAA)
+--------------------------------------	
+         (b8 0  b6 0  b4 0  b2 0) => preserved even bit       (All Even bit's are preserved) 
+	 
+	                  e  o  e  o  e  o  e  o
+prserved odd bit << 1 => (b7 0  b5 0  b3 0  b1 0) 
+
+prserved even bit >> 1=> (0  b8 0  b6  0 b4  0 b2)
+
+preserved odd bit | preserved even bit
+
+result = (b7 b8 b5 b6 b3 b4 b1 b2)
+*/
