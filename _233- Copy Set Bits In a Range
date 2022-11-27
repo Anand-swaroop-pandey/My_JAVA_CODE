@@ -22,8 +22,9 @@ public class Test
           mask1=1<<(end-start+1);
           mask1=mask1-1;
           mask1=mask1<<(start-1);
-          mask2=num2 & mask1;
+          mask2=num1 & mask1;
+          res=num2|mask2;
 	  
          return res;
-       }
+        }
 }
