@@ -68,24 +68,9 @@ public class Test
 /*The basic idea is from power of 2, We can use "n&(n-1) == 0" to determine if n is power of 2.
 For power of 4, the additional restriction is that in binary form, the only "1" should always located at the odd position*/
 
-import java.util.Scanner;
-public class Test
-{
-     public static void main(String[] args)
-     {
-	 Scanner sc=new Scanner(System.in);
-         System.out.println("Enter Number:");
-         int num=sc.nextInt();
-      
-         if(isPowerOf4(num))
-           System.out.printf("%d is A Power OF 4\n",num);
-	 else
-           System.out.printf("%d is Not a Power OF 4\n",num);
-    }
-
-    public static boolean isPowerOf4(int num)
-    {
-       if(isPowerOf2(num) && isSetBitAtOddPosition(num))
+class Solution {
+    public boolean isPowerOfFour(int num) {
+        if(isPowerOf2(num) && isEvenPowerOfTwo(num))
          return true;
 	 
        return false;
@@ -104,12 +89,12 @@ public class Test
         }
      }
 	
-     public static boolean isSetBitAtOddPosition(int num)
+     public static boolean isEvenPowerOfTwo(int num)
      {
         int mask; 
-        for(int i=2;i<=32;i+=2)
+        for(int i=1;i<32;i+=2)
         {
-           mask=1<<(i-1);
+           mask=1<<i;
            if((num & mask)!=0)
              return false;
         }
@@ -127,21 +112,21 @@ For example, 4^0 = 1, 4^1 = 100, 4^2 = 10000. So we can use "num & 0x55555555==n
 import java.util.Scanner;
 public class Test
 {
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter Number:");
-	    int num=sc.nextInt();
+    public static void main(String[] args)
+    {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter Number:");
+	 int num=sc.nextInt();
       
-	    if(isPowerOf4(num))
-	       System.out.printf("%d is A Power OF Four\n",num);
-	    else
-	       System.out.printf("%d is Not a Power OF Four",num);
-	}
+	 if(isPowerOf4(num))
+	    System.out.printf("%d is A Power OF Four\n",num);
+	 else
+	    System.out.printf("%d is Not a Power OF Four",num);
+    }
 
     public static boolean isPowerOf4(int num)
     {
-       if(isPowerOf2(num)==true && isSetBitAtOddPosition(num)==true)
+       if(isPowerOf2(num)==true && isEvenPowerOfTwo(num)==true)
          return true;
 	 
        return false;
@@ -160,7 +145,7 @@ public class Test
         }
     }
     
-    public static boolean isSetBitAtOddPosition(int num)
+    public static boolean isEvenPowerOfTwo(int num)
     {
        int oddMask=0x55555555;
        if((num & oddMask) == num)
