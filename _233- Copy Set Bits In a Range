@@ -1,3 +1,48 @@
+//Intuitive Approach
+
+import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Number1:");
+       int m=sc.nextInt();
+       System.out.println("Enter the Number2:");
+       int n=sc.nextInt();
+       System.out.println("Enter lower range:");
+       int low=sc.nextInt();
+       System.out.println("Enter upper Range:");
+       int high=sc.nextInt();
+       System.out.printf("Number Formed After Copying Set bits of %d from position %d(From Right) to position %d into %d is %d",n,low,high,m,copySetBits(m,n,low,high));
+    }
+    
+    public static int copySetBits(int num1,int num2,int start,int end)
+    {
+        int mask1,mask2,temp,res=num2;
+        
+        for(int i=(start-1);i<=(end-1);i++)
+        {
+            mask1=1<<i;
+            temp=num1&mask1;
+            
+            if(temp!=0)
+              res=setTheKthBit(res,i); 
+        }
+        return res;
+    }
+    
+    public static int setTheKthBit(int num,int k)
+    {
+       int mask=1<<k;
+       int res=num | mask;
+       return res;
+    }
+}
+
+
+
+//Optimal Approach
 import java.util.Scanner;
 public class Test
 {
