@@ -37,10 +37,7 @@ public class Test
                dividend=dividend-divisor;
                quotient++;
             }
-		
-            if(signOfQuotient==-1)
-              quotient=-quotient;
 		 
-	  return quotient;  
+	  return signOfQuotient*quotient;  
      }
 }
