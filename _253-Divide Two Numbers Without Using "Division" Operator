@@ -2,7 +2,7 @@
 import java.util.Scanner;
 public class Test
 {
-	 public static void main(String[] args)
+    	 public static void main(String[] args)
 	 {
 	    Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter Dividend");
@@ -20,38 +20,37 @@ public class Test
              {
                 System.out.printf("%d / %d => ",dividend,divisor); 
 		
-		if(divisor==1)
-		   return dividend;
-		   
+	        if(divisor==1)
+	           return "Quotient= "+Integer.toString(dividend)+" and remainder = "+"0";
+		        
+		if(divisor==-1 && dividend>0)
+	           return "Quotient= "+Integer.toString(-dividend)+" and remainder = "+"0"; 
+	        else if(divisor==-1 && dividend<0)
+	           return "Quotient= "+Integer.toString(Math.abs(dividend))+" and remainder = "+"0"; 
+	          	   
+		       
                 int signOfQuotient=1,signOfRemainder=1;
              
                 if((dividend<0 && divisor>0) || (dividend>0 && divisor<0))
-		{
-		  signOfQuotient=-1; //Quotient will be negative
-		  
-		  if(dividend<0) //remainder will be negative
-                    signOfRemainder=-1;
-		}
+	            signOfQuotient=-1; //Quotient will be negative
+	            
+	        if(dividend<0) //remainder will be negative
+                   signOfRemainder=-1;
+	          	
               
                 divisor=Math.abs(divisor);
                 dividend=Math.abs(dividend);
                  
-		int quotient=0;
+	        int quotient=0;
                 while(dividend>=divisor)
                 {
                  dividend=dividend-divisor;
                  quotient++;
                 }
-		
-                if(signOfQuotient==-1)
-                 quotient=-quotient;
-		 
-		int remainder=dividend; 
-		
-                if(signOfRemainder==-1)
-                 remainder=-dividend;
-		 
-               return "Quotient= "+quotient+" and Remainder= "+remainder;  
+                
+	       int remainder=dividend; 
+	
+               return "Quotient= "+(quotient*signOfQuotient)+" and Remainder ="+remainder*signOfRemainder;  
              } 
         }
 }
