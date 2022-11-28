@@ -1,4 +1,56 @@
-//(via Repeated Substraction)
+Method : Via Repeated Substraction
+
+//Intuitive implementation
+import java.util.Scanner;
+public class Test
+{
+    	 public static void main(String[] args)
+	 {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter Dividend");
+            int num1=sc.nextInt();
+            System.out.println("Enter Divisor");
+            int num2=sc.nextInt();
+            System.out.printf(division(num1,num2));
+	 }
+	 
+         public static String division(int dividend,int divisor) //find (num1/num2)?
+         {
+             if(divisor==0)
+               return "Error!! Division Not Possible!! Divisor Cannot be Zero."; 
+             else
+             {
+                System.out.printf("%d / %d => ",dividend,divisor); 
+		       
+                int signOfQuotient=1,signOfRemainder=1;
+             
+                if((dividend<0 && divisor>0) || (dividend>0 && divisor<0))
+	            signOfQuotient=-1; //Quotient will be negative
+	            
+	        if(dividend<0) //remainder will be negative
+                   signOfRemainder=-1;
+	          	
+              
+                divisor=Math.abs(divisor);
+                dividend=Math.abs(dividend);
+                 
+	        int quotient=0;
+                while(dividend>=divisor)
+                {
+                 dividend=dividend-divisor;
+                 quotient++;
+                }
+                
+	       int remainder=dividend; 
+	
+               return "Quotient= "+(quotient*signOfQuotient)+" and Remainder ="+remainder*signOfRemainder;  
+             } 
+        }
+}
+
+
+//Optimal Implementation
+
 import java.util.Scanner;
 public class Test
 {
