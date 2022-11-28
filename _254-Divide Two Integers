@@ -14,13 +14,19 @@ public class Test
 	 
      public static int division(int Dividend,int Divisor) //find (num1/num2)?
      {
-           long dividend=Dividend,divisor=Divisor;
+            long dividend=Dividend,divisor=Divisor;
        
-           if(divisor==1)
-             return (int)dividend;
-       
-           if(dividend==Integer.MIN_VALUE && divisor==-1) //Corner Case
-             return Integer.MAX_VALUE;
+            if(divisor==1)
+	       return (int)dividend;    
+            else if(divisor==-1 && dividend>0)
+	       return (int)-dividend; 
+	    else if(divisor==-1 && dividend<0)
+            {
+              if(dividend==Integer.MIN_VALUE)  //Integer.MIN_VALUE= -2^31 = -2147483648  and Integer.MAX_VALUE = 2^31-1 = 2147483647 
+                return Integer.MAX_VALUE;
+                
+              return (int)Math.abs(dividend);  
+            }
        
             int signOfQuotient=1;
              
