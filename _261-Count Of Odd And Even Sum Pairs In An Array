@@ -119,7 +119,7 @@ public class Test
   (6,3) (Sum=6+3=9)     }
   (6,5) (Sum=6+5=11)    }
   
-  Therefore No. of Possible Pairs With Even Sum are : (cntEven * cntOdd) = 3 * 4 = 12.
+  Therefore No. of Possible Pairs With Odd Sum are : (cntEven * cntOdd) = 3 * 4 = 12.
   
   
   nCr = n!/(r!*(n-r)!)
