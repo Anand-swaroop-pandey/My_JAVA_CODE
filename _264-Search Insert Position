@@ -108,3 +108,59 @@ public class Test
       return low; //return high+1;
    }
 }
+
+
+// Aliter Implementation :
+
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of Array");
+	int n=sc.nextInt();
+        if(n<1)
+        {
+           System.out.println("Invalid Choice");
+           return;
+        }
+        int[]arr=new int[n];
+        
+        System.out.printf("Enter %d Elements of Array :\n",n);
+        for(int i=0;i<n;i++)
+          arr[i]=sc.nextInt();
+          
+        System.out.printf("Enter Target Value :\n");
+        int key=sc.nextInt();
+          
+        System.out.println(searchInsert(arr,n,key));
+   }
+	
+   public static int searchInsert(int[] arr,int n,int key)
+   {
+      return binarySearch(arr,n,key);  
+   }
+    
+   public static int binarySearch(int[]arr,int n,int key)
+   {
+      if(key<arr[0])
+         return 0;
+      else if(key>arr[n-1])
+         return n;
+      
+      int low=0;
+      int high=n-1;
+      while(low<=high)
+      {
+          int mid=low+(high-low)/2;
+          if(arr[mid]==key)
+            return mid;//Key is found in the Array at index mid
+          else if(key<arr[mid])
+            high=mid-1;
+          else if(key>arr[mid])
+            low=mid+1;
+      }
+      //Key Doesnot Exists in the Array however the Correct index of Key in the array would be low or high+1
+      return low; //return high+1;
+   }
+}
