@@ -1,4 +1,5 @@
 //Intuitive Approach
+
 import java.util.Scanner;
 public class Test
 {
@@ -27,35 +28,39 @@ public class Test
 	
     public static int[] plusOne(int[] arr)
     {
-       int[]res=new int[arr.length+1]; // Ex: arr[]={9,9,9} +1 = res[]=> {1,0,0,0} 
-       int k=add1(arr,res); 
-        
-       int[] ans=new int[k];      
-       for (int i=0;i<k; i++)
-         ans[i]=res[k-1-i];
-        return ans;
+       boolean all_9s=true;
+       int n=arr.length;
+       for(int i=0;i<n;i++)
+          if(arr[i]!=9)
+          {
+            all_9s=false;
+            break;
+          }
+       
+       if(all_9s==true)
+       {
+         int[]res=new int[n+1]; // Ex: arr[]={9,9,9} +1 = res[]=> {1,0,0,0} 
+         res[0]=1;
+         return res;
+       }
+    
+       return add1(arr,n); 
     }
 	
-	
-    public static int add1(int[] num,int[] res) 
+    public static int[] add1(int[] num,int n) 
     {
-        int i=num.length-1,k=0;
+        int[]res=new int[n];
         
-        res[k++]=(num[i]+1)%10;
-        int carry=(num[i]+1)/10; 
-        i--;
+        res[n-1]=(num[n-1]+1)%10;
+        int carry=(num[n-1]+1)/10; 
 
-        while(i>=0)
+        for(int i=n-2;i>=0;i--)
         {
-          res[k++]=(num[i]+carry)%10; 
+          res[i]=(num[i]+carry)%10; 
 	  carry=(num[i]+carry)/10;
-          i--;
         }
-        
-        if(carry!=0)
-          res[k++]=carry;
-        
-        return k; 
+	
+        return res;
     }
 }
 
@@ -94,7 +99,7 @@ public class Test
           if(digits[i] < 9)
           {
              digits[i]+=1;
-            return digits;
+             return digits;
           }
           else // if digit[i]==9  
             digits[i] = 0;
