@@ -33,7 +33,7 @@ public class Test
             
             num.append(base);
         }
-        if(carry!=0)
+        if(carry==1)
           num.append(carry);
         
         StringBuilder reverseNum =num.reverse();
@@ -72,7 +72,7 @@ public class Test
             num.append(base);
         }
 	
-        if(carry!=0)
+        if(carry==1)
           num.append(carry);
         
         StringBuilder reverseNum =num.reverse();
