@@ -26,21 +26,26 @@ public class Test
     public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
           int n=arr.length;
-	  ArrayList<Integer>al=new ArrayList<>();
+	     
           String num1="";
           for(int i=0;i<n;i++)
             num1+=arr[i];
         
-          String num2=String.valueOf(k);
-          String res=addTwoNumbers(num1,num2);
-	  int len=res.length();
+          String num2=Integer.toString(k);
+          
+          String sum=addTwoNumbers(num1,num2);
+          
+	  int len=sum.length();
+          
+          ArrayList<Integer>res=new ArrayList<>();
           
           for(int i=0;i<len;i++)
           {
-            char ch=res.charAt(i);
-            al.add(ch-'0');
+            char ch=sum.charAt(i);
+            res.add(ch-'0');
           }
-          return al;
+          
+          return res;
     }
     
     
@@ -48,6 +53,7 @@ public class Test
     {
         int i=num1.length()-1,j=num2.length()-1,carry=0,d1,d2,base;
         StringBuilder num=new StringBuilder("");
+        
         while(i>=0 && j>=0)
         {
             d1=num1.charAt(i)-'0';
@@ -83,7 +89,7 @@ public class Test
           j--;
         }
         
-        if(carry!=0)
+        if(carry==1)
           num.append(carry);
         
         StringBuilder reverseNum =num.reverse();
@@ -120,19 +126,20 @@ public class Test
     public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
        int n=arr.length;
-       ArrayList<Integer>al=new ArrayList<>();
+      
        String num1="";
        for(int i=0;i<n;i++)
          num1+=arr[i];
         
-       String num2=String.valueOf(k);
+       String num2=Integer.toString(k);
        
-       return addTwoNumbers(num1,num2,al);
+       return addTwoNumbers(num1,num2);
     }
     
-    public static ArrayList<Integer> addTwoNumbers(String num1, String num2,ArrayList<Integer>al) 
+    public static ArrayList<Integer> addTwoNumbers(String num1, String num2) 
     {
         int i=num1.length()-1,j=num2.length()-1,carry=0,d1,d2,base;
+        ArrayList<Integer>res=new ArrayList<>();
  
         while(i>=0 && j>=0)
         {
@@ -142,7 +149,7 @@ public class Test
             base=((d1+d2)+carry)%10;
             carry=((d1+d2)+carry)/10;
 	    
-            al.add(base);
+            res.add(base);
             i--;
             j--;
         }
@@ -154,7 +161,7 @@ public class Test
 	   base=(d1+carry)%10;
 	   carry=(d1+carry)/10;
 	   
-           al.add(base);
+           res.add(base);
            i--;
         }
         
@@ -165,16 +172,16 @@ public class Test
 	  base=(d2+carry)%10;
 	  carry=(d2+carry)/10;
 	  
-	  al.add(base);
+	  res.add(base);
           j--;
         }
         
-        if(carry!=0)
-          al.add(carry);
+        if(carry==1)
+          res.add(carry);
         
-        Collections.reverse(al);
+        Collections.reverse(res);
         
-        return al; 
+        return res; 
     }
 }
 
@@ -206,13 +213,13 @@ public class Test
 	
     public static ArrayList<Integer> addToArrayForm(int[] arr, int k)
     {
-       ArrayList<Integer>al=new ArrayList<>();
-       return addTwoNumbers(arr,k,al);
+       return addTwoNumbers(arr,k);
     }
     
-    public static ArrayList<Integer> addTwoNumbers(int[] num1,int num2,ArrayList<Integer>al) 
+    public static ArrayList<Integer> addTwoNumbers(int[] num1,int num2) 
     {
         int i=num1.length-1,carry=0,d1,d2,base;
+        ArrayList<Integer>res=new ArrayList<>();
  
         while(i>=0 && num2!=0)
         {
@@ -222,7 +229,7 @@ public class Test
             base=((d1+d2)+carry)%10;
             carry=((d1+d2)+carry)/10;
             
-            al.add(base);
+            res.add(base);
             i--;
             num2=num2/10;
         }
@@ -234,7 +241,7 @@ public class Test
           base=(d1+carry)%10; 
 	  carry=(d1+carry)/10;
 	  
-          al.add(base);
+          res.add(base);
           i--;
         }
         
@@ -245,15 +252,15 @@ public class Test
           base=(d2+carry)%10; 
           carry=(d2+carry)/10;
 	  
-          al.add(base);
+          res.add(base);
           num2=num2/10;
         }
         
-        if(carry!=0)
-          al.add(carry);
+        if(carry==1)
+          res.add(carry);
         
-        Collections.reverse(al);
+        Collections.reverse(res);
         
-        return al; 
+        return res; 
     }
 }
