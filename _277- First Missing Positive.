@@ -94,11 +94,11 @@ public class Test
 	
 	public static int firstMissingPositive(int[]arr)
 	{
-            int countNonPos=segPosAndNeg(arr);
+            int countNonPos=segPosAndNonPos(arr);
 	    return findMissing(arr,countNonPos);
 	}
 	
-        public static int segPosAndNeg(int[]arr)
+        public static int segPosAndNonPos(int[]arr)
 	{
 	   int n=arr.length,j=0;
 	   for(int i=0;i<n;i++)
@@ -117,20 +117,23 @@ public class Test
 	{
            int n=arr.length,size=n-start;
            boolean[]visited=new boolean[size];
+           
            for(int i=start;i<n;i++)
            {
              int x=arr[i];
-             if((x-1)<size && visited[x-1]==false)  //(visited[x-1]==false) is Optional Condition
+             if(x<=size && visited[x-1]==false)  //(visited[x-1]==false) is Optional Condition to handle duplicates
                visited[x-1] =true;
            }
         
            for(int i=0; i <size; i++)
               if(visited[i]==false)
-                 return (i+1);
-		 
+                 return i+1;
+	  
+	  //if all indices are marked, then smallest missing positive number is array size + 1. 
           return size+1;
 	}
 }
+
 
 //Even Better Approach
 import java.util.*;
@@ -183,7 +186,7 @@ public class Test
 	
 	public static int firstMissingPositive(int[]arr)
 	{
-	    int countNonPos=segPosAndNeg(arr);
+	    int countNonPos=segPosAndNonPos(arr);
 	    int newSize=(arr.length-countNonPos);
 	    int[] pos=new int[newSize];
 	    
@@ -193,7 +196,7 @@ public class Test
 	    return findMissing(pos,newSize);   
 	}
 	
-	public static int segPosAndNeg(int[]arr)
+	public static int segPosAndNonPos(int[]arr)
 	{
 	   int n=arr.length,j=0;
 	   for(int i=0;i<n;i++)
@@ -214,7 +217,7 @@ public class Test
            for(int i=0;i<n;i++)
            {
               x = Math.abs(arr[i]);
-              if ((x - 1)<n && arr[x - 1] > 0)//arr[x-1]>0 =>To check for Duplicates
+              if (x<=n && arr[x - 1] > 0)//arr[x-1]>0 =>To check for Duplicates
                 arr[x - 1] = -arr[x - 1];
            }
         
@@ -246,11 +249,11 @@ public class Test
 	
 	public static int firstMissingPositive(int[]arr)
 	{
-	    int countNonPos=segPosAndNeg(arr);
+	    int countNonPos=segPosAndNonPos(arr);
 	    return findMissing(arr,countNonPos);   
 	}
 	
-        public static int segPosAndNeg(int[]arr)
+        public static int segPosAndNonPos(int[]arr)
 	{
 	   int n=arr.length,j=0;
 	   for(int i=0;i<n;i++)
@@ -270,7 +273,7 @@ public class Test
             for(int i=start;i<n;i++)
             {
                x = Math.abs(arr[i]);
-               if ((x - 1)<newSize && arr[start+(x-1)] > 0)
+               if ((x<=newSize && arr[start+(x-1)] > 0)
                   arr[start+(x-1)] = -arr[start+(x-1)];
             }
         
