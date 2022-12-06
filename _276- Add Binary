@@ -94,7 +94,7 @@ public class Test
             j--;
         }
         
-        if(carryBit!=0)
+        if(carryBit==1)
          ans.append(carryBit);
         
         StringBuilder reverse=ans.reverse();
@@ -200,7 +200,7 @@ public class Test
             j--;
         }
         
-        if(carryBit!=0)
+        if(carryBit==1)
          ans.append(carryBit);
         
         StringBuilder reverse=ans.reverse();
