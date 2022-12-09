@@ -170,7 +170,7 @@ public class Test
                    rightRotate(arr,wrongIndex,i);
                    if((i - wrongIndex)==1)
                       wrongIndex = -1;
-                   else((i - wrongIndex)>= 2)
+                   else//((i - wrongIndex)>= 2)
                       wrongIndex+=2; 
                  }
  
