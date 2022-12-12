@@ -34,6 +34,7 @@ public class Test
 	
 	public static void rightRotateByK(int[] arr,int n,int k)
 	{
+	   k=k%n;
 	   for(int i=1;i<=k;i++)
              rightRotateBy1(arr,n);
 	}
@@ -84,7 +85,7 @@ public class Test
 	
         public static void rightRotateByK(int[] arr,int n,int k)
 	{
-	     k=k%n;
+	    k=k%n;
 	    int[] temp=new int[k];
 	    for(int i=0;i<k;i++)
 	       temp[i]=arr[n-k+i];
@@ -186,8 +187,17 @@ public class Test
     {
          k=k%n;
          reverseArray(arr,0,n-1);
-         reverseArray(arr,0,k-1);
          reverseArray(arr,k,n-1);
+         reverseArray(arr,0,k-1);
+	 
+	 /*
+	 Aliter :
+	 
+	 k=k%n;
+         reverseArray(arr,0,n-1);
+	 reverseArray(arr,0,k-1);
+         reverseArray(arr,k,n-1);
+	 */
     }
 	
     public static void reverseArray(int[]arr, int start, int end)
