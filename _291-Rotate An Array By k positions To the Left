@@ -183,11 +183,19 @@ public class Test
 	
 	public static void leftRotateByK(int[] arr,int n,int k)
 	{
-             k=k%n;
-             // in case the rotating factor is greater than array length
+             k=k%n; // in case the rotating factor is greater than array length
             reverseArray(arr, 0, k-1);
             reverseArray(arr, k, n-1);
             reverseArray(arr, 0,n-1);
+	    
+	    /*
+	     Aliter :
+	     
+	    k=k%n; //in case the rotating factor is greater than array length
+	    reverseArray(arr, k, n-1);
+            reverseArray(arr, 0, k-1);
+            reverseArray(arr, 0,n-1);
+	    */
 	}
 	
 	public static void reverseArray(int[]arr, int start, int end)
