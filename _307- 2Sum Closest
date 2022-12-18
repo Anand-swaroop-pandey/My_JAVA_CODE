@@ -24,7 +24,7 @@ public class Test
        
   public static void twoSumClosest(int[] arr,int n,int target)
   {
-      int minTillNow=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],currSum,diff;
+      int minDiff=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],currSum,diff;
   
       for(int i=0;i<n;i++)
         for(int j=i+1;j<n;j++)
@@ -32,9 +32,9 @@ public class Test
            currSum=(arr[i]+arr[j]);
            diff=Math.abs(target-currSum);
     
-           if(diff<minTillNow)
+           if(diff<minDiff)
            {
-              minTillNow=diff;
+              minDiff=diff;
               closestSum=currSum;
               num1=arr[i];
               num2=arr[j];
@@ -81,16 +81,16 @@ public class Test
   public static void twoSumClosest(int[] arr,int n,int target)
   {
       Arrays.sort(arr);
-      int minTillNow=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],i=0,j=n-1,currSum,diff;
+      int minDiff=Integer.MAX_VALUE,num1=arr[0],num2=arr[1],closestSum=arr[0]+arr[1],i=0,j=n-1,currSum,diff;
       
       while(i<j)
       {
          currSum=(arr[i]+arr[j]);
          diff=Math.abs(target-currSum);
     
-         if(diff<minTillNow)
+         if(diff<minDiff)
          {
-           minTillNow=diff;
+           minDiff=diff;
            closestSum=currSum;
            num1=arr[i];
            num2=arr[j];
