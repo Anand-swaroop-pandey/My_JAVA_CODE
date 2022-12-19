@@ -57,6 +57,62 @@ public class Test
 }
 
 
+//Improved Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args){
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("Enter the Size Of The Array:");
+	   int n=sc.nextInt();
+	   if(n>0)
+	   {
+	       int[] arr=new int[n];
+	       System.out.printf("Enter %d Elements Of The Array:\n",n); 
+	       for(int i=0;i<n;i++)
+	         arr[i]=sc.nextInt();
+		 
+	       System.out.println("Length of  Longest Consecutive Sequence is :"+longestConsecutive(arr));
+	   }
+	   else
+	     System.out.println("Invalid Choice");
+	}
+	
+	public static int longestConsecutive(int[] arr)
+	{
+           int n=arr.length,max_len=0,curr_len,prev,next;
+           HashSet<Integer>hs=new HashSet<>();
+           
+           for(int i=0;i<n;i++)
+             hs.add(arr[i]);
+             
+           for (int i = 0; i <n; i++)
+           {
+              curr_len=1;
+              
+              //look left
+              prev=arr[i]-1;
+              while(hs.contains(prev))
+              {
+                curr_len++;
+                prev--;
+              }
+            
+              //look right    
+              next=arr[i]+1;
+              while(hs.contains(next))
+              {
+                curr_len++;
+                next++;
+              }
+              
+             max_len=Math.max(curr_len,max_len);
+           }
+          return max_len;
+	}
+}
+
 //Better  Approach
 import java.util.*;
 public class Test
