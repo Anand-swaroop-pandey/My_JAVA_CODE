@@ -37,6 +37,19 @@ public class Test
 	       }
 	       num=(num*10)+(n-sum);
 	       return reverse(num);
+	       
+	       /*
+	       int num=0,sum=0,digit=9;
+	       while(sum<n)
+	       {
+               num=(num*10)+digit;
+               sum+=digit;
+               digit--;
+	       }
+	       sum-=digit;
+	       num=(num*10)+(n-sum);
+	       return reverse(num);
+	       */
 	   }
 	}
 	
