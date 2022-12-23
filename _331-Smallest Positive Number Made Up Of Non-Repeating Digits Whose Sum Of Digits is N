@@ -39,6 +39,8 @@ public class Test
 	       return reverse(num);
 	       
 	       /*
+	       Aliter:
+	       
 	       int num=0,sum=0,digit=9;
 	       while(sum<n)
 	       {
