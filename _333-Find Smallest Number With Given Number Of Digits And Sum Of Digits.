@@ -19,19 +19,13 @@ public class Test
 	     System.out.println("Smallest number with digit sum "+sum+" and number of digits "+digit+" is :"+res);
 	   else
 	     System.out.printf("Invalid Choice/No %d Digit Number with Sum as %d Exists",digit,sum);
-	}
+   }
 	
-	public static long smallestNum(int sum,int d)
-	{
-	   if(sum==0 && d==1)
-	     return 0;
-	     
-	   if(sum==0 && d!=1)
+   public static long smallestNum(int sum,int d)
+   {
+	   if(sum==0 && d>1 || sum>sumOfDigits(maxm_D_DigitNum(d)))
 	     return -1;
 	     
-	   if(sum>sumOfDigits(maxm_D_DigitNum(d)))
-	     return -1;
- 	   
  	   long num=minm_D_DigitNum(d);
  	   long limit=maxm_D_DigitNum(d);
  	   
@@ -42,13 +36,12 @@ public class Test
  	       num++; 
  	   }
  	   return num;
-	}
+    }
     
     public static long sumOfDigits(long num)
     {
-        long sum=0;
-        if(num==0)
-          return 1;
+         long sum=0;
+	 
          while(num!=0)
          {
              sum+=(num%10);
@@ -65,12 +58,16 @@ public class Test
     
     public static long minm_D_DigitNum(int d)
     {
+      if(d==1)
+       return 0;
       long minm_d_DigitNum=(int)Math.pow(10,d-1);
       return minm_d_DigitNum;
     }
 }
 
+
 //Improved Bruteforce Approach
+
 import java.util.*;
 public class Test
 {
@@ -91,42 +88,50 @@ public class Test
 	     System.out.println("Smallest number with digit sum "+sum+" and number of digits "+digit+" is :"+res);
 	   else
 	     System.out.printf("Invalid Choice/No %d Digit Number with Sum as %d Exists",digit,sum);
-	}
+   }
 	
-	public static long smallestNum(int sum,int d)
-	{
-	   if(sum==0 && d==1)
-	     return 0;
-	     
-	   if((sum==0 && d!=1) || (sum>(9*d)))
+   public static long smallestNum(int sum,int d)
+   {
+	   if(sum==0 && d>1 || sum>(9*d))
 	     return -1;
+	     
+ 	   long num=minm_D_DigitNum(d);
+ 	   long limit=maxm_D_DigitNum(d);
  	   
-           long minm_d_DigitNum=(int)Math.pow(10,d-1);
- 	   long num=minm_d_DigitNum;
- 	   long maxm_d_DigitNum=(int)Math.pow(10,d)-1;
- 	   
- 	   while(num<=maxm_d_DigitNum)
+ 	   while(num<=limit)
  	   {
  	       if(sumOfDigits(num)==sum)
  	         break;
  	       num++; 
  	   }
  	   return num;
-	}
+    }
     
-        public static long sumOfDigits(long num)
-        {
-          long sum=0;
-          if(num==0)
-            return 1;
-	    
-          while(num!=0)
-          {
+    public static long sumOfDigits(long num)
+    {
+         long sum=0;
+	 
+         while(num!=0)
+         {
              sum+=(num%10);
              num=num/10;
-          }
-          return sum;
-        }
+         }
+        return sum;
+    }
+    
+    public static long maxm_D_DigitNum(int d)
+    {
+      long maxm_d_DigitNum=(int)Math.pow(10,d)-1;
+      return maxm_d_DigitNum;
+    }
+    
+    public static long minm_D_DigitNum(int d)
+    {
+      if(d==1)
+       return 0;
+      long minm_d_DigitNum=(int)Math.pow(10,d-1);
+      return minm_d_DigitNum;
+    }
 }
 
 /*
@@ -267,10 +272,7 @@ public class Test
 	
 	public static String smallestNum(int sum,int d)
 	{
-	   if(sum==0 && d==1)
-	     return "0";
-	     
-	   if((sum==0 && d!=1) || (sum>(9*d)))
+	   if((sum==0 && d>1) || (sum>(9*d)))
 	     return "-1";
 
 	   int[] res =new int[d];
@@ -296,6 +298,7 @@ public class Test
 	      String str="";
                for (int i=0; i<d; i++)
                  str+=res[i];
+		 
             return str;
         }
 }
