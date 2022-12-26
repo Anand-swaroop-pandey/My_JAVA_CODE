@@ -49,34 +49,33 @@ public class Test
              
    public static void threeSum(int[]arr,int lb,int target,Set<List<Integer>>hs)
    {
-     int n=arr.length,remTarget,j,k;
-     for(int i=lb;i<n-2;i++)
+     int n=arr.length,remTarget,k,l;
+     for(int j=lb;j<n-2;j++)
      {         
-        remTarget=(target-arr[i]);
-        j=i+1;
-        k=n-1;
+        remTarget=(target-arr[j]);
+        k=j+1;
+        l=n-1;
         
-        while(j<k) 
+        while(k<l) 
         {
-            if((arr[j]+arr[k])==remTarget)
+            if((arr[k]+arr[l])==remTarget)
             {
                 List<Integer>quadruplets=new ArrayList<>(4);
                 
                 quadruplets.add(arr[lb-1]);
-                quadruplets.add(arr[i]);
                 quadruplets.add(arr[j]);
                 quadruplets.add(arr[k]);
+                quadruplets.add(arr[l]);
                 
                 hs.add(quadruplets);
                 
-                j++;
-                k--;
-                
+                k++;
+                l--;
             } 
-            else if((arr[j]+arr[k])>remTarget)
-               k--;
+            else if((arr[k]+arr[l])>remTarget)
+               l--;
             else
-               j++;
+               k++;
         }
      }
    } 
@@ -134,43 +133,43 @@ public class Test
              
    public static void threeSum(int[]arr,int lb,int target,List<List<Integer>>ll)
    {
-     int n=arr.length,remTarget,j,k;
-     for(int i=lb;i<n-2;i++)
+     int n=arr.length,remTarget,k,l;
+     for(int j=lb;j<n-2;j++)
      { 
-        if(i>lb && (arr[i]==arr[i-1]))//To Avoid Duplicates
+        if(j>lb && (arr[j]==arr[j-1]))//To Avoid Duplicates
           continue;
          
-        remTarget=(target-arr[i]);
-        j=i+1;
-        k=n-1;
+        remTarget=(target-arr[j]);
+        k=j+1;
+        l=n-1;
         
-        while(j<k) 
+        while(k<l) 
         {
-            if((arr[j]+arr[k])==remTarget)
+            if((arr[k]+arr[l])==remTarget)
             {
                 List<Integer>quadruplets=new ArrayList<>(4);
                 
                 quadruplets.add(arr[lb-1]);
-                quadruplets.add(arr[i]);
                 quadruplets.add(arr[j]);
                 quadruplets.add(arr[k]);
+                quadruplets.add(arr[l]);
                 
                 ll.add(quadruplets);
                 
-                j++;
-                k--;
+                k++;
+                l--;
                 
-                while(j<k && arr[j]==arr[j-1]) //To Avoid Duplicates
-                  j++;
+                while(k<l && arr[k]==arr[k-1]) //To Avoid Duplicates
+                  k++;
                 
-                while(j<k && arr[k]==arr[k+1]) //To Avoid Duplicates
-                  k--;
+                while(k<l && arr[l]==arr[l+1]) //To Avoid Duplicates
+                  l--;
                 
             } 
-            else if((arr[j]+arr[k])>remTarget)
-               k--;
+            else if((arr[k]+arr[l])>remTarget)
+               l--;
             else
-               j++;
+               k++;
         }
      }
    } 
