@@ -50,7 +50,195 @@ public class Test
 }
 
 
-//Optimal Approach
+//Improved Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr1=new int[n];
+           int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",n);
+           for(int i=0;i<n;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+	      
+            System.out.print("Sum Of Non Overlapping Elements in Two Sets is "+sumOfNonOverlapping(arr1,arr2,n));  
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
+	
+	
+   public static int sumOfNonOverlapping(int[] arr1,int[] arr2,int n)
+   {
+      int sum=0;
+      HashSet<Integer>hs=new HashSet<>();
+     
+      for(int i=0;i<n;i++)
+       if(linearSearch(arr2,n,arr1[i]))
+         hs.add(arr1[i]);
+       else
+	 sum+=arr1[i];
+	     
+      for(int i=0;i<n;i++)
+	if(hs.contains(arr2[i])==false)
+	   sum+=arr2[i];
+
+      return sum;
+   }
+
+
+   public static boolean linearSearch(int[]arr,int n,int key)
+   {
+      for(int i=0;i<n;i++)
+        if(arr[i]==key)
+          return true;
+      return false;//key doesnot exists
+   }
+}
+
+//Good Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr1=new int[n];
+           int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",n);
+           for(int i=0;i<n;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+	      
+            System.out.print("Sum Of Non Overlapping Elements in Two Sets is "+sumOfNonOverlapping(arr1,arr2,n));  
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
+	
+	
+   public static int sumOfNonOverlapping(int[] arr1,int[] arr2,int n)
+   {
+     Arrays.sort(arr1);
+     Arrays.sort(arr2);
+
+     int sum=0;
+     for(int i=0;i<n;i++)
+       if(binarySearch(arr2,n,arr1[i])==false)
+	   sum+=arr1[i];
+	     
+     for(int i=0;i<n;i++)
+       if(binarySearch(arr1,n,arr2[i])==false)
+	  sum+=arr2[i];
+	     
+      return sum;
+   }
+
+
+   public static boolean binarySearch(int[]arr,int n,int key)
+   {
+      int low=0,high=n-1;
+      
+      while(low<=high)
+      {
+        int mid=(low+high)/2;
+        
+        if(arr[mid]==key)
+          return true;
+        else if(key<arr[mid])
+          high=mid-1;
+        else
+          low=mid+1;
+      }
+      
+      return false;//key doesnot exists
+   }
+}
+
+
+//Better Approach
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr1=new int[n];
+           int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",n);
+           for(int i=0;i<n;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+	      
+            System.out.print("Sum Of Non Overlapping Elements in Two Sets is "+sumOfNonOverlapping(arr1,arr2,n));  
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
+	
+	
+   public static int sumOfNonOverlapping(int[] arr1,int[] arr2,int n)
+   {
+     Arrays.sort(arr2);
+     HashSet<Integer>hs=new HashSet<>();
+
+     int sum=0;
+     for(int i=0;i<n;i++)
+       if(binarySearch(arr2,n,arr1[i]))
+         hs.add(arr1[i]);
+       else
+	 sum+=arr1[i];
+	     
+     for(int i=0;i<n;i++)
+       if(hs.contains(arr2[i])==false)
+	  sum+=arr2[i];
+	     
+     return sum;
+   }
+
+
+   public static boolean binarySearch(int[]arr,int n,int key)
+   {
+      int low=0,high=n-1;
+      
+      while(low<=high)
+      {
+        int mid=(low+high)/2;
+        
+        if(arr[mid]==key)
+          return true;
+        else if(key<arr[mid])
+          high=mid-1;
+        else
+          low=mid+1;
+      }
+      
+      return false;//key doesnot exists
+   }
+}
+
+//Optimal Approach(Time optimised)
 
 import java.util.*;
 public class Test
@@ -95,6 +283,69 @@ public class Test
      for(int key:hs)
         sum+=key;  
 	     
+     return sum;
+   }
+}
+
+
+//Optimal Approach(Space optimised)
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter the Size of the Array");
+       int n=sc.nextInt();
+       if(n>0)
+       {
+           int[] arr1=new int[n];
+           int[] arr2=new int[n];
+           System.out.printf("Enter %d Elements of Array1:\n",n);
+           for(int i=0;i<n;i++)
+              arr1[i]=sc.nextInt();
+              
+           System.out.printf("Enter %d Elements of Array2:\n",n);
+           for(int i=0;i<n;i++)
+              arr2[i]=sc.nextInt();
+	      
+            System.out.print("Sum Of Non Overlapping Elements in Two Sets is "+sumOfNonOverlapping(arr1,arr2,n));  
+       }
+       else
+         System.out.println("Invalid Choice");
+    }
+	
+	
+   public static int sumOfNonOverlapping(int[] arr1,int[] arr2,int n)
+   {
+     Arrays.sort(arr1);
+     Arrays.sort(arr2);
+     
+     int i=0,j=0,sum=0;
+     
+     while(i<n && j<n)
+     {
+       if(arr1[i]==arr2[j])
+       {
+           i++;
+           j++;
+       }
+       else
+       {
+          int min=Math.min(arr1[i],arr2[j]);
+          
+          if(min==arr1[i])
+            sum+=arr1[i++];
+          else
+            sum+=arr2[j++];       
+       }
+     }
+     
+     while(i<n)
+      sum+=arr1[i++];
+      
+     while(j<n)
+      sum+=arr2[j++];
+      
      return sum;
    }
 }
