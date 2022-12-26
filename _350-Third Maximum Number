@@ -22,7 +22,7 @@ public class Test
    {
       Arrays.sort(arr);
       int newLen=removeDuplicatesFromSortedArray(arr);
-      if(newLen==1 || newLen==2)
+      if(newLen<3)
         return arr[newLen-1];
      
       return arr[newLen-3]; 
