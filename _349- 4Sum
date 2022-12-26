@@ -38,7 +38,7 @@ public class Test
        Set<List<Integer>>hs= new HashSet<>();
         
        for(int i=0;i<(n-3);i++)
-          threeSum(arr,i+1,(target-arr[i]),hs); 
+          threeSum(arr,i,(target-arr[i]),hs); 
 
        for(List<Integer>l :hs)
          ll.add(l);
@@ -47,10 +47,10 @@ public class Test
     }
    
              
-   public static void threeSum(int[]arr,int lb,int target,Set<List<Integer>>hs)
+   public static void threeSum(int[]arr,int i,int target,Set<List<Integer>>hs)
    {
      int n=arr.length,remTarget,k,l;
-     for(int j=lb;j<n-2;j++)
+     for(int j=i+1;j<n-2;j++)
      {         
         remTarget=(target-arr[j]);
         k=j+1;
@@ -62,7 +62,7 @@ public class Test
             {
                 List<Integer>quadruplets=new ArrayList<>(4);
                 
-                quadruplets.add(arr[lb-1]);
+                quadruplets.add(arr[i]);
                 quadruplets.add(arr[j]);
                 quadruplets.add(arr[k]);
                 quadruplets.add(arr[l]);
@@ -124,19 +124,19 @@ public class Test
        {
           if(i > 0 && (arr[i-1]==arr[i]))
              continue;   
-          threeSum(arr,i+1,(target-arr[i]),ll); 
+          threeSum(arr,i,(target-arr[i]),ll); 
        }
         
        return ll;
     }
    
              
-   public static void threeSum(int[]arr,int lb,int target,List<List<Integer>>ll)
+   public static void threeSum(int[]arr,int i,int target,List<List<Integer>>ll)
    {
      int n=arr.length,remTarget,k,l;
-     for(int j=lb;j<n-2;j++)
+     for(int j=i+1;j<n-2;j++)
      { 
-        if(j>lb && (arr[j]==arr[j-1]))//To Avoid Duplicates
+        if(j>i && (arr[j]==arr[j-1]))//To Avoid Duplicates
           continue;
          
         remTarget=(target-arr[j]);
@@ -149,7 +149,7 @@ public class Test
             {
                 List<Integer>quadruplets=new ArrayList<>(4);
                 
-                quadruplets.add(arr[lb-1]);
+                quadruplets.add(arr[i]);
                 quadruplets.add(arr[j]);
                 quadruplets.add(arr[k]);
                 quadruplets.add(arr[l]);
