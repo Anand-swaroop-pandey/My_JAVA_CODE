@@ -73,9 +73,17 @@ public class Test
             Arrays.sort(arr);
 	    for(int i=arr.length-1;i>=2;i--)
 	      if((arr[i-1]+arr[i-2])>arr[i]) //checking if the three sides form triangle
-	       // as arr[i]+arr[i-1] > arr[i-2] similarly arr[i] + arr[i-2] > arr[i-1]  so we are not required to check for these 2 Conditions (Reason : arr[i-2]<=arr[i-1]<=arr[i] as Array is sorted )  
 	        return arr[i]+arr[i-1]+arr[i-2];
    
 	    return 0; // it is impossible to form any triangle of a non-zero area,so return 0
+	    
+	    /*As arr[i]+arr[i-1] > arr[i-2] similarly arr[i] + arr[i-2] > arr[i-1]  so we are not required to check for these 2 Conditions.
+	     (Reason : arr[i-2]<=arr[i-1]<=arr[i] as Array is sorted) 
+	     if(arr[i]>arr[i-2]) then obv. arr[i]+arr[i-1]>arr[i-2]
+	     
+	     similarly,
+	     
+	     if(arr[i]>arr[i-1]) then obv. arr[i]+arr[i-2]>arr[i-1]
+	     */
 	}
 }
