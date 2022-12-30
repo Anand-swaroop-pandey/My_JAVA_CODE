@@ -1,1 +1,59 @@
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter a Positive Integer :");
+	  int n=sc.nextInt();
+	  if(n<0)
+	    System.out.println("Invalid Choice");
+	  
+	  System.out.println("Largest number that is less than or equal to "+n+" with monotone increasing digits is "+monotoneIncreasingDigits(n));
+	}
+	
+	public static int monotoneIncreasingDigits(int num)
+	{
+	     int cnt=count_digit(num);
+       int[] dgts=new int[cnt]; 
+       int idx=cnt-1;
+
+       while(num!=0)
+       {
+         dgts[idx--]=num%10;
+         num=num/10;
+       }
+       
+       idx=cnt;
+       for(int i=cnt-1;i>0;i--)
+          if(dgts[i]<dgts[i-1])
+          {
+            idx=i-1;
+            dgts[idx]--;
+          }
+
+       for(int i=idx+1;i<cnt;i++)
+         dgts[i]=9;
+       
+       int res=0;
+       for(int i=0;i<cnt;i++)
+         res=res*10+dgts[i];
+
+        return res;
+	}
+	
+	public static int count_digit(int num)
+  {
+      if(num==0)
+        return 1;
+
+      int counter=0; 
+      while(num!=0)
+      {
+        counter++;
+        num=num/10;
+      }
+
+      return counter;
+  }
+}
 
