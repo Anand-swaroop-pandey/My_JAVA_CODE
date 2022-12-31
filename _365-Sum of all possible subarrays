@@ -1,0 +1,138 @@
+//Bruteforce Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array :");
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		  System.out.println("Invalid Choice");
+		  return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.println("Enter "+n+" Elements :");
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Sum of all possible subarray is :"+sumAllSubarrays(arr,n));
+	}
+	
+	public static int sumAllSubarrays(int[] arr,int n)
+	{
+	  int sum=0;
+	  for(int start=0;start<n;start++)
+	   for(int end=start;end<n;end++)
+	     for(int range=start;range<=end;range++)
+	        sum+=arr[range];
+	  return sum;
+	}
+}
+
+
+//Better Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array :");
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		  System.out.println("Invalid Choice");
+		  return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.println("Enter "+n+" Elements :");
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Sum of all possible subarray is :"+sumAllSubarrays(arr,n));
+	}
+	
+	public static int sumAllSubarrays(int[] arr,int n)
+	{
+	  int sum=0,totalSum=0;
+	  for(int start=0;start<n;start++)
+	  {
+	    sum=0;
+	    for(int end=start;end<n;end++) 
+	    {
+	       sum+=arr[end];
+	       totalSum+=sum;
+	    }
+	  }
+	  return totalSum;
+	}
+}
+
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array :");
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		  System.out.println("Invalid Choice");
+		  return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.println("Enter "+n+" Elements :");
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		System.out.println("Sum of all possible subarray is :"+sumAllSubarrays(arr,n));
+	}
+	
+	public static int sumAllSubarrays(int[] arr,int n)
+	{
+    int sum=0;
+	  for(int i=0;i<n;i++)
+      sum+=arr[i]*(n-i)*(i+1);
+      
+	  return sum;
+	}
+}
+
+/*
+LOGIC: 
+
+arr[]={1,2,3,4};
+
+All subarrays :
+
+{1} , {1,2}, {1,2,3}, {1,2,3,4}
+
+{2}, {2,3}, {2,3,4}
+
+{3}, {3,4}
+
+{4}
+
+1 Appears 4 times : (n-0) + (n-0)*0
+
+2 Appears 6 times : (n-1) + (n-1)*1
+
+3 Appears 6 times : (n-2) + (n-2)*2
+
+4 Appears 4 times : (n-3) + (n-3)*3
+
+Generalised formula = (n-i)+(n-i)*i
+                    = (n-i)*(1+(1*i))
+                    = (n-i)*(i+1)
+                      
+Contribution of each element in total sum is = arr[i]*count of arr[i]
+                                             = arr[i]*(n-i)*(i+1)
+*/
