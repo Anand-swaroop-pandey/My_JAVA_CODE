@@ -1,0 +1,118 @@
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array :");
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		  System.out.println("Invalid Choice");
+		  return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.println("Enter "+n+" Elements :");
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		
+		prefixSumArray(arr,n);
+	}
+	
+	public static void prefixSumArray(int[] arr,int n)
+	{
+      int[] prefixSum=new int[n];
+      
+      for(int i=0;i<n;i++)
+        if(i==0)
+          prefixSum[i]=arr[i];
+        else
+          prefixSum[i]=prefixSum[i-1]+arr[i];
+      
+      for(int i=0;i<n;i++)
+        System.out.println("Sum of elements from index 0 to index "+i+" is "+prefixSum[i]);
+	}
+}
+
+//Variation
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array :");
+		int n=sc.nextInt();
+		if(n<=0)
+		{
+		  System.out.println("Invalid Choice");
+		  return;
+		}
+		
+		int[] arr=new int[n];
+		System.out.println("Enter "+n+" Elements :");
+		for(int i=0;i<n;i++)
+		  arr[i]=sc.nextInt();
+		  
+	    System.out.println("Enter start index :");
+	    int start=sc.nextInt();
+	    
+	    if(start<0)
+	    {
+	      System.out.println("Invalid choice");
+	      return;  
+	    }
+
+	    System.out.println("Enter end index :");
+	    int end=sc.nextInt();
+	    
+	    if(end>=n)
+	    {
+	      System.out.println("Invalid choice");
+	      return;  
+	    }
+		
+		System.out.println("Sum of elements from index "+start+" to index "+end+" is "+prefixSumArray(arr,n,start,end));
+		
+	}
+	
+	public static int prefixSumArray(int[] arr,int n,int startIdx,int endIdx)
+	{
+      int[] prefixSum=new int[n];
+      
+      for(int i=0;i<n;i++)
+        if(i==0)
+          prefixSum[i]=arr[i];
+        else
+          prefixSum[i]=prefixSum[i-1]+arr[i];
+      
+       if(startIdx==0)
+         return prefixSum[endIdx];
+       else
+         return (prefixSum[endIdx]-prefixSum[startIdx-1]);
+	}
+}
+
+/*
+        arr[]={1,2,3,4,5,6}
+  
+  prefixSum[]={1,3,6,10,15,21};
+  
+  startIdx=2 and endIdx=5
+  
+  To find : arr[2]+arr[3]+arr[4]+arr[5] =?
+  
+  ------------------------------------------------------------------------
+  prefixSum[endIdx]=prefixSum[5]=arr[0]+arr[1]+arr[2]+arr[3]+arr[4]+arr[5]
+  
+  (arr[2]+arr[3]+arr[4]+arr[5])=prefixSum[5]-(arr[0]+arr[1])
+  
+  Now, prefixSum[end-1]=prefixSum[2-1]=prefixSum[1]=(arr[0]+arr[1])
+  
+  thus,(arr[2]+arr[3]+arr[4]+arr[5])=prefixSum[5]-(arr[0]+arr[1])
+       (arr[2]+arr[3]+arr[4]+arr[5])=prefixSum[5]-prefixSum[1]
+       (arr[2]+arr[3]+arr[4]+arr[5])=21-3=18
+       (arr[2]+arr[3]+arr[4]+arr[5])=18 //Required Answer
+        
+*/
