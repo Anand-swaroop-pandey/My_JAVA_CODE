@@ -97,41 +97,41 @@ import java.util.Scanner;
 public class Main
 {
 	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the array :");
-		int n=sc.nextInt();
-		if(n<=0)
-		{
-		  System.out.println("Invalid Choice");
-		  return;
-		}
+          Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 		
-		int[] arr=new int[n];
-		System.out.println("Enter "+n+" Elements :");
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println(subArrayExists(arr,n));
+	  System.out.println(subArrayExists(arr,n));
 	}
 	
 	public static boolean subArrayExists(int[] arr,int n)
 	{
-      HashSet<Integer>hs=new HashSet<>();
-      int prefixSum=0;
-      for(int i=0;i<n;i++)
-      {
-        prefixSum+=arr[i];
+           HashSet<Integer>hs=new HashSet<>();
+           int prefixSum=0;
+           for(int i=0;i<n;i++)
+           {
+             prefixSum+=arr[i];
         
-        if(prefixSum==0)
-          return true;
+             if(prefixSum==0)
+               return true;
           
-        if(hs.contains(prefixSum))
-          return true;
-        else
-          hs.add(prefixSum);
-      }
+             if(hs.contains(prefixSum))
+               return true;
+             else
+               hs.add(prefixSum);
+           }
       
-      return false;
+          return false;
 	}
 }
 
