@@ -5,39 +5,39 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the array :");
-		int n=sc.nextInt();
-		if(n<=0)
-		{
-		  System.out.println("Invalid Choice");
-		  return;
-		}
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 		
-		int[] arr=new int[n];
-		System.out.println("Enter "+n+" Elements :");
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		
-		System.out.println(subArrayExists(arr,n));
+	  System.out.println(subArrayExists(arr,n));
 	}
 	
 	public static boolean subArrayExists(int[] arr,int n)
 	{
-	   int subSum;
+	  int subSum;
       
-      for(int start=0;start<n;start++)
-      {
-        subSum=0;
-        for(int end=start;end<n;end++)
-        {
-          subSum+=arr[end];
+          for(int start=0;start<n;start++)
+          {
+            subSum=0;
+            for(int end=start;end<n;end++)
+            {
+              subSum+=arr[end];
           
-          if(subSum==0)
-            return true;
-        }  
-      }
+              if(subSum==0)
+                return true;
+            }  
+          }
 
-      return false;
+          return false;
 	}
 }
 
@@ -45,6 +45,56 @@ public class Test
 
 import java.util.Scanner;
 public class Test
+{
+	public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+		
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+		
+	  System.out.println(subArrayExists(arr,n));
+	}
+	
+	public static boolean subArrayExists(int[] arr,int n)
+	{
+	  int subSum=0;
+          int[] prefixSum=new int[n];
+      
+          for(int i=0;i<n;i++)
+           if(i==0)
+            prefixSum[i]=arr[i];
+           else
+            prefixSum[i]=prefixSum[i-1]+arr[i];
+      
+          for(int start=0;start<n;start++)
+           for(int end=start;end<n;end++)
+           {
+             if(start==0)
+              subSum=prefixSum[end];
+             else
+              subSum=prefixSum[end]-prefixSum[start-1];
+           
+             if(subSum==0)
+               return true;
+           }
+        
+           return false;
+	 }
+}
+
+//Optimal Approach
+
+import java.util.Scanner;
+public class Main
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
@@ -66,29 +116,22 @@ public class Test
 	
 	public static boolean subArrayExists(int[] arr,int n)
 	{
-	    int subSum=0;
-      int[] prefixSum=new int[n];
-      
+      HashSet<Integer>hs=new HashSet<>();
+      int prefixSum=0;
       for(int i=0;i<n;i++)
-        if(i==0)
-          prefixSum[i]=arr[i];
-        else
-          prefixSum[i]=prefixSum[i-1]+arr[i];
-      
-      for(int start=0;start<n;start++)
-        for(int end=start;end<n;end++)
-        {
-          if(start==0)
-           subSum=prefixSum[end];
-          else
-           subSum=prefixSum[end]-prefixSum[start-1];
-           
-          if(subSum==0)
-            return true;
-        }
+      {
+        prefixSum+=arr[i];
         
+        if(prefixSum==0)
+          return true;
+          
+        if(hs.contains(prefixSum))
+          return true;
+        else
+          hs.add(prefixSum);
+      }
+      
       return false;
 	}
 }
 
-//Optimal Approach
