@@ -5,83 +5,76 @@ public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the array :");
-		int n=sc.nextInt();
-		if(n<=0)
-		{
-		  System.out.println("Invalid Choice");
-		  return;
-		}
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 		
-		int[] arr=new int[n];
-		System.out.println("Enter "+n+" Elements :");
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		 
-		System.out.println("Enter value of K :");
-		int k=sc.nextInt();
+	  System.out.println("Enter value of K :");
+	  int k=sc.nextInt();
 		
-		System.out.println("Count of Subarray with sum = "+k+" is "+subarraySum(arr,k));
+	  System.out.println("Count of Subarray with sum = "+k+" is "+subarraySum(arr,k));
 	}
 	
 	public static int subarraySum(int[] arr,int k)
 	{
-        int n=arr.length,cnt=0,subSum;
+          int n=arr.length,cnt=0,subSum;
       
-        for(int i=0;i<n;i++)
-        {
-          subSum=0;
-          for(int j=i;j<n;j++)
+          for(int i=0;i<n;i++)
           {
-            subSum+=arr[j];
-            if(subSum==k)
+            subSum=0;
+            for(int j=i;j<n;j++)
+            {
+             subSum+=arr[j];
+             if(subSum==k)
               cnt++;
+            }
           }
-        }
-        return cnt;  
+          return cnt;  
 	}
 }
-
-
-
-
-
-
-
 
 //Optimal approach
 import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the array :");
-		int n=sc.nextInt();
-		if(n<=0)
-		{
-		  System.out.println("Invalid Choice");
-		  return;
-		}
+          Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
 		
-		int[] arr=new int[n];
-		System.out.println("Enter "+n+" Elements :");
-		for(int i=0;i<n;i++)
-		  arr[i]=sc.nextInt();
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
 		 
-		System.out.println("Enter value of K :");
-		int k=sc.nextInt();
+	  System.out.println("Enter value of K :");
+	  int k=sc.nextInt();
 		
-		System.out.println("Count of Subarray with sum = "+k+" is "+subarraySum(arr,k));
+	  System.out.println("Count of Subarray with sum = "+k+" is "+subarraySum(arr,k));
 	}
 	
 	public static int subarraySum(int[] arr,int k)
-	{
-        int n=arr.length, cnt=0;
-        HashMap<Integer,Integer>hm=new HashMap<>();
-
-        int prefixSum=0;
-        for(int i=0;i<n;i++)
         {
+          int n=arr.length, cnt=0;
+          HashMap<Integer,Integer>hm=new HashMap<>();
+
+          int prefixSum=0;
+          for(int i=0;i<n;i++)
+          {
            prefixSum+=arr[i];
 
            if(prefixSum==k)
@@ -94,7 +87,15 @@ public class Test
              hm.put(prefixSum,hm.get(prefixSum)+1);
            else
              hm.put(prefixSum,1);
-        }
-        return cnt;  
-	}
+          }
+          return cnt;  
+	 }
 }
+
+/*
+    why we are using count of prefix sum ?
+  -> you know that if prefixsum - givensum is present in the prefix sum then there will be a subarray.
+  -> but what if there is more than one such values are present. Since set is going to store distinct elements,
+      we will use map and increment the values according to the key,
+    And whenever we find prefixsum-givensum in the map , we will increase the answer by the value at that particular key.
+*/
