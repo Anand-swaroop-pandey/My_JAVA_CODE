@@ -1,0 +1,81 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+          int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+	  else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+		  
+	     System.out.println("Subarray with the largest product and its product is :"+maxProduct(arr,n));
+	  }
+	}
+	
+	public static int maxProduct(int[] arr,int n)
+	{
+	  int prod,maxProd=Integer.MIN_VALUE;
+	  for(int start=0;start<n;start++)
+	    for(int end=start;end<n;end++)
+	    {
+	      prod=1;
+	      for(int range=start;range<=end;range++)
+            prod*=arr[range];
+          
+          if(prod>maxProd)
+            maxProd=prod;
+	    }
+ 
+	  return maxProd;
+	}
+}
+
+
+//Better Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+      int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+	  else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+		  
+	     System.out.println("Subarray with the largest product and its product is :"+maxProduct(arr,n));
+	  }
+	}
+	
+	public static int maxProduct(int[] arr,int n)
+	{
+	  int prod,maxProd=Integer.MIN_VALUE;
+	  for(int start=0;start<n;start++)
+	  {
+	    prod=1;
+	    for(int end=start;end<n;end++)
+	    {
+	      prod*=arr[end];
+          
+        if(prod>maxProd)
+         maxProd=prod;
+	    }
+	  }
+ 
+	  return maxProd;
+	}
+}
+
+//Optimal Approach
