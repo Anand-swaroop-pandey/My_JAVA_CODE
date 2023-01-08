@@ -27,10 +27,10 @@ public class Test
 	    {
 	      prod=1;
 	      for(int range=start;range<=end;range++)
-            prod*=arr[range];
+                prod*=arr[range];
           
-          if(prod>maxProd)
-            maxProd=prod;
+              if(prod>maxProd)
+                maxProd=prod;
 	    }
  
 	  return maxProd;
@@ -45,7 +45,7 @@ public class Test
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the array :");
-      int n=sc.nextInt();
+          int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
 	  else
@@ -69,8 +69,8 @@ public class Test
 	    {
 	      prod*=arr[end];
           
-        if(prod>maxProd)
-         maxProd=prod;
+             if(prod>maxProd)
+               maxProd=prod;
 	    }
 	  }
  
@@ -78,4 +78,112 @@ public class Test
 	}
 }
 
+//Good Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+          int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+	  else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+		  
+	     System.out.println("Subarray with the largest product and its product is :"+maxProduct(arr,n));
+	  }
+	}
+	
+	public static int maxProduct(int[] arr,int n)
+	{
+	  int prod=1,maxProd=Integer.MIN_VALUE;
+          for(int i=0;i<n;i++)
+          {
+            prod*=arr[i];
+        
+            if(prod>maxProd)
+              maxProd=prod;
+        
+            if(prod==0)
+              prod=1;
+          }
+      
+          prod=1;
+          for(int i=n-1;i>=0;i--)
+          {
+             prod*=arr[i];
+        
+             if(prod>maxProd)
+               maxProd=prod;
+        
+             if(prod==0)
+               prod=1;
+          }
+      
+	  return maxProd;
+	}
+}
+
+
 //Optimal Approach
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+          int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+	  else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+		  
+	     System.out.println("Subarray with the largest product and its product is :"+maxProduct(arr,n));
+	  }
+	}
+	
+	public static int maxProduct(int[] arr,int n)
+	{
+	  int maxProdSoFar=1,minProdSoFar=1,maxProd=Integer.MIN_VALUE;
+	  
+	  for(int i=0;i<n;i++)
+	  {
+	    int temp=maxProdSoFar;
+	    
+	    maxProdSoFar=maximum(arr[i],maxProdSoFar*arr[i],minProdSoFar*arr[i]);
+	    minProdSoFar=minimum(arr[i],temp*arr[i],minProdSoFar*arr[i]);
+	    
+	    if(maxProdSoFar>maxProd)
+	      maxProd=maxProdSoFar;
+	    
+	    if(arr[i]==0)
+	    {
+	      maxProdSoFar=1;
+	      minProdSoFar=1;
+	    }  
+	  }
+	  
+	  return maxProd;
+	}
+	
+	public static int maximum(int x,int y,int z)
+	{
+	  return Math.max(x,Math.max(y,z));
+	}
+	
+        public static int minimum(int x,int y,int z)
+	{
+	  return Math.min(x,Math.min(y,z));
+	}
+}
