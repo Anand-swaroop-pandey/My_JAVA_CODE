@@ -6,7 +6,7 @@ public class Test
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the array :");
-    int n=sc.nextInt();
+          int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
 	  else
@@ -18,44 +18,44 @@ public class Test
 	       
 	     int[] res=productExceptSelf(arr,n);
 	     
-		   for(int i=0;i<n;i++)
+	     for(int i=0;i<n;i++)
 	       System.out.println("Product of array except "+arr[i]+" is :"+res[i]);
 	  }
 	}
 	
 	public static int[] productExceptSelf(int[] arr,int n)
 	{
-      int prod=1,cnt0=0;
-      int[] res=new int[n];
+          int prod=1,cnt0=0;
+          int[] res=new int[n];
 	  
-      for(int i=0;i<n;i++)
-        if(arr[i]==0)
-          cnt0++;
+          for(int i=0;i<n;i++)
+           if(arr[i]==0)
+            cnt0++;
 
-      int prodWithoutZero=1;   
-	    for(int i=0;i<n;i++)
-      {
-         if(cnt0==1 && arr[i]!=0)
-           prodWithoutZero*=arr[i];
+          int prodWithoutZero=1;   
+	  for(int i=0;i<n;i++)
+          {
+            if(cnt0==1 && arr[i]!=0)
+              prodWithoutZero*=arr[i];
 
-         prod*=arr[i];
-      }
+            prod*=arr[i];
+          }
 	      
       
-      for(int i=0;i<n;i++)
-      {
-        if(arr[i]!=0)
-          res[i]=prod/arr[i];
-        else
-        {
-           if(cnt0==1)
-            res[i]=prodWithoutZero;
-           else
-            res[i]=prod;
-        }   
-      }
+          for(int i=0;i<n;i++)
+          {
+            if(arr[i]!=0)
+             res[i]=prod/arr[i];
+            else
+            {
+              if(cnt0==1)
+               res[i]=prodWithoutZero;
+              else
+               res[i]=prod;
+            }   
+          }
             
-      return res;
+          return res;
 	}
 }
 
@@ -68,7 +68,7 @@ public class Test
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the array :");
-    int n=sc.nextInt();
+          int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
 	  else
@@ -80,44 +80,44 @@ public class Test
 	       
 	     int[] res=productExceptSelf(arr,n);
 	     
-		   for(int i=0;i<n;i++)
+	     for(int i=0;i<n;i++)
 	       System.out.println("Product of array except "+arr[i]+" is :"+res[i]);
 	  }
 	}
 	
 	public static int[] productExceptSelf(int[] arr,int n)
 	{
-      int[] prefixProd=new int[n];
-      int[] suffixProd=new int[n];
-      int[] res=new int[n];
+          int[] prefixProd=new int[n];
+          int[] suffixProd=new int[n];
+          int[] res=new int[n];
 
-      for(int i=0;i<n;i++)
-      {
-        if(i==0)
-          prefixProd[i]=arr[i];
-        else
-          prefixProd[i]=prefixProd[i-1]*arr[i];
-      }
+          for(int i=0;i<n;i++)
+          {
+            if(i==0)
+             prefixProd[i]=arr[i];
+            else
+             prefixProd[i]=prefixProd[i-1]*arr[i];
+          }
 
-      for(int i=n-1;i>=0;i--)
-      {
-         if(i==(n-1))
-          suffixProd[i]=arr[i];
-         else
-          suffixProd[i]=suffixProd[i+1]*arr[i];
-      }
+          for(int i=n-1;i>=0;i--)
+          {
+           if(i==(n-1))
+            suffixProd[i]=arr[i];
+           else
+            suffixProd[i]=suffixProd[i+1]*arr[i];
+          }
 
-      for(int i=0;i<n;i++)
-      {
-        if(i==0)
-          res[i]=suffixProd[i+1];
-        else if(i==(n-1))
-          res[i]=prefixProd[i-1];
-        else
-          res[i]=prefixProd[i-1]*suffixProd[i+1];
-      }
+          for(int i=0;i<n;i++)
+          {
+            if(i==0)
+             res[i]=suffixProd[i+1];
+            else if(i==(n-1))
+             res[i]=prefixProd[i-1];
+            else
+             res[i]=prefixProd[i-1]*suffixProd[i+1];
+          }
 
-      return res;
+          return res;
 	}
 }
 
@@ -129,7 +129,7 @@ public class Test
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the array :");
-    int n=sc.nextInt();
+          int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
 	  else
@@ -141,44 +141,95 @@ public class Test
 	       
 	     int[] res=productExceptSelf(arr,n);
 	     
-		   for(int i=0;i<n;i++)
+	     for(int i=0;i<n;i++)
 	       System.out.println("Product of array except "+arr[i]+" is :"+res[i]);
 	  }
 	}
 	
 	public static int[] productExceptSelf(int[] arr,int n)
 	{
-      int[] prefixProd=new int[n];
-      int[] suffixProd=new int[n];
-      int[] res=new int[n];
+          int[] prefixProd=new int[n];
+          int[] suffixProd=new int[n];
+          int[] res=new int[n];
 
-      for(int i=0;i<n;i++)
-      {
-        if(i==0)
-        {
-          prefixProd[i]=arr[i];
-          suffixProd[n-1-i]=arr[n-1-i];
-        }
-        else
-        {
-          prefixProd[i]=prefixProd[i-1]*arr[i];
-          suffixProd[n-1-i]=suffixProd[n-i]*arr[n-1-i];
-        }
-      }
+          for(int i=0;i<n;i++)
+          {
+           if(i==0)
+           {
+            prefixProd[i]=arr[i];
+            suffixProd[n-1-i]=arr[n-1-i];
+           }
+           else
+           {
+             prefixProd[i]=prefixProd[i-1]*arr[i];
+             suffixProd[n-1-i]=suffixProd[n-i]*arr[n-1-i];
+           }
+          }
 
-      for(int i=0;i<n;i++)
-      {
-        if(i==0)
-          res[i]=suffixProd[i+1];
-        else if(i==(n-1))
-          res[i]=prefixProd[i-1];
-        else
-          res[i]=prefixProd[i-1]*suffixProd[i+1];
-      }
+          for(int i=0;i<n;i++)
+          {
+            if(i==0)
+             res[i]=suffixProd[i+1];
+            else if(i==(n-1))
+             res[i]=prefixProd[i-1];
+            else
+             res[i]=prefixProd[i-1]*suffixProd[i+1];
+          }
 
-      return res;
+          return res;
 	}
 }
 
 //Optimal Approach
 
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+          int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+	  else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     int[] res=productExceptSelf(arr,n);
+	     
+	     for(int i=0;i<n;i++)
+	       System.out.println("Product of array except "+arr[i]+" is :"+res[i]);
+	  }
+	}
+	
+	public static int[] productExceptSelf(int[] arr,int n)
+	{
+          int[] res=new int[n];
+
+          for(int i=0;i<n;i++)
+          {
+           if(i==0)
+            res[i]=arr[i];
+           else
+            res[i]=res[i-1]*arr[i];
+          }
+
+          int prod=1;
+          for(int i=n-1;i>=0;i--)
+          {
+            if(i==0)
+             res[i]=prod;
+            else if(i==(n-1))
+             res[i]=res[i-1];
+            else
+             res[i]=res[i-1]*prod;
+         
+            prod*=arr[i];
+          }
+
+          return res;
+	}
+}
