@@ -1,0 +1,48 @@
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array :");
+		int n=sc.nextInt();
+		if(n<1)
+		 System.out.println("Invalid Choice");
+		else
+		{
+		  int[] arr=new int[n];
+		  System.out.println("Enter "+n+" Elements :");
+		  for(int i=0;i<n;i++)
+		   arr[i]=sc.nextInt();
+		   
+		  System.out.println("Enter Window Size :");
+		  int k=sc.nextInt();
+		  if(k<1)
+		   System.out.println("Invalid Choice");
+		  else
+		  {
+		    int[] res=maxSlidingWindow(arr,n,k); 
+		    for(int i=0;i<res.length;i++)
+		     System.out.print(res[i]+" ");
+		  }
+		}
+	}
+	
+	public static int[] maxSlidingWindow(int[] arr,int n,int k)
+	{
+	     int max;
+       int[] res=new int[n-(k-1)];
+       
+       for(int i=0;i<=(n-k);i++)
+       {
+          max=Integer.MIN_VALUE;
+          for(int j=i;j<(i+k);j++) 
+            if(arr[j]>max)
+              max=arr[j];
+          
+          res[i]=max;
+       }
+       
+      return res;  
+	}
+}
