@@ -1,6 +1,6 @@
 //Bruteforce Approach
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
@@ -8,7 +8,7 @@ public class Main
 	  int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
-      else
+          else
 	  {
 	     int[] arr=new int[n];
 	     System.out.println("Enter "+n+" Elements :");
@@ -19,10 +19,10 @@ public class Main
 	     for(int i=0;i<n;i++)
 	       System.out.println("Next greater element to "+arr[i]+" is "+res[i]);
   	  }
-	}
+    }
   	  
-  	public static int[] nextGreaterElement(int[] arr,int n) 
-  	{
+    public static int[] nextGreaterElement(int[] arr,int n) 
+    {
       int[] res=new int[n];
       for(int i=0;i<n;i++)
         res[i]=nge(arr,n,i);
@@ -41,5 +41,66 @@ public class Main
           return arr[i];
       
       return -1;
+    }
+}
+
+//Optimal Approach
+
+//Bruteforce Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the Array1 :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+          else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     int[] res=nextGreaterElement(arr,n);
+	     for(int i=0;i<n;i++)
+	       System.out.println("Next greater element to "+arr[i]+" is "+res[i]);
+  	  }
+    }
+  	  
+    public static int[] nextGreaterElement(int[] arr,int n) 
+    {
+      Stack<Integer>stk=new Stack<Integer>();
+      int[] res=new int[n];
+      
+      for(int i=n-1;i>=0;i--)
+      {
+	    while(stk.size()!=0 && stk.peek()<=arr[i])
+	      stk.pop();
+	     
+	    if(stk.size()==0)
+	      res[i]=-1;
+	    else
+	      res[i]=stk.peek();
+	    
+	    stk.push(arr[i]);
+	  }
+	  
+
+      for(int i=n-1;i>=0;i--)
+	  {
+	    while(stk.size()!=0 && stk.peek()<=arr[i])
+	      stk.pop();
+	     
+	    if(stk.size()==0)
+	      res[i]=-1;
+	    else
+	      res[i]=stk.peek();
+	    
+	    stk.push(arr[i]);
+	  }
+	  
+      return res;
     }
 }
