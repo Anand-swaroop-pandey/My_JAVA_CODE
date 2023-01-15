@@ -8,7 +8,7 @@ public class Test
 	  int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
-    else
+          else
 	  {
 	     int[] arr=new int[n];
 	     System.out.println("Enter "+n+" Elements :");
@@ -19,20 +19,20 @@ public class Test
 	     int m=sc.nextInt();
 	     
 	     if(m>n)
-		     System.out.println("Invalid Choice");
-		   else
-		   {
-		     int[]sub=new int[m];
-		     System.out.println("Enter "+m+" Elements such that Array2 is subset of Array1:");
-		     for(int i=0;i<m;i++)
-	         sub[i]=sc.nextInt();
+	       System.out.println("Invalid Choice");
+             else
+             {
+		int[]sub=new int[m];
+		System.out.println("Enter "+m+" Elements such that Array2 is subset of Array1:");
+		for(int i=0;i<m;i++)
+	          sub[i]=sc.nextInt();
 	       
-	       int[] res=nextGreaterElement(arr,n,sub,m);
-	       for(int i=0;i<m;i++)
-	         System.out.println("Next greater element to "+sub[i]+" is "+res[i]);
-		   }
-  	 }
-	}
+	        int[] res=nextGreaterElement(arr,n,sub,m);
+	        for(int i=0;i<m;i++)
+	          System.out.println("Next greater element to "+sub[i]+" is "+res[i]);
+	     }
+  	  }
+  }
   	  
   public static int[] nextGreaterElement(int[] arr,int n, int[] sub,int m) 
   {
@@ -65,13 +65,13 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
+    public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the Array1 :");
 	  int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
-    else
+          else
 	  {
 	     int[] arr=new int[n];
 	     System.out.println("Enter "+n+" Elements :");
@@ -82,49 +82,50 @@ public class Test
 	     int m=sc.nextInt();
 	     
 	     if(m>n)
-		     System.out.println("Invalid Choice");
-		   else
-		   {
-		     int[]sub=new int[m];
-		     System.out.println("Enter "+m+" Elements such that Array2 is subset of Array1:");
-		     for(int i=0;i<m;i++)
-	         sub[i]=sc.nextInt();
+	       System.out.println("Invalid Choice");
+             else
+             {
+		int[]sub=new int[m];
+		System.out.println("Enter "+m+" Elements such that Array2 is subset of Array1:");
+		for(int i=0;i<m;i++)
+	          sub[i]=sc.nextInt();
 	       
-	       int[] res=nextGreaterElement(arr,n,sub,m);
-	       for(int i=0;i<m;i++)
-	         System.out.println("Next greater element to "+sub[i]+" is "+res[i]);
-		   }
-  	}
-	}
+	        int[] res=nextGreaterElement(arr,n,sub,m);
+	        for(int i=0;i<m;i++)
+	          System.out.println("Next greater element to "+sub[i]+" is "+res[i]);
+	     }
+  	  }
+
+      }
   	  
-  public static int[] nextGreaterElement(int[] arr,int n, int[] sub,int m) 
-  {
-      Stack<Integer>stk=new Stack<Integer>();
-      int[] res=new int[n];
+      public static int[] nextGreaterElement(int[] arr,int n, int[] sub,int m) 
+      {
+         Stack<Integer>stk=new Stack<Integer>();
+         int[] res=new int[n];
       
-      for(int i=n-1;i>=0;i--)
-	    {
-	      while(stk.size()!=0 && stk.peek()<=arr[i])
-	       stk.pop();
+         for(int i=n-1;i>=0;i--)
+	 {
+	    while(stk.size()!=0 && stk.peek()<=arr[i])
+	      stk.pop();
 	     
-	      if(stk.size()==0)
-	       res[i]=-1;
-	      else
-	       res[i]=stk.peek();
+	    if(stk.size()==0)
+	      res[i]=-1;
+	    else
+	      res[i]=stk.peek();
 	    
-	      stk.push(arr[i]);
-	    }
+	     stk.push(arr[i]);
+	 }
 	  
-      HashMap<Integer,Integer>hm=new HashMap<>();
-      for(int i=0;i<n;i++)
-        hm.put(arr[i],res[i]);
+         HashMap<Integer,Integer>hm=new HashMap<>();
+         for(int i=0;i<n;i++)
+           hm.put(arr[i],res[i]);
 
-      int[] result=new int[m];
-      for(int i=0;i<m;i++)
-        result[i]=hm.get(sub[i]);
+         int[] result=new int[m];
+         for(int i=0;i<m;i++)
+           result[i]=hm.get(sub[i]);
 
-      return result;  
-  }
+       return result;  
+     }
 }
 
 
@@ -133,13 +134,13 @@ public class Test
 import java.util.*;
 public class Test
 {
-	public static void main(String[] args) {
+     public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the Array1 :");
 	  int n=sc.nextInt();
 	  if(n<1)
 	    System.out.println("Invalid Choice");
-    else
+          else
 	  {
 	     int[] arr=new int[n];
 	     System.out.println("Enter "+n+" Elements :");
@@ -150,20 +151,20 @@ public class Test
 	     int m=sc.nextInt();
 	     
 	     if(m>n)
-		     System.out.println("Invalid Choice");
-		   else
-		   {
-		     int[]sub=new int[m];
-		     System.out.println("Enter "+m+" Elements such that Array2 is subset of Array1:");
-		     for(int i=0;i<m;i++)
-	         sub[i]=sc.nextInt();
+	       System.out.println("Invalid Choice");
+             else
+             {
+		int[]sub=new int[m];
+		System.out.println("Enter "+m+" Elements such that Array2 is subset of Array1:");
+		for(int i=0;i<m;i++)
+	          sub[i]=sc.nextInt();
 	       
-	       int[] res=nextGreaterElement(arr,n,sub,m);
-	       for(int i=0;i<m;i++)
-	         System.out.println("Next greater element to "+sub[i]+" is "+res[i]);
-		   }
-  	}
-	}
+	        int[] res=nextGreaterElement(arr,n,sub,m);
+	        for(int i=0;i<m;i++)
+	          System.out.println("Next greater element to "+sub[i]+" is "+res[i]);
+	     }
+  	  }
+  }
   	  
   public static int[] nextGreaterElement(int[] arr,int n, int[] sub,int m) 
   {
@@ -171,22 +172,22 @@ public class Test
      HashMap<Integer,Integer>hm=new HashMap<>();
       
      for(int i=n-1;i>=0;i--)
-	   {
-	     while(stk.size()!=0 && stk.peek()<=arr[i])
-	      stk.pop();
+     {
+	while(stk.size()!=0 && stk.peek()<=arr[i])
+	  stk.pop();
 	     
-	     if(stk.size()==0)
-         hm.put(arr[i],-1);
-	     else
-         hm.put(arr[i],stk.peek());
+	if(stk.size()==0)
+          hm.put(arr[i],-1);
+	else
+          hm.put(arr[i],stk.peek());
 	    
-	     stk.push(arr[i]);
-	   }
+	stk.push(arr[i]);
+     }
 	  
      int[] res=new int[m];
      for(int i=0;i<m;i++)
        res[i]=hm.get(sub[i]);
 
     return res;
-  }
+   }
 }
