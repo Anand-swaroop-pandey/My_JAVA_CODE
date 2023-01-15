@@ -3,46 +3,110 @@ import java.util.Scanner;
 public class Test
 {
 	public static void main(String[] args) {
-	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the array :");
-		int n=sc.nextInt();
-		if(n<1)
-		 System.out.println("Invalid Choice");
-		else
-		{
-		  int[] arr=new int[n];
-		  System.out.println("Enter "+n+" Elements :");
-		  for(int i=0;i<n;i++)
-		   arr[i]=sc.nextInt();
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the size of the array :");
+	    int n=sc.nextInt();
+	    if(n<1)
+	      System.out.println("Invalid Choice");
+	    else
+	    {
+	       int[] arr=new int[n];
+	       System.out.println("Enter "+n+" Elements :");
+	       for(int i=0;i<n;i++)
+		 arr[i]=sc.nextInt();
 		   
-		  System.out.println("Enter Window Size :");
-		  int k=sc.nextInt();
-		  if(k<1)
-		   System.out.println("Invalid Choice");
-		  else
-		  {
-		    int[] res=maxSlidingWindow(arr,n,k); 
-		    for(int i=0;i<res.length;i++)
-		     System.out.print(res[i]+" ");
-		  }
-		}
+	       System.out.println("Enter Window Size :");
+	       int k=sc.nextInt();
+	       if(k<1)
+		 System.out.println("Invalid Choice");
+	       else
+	       {
+		 int[] res=maxSlidingWindow(arr,n,k); 
+		 for(int i=0;i<(n-(k-1));i++)
+		   System.out.print(res[i]+" ");
+	       }
+	     }
 	}
 	
 	public static int[] maxSlidingWindow(int[] arr,int n,int k)
 	{
-	     int max;
-       int[] res=new int[n-(k-1)];
+	   int max;
+           int[] res=new int[n-(k-1)];
        
-       for(int i=0;i<=(n-k);i++)
-       {
-          max=Integer.MIN_VALUE;
-          for(int j=i;j<(i+k);j++) 
-            if(arr[j]>max)
-              max=arr[j];
+           for(int i=0;i<=(n-k);i++)
+           {
+             max=Integer.MIN_VALUE;
+             for(int j=i;j<(i+k);j++) 
+               if(arr[j]>max)
+                 max=arr[j];
           
-          res[i]=max;
+            res[i]=max;
+           }
+       
+          return res;  
+	}
+}
+
+//Bruteforce Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the size of the array :");
+	    int n=sc.nextInt();
+	    if(n<1)
+	      System.out.println("Invalid Choice");
+	    else
+	    {
+	       int[] arr=new int[n];
+	       System.out.println("Enter "+n+" Elements :");
+	       for(int i=0;i<n;i++)
+		 arr[i]=sc.nextInt();
+		   
+	       System.out.println("Enter Window Size :");
+	       int k=sc.nextInt();
+	       if(k<1)
+		 System.out.println("Invalid Choice");
+	       else
+	       {
+		 int[] res=maxSlidingWindow(arr,n,k); 
+		 for(int i=0;i<(n-(k-1));i++)
+		   System.out.print(res[i]+" ");
+	       }
+	     }
+	}
+	
+	public static int[] maxSlidingWindow(int[] arr,int n,int k)
+	{
+       int[] nge_Idx=new int[n];
+       Stack<Integer>stk=new Stack<>();
+
+       for(int i=(n-1);i>=0;i--)
+       {
+          while(stk.size()!=0 && arr[i]>arr[stk.peek()])
+            stk.pop();
+          
+          if(stk.size()==0)
+            nge_Idx[i]=n;
+          else
+            nge_Idx[i]=stk.peek();
+          
+          stk.push(i);
        }
        
-      return res;  
+       int[] res=new int[n-(k-1)];
+       int j;
+       for(int i=0;i<=(n-k);i++)
+       {
+        j=i;
+	
+         while(nge_Idx[j]<(i+k))
+           j=nge_Idx[j];
+          
+         res[i]=arr[j];
+       }
+       
+       return res;
 	}
 }
