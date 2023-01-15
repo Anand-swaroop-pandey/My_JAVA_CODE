@@ -1,1 +1,45 @@
-
+//Bruteforce Approach
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the Array1 :");
+	  int n=sc.nextInt();
+	  if(n<1)
+	    System.out.println("Invalid Choice");
+      else
+	  {
+	     int[] arr=new int[n];
+	     System.out.println("Enter "+n+" Elements :");
+	     for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+	       
+	     int[] res=nextGreaterElement(arr,n);
+	     for(int i=0;i<n;i++)
+	       System.out.println("Next greater element to "+arr[i]+" is "+res[i]);
+  	  }
+	}
+  	  
+  	public static int[] nextGreaterElement(int[] arr,int n) 
+  	{
+      int[] res=new int[n];
+      for(int i=0;i<n;i++)
+        res[i]=nge(arr,n,i);
+      
+      return res;
+    }
+    
+    public static int nge(int[] arr,int n,int idx)
+    {
+      for(int i=idx+1;i<n;i++)
+       if(arr[i]>arr[idx])
+         return arr[i];
+      
+      for(int i=0;i<n;i++)
+        if(arr[i]>arr[idx])
+          return arr[i];
+      
+      return -1;
+    }
+}
