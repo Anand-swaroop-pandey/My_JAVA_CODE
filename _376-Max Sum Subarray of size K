@@ -13,14 +13,62 @@ public class Test
 	       int[] arr=new int[n];
 	       System.out.println("Enter "+n+" Elements :");
 	       for(int i=0;i<n;i++)
-		     arr[i]=sc.nextInt();
+		 arr[i]=sc.nextInt();
 		   
 	       System.out.println("Enter the size of the Subarray :");
 	       int k=sc.nextInt();
 	       if(k<1)
-		     System.out.println("Invalid Choice");
+		 System.out.println("Invalid Choice");
 	       else
-		      System.out.println("Subarray of size "+k+" with maximum sum is "+maximumSumSubarraySizeK(arr,n,k));
+		 System.out.println("Subarray of size "+k+" with maximum sum is "+maximumSumSubarraySizeK(arr,n,k));
+	     }
+	}
+	
+	public static int maximumSumSubarraySizeK(int[] arr,int n,int k)
+	{
+           int maxSum=Integer.MIN_VALUE,sum;
+        
+           for(int i=0;i<=(n-k);i++)
+           {
+             sum=0;
+             for(int j=i;j<(i+k);j++)
+              sum+=arr[j];
+          
+             if(sum>maxSum)
+               maxSum=sum;
+           }
+        
+           return maxSum;  
+	}
+}
+
+
+
+
+
+//Optimal Approach
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the size of the array :");
+	    int n=sc.nextInt();
+	    if(n<1)
+	      System.out.println("Invalid Choice");
+	    else
+	    {
+	       int[] arr=new int[n];
+	       System.out.println("Enter "+n+" Elements :");
+	       for(int i=0;i<n;i++)
+		 arr[i]=sc.nextInt();
+		   
+	       System.out.println("Enter the size of the Subarray :");
+	       int k=sc.nextInt();
+	       if(k<1)
+		 System.out.println("Invalid Choice");
+	       else
+		 System.out.println("Subarray of size "+k+" with maximum sum is "+maximumSumSubarraySizeK(arr,n,k));
 	     }
 	}
 	
@@ -28,20 +76,20 @@ public class Test
 	{
 	    int maxSum=Integer.MIN_VALUE,i=0,j=0,sum=0;
         
-        while(j<n)
-        {
-            sum+=arr[j];
-            if((j-i+1)<k)
-              j++;
-            else if((j-i+1)==k)
+            while(j<n)
             {
-               maxSum=Math.max(maxSum,sum);
-               sum-=arr[i];
-               i++;
-               j++;
+               sum+=arr[j];
+               if((j-i+1)<k)
+                j++;
+               else if((j-i+1)==k)
+               {
+                 maxSum=Math.max(maxSum,sum);
+                 sum-=arr[i];
+                 i++;
+                 j++;
+               }
             }
-        }
         
-      return maxSum;  
+            return maxSum;  
 	}
 }
