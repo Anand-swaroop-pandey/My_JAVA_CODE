@@ -1,0 +1,47 @@
+//Optimal Approach
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=sc.nextInt();
+		if(n<1)
+		{
+		   System.out.println("Invalid Choice");
+		   return;
+		}
+		
+		int[] arr=new int[n];
+	    System.out.println("Enter "+n+" Elements");
+	    for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+	    
+	    System.out.println("Maximum amount of water a container can store is"+maxArea(arr,n));
+	}
+	
+	public static int maxArea(int[]arr,int n)
+	{
+	    int left=0,right=n-1,maxArea=0,currArea,breadth,height;
+	    
+	    while(left<right)
+	    {
+	      breadth=right-left;
+	      height=Math.min(arr[left],arr[right]);
+	      currArea=breadth*height;
+	      maxArea=Math.max(maxArea,currArea);
+	      
+	      if(arr[left]<arr[right])
+	        left++;
+	      else if(arr[right]<arr[left])
+	        right--;
+	      else //arr[left]==arr[right]
+	      {
+	        left++;
+	        right--;
+	      }
+	    }
+	    
+	    return maxArea;
+	}
+}
