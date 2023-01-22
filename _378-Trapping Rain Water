@@ -1,64 +1,153 @@
+//Bruteforce Approach
 import java.util.*;
-public class Main
+public class Test
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the array");
-		int n=sc.nextInt();
+	    System.out.println("Enter the size of the array");
+	    int n=sc.nextInt();
 		
-		if(n<1)
-		{
-		  System.out.println("Invalid choice");
-		  return ;
-		}
+	    if(n<1)
+	    {
+	       System.out.println("Invalid choice");
+	       return ;
+	    }
 		
-		int[] arr=new int[n];
+	    int[] arr=new int[n];
 		
-		System.out.println("Enter "+n+" positive elements :");
-		for(int i=0;i<n;i++)
-		 arr[i]=sc.nextInt();
+	    System.out.println("Enter "+n+" positive elements :");
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
 		
-		System.out.println("Maximum amount of water that can be trapped is :"+trappingRainWater(arr,n));
+	    System.out.println("Maximum amount of water that can be trapped is :"+trappingRainWater(arr,n));
 		
 	}
 	
 	public static int trappingRainWater(int[]arr,int n)
 	{
+	   if(n<3)
+	    return 0;
+	     
 	   int sum=0,maxL,maxR;
-       for(int i=1;i<n-1;i++)
-       {
-          maxL=maxOnLeft(arr,n,i);
-          maxR=maxOnRight(arr,n,i);
+           for(int i=1;i<n-1;i++)
+           {
+             maxL=maxOnLeft(arr,n,i);
+             maxR=maxOnRight(arr,n,i);
 
-          if(maxL!=-1 && maxR!=-1)
-            sum+=Math.min(maxL,maxR)-arr[i];
-       }
-       return sum; 
+             if(maxL!=-1 && maxR!=-1)
+              sum+=Math.min(maxL,maxR)-arr[i];
+           }
+          return sum; 
 	}
 	
 	public static int maxOnLeft(int[] arr,int n,int idx)
-    {
-       int max=Integer.MIN_VALUE;
-       for(int i=0;i<idx;i++)
-         if(arr[i]>max)
-           max=arr[i];
+        {
+           int max=Integer.MIN_VALUE;
+           for(int i=0;i<idx;i++)
+             if(arr[i]>max)
+               max=arr[i];
        
-       if(max<=arr[idx])
-         return -1;
+           if(max<=arr[idx])
+             return -1;
 
-        return max;
-    }
+           return max;
+        }
 
-    public static int maxOnRight(int[] arr,int n,int idx)
-    {
-       int max=Integer.MIN_VALUE;
-       for(int i=idx+1;i<n;i++)
-         if(arr[i]>max)
-           max=arr[i];
+        public static int maxOnRight(int[] arr,int n,int idx)
+        {
+           int max=Integer.MIN_VALUE;
+           for(int i=idx+1;i<n;i++)
+           if(arr[i]>max)
+             max=arr[i];
 
-        if(max<=arr[idx])
-         return -1;
+           if(max<=arr[idx])
+             return -1;
 
-        return max; 
-    }
+           return max; 
+        }
+}
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the size of the array");
+	    int n=sc.nextInt();
+		
+	    if(n<1)
+	    {
+	       System.out.println("Invalid choice");
+	       return ;
+	    }
+		
+	    int[] arr=new int[n];
+		
+	    System.out.println("Enter "+n+" positive elements :");
+	    for(int i=0;i<n;i++)
+	       arr[i]=sc.nextInt();
+		
+	    System.out.println("Maximum amount of water that can be trapped is :"+trappingRainWater(arr,n));
+		
+	}
+	
+	public static int trappingRainWater(int[]arr,int n)
+	{
+	   if(n<3)
+	    return 0;
+	     
+	   int sum=0,maxL,maxR;
+           int[] maxLeft=new int[n];
+           int[] maxRight=new int[n];
+
+           maxOnLeft(arr,n,maxLeft);
+           maxOnRight(arr,n,maxRight);
+
+           for(int i=0;i<n;i++)
+           {
+             maxL=maxLeft[i];
+             maxR=maxRight[i];
+
+             if(maxL!=-1 && maxR!=-1)
+               sum+=Math.min(maxL,maxR)-arr[i];
+           }
+	   
+           return sum;
+	}
+	
+	public static void maxOnLeft(int[] arr,int n,int[] maxLeft)
+        {
+           maxLeft[0]=-1;
+           int leftMax=arr[0];
+	   
+           for(int i=1;i<n;i++)
+           {
+             if(leftMax>arr[i])
+               maxLeft[i]=leftMax;
+             else
+               maxLeft[i]=-1;
+
+             if(arr[i]>leftMax)
+               leftMax=arr[i];
+           }
+        }
+
+        public static void maxOnRight(int[] arr,int n,int[] maxRight)
+        {
+           maxRight[n-1]=-1;
+          int rightMax=arr[n-1];
+	  
+          for(int i=n-2;i>=0;i--)
+          {
+            if(rightMax>arr[i])
+              maxRight[i]=rightMax;
+            else
+              maxRight[i]=-1;
+
+           if(arr[i]>rightMax)
+             rightMax=arr[i]; 
+          }
+        }
 }
