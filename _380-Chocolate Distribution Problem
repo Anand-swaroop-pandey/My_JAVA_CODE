@@ -1,42 +1,48 @@
+//Bruteforce Approach
+/*
+The idea is to generate all subsets of size m of arr[0..n-1]. 
+For every subset, find the difference between the maximum and minimum elements in it. Finally, return the minimum difference.
+*/
+
 //Optimal Approach
 import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
 	  Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the size of the Array List :");
-		int n=sc.nextInt();
+	  System.out.println("Enter the size of the Array List :");
+	  int n=sc.nextInt();
 		
-		ArrayList<Integer>al=new ArrayList<>(n);
+	  ArrayList<Integer>al=new ArrayList<>(n);
 		
-		System.out.println("Enter "+n+" Elements :");
+	  System.out.println("Enter "+n+" Elements :");
 		
-		for(int i=0;i<n;i++)
-		  al.add(i,sc.nextInt());
+	  for(int i=0;i<n;i++)
+	    al.add(i,sc.nextInt());
 		
-		System.out.println("Enter the number of childrens: ");
-		int m=sc.nextInt();
+	  System.out.println("Enter the number of childrens: ");
+	  int m=sc.nextInt();
 		
-		System.out.println("Minimum difference is: "+findMinDiff(al,n,m));
+	  System.out.println("Minimum difference is: "+findMinDiff(al,n,m));
 	}
 	
 	public static long findMinDiff (ArrayList<Integer> al, int n, int m)
-    {
-      long minDiff=Integer.MAX_VALUE;
-      int minw,maxw,diff;
+        {
+           long minDiff=Integer.MAX_VALUE;
+           int minw,maxw,diff;
       
-      Collections.sort(al);
+           Collections.sort(al);
       
-      for(int i=0;i<=(n-m);i++)
-      {
-        minw=al.get(i);
-        maxw=al.get(i+m-1);
-        diff=maxw-minw;
+           for(int i=0;i<=(n-m);i++)
+           {
+             minw=al.get(i);
+             maxw=al.get(i+m-1);
+             diff=maxw-minw;
         
-        if(diff<minDiff)
-          minDiff=diff;
-      }
+             if(diff<minDiff)
+              minDiff=diff;
+           }
       
-      return minDiff;
-    }
+          return minDiff;
+        }
 }
