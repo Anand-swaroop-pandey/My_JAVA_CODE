@@ -1,0 +1,127 @@
+//Bruteforce Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+		
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+		 
+	  splitArray(arr,n);
+	}
+	
+	public static void splitArray(int[] arr,int n)
+  {
+       int idx=check(arr,n); 
+       
+       if(idx==-1)
+        System.out.println("Not Possible");
+       else
+       {
+         System.out.print("{");
+         for(int i=0;i<=idx;i++)
+          System.out.print(arr[i]+" ");
+         System.out.println("}"); 
+         
+         System.out.print("{");
+         for(int i=idx+1;i<n;i++)
+          System.out.print(arr[i]+" ");
+         System.out.println("}"); 
+       }
+	}
+	
+	public static int check(int[] arr,int n)
+  {
+       int leftSum=0,rightSum;
+       
+       for(int i=0;i<n;i++)
+       {
+         leftSum+=arr[i];
+         
+         rightSum=0;
+         
+         for(int j=i+1;j<n;j++)
+           rightSum+=arr[j];
+         
+         if(leftSum==rightSum)
+           return i;
+       }
+       
+       return -1;
+	}
+}
+
+//Optimal Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+		
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();	 
+		
+	  splitArray(arr,n);
+	}
+	
+	public static void splitArray(int[] arr,int n)
+  {
+       int idx=check(arr,n); 
+       
+       if(idx==-1)
+        System.out.println("Not Possible");
+       else
+       {
+         System.out.print("{");
+         for(int i=0;i<=idx;i++)
+          System.out.print(arr[i]+" ");
+         System.out.println("}"); 
+         
+         System.out.print("{");
+         for(int i=idx+1;i<n;i++)
+          System.out.print(arr[i]+" ");
+         System.out.println("}"); 
+       }
+	}
+	
+	public static int check(int[] arr,int n)
+  {
+       int leftSum=0,rightSum=0;
+       
+       for(int i=0;i<n;i++)
+         rightSum+=arr[i];
+       
+       for(int i=0;i<n;i++)
+       {
+         leftSum+=arr[i];
+         
+         rightSum-=arr[i];
+         
+         if(leftSum==rightSum)
+           return i;
+       }
+       
+       return -1;
+	}
+}
