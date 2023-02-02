@@ -38,7 +38,7 @@ public class Test
               if(subSum==k)
               {
                 System.out.println("Sum found between indexes "+i+" and "+j);
-                break;
+                return;
               }
             }
           }
