@@ -42,6 +42,61 @@ public class Test
 	}
 }
 
+//Better Approach
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+		
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+		 
+	  System.out.println("Enter value of K :");
+	  int k=sc.nextInt();
+		
+	  System.out.println("Count of Subarray with sum = "+k+" is "+subarraySum(arr,k));
+	}
+	
+	public static int subarraySum(int[] arr,int k)
+	{
+           int n=arr.length,cnt=0,subSum;
+
+           int[] prefixSum=new int[n];
+       
+           for(int i=0;i<n;i++)
+            if(i==0)
+             prefixSum[i]=arr[i];
+            else
+             prefixSum[i]=prefixSum[i-1]+arr[i];
+       
+           for(int i=0;i<n;i++)
+             for(int j=i;j<n;j++)
+             {
+               if(i==0)
+                subSum=prefixSum[j];
+               else
+                subSum=prefixSum[j]-prefixSum[i-1];
+            
+               if(subSum==k)
+                 cnt++;
+             }
+	     
+            return cnt;  
+	}
+}
+
+
 //Optimal approach
 import java.util.*;
 public class Test
@@ -75,20 +130,20 @@ public class Test
           int prefixSum=0;
           for(int i=0;i<n;i++)
           {
-           prefixSum+=arr[i];
+            prefixSum+=arr[i];
 
-           if(prefixSum==k)
-             cnt++;
+            if(prefixSum==k)
+              cnt++;
 
-           if(hm.containsKey(prefixSum-k))
-             cnt+=hm.get(prefixSum-k);
+            if(hm.containsKey(prefixSum-k))
+              cnt+=hm.get(prefixSum-k);
 
-           if(hm.containsKey(prefixSum))
-             hm.put(prefixSum,hm.get(prefixSum)+1);
-           else
-             hm.put(prefixSum,1);
+            if(hm.containsKey(prefixSum))
+              hm.put(prefixSum,hm.get(prefixSum)+1);
+            else
+              hm.put(prefixSum,1);
           }
-          return cnt;  
+           return cnt;  
 	 }
 }
 
