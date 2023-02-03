@@ -1,6 +1,7 @@
 /*
 
-Subsequence 
+Subsequence : 
+
 > A subsequence is a sequence that can be derived from another sequence by removing zero or more elements, without changing the order of the remaining elements.
 > Subsequence need not to be contigious (i.e may or may not be contigious)
 > For a sequence/array/string of size n, we can have 2^n Subsequence in total i.e ((2^n)-1) non-empty sub-sequences + 1 Empty Subsequence. 
@@ -44,7 +45,7 @@ public class Test
 	     System.out.println("Invalid Choice");
 	     return;
 	  }
-		
+	  
 	  int[] arr=new int[n];
 	  System.out.println("Enter "+n+" Elements :");
 	  for(int i=0;i<n;i++)
@@ -111,9 +112,9 @@ public static void allPossibleSubsequencesOrSubset(int[] arr,int n)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
   
-  Observation 2 :
+Observation 2 :
   
-  if an Integer is bitwise left shift by more than 31 bits following pattern is observed.
+If an Integer is bitwise left shift by more than 31 bits following pattern is observed.
   
 public class Main
 {
