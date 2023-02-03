@@ -246,3 +246,61 @@ Output :
 
 //Recurssive Approach :
 
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+          Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array :");
+	  int n=sc.nextInt();
+	  if(n<=0)
+	  {
+	     System.out.println("Invalid Choice");
+	     return;
+	  }
+	  
+	  int[] arr=new int[n];
+	  System.out.println("Enter "+n+" Elements :");
+	  for(int i=0;i<n;i++)
+	    arr[i]=sc.nextInt();
+		 
+	  driver(arr,n);
+	}
+	
+	public static void driver(int[] arr,int n)
+	{
+	   int[] subsequence=new int[n];
+	   allPossibleSubsequencesOrSubset(arr,n,0,subsequence,0); 
+	}
+	
+	public static void allPossibleSubsequencesOrSubset(int[] arr,int n,int arrIdx,int[] ss,int ssIdx)
+        {
+           if(arrIdx==n)
+           {
+             printSubsequence(ss,ssIdx);  
+             System.out.println();
+           }
+           else
+           {
+             //Include element
+             ss[ssIdx]=arr[arrIdx];
+             allPossibleSubsequencesOrSubset(arr,n,arrIdx+1,ss,ssIdx+1);
+             //Exclude element
+             allPossibleSubsequencesOrSubset(arr,n,arrIdx+1,ss,ssIdx); 
+           }
+	}
+	
+	public static void printSubsequence(int[]ss,int ssIdx)
+	{
+	    boolean visited=false;
+	    System.out.print("{");
+	    for(int i=0;i<ssIdx;i++)
+	    {
+	      System.out.print(ss[i]);
+	      visited=true;
+	    }
+	    if(visited==false)
+	      System.out.print("Empty Set");
+	    System.out.print("}");
+	}
+}
