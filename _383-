@@ -36,7 +36,7 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-    Scanner sc=new Scanner(System.in);
+          Scanner sc=new Scanner(System.in);
 	  System.out.println("Enter the size of the array :");
 	  int n=sc.nextInt();
 	  if(n<=0)
@@ -54,19 +54,19 @@ public class Test
 	}
 	
 	public static void allPossibleSubsequencesOrSubset(int[] arr,int n)
-  {
-      int powerSetSize=1<<n; // Math.pow(2,n)=1<<n (x<<y = x*(2^y))
+        {
+           int powerSetSize=1<<n; // Math.pow(2,n)=1<<n (x<<y = x*(2^y))
 
-      for(int num=0;num<powerSetSize;num++)
-      {
-          System.out.print("{");
+           for(int num=0;num<powerSetSize;num++)
+           {
+              System.out.print("{");
           
-          for(int i=0;i<n;i++)
-              if(((1<<i)&num)!=0)
-                System.out.print(arr[i]+" ");
+              for(int i=0;i<n;i++)
+                if(((1<<i)&num)!=0)
+                  System.out.print(arr[i]+" ");
                 
-          System.out.println("}");
-      }
+              System.out.println("}");
+           }
 	}
 }
 
@@ -98,7 +98,7 @@ public static void allPossibleSubsequencesOrSubset(int[] arr,int n)
                 
           System.out.println("}");
       }
-	}
+}
   
   But again the above program will only work for array having size <=62
   
@@ -117,14 +117,14 @@ public static void allPossibleSubsequencesOrSubset(int[] arr,int n)
   
 public class Main
 {
-	public static void main(String[] args) {
+  public static void main(String[] args) {
     
     for(int i=0;i<64;i++)
     {
         int n=1<<i;
         System.out.println(n);
     }
-	}
+  }
 }
 
 Output :
