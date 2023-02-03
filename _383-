@@ -10,6 +10,12 @@ Subsequence :
 > Subarray/Substring are always contigious and maintains order of appearence of elements while subsequence may or maynot be contigious but always maintains order of appearence of elements.
 > For a sequence/array/string of size n, we can have  ( (n*(n+1))/2 + 1 ) Subarray in total i.e (n*(n+1))/2 non-empty subarray + 1 Empty subarray. 
 
+>Subsets:
+
+Subsets and subsequence ae exactly same thing the only difference between them is that subsequence should maintain order of appearence of elements while subsets 
+don't need to preserve order of appearence of elements for ex : {1,2} and {2,1} represent the same subset however while writing/listing the subsets of the sets 
+you can either write {1,2} or {2,1} it doesnot matter but you can not list both at the same time since they are exactly the same thing.
+
 >For example : arr[] = {1, 2, 3, 4}; there are 16 sub-sequences. 
 
 They are 
@@ -30,46 +36,47 @@ They are
 (3,4) => (Subarray and subsequence)
 (4) => (Subarray and subsequence)
 
-Subsets:
 
-Subsets and subsequence ae exactly same thing the only difference between them is that subsequence should maintain order of appearence of elements while subsets 
-don't need to preserve order of appearence of elements for ex : {1,2} and {2,1} represent the same subset however while writing/listing the subsets of the sets 
-you can either write {1,2} or {2,1} it doesnot matter but you can not list both at the same time since they are exactly the same thing.
-*/
+The total number of subsets/subsequence of any given set is equal to 2^ (no. of elements in the set).It is nothing but binary numbers from 0 to (2^n)-1. 
+ 
+>For example : arr[] = {1, 2, 3, 4}; there are 16 (i.e 2^4) sub-sequences.
+ If we carefully notice it is nothing but binary numbers from 0 to 15 which can be shown as below: 
 
-/*
-We can use algorithm to generate power set for generation of all subsequences. 
-   
-Power Set: Power set P(S) of a set S is the set of all subsets of S. For example S = {a, b, c} then P(s) = {{}, {a}, {b}, {c}, {a,b}, {a, c}, {b, c}, {a, b, c}}.
-If S has n elements in it then P(s) will have 2^n elements.
+0000    {} 
+ 
+0001    {1} 
+ 
+0010    {2} 
+ 
+0011    {1, 2} 
+ 
+0100    {3} 
+ 
+0101    {1, 3} 
+ 
+0110    {2, 3} 
+ 
+0111    {1, 2, 3} 
+ 
+1000    {4} 
+ 
+1001    {1, 4} 
+ 
+1010    {1, 4} 
+ 
+1011    {1, 2, 4} 
+ 
+1100    {3, 4} 
+ 
+1101    {1, 3, 4} 
+ 
+1110    {2, 3, 4} 
+ 
+1111    {1, 2, 3, 4} 
+ 
+ 
 
-Example: 
-
-Set  = [a,b,c]
-power_set_size = pow(2, 3) = 8
-Run for binary counter = 0 to 7
-
-Value of Counter            Subset
-   000                    -> Empty set
-   001                    -> a
-   010                    -> b
-   011                    -> ab
-   100                    -> c
-   101                    -> ac
-   110                    -> bc
-   111                    -> abc
-   
-Algorithm: 
-
-Input: Set[], set_size
-1. Get the size of power set
-      powet_set_size = pow(2, set_size)
-2  Loop for counter from 0 to (pow_set_size-1)
-    (a) Loop for i = 0 to (set_size-1)
-         (i) If ith bit in counter is set
-                Print ith element from set for this subset.
-		
-    (b) Print separator for subsets i.e., newline
+Starting from right,whenever we encounter set bit(1) in a number at ith position the we print the element present at (i-1)th index in the array. 
 */
 
 //Bruteforce Approach
