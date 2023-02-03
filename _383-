@@ -356,3 +356,38 @@ public class Test
           }
 	}
 }
+
+
+/*
+For every element in the array we are having two choices either to include it in the subsequence or exclude it.Apply this for every element in the array starting from
+index 0 until we reach the last index.print the subsequence once the last index is reached.
+
+                                                                              {}
+                                                                             /  \
+                                                                           /      \
+                                                                         /          \
+                                                                       /              \
+                                                                     /                  \            
+							           /		          \             
+						                 /		      	    \          
+						               /			      \         
+							     /		                        \
+						           /			                  \
+					             (E1)/                                          \ (I1)
+						        /                                            \ 
+						       {}                                             {1}
+			                       (E2)  /     \ (I2)                                (E2)/     \ (I2)
+						    /       \                                       /        \
+						  {}         {2}                                   {1}         {1,2}
+						  / \         /\                              (E3) /\           /\
+				            (E3) /   \   (E3)/  \(I3)                             /  \    (E3) /  \ (I3)
+						/ (I3)\     /    \                               /(I3)\       /    \
+					       {}     {3}  {2}	 {2,3}                         {1}    {1,3} {1,2}  {1,2,3}
+						  
+						  
+						  
+						  
+						  
+						  
+*/
+
