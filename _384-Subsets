@@ -1,0 +1,102 @@
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the size of the array :");
+	    int n=sc.nextInt();
+	    if(n<=0)
+	    {
+	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	  
+	    int[] arr=new int[n];
+	    System.out.println("Enter "+n+" Elements :");
+	    for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+		 
+	    System.out.println(driver(arr,n));
+	  }
+	
+    public static List<List<Integer>> driver(int[] arr,int n)
+	  {
+       List<List<Integer> > res = new ArrayList<>();
+       int[] subsequence=new int[n];
+       
+	     subsets(arr,n,0,subsequence,0,res);
+	   
+       return res;   
+	  }
+	
+    public static void subsets(int[] arr,int n,int arrIdx,int[]ss,int ssIdx,List<List<Integer>> res)
+    {
+        if(arrIdx==n)
+        {
+           List<Integer>list=new ArrayList<>();
+           for(int i=0;i<ssIdx;i++)
+             list.add(ss[i]);
+
+           res.add(list);
+        }
+        else
+        {
+           //Include element
+           ss[ssIdx]=arr[arrIdx];
+           subsets(arr,n,arrIdx+1,ss,ssIdx+1,res);
+           //Exclude element
+           subsets(arr,n,arrIdx+1,ss,ssIdx,res); 
+        }
+	  }
+}
+
+
+//Aliter
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter the size of the array :");
+	    int n=sc.nextInt();
+	    if(n<=0)
+	    {
+	      System.out.println("Invalid Choice");
+	      return;
+	    }
+	  
+	    int[] arr=new int[n];
+	    System.out.println("Enter "+n+" Elements :");
+	    for(int i=0;i<n;i++)
+	      arr[i]=sc.nextInt();
+		 
+	    System.out.println(driver(arr,n));
+	  }
+	
+    public static List<List<Integer>> driver(int[] arr,int n)
+	  {
+       List<List<Integer> > res = new ArrayList<>();
+       List<Integer>subsequence=new ArrayList<Integer>();
+       
+	     subsets(arr,n,0,subsequence,res);
+	   
+       return res;    
+	  }
+	
+    public static void subsets(int[] arr,int n,int arrIdx,List<Integer>ss,List<List<Integer>> res)
+    {
+        if(arrIdx==n)
+          res.add(new ArrayList<>(ss));
+        else
+        {
+           //Include element
+           ss.add(arr[arrIdx]);
+           subsets(arr,n,arrIdx+1,ss,res);
+           //Exclude Element
+           ss.remove(ss.size()-1);
+           subsets(arr,n,arrIdx+1,ss,res); 
+        }
+	  }
+}
