@@ -23,6 +23,7 @@ public class Test
 	
           public static List<List<Integer>> driver(int[] arr,int n)
 	  {
+	     Arrays.sort(arr);
              List<List<Integer> > res = new ArrayList<>();
              List<Integer>subset=new ArrayList<Integer>();
              Set<List<Integer>>hs= new HashSet<>();
@@ -46,8 +47,8 @@ public class Test
                 ss.add(arr[arrIdx]);
                 generateUniqueSubsets(arr,n,arrIdx+1,ss,hs);
                //Exclude Element
-               ss.remove(ss.size()-1);
-               generateUniqueSubsets(arr,n,arrIdx+1,ss,hs); 
+                ss.remove(ss.size()-1);
+                generateUniqueSubsets(arr,n,arrIdx+1,ss,hs); 
               }
 	  }
 }
