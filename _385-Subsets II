@@ -4,7 +4,7 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-      Scanner sc=new Scanner(System.in);
+            Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the size of the array :");
 	    int n=sc.nextInt();
 	    if(n<=0)
@@ -21,35 +21,35 @@ public class Test
 	    System.out.println(driver(arr,n));
 	  }
 	
-    public static List<List<Integer>> driver(int[] arr,int n)
+          public static List<List<Integer>> driver(int[] arr,int n)
 	  {
-       List<List<Integer> > res = new ArrayList<>();
-       List<Integer>subset=new ArrayList<Integer>();
-       Set<List<Integer>>hs= new HashSet<>();
+             List<List<Integer> > res = new ArrayList<>();
+             List<Integer>subset=new ArrayList<Integer>();
+             Set<List<Integer>>hs= new HashSet<>();
 
-       generateUniqueSubsets(arr,n,0,subset,hs);
+             generateUniqueSubsets(arr,n,0,subset,hs);
        
-       for(List<Integer>l :hs)
-       res.add(l);
+             for(List<Integer>l :hs)
+               res.add(l);
        
-       return res;   
+              return res;   
 	  }
 	
 	
-    public static void generateUniqueSubsets(int[] arr,int n,int arrIdx,List<Integer>ss,Set<List<Integer>>hs)
-    {
-        if(arrIdx==n)
-          hs.add(new ArrayList<Integer>(ss));
-        else
-        {
-           //Include element
-           ss.add(arr[arrIdx]);
-           generateUniqueSubsets(arr,n,arrIdx+1,ss,hs);
-           //Exclude Element
-           ss.remove(ss.size()-1);
-           generateUniqueSubsets(arr,n,arrIdx+1,ss,hs); 
-        }
-	}
+          public static void generateUniqueSubsets(int[] arr,int n,int arrIdx,List<Integer>ss,Set<List<Integer>>hs)
+          {
+              if(arrIdx==n)
+               hs.add(new ArrayList<Integer>(ss));
+              else
+              {
+                //Include element
+                ss.add(arr[arrIdx]);
+                generateUniqueSubsets(arr,n,arrIdx+1,ss,hs);
+               //Exclude Element
+               ss.remove(ss.size()-1);
+               generateUniqueSubsets(arr,n,arrIdx+1,ss,hs); 
+              }
+	  }
 }
 
 //Optimal Approach
@@ -58,7 +58,7 @@ import java.util.*;
 public class Test
 {
 	public static void main(String[] args) {
-      Scanner sc=new Scanner(System.in);
+            Scanner sc=new Scanner(System.in);
 	    System.out.println("Enter the size of the array :");
 	    int n=sc.nextInt();
 	    if(n<=0)
@@ -73,18 +73,19 @@ public class Test
 	      arr[i]=sc.nextInt();
 		 
 	    System.out.println(driver(arr,n));
-	 }
+	    
+   }
 	
-   public static List<List<Integer>> driver(int[] arr,int n)
-	 {
-	     Arrays.sort(arr);
+    public static List<List<Integer>> driver(int[] arr,int n)
+    {
+       Arrays.sort(arr);
        List<List<Integer> > res = new ArrayList<>();
        List<Integer>subset=new ArrayList<Integer>();
        
-	     generateUniqueSubsets(arr,n,0,subset,res);
+       generateUniqueSubsets(arr,n,0,subset,res);
 
        return res;   
-	  }
+    }
 	
     public static void generateUniqueSubsets(int[] arr,int n,int arrIdx,List<Integer>ss,List<List<Integer>> res)
     {
@@ -102,6 +103,6 @@ public class Test
            ss.remove(ss.size()-1);
            generateUniqueSubsets(arr,n,arrIdx+1,ss,res); 
         }
-	  }
+    }
 }
 
