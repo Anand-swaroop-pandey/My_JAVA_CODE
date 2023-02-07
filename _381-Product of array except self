@@ -46,12 +46,12 @@ public class Test
           {
             if(arr[i]!=0)
              res[i]=prod/arr[i];
-            else
+            else //arr[i]==0
             {
               if(cnt0==1)
                res[i]=prodWithoutZero;
               else
-               res[i]=prod;
+               res[i]=prod; //or res[i]=0
             }   
           }
             
