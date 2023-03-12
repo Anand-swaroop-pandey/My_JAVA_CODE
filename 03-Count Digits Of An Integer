@@ -71,8 +71,7 @@ class Test
         if(num<0)
           num=Math.abs(num);
        
-       return (int)Math.ceil(Math.log10(num)); 
-       //or return (int)Math.floor(Math.log10(num) + 1); 
+        return (int)Math.floor(Math.log10(num) + 1); 
     }
 }
 
