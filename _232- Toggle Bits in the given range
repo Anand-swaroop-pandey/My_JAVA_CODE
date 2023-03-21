@@ -154,12 +154,4 @@ public class Test
 	
         return res;  
     }
-    
-    public static int toggleKthBit(int num,int k)
-    {
-        int mask,res;
-        mask=1<<(k-1);
-	res=num^ mask;
-	return res;
-    }
 }
