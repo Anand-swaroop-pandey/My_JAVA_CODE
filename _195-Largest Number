@@ -54,4 +54,57 @@ public class Test
       }
 }
 
-//Other Approaches to be Discussed Soon
+//Using Comparator
+
+import java.util.Scanner;
+public class Test
+{
+	public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+           System.out.println("Enter the Size of the Array");
+           int n=sc.nextInt();
+           if(n>0)
+           {
+               int[] arr=new int[n];
+               System.out.printf("Enter %d Elements:\n",n);
+               for(int i=0;i<n;i++)
+                 arr[i]=sc.nextInt();
+		 
+               System.out.println("Maximum Number Formed is: "+largestNumber(arr));
+           }
+           else
+               System.out.println("Invalid Choice");
+	}
+	
+	public String largestNumber(int[] arr) 
+	{        
+          int n=arr.length;
+          String[]strArr = new String[n];
+
+	  for(int i = 0; i < arr.length; i++)
+	    strArr[i]=Integer.toString(arr[i]);
+
+	  Arrays.sort(strArr,new comp());
+
+	  String res="";
+	  for(int i=0;i<n;i++)
+	    res+=strArr[i];
+	   
+          if(res.charAt(0)=='0') //if res contains only zeros such as res = "000" meaning that we can basically check the first digit of res, 
+	    return "0";        //if it is zero then we return zero, because there is no possibility that the digits greater than zero comes after the first zero
+             
+	  return res;    
+        }
+}
+
+class comp implements Comparator<String>{
+    public int compare(String s1,String s2){
+      int res=s1.concat(s2).compareTo(s2.concat(s1));
+      if(res<0)
+        return 1;
+      else if(res>0)
+        return -1;
+      else
+        return 0;
+    }
+}
