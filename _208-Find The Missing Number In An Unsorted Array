@@ -1,4 +1,4 @@
- //Bruteforce Approach
+//Bruteforce Approach
 import java.util.Scanner;
 public class Test
 {
@@ -8,32 +8,32 @@ public class Test
 	    int n=sc.nextInt();
 	    if(n>0)
 	    {
-	      int[] arr=new int[n];
-	      System.out.printf("Enter %d Elements in the Range 1 to %d\n",n,n+1);
-	      for(int i=0;i<n;i++)
+	      int[] arr=new int[n-1];
+	      System.out.printf("Enter %d Elements in the Range 1 to %d\n",n-1,n);
+	      for(int i=0;i<(n-1);i++)
 	        arr[i]=sc.nextInt();
 	        
-	      System.out.println("Missing Number is: "+missingNumber(arr)); 
+	      System.out.println("Missing Number is: "+missingNumber(arr,n)); 
 	    }
 	    else
 	      System.out.println("Invalid Choice");
 	}
 	
-	public static int missingNumber(int[] arr)
+	public static int missingNumber(int[] arr,int n)
 	{
-	    int n=arr.length,actualSum=0,expectedSum=(n+1)*((n+1)+1)/2;//Sum of First N Natural Numbers.
-	    for(int i=0;i<n;i++)
+	    int actualSum=0,expectedSum=n*(n+1)/2;//Sum of First N Natural Numbers.
+	    for(int i=0;i<(n-1);i++)
 	       actualSum+=arr[i];
 	    int missingNum=expectedSum-actualSum;
 	    return missingNum;
       
-        /* Aliter 
-	    int n=arr.length,expectedSum=(n+1)*((n+1)+1)/2;//Sum of First N Natural Numbers.
-	    for(int i=0;i<n;i++)
+          /* Aliter 
+	    int n=arr.length,expectedSum=n*(n+1)/2;//Sum of First N Natural Numbers.
+	    for(int i=0;i<(n-1);i++)
 	      expectedSum-=arr[i];
 
 	    return expectedSum;
-	    */
+	 */
 	}
 }
 
@@ -48,26 +48,25 @@ public class Test
 	    int n=sc.nextInt();
 	    if(n>0)
 	    {
-	      int[] arr=new int[n];
-	      System.out.printf("Enter %d Elements in the Range 1 to %d\n",n,n+1);
-	      for(int i=0;i<n;i++)
+              int[] arr=new int[n-1];
+	      System.out.printf("Enter %d Elements in the Range 1 to %d\n",n-1,n);
+	      for(int i=0;i<(n-1);i++)
 	        arr[i]=sc.nextInt();
 	        
-	      System.out.println("Missing Number is: "+missingNumber(arr)); 
+	      System.out.println("Missing Number is: "+missingNumber(arr,n)); 
 	    }
 	    else
 	      System.out.println("Invalid Choice");
 	}
 	
-	public static int missingNumber(int[] arr)
+	public static int missingNumber(int[] arr,int n)
 	{
-	    int n=arr.length;
 	    int XOR1=0;
-	    for(int i=1;i<=(n+1);i++)
+	    for(int i=1;i<=n;i++)
 	       XOR1=XOR1^i;
 	       
 	    int XOR2=0;  
-	    for(int i=0;i<n;i++)
+	    for(int i=0;i<(n-1);i++)
 	       XOR2=XOR2^arr[i];
 	        
 	    int missingNum=XOR1^XOR2;
