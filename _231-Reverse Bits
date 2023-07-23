@@ -11,41 +11,21 @@ public class Test
     
     public static int reverseBits(int n)
     {
-        int ans=0,mask1,mask2,temp;
-        for(int i=0;i<32;i++)
-        {
-            mask1=1<<i;
-            temp=n & mask1;
-	    
-            if(temp!=0)
-            {
-               mask2=1<<(31-i);
-               ans=ans | mask2;
-            }
-        }
-        return ans;
+       int ans=0;
+       for(int i=0;i<32;i++)
+       {
+          int mask=1<<(31-i);
+          if(isSet(n,i))
+            ans=ans | mask;
+       }
+       return ans;   
     }
-}
 
-//Compressed Code
-
-import java.util.Scanner;
-public class Test
-{
-	public static void main(String[] args)
-	{
-	    Scanner sc=new Scanner(System.in);
-	    System.out.println("Enter N:");
-	    int n=sc.nextInt();
-	    System.out.printf("Number Formed After Reversing Bits of %d is %d",n,reverseBits(n));
-	}
-    
-        public static int reverseBits(int n)
-        {
-          int ans=0;
-          for(int i=0;i<32;i++)
-            if((n & (1<<i))!=0)
-               ans=ans |1<<(31-i);
-          return ans;  
-        }
+    public static boolean isSet(int n,int k)
+    {
+       int mask=1<<k;
+       if((n&mask) ==0)
+         return false;
+       return true;
+    }
 }
