@@ -58,7 +58,7 @@ public class Test
         if(num==1)
           return true;
           
-        if((num%4)!=0)
+        if((num%4)!=0 || num==0)
            return false;
            
         return isPowerOf4(num/4); //return isPowerOf4(num>>2);
