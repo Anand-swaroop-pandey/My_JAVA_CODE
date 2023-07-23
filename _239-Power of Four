@@ -21,14 +21,17 @@ public class Test
        if(num<=0)
          return false;
         
-        while(num!=1)
+        while(true)
         {
+          if(num==1)
+            break;
+
           if((num%4)!=0)
-             return false;
+            return false;
              
           num=num/4;//num=num>>2
         }
-	
+
        return true;
      }
 }
@@ -55,7 +58,7 @@ public class Test
         if(num==1)
           return true;
           
-        if((num%4)!=0 || num<=0)
+        if((num%4)!=0)
            return false;
            
         return isPowerOf4(num/4); //return isPowerOf4(num>>2);
