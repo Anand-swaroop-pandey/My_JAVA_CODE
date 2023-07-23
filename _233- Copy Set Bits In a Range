@@ -19,12 +19,12 @@ public class Test
     
     public static int copySetBits(int num1,int num2,int start,int end)
     {
-        int mask1,mask2,temp,res=num2;
+        int mask,temp,res=num2;
         
         for(int i=(start-1);i<=(end-1);i++)
         {
-            mask1=1<<i;
-            temp=num1&mask1;
+            mask=1<<i;
+            temp=num1&mask;
             
             if(temp!=0)
               res=setTheKthBit(res,i); 
