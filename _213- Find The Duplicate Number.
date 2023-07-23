@@ -461,23 +461,21 @@ public class Test
         int n=arr.length,i=0;
         while(i<n)
           if(arr[i]==(i+1))
-	     i++;
-	  else// if arr[i] is not at its correct index then put arr[i] at its correct index
           {
-            int correctIndex=arr[i]-1;
-            if(arr[correctIndex]==arr[i])
-              break;
-             
-            //Swap
+             int correctIndex=arr[i]-1;
+             if(arr[correctIndex]==arr[i])
+               i++;
+          }
+	  else
+          {
             int temp=arr[correctIndex];
             arr[correctIndex]=arr[i];
             arr[i]=temp;
           }      
-	  
+
 	return arr[i];
     }
 }
-
 
 //Method 11
 
