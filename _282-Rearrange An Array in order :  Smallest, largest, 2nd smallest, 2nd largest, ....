@@ -33,7 +33,7 @@ public class Test
             temp[k++]=arr[j--];
           }
           if((n%2)==1)
-            temp[k]=arr[n/2];
+            temp[k++]=arr[n/2];
        
           for(int idx=0;idx<=k;idx++)
             arr[idx]=temp[idx];
