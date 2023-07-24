@@ -90,7 +90,7 @@ public class Test
 	
 	public static void rearrange(int[] arr)
 	{
-           int n=arr.length,i=0,j=segregate(arr);
+           int n=arr.length,i=1,j=segregate(arr);
            while(i<j && j<n)
            {
 	     //Swap
