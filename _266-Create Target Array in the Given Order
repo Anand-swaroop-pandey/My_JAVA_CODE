@@ -82,20 +82,21 @@ public class Test
 	
 	public static int[] createTargetArray(int[] arr, int[] index,int n) 
 	{
-            int[] res=new int[n];
+          int[]res=new int[n];
+          Arrays.fill(res,-1);
 
-            for(int i=0;i<n;i++)
-              if(index[i]==i)
-                res[index[i]]=arr[i];
-              else//(index[i]<i)
-              {
-                //rightShift res by 1 position
-                for(int j=i;j>index[i];j--) //or for(int j=i-1;j>=index[i];j--) res[j+1]=res[j];
-                  res[j]=res[j-1];
-            
-                res[index[i]]=arr[i];  
-              }    
-            return res;
+          for(int i=0;i<n;i++)
+            if(res[index[i]]==-1)
+              res[index[i]]=arr[i];
+            else
+            {
+               for(int j=i-1;j>=index[i];j--)
+                 res[j+1]=res[j];
+                
+               res[index[i]]=arr[i];
+            }
+
+           return res;
         }
 }
 
@@ -135,20 +136,20 @@ public class Test
 	
 	public static int[] createTargetArray(int[] arr, int[] index,int n) 
 	{
-            int[] res=new int[n];
-            for(int i=0;i<n;i++)
-            {
-               if(index[i]<i)
-               {
-                 //rightShift res by 1 position
-                 for(int j=i;j>index[i];j--) //or for(int j=i-1;j>=index[i];j--) res[j+1]=res[j];
-                   res[j]=res[j-1];
-               }
-        
-               res[index[i]]=arr[i];  
-            }
-        
-           return res;
-       }
+           int[]res=new int[n];
+
+           Arrays.fill(res,-1);
+
+           for(int i=0;i<n;i++)
+           {
+             if(res[index[i]]!=-1)
+               for(int j=i-1;j>=index[i];j--)
+                  res[j+1]=res[j];
+                
+              res[index[i]]=arr[i];
+           }
+
+           return res;    
+        }
 }
 
