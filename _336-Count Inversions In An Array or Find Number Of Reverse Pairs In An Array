@@ -100,3 +100,75 @@ public class Test
      return inv_count;
  }
 }
+
+//Aliter Implementation
+
+import java.util.*;
+public class Test
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Size of the Array");
+        int n=sc.nextInt();
+        if(n>0)
+        {
+           long[] arr=new long[n];
+           System.out.printf("Enter %d Elements of Array:\n",n);
+           for(int i=0;i<n;i++)
+              arr[i]=sc.nextLong();
+            
+           System.out.println("Given array has "+count_Inversion(arr,n)+" inversions");   
+        }
+        else
+         System.out.println("Invalid Choice"); 
+  }
+    
+  public static long count_Inversion(long arr[], int n)
+  {
+     return mergeSort(arr,0,(n-1));
+  }
+    
+   public static long mergeSort(long arr[],int lb,int ub)
+   {
+     long inv_count = 0;
+     if(lb<ub)
+     {
+        int mid = (lb + ub)/2;
+        inv_count += mergeSort(arr,lb,mid);
+        inv_count += mergeSort(arr,mid+1,ub);
+        inv_count += merge(arr,lb,mid,ub);
+     }
+     return inv_count;
+   }
+   
+   public static long merge(long arr[],int lb,int mid,int ub)
+   {
+     long inv_count=0;
+     int i=0,j =0,k =lb,size1=(mid-lb+1),size2=(ub-mid);
+     long[] left=new long[size1];
+     long[] right=new long[size2];
+    
+     for(int idx=0;idx<size1;idx++)
+       left[idx]=arr[lb+idx];
+    
+     for(int idx=0;idx<size2;idx++)
+       right[idx]=arr[mid+1+idx];
+    
+     while((i <size1) && (j <size2))
+       if(left[i] <= right[j])
+          arr[k++] = left[i++];
+       else
+       {
+          arr[k++] = right[j++];
+          inv_count+=(size1-i);
+       }
+
+     while(i <size1)
+        arr[k++] = left[i++];
+
+     while(j <size2)
+        arr[k++] = right[j++];
+    
+     return inv_count; 
+   }
+}
